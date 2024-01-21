@@ -160,7 +160,7 @@
 
     // Main function
     (async () => {
-        const raw = await fetch("data.json");
+        const raw = await fetch("assets/data.json");
         const data = await raw.json();
 
         const facultades = Object.keys(data);
