@@ -84,7 +84,7 @@
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
-            <td class="px-3 border">${materia.nombre}</td>
+            <td class="px-3 border">${materia.nombre.replace(/\(.*?\)/g, '').trim()}</td>
             <td class="px-3 border text-center">${materia.creditos}</td>
             <td class="px-3 border text-center"><select class="form-select"></select></td>
             <td id="docente" class="px-3 border text-center"></td>
@@ -143,10 +143,9 @@
 
         materias.forEach(materia => {
             const tr = document.createElement("tr");
-
             tr.innerHTML = `
-                <td class="border px-2 text-center">${materia.nombre.match(/\(.*?\)/)[0]}</td>
-                <td class="border px-2">${materia.nombre}</td>
+                <td class="border px-2 text-center">${materia.nombre.match(/\(([^)]+)\)/)[1].trim()}</td>
+                <td class="border px-2">${materia.nombre.replace(/\(.*?\)/g, '').trim()}</td>
                 <td class="border px-2"><button class="btn btn-outline-success">+</button></td>
                 <td class="border px-2 text-center">${materia.creditos}</td>
                 <td class="border px-2 text-center">${materia.tipologia}</td>
@@ -226,7 +225,6 @@
                     grupo: "(1) Grupo 1 ",
                     cupos: 30,
                     profesor: "Edison Aldemar Hincapie Atehortua. ",
-                    materia: "Construcción II (3010283)",
                     duracion: " Semestral",
                     jornada: "DIURNO",
                     horarios: [
