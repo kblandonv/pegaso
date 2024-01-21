@@ -26,6 +26,38 @@
         });
     }
 
+    function seCruza(grupo) {
+        const calendarBody = document.getElementById("calendar-body");
+
+        const getCell = (hora, dia) => {
+            const filaHora = calendarBody.querySelector(`#hora-${hora}`);
+            return filaHora.querySelector(`#${dia}`);
+        };
+
+        const getDataHorario = (horario) => {
+            const inicio = parseInt(horario.inicio.split(":")[0]);
+            const fin = parseInt(horario.fin.split(":")[0]);
+            const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+            return [inicio, fin, dia];
+        };
+
+        const horarios = grupo.horarios;
+
+        for (const horario of horarios) {
+            const [inicio, fin, dia] = getDataHorario(horario);
+
+            for (let hora = inicio; hora < fin; hora++) {
+                const td = getCell(hora, dia);
+                if (td.className.includes("color-")) {
+                    return td.textContent;
+                }
+            }
+        }
+
+        return false;
+    }
+
     // Function to show the schedule for a given group and subject
     function showHorario(grupo, materia, colorClass) {
         const calendarBody = document.getElementById("calendar-body");
@@ -44,38 +76,20 @@
             return [inicio, fin, dia];
         };
 
-        let hayConflicto = false;
-        loopHorarios: for (const horario of horarios) {
+        const arraysDias = [];
+        for (const horario of horarios) {
             const [inicio, fin, dia] = getDataHorario(horario);
-
+            const celdasDia = [];
             for (let hora = inicio; hora < fin; hora++) {
                 const td = getCell(hora, dia);
-                if (td.className.includes("color-")) {
-                    alert(`Ya existe una materia en el horario seleccionado: ${td.textContent}`);
-                    hayConflicto = true;
-                    break loopHorarios;
-                }
-            }
-        }
 
-        if (!hayConflicto) {
-            const arraysDias = [];
-            for (const horario of horarios) {
-                const [inicio, fin, dia] = getDataHorario(horario);
-                const celdasDia = [];
-                for (let hora = inicio; hora < fin; hora++) {
-                    const td = getCell(hora, dia);
-
-                    td.classList.add(colorClass);
-                    td.textContent = materia.nombre;
-                    celdasDia.push(td);
-                }
-                arraysDias.push(celdasDia);
+                td.classList.add(colorClass);
+                td.textContent = materia.nombre;
+                celdasDia.push(td);
             }
-            return arraysDias;
-        } else {
-            return null;
+            arraysDias.push(celdasDia);
         }
+        return arraysDias;
     }
 
     // Function to save a subject and its selected group
@@ -122,13 +136,19 @@
 
         // Event listener for group selection
         selectGrupo.addEventListener("change", function () {
-            limpiar(arraysDias);
 
             const grupo = materia.grupos.find(grupo => grupo.grupo === this.value);
             tr.querySelector("#docente").textContent = grupo.profesor;
             tr.querySelector("#cupos").textContent = grupo.cupos;
             tr.querySelector("#horario").textContent = grupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+            
+            const conflicto = seCruza(grupo);
+            if (conflicto) {
+                alert(`Ya existe una materia en el horario seleccionado: ${conflicto}`);
+                return;
+            }
 
+            limpiar(arraysDias);
             arraysDias = showHorario(grupo, materia, colorClass);
         });
 
@@ -214,7 +234,7 @@
         selectFacultad.dispatchEvent(new Event("change"));
 
         // Example data
-        const example = {
+        const materia = {
             nombre: "Construcción II (3010283)",
             tipologia: "DISCIPLINAR OPTATIVA",
             creditos: "3",
@@ -246,3 +266,28 @@
         };
     })();
 })();
+
+
+function seCruzan(horario1, horario2) {
+    let horariosPorDia = {};
+
+    for (let horario of horario1) {
+        if (!horariosPorDia[horario.dia]) {
+            horariosPorDia[horario.dia] = [];
+        }
+        horariosPorDia[horario.dia].push({ inicio: horario.inicio, fin: horario.fin });
+    }
+
+    for (let horario of horario2) {
+        if (horariosPorDia[horario.dia]) {
+            for (let horarioExistente of horariosPorDia[horario.dia]) {
+                if ((horario.inicio >= horarioExistente.inicio && horario.inicio < horarioExistente.fin) ||
+                    (horarioExistente.inicio >= horario.inicio && horarioExistente.inicio < horario.fin)) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
