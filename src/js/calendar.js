@@ -6,12 +6,10 @@ Verificar si el grupo no se cruza con otra materia
     Si no se cruza, mostrar horario y actualizar opciones disponibles
 */
 
-
-const MATERIAS = [];
-
-function isValidGroup() {
-    
-}
+const CALENDAR = {
+    materias: [],
+    grupos: {},
+};
 
 function seCruza(materia, grupo) {
     const horarios = grupo.horarios;
@@ -30,36 +28,82 @@ function seCruza(materia, grupo) {
     return false;
 }
 
+// Function to save a subject and its selected group
+function guardarMateria(materia) {
+
+    const tableGuardadas = document.getElementById("selected");
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+        <td class="px-3 border">${materia.nombre.replace(/\(.*?\)/g, '').trim()}</td>
+        <td class="px-3 border text-center">${materia.creditos}</td>
+        <td class="px-3 border text-center"><select class="form-select"></select></td>
+        <td id="docente" class="px-3 border text-center"></td>
+        <td id="cupos" class="px-3 border text-center"></td>
+        <td id="horario" class="px-3 border text-center"></td>
+        <td class="px-3 border text-center">...</td>
+    `;
+
+    const selectGrupo = tr.querySelector("select");
+
+    // Add options for each group of the subject
+    materia.grupos.forEach(grupo => {
+        const option = document.createElement("option");
+        option.text = grupo.grupo;
+        option.value = grupo.grupo;
+        selectGrupo.appendChild(option);
+    });
+
+    const colorClass = getColor();
+
+    // Function to clear the schedule and remove the color class
+    const limpiar = (arraysDias) => {
+        if (arraysDias) {
+            arraysDias.forEach(celda => {
+                celda.classList.remove(colorClass);
+                celda.textContent = "";
+            });
+            GLOBALS.usedColors = GLOBALS.usedColors.filter(color => color !== colorClass);
+        }
+    };
+
+    let arraysDias = null;
+
+    // Event listener for group selection
+    selectGrupo.addEventListener("change", function () {
+
+        const grupo = materia.grupos.find(grupo => grupo.grupo === this.value);
+        tr.querySelector("#docente").textContent = grupo.profesor;
+        tr.querySelector("#cupos").textContent = grupo.cupos;
+        tr.querySelector("#horario").textContent = grupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+
+        const conflicto = seCruza(materia, grupo);
+        if (conflicto) {
+            alert(`Ya existe una materia en el horario seleccionado: ${conflicto}`);
+            return;
+        }
+
+        limpiar(arraysDias);
+        arraysDias = displayHorario(grupo, materia, colorClass);
+    });
+
+    tableGuardadas.appendChild(tr);
+}
+
 // Function to show the schedule for a given group and subject
-function showHorario(grupo, materia, colorClass) {
-    const calendarBody = document.getElementById("calendar-body");
+function displayHorario(grupo, materia, colorClass) {
     const horarios = grupo.horarios;
 
-    const getCell = (hora, dia) => {
-        const filaHora = calendarBody.querySelector(`#hora-${hora}`);
-        return filaHora.querySelector(`#${dia}`);
-    };
-
-    const getDataHorario = (horario) => {
-        const inicio = parseInt(horario.inicio.split(":")[0]);
-        const fin = parseInt(horario.fin.split(":")[0]);
-        const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-        return [inicio, fin, dia];
-    };
-
-    const arraysDias = [];
+    const arraysCeldas = [];
     for (const horario of horarios) {
         const [inicio, fin, dia] = getDataHorario(horario);
-        const celdasDia = [];
         for (let hora = inicio; hora < fin; hora++) {
             const td = getCell(hora, dia);
-
             td.classList.add(colorClass);
             td.textContent = materia.nombre;
-            celdasDia.push(td);
+            arraysCeldas.push(td);
         }
-        arraysDias.push(celdasDia);
     }
-    return arraysDias;
+
+    return arraysCeldas;
 }

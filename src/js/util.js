@@ -6,6 +6,7 @@ const GLOBALS = {
 const calendarBody = document.getElementById("calendar-body");
 
 function getCell(hora, dia) {
+    const calendarBody = document.getElementById("calendar-body");
     const filaHora = calendarBody.querySelector(`#hora-${hora}`);
     return filaHora.querySelector(`#${dia}`);
 }
