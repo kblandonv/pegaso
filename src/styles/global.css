@@ -1,3 +1,4 @@
+
 .celda-horario {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -7,27 +8,35 @@
 .color-1 {
     background-color: #ffdae1;
 }
+
 .color-2 {
     background-color: #dde5ff;
 }
+
 .color-3 {
     background-color: #fffde7;
 }
+
 .color-4 {
     background-color: #efd2ff;
 }
+
 .color-5 {
     background-color: #ddffd0;
 }
+
 .color-6 {
     background-color: rgb(255, 229, 189)
 }
+
 .color-7 {
     background-color: rgb(227, 255, 189)
 }
+
 .color-8 {
     background-color: rgb(189, 254, 255)
 }
+
 .color-9 {
     background-color: rgb(255, 189, 224)
 }
