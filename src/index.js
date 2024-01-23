@@ -1,3 +1,22 @@
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+    })
+}
+
+function getPopUp(materia) {
+    const popUp = document.getElementById("popUp");
+    popUp.querySelector("#popUp-body").textContent = `Se agrego: ${materia.nombre}.`;
+
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(popUp);
+    toastBootstrap.show();
+}
+
+
 function isValid(grupoOption, codigoMateria) {
     for (const codigo in CALENDAR.grupos) {
         if (codigo === codigoMateria || grupoOption === CALENDAR.grupos[codigo]) {
@@ -59,7 +78,13 @@ function mostrarListadoMaterias(materias) {
         `;
 
         // Event listener for the "Add" button
-        tr.querySelector("button").addEventListener("click", () => guardarMateria(materia));
+        const button = tr.querySelector("button");
+        button.addEventListener("click", () => {
+            getPopUp(materia);
+            guardarMateria(materia, button);
+            button.disabled = true;
+            button.className = "btn btn-outline-secondary my-button";
+        });
         tbody.appendChild(tr);
     });
 }
@@ -188,7 +213,7 @@ function seCruza(grupo1, grupo2) {
 }
 
 // Function to save a subject and its selected group
-function guardarMateria(materia) {
+function guardarMateria(materia, prevButton) {
 
     const tableGuardadas = document.getElementById("selected");
     const tr = document.createElement("tr");
@@ -271,6 +296,8 @@ function guardarMateria(materia) {
             delete CALENDAR.grupos[materia.codigo];
         }
         limpiar(arraysDias);
+        prevButton.disabled = false;
+        prevButton.className = "btn btn-outline-success my-button";
     });
 
 

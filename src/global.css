@@ -8,6 +8,12 @@ body {
     background-color: #ffffff;
 }
 
+.my-toast {
+    background-color: #a728c7;
+    color: #ffffff;
+    font-weight: 500;
+}
+
 .my-table-hover tbody tr:hover {
     background-color: #fce8ff;
 }

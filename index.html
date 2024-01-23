@@ -24,7 +24,7 @@
 
             <select id="facultad" class="mt-4 form-select form-select-sm"></select>
             <select id="carrera" class="mt-4 form-select form-select-sm"></select>
-            <select id="tipologia" class="mt-4 form-select form-select-sm"></select>
+            <select id="tipologia" class="my-4 form-select form-select-sm"></select>
 
             <table class="table-auto w-full border rounded my-4 my-table-hover">
                 <thead class="text-center">
@@ -226,6 +226,17 @@
             </tbody>
         </table>
     </section>
+
+    <div id="popUp-stack" class="toast-container position-fixed bottom-2 end-2 p-3">
+        <div id="popUp" class="toast align-items-center my-toast border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div id="popUp-body" class="toast-body">
+              </div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>
+    </div>
+
 
     <footer class="container d-flex flex-wrap justify-content-center align-items-center py-3 my-4 gap-4 my-footer">
         <span class="">© Juan Carlos Largo</span>
