@@ -1,16 +1,10 @@
 function isValid(grupoOption, codigoMateria) {
     for (const codigo in CALENDAR.grupos) {
-        const grupoCalendar = CALENDAR.grupos[codigo];
-
-        if (codigo === codigoMateria) {
+        if (codigo === codigoMateria || grupoOption === CALENDAR.grupos[codigo]) {
             continue;
         }
 
-        if (grupoOption === grupoCalendar) {
-            continue;
-        };
-
-        if (seCruza(grupoOption, grupoCalendar)) {
+        if (seCruza(grupoOption, CALENDAR.grupos[codigo])) {
             return [false, codigo];
         }
     }
@@ -40,7 +34,6 @@ function updateOptions(actualTr) {
             }
         }
     }
-
 }
 
 function addDataGroup(tr, newGrupo) {
