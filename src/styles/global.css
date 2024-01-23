@@ -1,3 +1,16 @@
+body {
+    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11" !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-size: small !important;
+    background-color: #ffffff;
+}
+
+.my-table-hover tbody tr:hover {
+    background-color: #fce8ff;
+}
 
 .celda-horario {
     overflow: hidden;
@@ -5,38 +18,115 @@
     white-space: nowrap;
 }
 
+.calendar-body tr td:first-child {
+    position: relative;
+}
+
+.calendar-body tr td:first-child::before {
+    border-radius: 2px;
+    left: -0.3rem;
+    content: "";
+    display: block;
+    height: 75%;
+    position: absolute;
+    width: calc(0.25em + .25ex);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
 .color-1 {
-    background-color: #ffdae1;
+    background-color: #FFDEDE;
 }
 
 .color-2 {
-    background-color: #dde5ff;
+    background-color: #FFB7B7;
 }
 
 .color-3 {
-    background-color: #fffde7;
+    background-color: #FFF5C3;
 }
 
 .color-4 {
-    background-color: #efd2ff;
+    background-color: #D1FFF9;
 }
 
 .color-5 {
-    background-color: #ddffd0;
+    background-color: #CFFFDF;
 }
 
 .color-6 {
-    background-color: rgb(255, 229, 189)
+    background-color: #FFBAEC;
 }
 
 .color-7 {
-    background-color: rgb(227, 255, 189)
+    background-color: #CBCEFF;
 }
 
 .color-8 {
-    background-color: rgb(189, 254, 255)
+    background-color: #ACFF9B;
 }
 
 .color-9 {
-    background-color: rgb(255, 189, 224)
+    background-color: #E4D5FF;
+}
+
+.color-10 {
+    background-color: #DCB9FF;
+}
+
+.color-11 {
+    background-color: #FFD5F5;
+}
+
+.color-12 {
+    background-color: #F7D1FF;
+}
+
+.tr-color-1 td:first-child::before {
+    background-color: #FFDEDE;
+}
+
+.tr-color-2 td:first-child::before {
+    background-color: #FFB7B7;
+}
+
+.tr-color-3 td:first-child::before {
+    background-color: #FFF5C3;
+}
+
+.tr-color-4 td:first-child::before {
+    background-color: #D1FFF9;
+}
+
+.tr-color-5 td:first-child::before {
+    background-color: #CFFFDF;
+}
+
+.tr-color-6 td:first-child::before {
+    background-color: #FFBAEC;
+}
+
+.tr-color-7 td:first-child::before {
+    background-color: #CBCEFF;
+}
+
+.tr-color-8 td:first-child::before {
+    background-color: #ACFF9B;
+}
+
+.tr-color-9 td:first-child::before {
+    background-color: #E4D5FF;
+}
+
+.tr-color-10 td:first-child::before {
+    background-color: #DCB9FF;
+}
+
+.tr-color-11 td:first-child::before {
+    background-color: #FFD5F5;
+}
+
+.tr-color-12 td:first-child::before {
+    background-color: #F7D1FF;
 }
