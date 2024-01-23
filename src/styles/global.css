@@ -22,14 +22,19 @@ body {
     position: relative;
 }
 
+.my-button {
+    display: block;
+    margin: auto;
+}
+
 .calendar-body tr td:first-child::before {
-    border-radius: 2px;
-    left: -0.3rem;
+    border-radius: 3px;
+    left: -0.4rem;
     content: "";
     display: block;
     height: 75%;
     position: absolute;
-    width: calc(0.25em + .25ex);
+    width: calc(0.25em + .5ex);
     top: 50%;
     transform: translateY(-50%);
 }

@@ -1,3 +1,53 @@
+function isValid(grupoOption, codigoMateria) {
+    for (const codigo in CALENDAR.grupos) {
+        const grupoCalendar = CALENDAR.grupos[codigo];
+
+        if (codigo === codigoMateria) {
+            continue;
+        }
+
+        if (grupoOption === grupoCalendar) {
+            continue;
+        };
+
+        if (seCruza(grupoOption, grupoCalendar)) {
+            return [false, codigo];
+        }
+    }
+    return [true, null];
+}
+
+function updateOptions(actualTr) {
+    const tableGuardadas = document.getElementById("selected");
+    const trs = tableGuardadas.querySelectorAll("tr");
+
+    // Actualizar options en los demas grupos
+    for (const trMateria of trs) {
+        if (trMateria !== actualTr) {
+            const currentSelect = trMateria.querySelector("select");
+            const currentMateria = CALENDAR.materias[trMateria.querySelector("#codigo").textContent];
+            const currentOptions = currentSelect.querySelectorAll("option");
+
+            for (const option of currentOptions) {
+
+                if (option.value === "") continue;
+
+                const grupoOption = currentMateria.grupos.find(grupo => grupo.grupo === option.value);
+                const [isOptionValid, codigoConflicto] = isValid(grupoOption, currentMateria.codigo);
+
+                option.title = isOptionValid ? "" : `Se cruza con ${CALENDAR.materias[codigoConflicto].nombre}`;
+                option.disabled = !isOptionValid;
+            }
+        }
+    }
+
+}
+
+function addDataGroup(tr, newGrupo) {
+    tr.querySelector("#docente").textContent = newGrupo.profesor;
+    tr.querySelector("#cupos").textContent = newGrupo.cupos;
+    tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+}
 
 // Function to display a list of subjects
 function mostrarListadoMaterias(materias) {
@@ -10,7 +60,7 @@ function mostrarListadoMaterias(materias) {
             <td class="border px-2 text-center">${materia.codigo}</td>
             <td class="border px-2 text-center">${materia.creditos}</td>
             <td class="border px-2">${materia.nombre}</td>
-            <td class="border px-2"><button class="btn btn-outline-success">+</button></td>
+            <td class="border px-2"><button class="btn btn-outline-success my-button">+</button></td>
             <td class="border px-2 text-center">${materia.tipologia}</td>
             <td class="border px-2 text-center">${materia.grupos.length}</td>
         `;
@@ -153,11 +203,11 @@ function guardarMateria(materia) {
         <td id="codigo" class="px-3 border">${materia.codigo}</td>
         <td id="nombre" class="px-3 border">${materia.nombre}</td>
         <td class="px-3 border text-center">${materia.creditos}</td>
-        <td class="px-3 border text-center"><select class="form-select"></select></td>
+        <td class="px-3 border text-center"><select class="form-select form-select-sm"></select></td>
         <td id="docente" class="px-3 border text-center"></td>
         <td id="cupos" class="px-3 border text-center"></td>
         <td id="horario" class="px-3 border text-center"></td>
-        <td class="px-3 border text-center"><button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button></td>
+        <td class="px-3 border text-center"><button class="btn btn-outline-danger my-button"><i class="bi bi-trash"></i></button></td>
     `;
     const selectGrupo = tr.querySelector("select");
 
@@ -202,15 +252,12 @@ function guardarMateria(materia) {
     selectGrupo.addEventListener("change", function () {
 
         if (this.value === "") {
-            console.log("No seleccionado");
             limpiar(arraysDias);
             delete CALENDAR.grupos[materia.codigo];
         } else {
             const newGrupo = materia.grupos.find(grupo => grupo.grupo === this.value);
 
-            tr.querySelector("#docente").textContent = newGrupo.profesor;
-            tr.querySelector("#cupos").textContent = newGrupo.cupos;
-            tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+            addDataGroup(tr, newGrupo);
 
             // Actualizar estado global de grupos
             CALENDAR.grupos[materia.codigo] = newGrupo;
@@ -219,47 +266,8 @@ function guardarMateria(materia) {
             arraysDias = displayHorario(newGrupo, materia, colorClass);
         }
 
-
-        function isValid(grupoOption, codigoMateria) {
-            for (const codigo in CALENDAR.grupos) {
-                const grupoCalendar = CALENDAR.grupos[codigo];
-
-                if (codigo === codigoMateria) {
-                    continue;
-                }
-
-                if (grupoOption === grupoCalendar) {
-                    continue;
-                };
-
-                if (seCruza(grupoOption, grupoCalendar)) {
-                    return [false, codigo];
-                }
-            }
-            return [true, null];
-        }
-
-        const trs = tableGuardadas.querySelectorAll("tr");
-
         // Actualizar options en los demas grupos
-        for (const trMateria of trs) {
-            if (trMateria !== tr) {
-                const currentSelect = trMateria.querySelector("select");
-                const currentMateria = CALENDAR.materias[trMateria.querySelector("#codigo").textContent];
-                const currentOptions = currentSelect.querySelectorAll("option");
-
-                for (const option of currentOptions) {
-
-                    if (option.value === "") continue;
-
-                    const grupoOption = currentMateria.grupos.find(grupo => grupo.grupo === option.value);
-                    const [isOptionValid, codigo] = isValid(grupoOption, currentMateria.codigo);
-
-                    option.title = isOptionValid ? "" : `Se cruza con ${CALENDAR.materias[codigo].nombre}`;
-                    option.disabled = !isOptionValid;
-                }
-            }
-        }
+        updateOptions(tr);
     });
 
     const btnEliminar = tr.querySelector("button");
