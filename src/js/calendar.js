@@ -91,27 +91,41 @@ function guardarMateria(materia) {
             console.log("No seleccionado");
             limpiar(arraysDias);
             delete CALENDAR.grupos[materia.codigo];
-            return;
+        } else {
+            const newGrupo = materia.grupos.find(grupo => grupo.grupo === this.value);
+
+            tr.querySelector("#docente").textContent = newGrupo.profesor;
+            tr.querySelector("#cupos").textContent = newGrupo.cupos;
+            tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+
+            // Actualizar estado global de grupos
+            CALENDAR.grupos[materia.codigo] = newGrupo;
+
+            limpiar(arraysDias);
+            arraysDias = displayHorario(newGrupo, materia, colorClass);
         }
 
-        const newGrupo = materia.grupos.find(grupo => grupo.grupo === this.value);
 
-        tr.querySelector("#docente").textContent = newGrupo.profesor;
-        tr.querySelector("#cupos").textContent = newGrupo.cupos;
-        tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
-
-        // Actualizar estado global de grupos
-        CALENDAR.grupos[materia.codigo] = newGrupo;
-        const trs = tableGuardadas.querySelectorAll("tr");
-
-        function isValid(grupoOption) {
+        function isValid(grupoOption, codigoMateria) {
             for (const codigo in CALENDAR.grupos) {
-                if (seCruza(grupoOption, CALENDAR.grupos[codigo])) {
+                const grupoCalendar = CALENDAR.grupos[codigo];
+
+                if (codigo === codigoMateria) {
+                    continue;
+                }
+
+                if (grupoOption === grupoCalendar) {
+                    continue;
+                };
+
+                if (seCruza(grupoOption, grupoCalendar)) {
                     return [false, codigo];
                 }
             }
             return [true, null];
         }
+
+        const trs = tableGuardadas.querySelectorAll("tr");
 
         // Actualizar options en los demas grupos
         for (const trMateria of trs) {
@@ -125,15 +139,14 @@ function guardarMateria(materia) {
                     if (option.value === "") continue;
 
                     const grupoOption = currentMateria.grupos.find(grupo => grupo.grupo === option.value);
-                    const [isOptionValid, codigo] = isValid(grupoOption);
+                    const [isOptionValid, codigo] = isValid(grupoOption, currentMateria.codigo);
+
+                    console.log(currentMateria.nombre, grupoOption, grupoOption.grupo, isOptionValid, codigo);
+
                     option.disabled = !isOptionValid;
                 }
             }
         }
-
-        limpiar(arraysDias);
-        arraysDias = displayHorario(newGrupo, materia, colorClass);
-
     });
 
     const btnEliminar = tr.querySelector("button");
