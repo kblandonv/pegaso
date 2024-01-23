@@ -1,13 +1,3 @@
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-    toastTrigger.addEventListener('click', () => {
-        toastBootstrap.show()
-    })
-}
-
 function getPopUp(materia) {
     const popUp = document.getElementById("popUp");
     popUp.querySelector("#popUp-body").textContent = `Se agrego: ${materia.nombre}.`;
