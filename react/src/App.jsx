@@ -1,42 +1,54 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import TableSelected from './Selected.jsx'
 
-function BuscadorCursos({ data }) {
+
+function BuscadorCursos({ data, GLOBAL }) {
 
 	const msgTodas = "TODAS LAS ASIGNATURAS";
 	const [facultad, setFacultad] = useState(Object.keys(data)[0])
 	const [carrera, setCarrera] = useState(Object.keys(data[facultad])[0]);
 	const [tipologia, setTipologia] = useState(msgTodas);
-	const [tipologias, setTipologias] = useState([]);
+
+	const [carreras, setCarreras] = useState(Object.keys(data[facultad]));
+	const [tipologias, setTipologias] = useState(
+		[
+			...new Set(data[facultad][carrera].map(materia => materia.tipologia))
+		]
+	);
 	const [materias, setMaterias] = useState([]);
 
-	const handleFacultad = (e) => setFacultad(e.target.value);
-	const handleCarrera = (e) => setCarrera(e.target.value);
-	const handleTipologia = (e) => setTipologia(e.target.value);
-
-	useEffect(() => {
-		setCarrera(Object.keys(data[facultad])[0]);
-	}, [facultad])
-
-	useEffect(() => {
-		const materias = data[facultad][carrera];
-		const tipologias = [
-			msgTodas,
-			...new Set(materias.map(materia => materia.tipologia))
-		];
-
-		setTipologias(tipologias);
-		setTipologia(msgTodas);
-	}, [carrera])
-
-	useEffect(() => {
+	function filtrarMaterias() {
 		const allMaterias = data[facultad][carrera];
 		const isAll = tipologia === msgTodas;
 		const filtrado = isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
-		setMaterias(filtrado);
-		console.log(filtrado);
-	}, [tipologia])
+		return filtrado;
+	}
 
+	const handleFacultad = (e) => {
+		setFacultad(e.target.value);
+		const carreras = Object.keys(data[e.target.value]);
+		setCarreras(carreras);
+		setCarrera(carreras[0]);
+	};
+	const handleCarrera = (e) => {
+		setCarrera(e.target.value);
+		const tipologias = [
+			...new Set(data[facultad][e.target.value].map(materia => materia.tipologia))
+		];
+		setTipologias(tipologias);
+		setTipologia(msgTodas);
+	}
+	const handleTipologia = (e) => {
+		setTipologia(e.target.value)
+		const materias = filtrarMaterias();
+		setMaterias(materias);
+	};
+
+	useEffect(() => {
+		const materias = filtrarMaterias();
+		setMaterias(materias);
+	}, [carrera, tipologia]);
 
 	return (
 		<>
@@ -50,13 +62,14 @@ function BuscadorCursos({ data }) {
 
 			<select id="carrera" onChange={handleCarrera} className="mt-4 form-select form-select-sm">
 				{
-					Object.keys(data[facultad]).map((carr, index) => (
+					carreras.map((carr, index) => (
 						<option key={index} value={carr}>{carr}</option>
 					))
 				}
 			</select>
 
-			<select id="tipologia" onChange={handleTipologia} className="my-4 form-select form-select-sm">
+			<select defaultValue={msgTodas} id="tipologia" onChange={handleTipologia} className="my-4 form-select form-select-sm">
+				<option value={msgTodas}>{msgTodas}</option>
 				{
 					tipologias.map((tipologia, index) => (
 						<option key={index} value={tipologia}>{tipologia}</option>
@@ -64,51 +77,24 @@ function BuscadorCursos({ data }) {
 				}
 			</select>
 
-			<TablaResultados materias={materias} />
+			<TablaResultados materias={materias} GLOBAL={GLOBAL} />
 		</>
 	)
 }
-/*
-
-
-			
 
 
 
-	const filtrarMaterias = () => {
-		const allMaterias = data[facultad][carrera];
-		const isAll = tipologia === msgTodas;
-		const filtrado = isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
-		setMaterias(filtrado);
-	}
-
-
-const handleCarrera = (e) => {
-		setCarrera(e.target.value);
-		const tipologias = [
-			...new Set(data[facultad][carrera].map(materia => materia.tipologia))
-		];
-		setTipologias(tipologias);
-
-	};
-
-const handleTipologia = (e) => {
-		setTipologia(e.target.value)
-		filtrarMaterias()
-		console.log(materias);
-	};
-
-	
-*/
-
-
-function TableRowMateria({ materia }) {
+function TableRowMateria({ materia, GLOBAL }) {
 
 	const [isAgregado, setAgregado] = useState(false)
 	const claseBoton = `btn btn-outline-${isAgregado ? "secondary" : "success"} my-button`;
 	const handleAgregar = () => {
-		setAgregado(true);
+		GLOBAL.addMateria(materia);
 	};
+	
+	useEffect(() => {
+		setAgregado(materia.codigo in GLOBAL.MATERIAS);
+	}, [GLOBAL.MATERIAS, materia.codigo]);
 
 	return (
 		<tr >
@@ -123,7 +109,7 @@ function TableRowMateria({ materia }) {
 }
 
 
-function TablaResultados({ materias }) {
+function TablaResultados({ materias, GLOBAL }) {
 	return (
 		<table className="table-auto w-full border rounded my-4 my-table-hover">
 			<thead className="text-center">
@@ -139,7 +125,7 @@ function TablaResultados({ materias }) {
 			<tbody id="materias">
 				{materias.map((materia) => {
 					return (
-						<TableRowMateria materia={materia} />
+						<TableRowMateria materia={materia} GLOBAL={GLOBAL} />
 					)
 				})}
 			</tbody>
@@ -147,15 +133,38 @@ function TablaResultados({ materias }) {
 	)
 }
 
-
 function App({ data }) {
+
+	const [MATERIAS, setGlobalMaterias] = useState({});
+
+	const addMateria = (materia) => {
+		const newM = { ...MATERIAS };
+		newM[materia.codigo] = materia;
+		setGlobalMaterias(newM);
+	}
+
+	const deleteMateria = (codigo) => {
+		const newM = { ...MATERIAS };
+		delete newM[codigo];
+		setGlobalMaterias(newM);
+	}
+
+	const GLOBAL = {
+		MATERIAS,
+		addMateria,
+		deleteMateria
+	};
 
 	return (
 		<>
 			<section className="container mt-5">
 				<div className="container border rounded">
-					<BuscadorCursos data={data} />
+					<BuscadorCursos data={data} GLOBAL={GLOBAL} />
 				</div>
+			</section>
+
+			<section class="container mt-4">
+				<TableSelected GLOBAL={GLOBAL} />
 			</section>
 		</>
 	)
