@@ -1,1 +1,313 @@
-(()=>{function e(e,t){for(const o in d.grupos)if(o!==t&&e!==d.grupos[o]&&a(e,d.grupos[o]))return[!1,o];return[!0,null]}function t(t){const s=document.getElementById("materias");s.innerHTML="",t.forEach((t=>{const a=document.createElement("tr");a.innerHTML=`\n            <td class="border px-2 text-center">${t.codigo}</td>\n            <td class="border px-2 text-center">${t.creditos}</td>\n            <td class="border px-2">${t.nombre}</td>\n            <td class="border px-2"><button class="btn btn-outline-success my-button">+</button></td>\n            <td class="border px-2 text-center">${t.tipologia}</td>\n            <td class="border px-2 text-center">${t.grupos.length}</td>\n        `;const i=a.querySelector("button");i.addEventListener("click",(()=>{!function(e){const t=document.getElementById("popUp");t.querySelector("#popUp-body").textContent=`Se agrego: ${e.nombre}.`,bootstrap.Toast.getOrCreateInstance(t).show()}(t),function(t,s){const a=document.getElementById("selected"),i=document.createElement("tr");i.innerHTML=`\n        <td id="codigo" class="px-3 border">${t.codigo}</td>\n        <td id="nombre" class="px-3 border">${t.nombre}</td>\n        <td class="px-3 border text-center">${t.creditos}</td>\n        <td class="px-3 border text-center"><select class="form-select form-select-sm"></select></td>\n        <td id="docente" class="px-3 border text-center"></td>\n        <td id="cupos" class="px-3 border text-center"></td>\n        <td id="horario" class="px-3 border text-center"></td>\n        <td class="px-3 border text-center"><button class="btn btn-outline-danger my-button"><i class="bi bi-trash"></i></button></td>\n    `;const l=i.querySelector("select");(()=>{const e=document.createElement("option");e.text="No seleccionado",e.value="",l.appendChild(e)})(),t.grupos.forEach((e=>{const t=document.createElement("option");t.text=e.grupo,t.value=e.grupo,t.selected=!1,l.appendChild(t)}));const u=e=>{e&&(e.forEach((e=>{e.classList.remove(p),e.textContent=""})),o.usedColors=o.usedColors.filter((e=>e!==p)))},p=c();i.classList.add(`tr-${p}`);let m=null;d.materias[t.codigo]=t,l.addEventListener("change",(function(){if(""===this.value)u(m),delete d.grupos[t.codigo];else{const e=t.grupos.find((e=>e.grupo===this.value));!function(e,t){e.querySelector("#docente").textContent=t.profesor,e.querySelector("#cupos").textContent=t.cupos,e.querySelector("#horario").textContent=t.horarios.map((e=>`${e.dia} ${e.inicio}-${e.fin}`)).join(", ")}(i,e),d.grupos[t.codigo]=e,u(m),m=function(e,t,o){const c=e.horarios,s=[];for(const e of c){const[c,d,a]=r(e);for(let e=c;e<d;e++){const r=n(e,a);r.classList.add(o),r.textContent=t.nombre,s.push(r)}}return s}(e,t,p)}!function(t){const o=document.getElementById("selected").querySelectorAll("tr");for(const n of o)if(n!==t){const t=n.querySelector("select"),o=d.materias[n.querySelector("#codigo").textContent],r=t.querySelectorAll("option");for(const t of r){if(""===t.value)continue;const n=o.grupos.find((e=>e.grupo===t.value)),[r,c]=e(n,o.codigo);t.title=r?"":`Se cruza con ${d.materias[c].nombre}`,t.disabled=!r}}}(i)}));i.querySelector("button").addEventListener("click",(()=>{i.remove(),delete d.materias[t.codigo],d.grupos.hasOwnProperty(t.codigo)&&delete d.grupos[t.codigo],u(m),s.disabled=!1,s.className="btn btn-outline-success my-button"})),a.appendChild(i)}(t,i),i.disabled=!0,i.className="btn btn-outline-secondary my-button"})),s.appendChild(a)}))}(async()=>{const e=await fetch("assets/data.json"),o=await e.json(),n=Object.keys(o),r=document.getElementById("facultad"),c=document.getElementById("carrera"),d=document.getElementById("tipologia");s(r,n),r.addEventListener("change",(function(){const e=this.value,t=Object.keys(o[e]);s(c,t)})),c.addEventListener("change",(function(){const e=r.value,t=this.value,n=o[e][t],c=["TODAS LAS ASIGNATURAS",...new Set(n.map((e=>e.tipologia)))];s(d,c),d.dispatchEvent(new Event("change"))})),d.addEventListener("change",(function(){t(function(e,t,n){const r=o[e][t];return"TODAS LAS ASIGNATURAS"===n?r:r.filter((e=>e.tipologia===n))}(r.value,c.value,this.value))})),r.dispatchEvent(new Event("change"))})();const o={usedColors:[]};function n(e,t){return document.getElementById("calendar-body").querySelector(`#hora-${e}`).querySelector(`#${t}`)}function r(e){return[parseInt(e.inicio.split(":")[0]),parseInt(e.fin.split(":")[0]),e.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")]}function c(){const e=`color-${Math.floor(11*Math.random())+1}`;return o.usedColors.includes(e)&&o.usedColors.length<11?c():(o.usedColors.push(e),e)}function s(e,t){e.innerHTML="",t.forEach((t=>{const o=document.createElement("option");o.text=t,o.value=t,e.appendChild(o)}))}document.getElementById("calendar-body");const d={materias:{},grupos:{}};function a(e,t){const o=e.horarios,n=t.horarios;for(const e of o){const[t,o,c]=r(e);for(const e of n){const[n,s,d]=r(e);if(c===d&&(t==n&&o==s||t<s&&o>n||n<o&&s>t))return!0}}return!1}})();
+function getPopUp(materia) {
+    const popUp = document.getElementById("popUp");
+    popUp.querySelector("#popUp-body").textContent = `Se agrego: ${materia.nombre}.`;
+
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(popUp);
+    toastBootstrap.show();
+}
+
+
+function isValid(grupoOption, codigoMateria) {
+    for (const codigo in CALENDAR.grupos) {
+        if (codigo === codigoMateria || grupoOption === CALENDAR.grupos[codigo]) {
+            continue;
+        }
+
+        if (seCruza(grupoOption, CALENDAR.grupos[codigo])) {
+            return [false, codigo];
+        }
+    }
+    return [true, null];
+}
+
+function updateOptions(actualTr) {
+    const tableGuardadas = document.getElementById("selected");
+    const trs = tableGuardadas.querySelectorAll("tr");
+
+    // Actualizar options en los demas grupos
+    for (const trMateria of trs) {
+        if (trMateria !== actualTr) {
+            const currentSelect = trMateria.querySelector("select");
+            const currentMateria = CALENDAR.materias[trMateria.querySelector("#codigo").textContent];
+            const currentOptions = currentSelect.querySelectorAll("option");
+
+            for (const option of currentOptions) {
+
+                if (option.value === "") continue;
+
+                const grupoOption = currentMateria.grupos.find(grupo => grupo.grupo === option.value);
+                const [isOptionValid, codigoConflicto] = isValid(grupoOption, currentMateria.codigo);
+
+                option.title = isOptionValid ? "" : `Se cruza con ${CALENDAR.materias[codigoConflicto].nombre}`;
+                option.disabled = !isOptionValid;
+            }
+        }
+    }
+}
+
+function addDataGroup(tr, newGrupo) {
+    tr.querySelector("#docente").textContent = newGrupo.profesor;
+    tr.querySelector("#cupos").textContent = newGrupo.cupos;
+    tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+}
+
+// Function to display a list of subjects
+function mostrarListadoMaterias(materias) {
+    const tbody = document.getElementById("materias");
+    tbody.innerHTML = "";
+
+    materias.forEach(materia => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td class="border px-2 text-center">${materia.codigo}</td>
+            <td class="border px-2 text-center">${materia.creditos}</td>
+            <td class="border px-2">${materia.nombre}</td>
+            <td class="border px-2"><button class="btn btn-outline-success my-button">+</button></td>
+            <td class="border px-2 text-center">${materia.tipologia}</td>
+            <td class="border px-2 text-center">${materia.grupos.length}</td>
+        `;
+
+        // Event listener for the "Add" button
+        const button = tr.querySelector("button");
+        button.addEventListener("click", () => {
+            getPopUp(materia);
+            guardarMateria(materia, button);
+            button.disabled = true;
+            button.className = "btn btn-outline-secondary my-button";
+        });
+        tbody.appendChild(tr);
+    });
+}
+
+// Main function
+(async () => {
+    const raw = await fetch("assets/data.json");
+    const data = await raw.json();
+
+    const facultades = Object.keys(data);
+    const selectFacultad = document.getElementById("facultad");
+    const selectCarrera = document.getElementById("carrera");
+    const selectTipologia = document.getElementById("tipologia");
+
+    // Function to filter subjects based on faculty, career, and typology
+    function filtrarMaterias(facultad, carrera, tipologia) {
+        const allMaterias = data[facultad][carrera];
+        const isAll = tipologia === "TODAS LAS ASIGNATURAS";
+        return isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
+    }
+
+    // Add options to the faculty select
+    addOptions(selectFacultad, facultades);
+
+    // Event listener for faculty selection
+    selectFacultad.addEventListener("change", function () {
+        const facultad = this.value;
+        const carreras = Object.keys(data[facultad]);
+        addOptions(selectCarrera, carreras);
+    });
+
+    // Event listener for career selection
+    selectCarrera.addEventListener("change", function () {
+        const facultad = selectFacultad.value;
+        const carrera = this.value;
+        const materias = data[facultad][carrera];
+        const tipologias = [
+            "TODAS LAS ASIGNATURAS",
+            ...new Set(materias.map(materia => materia.tipologia))
+        ];
+        addOptions(selectTipologia, tipologias);
+        selectTipologia.dispatchEvent(new Event("change"));
+    });
+
+    // Event listener for typology selection
+    selectTipologia.addEventListener("change", function () {
+        const facultad = selectFacultad.value;
+        const carrera = selectCarrera.value;
+        const tipologia = this.value;
+
+        const materias = filtrarMaterias(facultad, carrera, tipologia);
+        mostrarListadoMaterias(materias);
+    });
+
+    // Trigger faculty selection event
+    selectFacultad.dispatchEvent(new Event("change"));
+})();
+
+
+// Global variable to keep track of used colors
+const GLOBALS = {
+    usedColors: []
+};
+
+const calendarBody = document.getElementById("calendar-body");
+
+function getCell(hora, dia) {
+    const calendarBody = document.getElementById("calendar-body");
+    const filaHora = calendarBody.querySelector(`#hora-${hora}`);
+    return filaHora.querySelector(`#${dia}`);
+}
+
+function getDataHorario(horario) {
+    const inicio = parseInt(horario.inicio.split(":")[0]);
+    const fin = parseInt(horario.fin.split(":")[0]);
+    const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    return [inicio, fin, dia];
+}
+
+// Function to generate a random color class
+function getColor() {
+    const color = `color-${Math.floor(Math.random() * 11) + 1}`;
+    if (GLOBALS.usedColors.includes(color) && GLOBALS.usedColors.length < 11) {
+        return getColor();
+    } else {
+        GLOBALS.usedColors.push(color);
+        return color;
+    }
+}
+
+// Function to add options to a select element
+function addOptions(selectElement, optionValues) {
+    selectElement.innerHTML = "";
+    optionValues.forEach(value => {
+        const option = document.createElement("option");
+        option.text = value;
+        option.value = value;
+        selectElement.appendChild(option);
+    });
+}
+
+const CALENDAR = {
+    materias: {},
+    grupos: {},
+};
+
+function seCruza(grupo1, grupo2) {
+    const horarios1 = grupo1.horarios;
+    const horarios2 = grupo2.horarios;
+
+    for (const horario1 of horarios1) {
+        const [inicio1, fin1, dia1] = getDataHorario(horario1);
+        for (const horario2 of horarios2) {
+            const [inicio2, fin2, dia2] = getDataHorario(horario2);
+            if (dia1 === dia2) {
+                const mismoHorario = inicio1 == inicio2 && fin1 == fin2;
+                const seCruza = (inicio1 < fin2 && fin1 > inicio2) || (inicio2 < fin1 && fin2 > inicio1);
+                if (mismoHorario || seCruza) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+// Function to save a subject and its selected group
+function guardarMateria(materia, prevButton) {
+
+    const tableGuardadas = document.getElementById("selected");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td id="codigo" class="px-3 border">${materia.codigo}</td>
+        <td id="nombre" class="px-3 border">${materia.nombre}</td>
+        <td class="px-3 border text-center">${materia.creditos}</td>
+        <td class="px-3 border text-center"><select class="form-select form-select-sm"></select></td>
+        <td id="docente" class="px-3 border text-center"></td>
+        <td id="cupos" class="px-3 border text-center"></td>
+        <td id="horario" class="px-3 border text-center"></td>
+        <td class="px-3 border text-center"><button class="btn btn-outline-danger my-button"><i class="bi bi-trash"></i></button></td>
+    `;
+    const selectGrupo = tr.querySelector("select");
+
+
+    const addFirst = () => {
+        const option = document.createElement("option");
+        option.text = "No seleccionado";
+        option.value = "";
+        selectGrupo.appendChild(option);
+    }
+
+    addFirst();
+
+    // Add options for each group of the subject
+    materia.grupos.forEach(grupo => {
+        const option = document.createElement("option");
+        option.text = grupo.grupo;
+        option.value = grupo.grupo;
+        option.selected = false;
+        selectGrupo.appendChild(option);
+    });
+
+    // Function to clear the schedule and remove the color class
+    const limpiar = (arraysDias) => {
+        if (arraysDias) {
+            arraysDias.forEach(celda => {
+                celda.classList.remove(colorClass);
+                celda.textContent = "";
+            });
+            GLOBALS.usedColors = GLOBALS.usedColors.filter(color => color !== colorClass);
+        }
+    };
+
+    const colorClass = getColor();
+    tr.classList.add(`tr-${colorClass}`);
+    let arraysDias = null;
+
+    // Actualizar estado global de materias
+    CALENDAR.materias[materia.codigo] = materia;
+
+    // Event listener for group selection
+    selectGrupo.addEventListener("change", function () {
+
+        if (this.value === "") {
+            limpiar(arraysDias);
+            delete CALENDAR.grupos[materia.codigo];
+        } else {
+            const newGrupo = materia.grupos.find(grupo => grupo.grupo === this.value);
+
+            addDataGroup(tr, newGrupo);
+
+            // Actualizar estado global de grupos
+            CALENDAR.grupos[materia.codigo] = newGrupo;
+
+            limpiar(arraysDias);
+            arraysDias = displayHorario(newGrupo, materia, colorClass);
+        }
+
+        // Actualizar options en los demas grupos
+        updateOptions(tr);
+    });
+
+    const btnEliminar = tr.querySelector("button");
+    btnEliminar.addEventListener("click", () => {
+        tr.remove();
+        delete CALENDAR.materias[materia.codigo];
+        if (CALENDAR.grupos.hasOwnProperty(materia.codigo)) {
+            delete CALENDAR.grupos[materia.codigo];
+        }
+        limpiar(arraysDias);
+        prevButton.disabled = false;
+        prevButton.className = "btn btn-outline-success my-button";
+    });
+
+
+    tableGuardadas.appendChild(tr);
+}
+
+// Function to show the schedule for a given group and subject
+function displayHorario(grupo, materia, colorClass) {
+    const horarios = grupo.horarios;
+
+    const arraysCeldas = [];
+    for (const horario of horarios) {
+        const [inicio, fin, dia] = getDataHorario(horario);
+        for (let hora = inicio; hora < fin; hora++) {
+            const td = getCell(hora, dia);
+            td.classList.add(colorClass);
+            td.textContent = materia.nombre;
+            arraysCeldas.push(td);
+        }
+    }
+
+    return arraysCeldas;
+}
