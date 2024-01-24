@@ -1,8 +1,29 @@
-# React + Vite
+<h1 align="center">my-sia</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Organizador de horarios para los estudiantes de la UNAL.
 
-Currently, two official plugins are available:
+Ver aplicacion web ->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Organiza tus horarios
+- Buscar cualquier materia en segundos
+
+## Usage/Examples
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+## Support
+
+For support, email jlargob@unal.edu.co.
+
+## Tech Stack
+
+
+## Contributing
+
+Contributions are always welcome!.
+
+## Authors
+
+- [@imlargo](https://www.github.com/imlargo)

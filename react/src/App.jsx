@@ -1,54 +1,65 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function BuscadorCursos({ data }) {
 
-	const [facultad, setFacultad] = useState("Facultad de Ingeniería");
-	const [carrera, setCarrera] = useState("Ingeniería de Sistemas");
-	const [tipologia, setTipologia] = useState("TODAS LAS ASIGNATURAS");
-
+	const msgTodas = "TODAS LAS ASIGNATURAS";
+	const [facultad, setFacultad] = useState(Object.keys(data)[0])
+	const [carrera, setCarrera] = useState(Object.keys(data[facultad])[0]);
+	const [tipologia, setTipologia] = useState(msgTodas);
+	const [tipologias, setTipologias] = useState([]);
 	const [materias, setMaterias] = useState([]);
 
 	const handleFacultad = (e) => setFacultad(e.target.value);
 	const handleCarrera = (e) => setCarrera(e.target.value);
-	const handleTipologia = (e) => {
-		setTipologia(e.target.value)
-		filtrarMaterias(facultad, carrera, e.target.value)
-	};
+	const handleTipologia = (e) => setTipologia(e.target.value);
 
-	const filtrarMaterias = () => {
+	useEffect(() => {
+		setCarrera(Object.keys(data[facultad])[0]);
+	}, [facultad])
+
+	useEffect(() => {
+		const materias = data[facultad][carrera];
+		const tipologias = [
+			msgTodas,
+			...new Set(materias.map(materia => materia.tipologia))
+		];
+
+		setTipologias(tipologias);
+		setTipologia(msgTodas);
+	}, [carrera])
+
+	useEffect(() => {
 		const allMaterias = data[facultad][carrera];
-		const isAll = tipologia === "TODAS LAS ASIGNATURAS";
+		const isAll = tipologia === msgTodas;
 		const filtrado = isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
 		setMaterias(filtrado);
-	}
+		console.log(filtrado);
+	}, [tipologia])
+
 
 	return (
 		<>
 			<select id="facultad" onChange={handleFacultad} className="mt-4 form-select form-select-sm">
 				{
-					Object.keys(data).map(facultad => (
-						<option value={facultad}>{facultad}</option>
+					Object.keys(data).map((facultad, index) => (
+						<option key={index} value={facultad}>{facultad}</option>
 					))
 				}
 			</select>
 
-
 			<select id="carrera" onChange={handleCarrera} className="mt-4 form-select form-select-sm">
 				{
-					Object.keys(data[facultad]).map(carrera => (
-						<option value={carrera}>{carrera}</option>
+					Object.keys(data[facultad]).map((carr, index) => (
+						<option key={index} value={carr}>{carr}</option>
 					))
 				}
 			</select>
 
 			<select id="tipologia" onChange={handleTipologia} className="my-4 form-select form-select-sm">
-				<option value="TODAS LAS ASIGNATURAS">TODAS LAS ASIGNATURAS</option>
 				{
-					[
-						...new Set(data[facultad][carrera].map(materia => materia.tipologia))
-					].map(tipologia => (
-						<option value={tipologia}>{tipologia}</option>
+					tipologias.map((tipologia, index) => (
+						<option key={index} value={tipologia}>{tipologia}</option>
 					))
 				}
 			</select>
@@ -57,6 +68,38 @@ function BuscadorCursos({ data }) {
 		</>
 	)
 }
+/*
+
+
+			
+
+
+
+	const filtrarMaterias = () => {
+		const allMaterias = data[facultad][carrera];
+		const isAll = tipologia === msgTodas;
+		const filtrado = isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
+		setMaterias(filtrado);
+	}
+
+
+const handleCarrera = (e) => {
+		setCarrera(e.target.value);
+		const tipologias = [
+			...new Set(data[facultad][carrera].map(materia => materia.tipologia))
+		];
+		setTipologias(tipologias);
+
+	};
+
+const handleTipologia = (e) => {
+		setTipologia(e.target.value)
+		filtrarMaterias()
+		console.log(materias);
+	};
+
+	
+*/
 
 
 function TableRowMateria({ materia }) {
