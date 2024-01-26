@@ -6,6 +6,15 @@ function getPopUp(materia) {
     toastBootstrap.show();
 }
 
+const CALENDAR = {
+    materias: {},
+    grupos: {},
+};
+
+function updateDatosSelected() {
+    document.getElementById("asignaturas-seleccionadas").textContent = `Asignaturas seleccionadas: ${Object.keys(CALENDAR.materias).length}`;
+    document.getElementById("total-creditos").textContent = `Total créditos: ${Object.values(CALENDAR.materias).reduce((acc, materia) => acc + parseInt(materia.creditos), 0)}`;
+}
 
 function isValid(grupoOption, codigoMateria) {
     for (const codigo in CALENDAR.grupos) {
@@ -74,6 +83,7 @@ function mostrarListadoMaterias(materias) {
             guardarMateria(materia, button);
             button.disabled = true;
             button.className = "btn btn-outline-secondary my-button";
+            updateDatosSelected();
         });
         tbody.appendChild(tr);
     });
@@ -126,8 +136,8 @@ function mostrarListadoMaterias(materias) {
         const tipologia = this.value;
 
         const materias = filtrarMaterias(facultad, carrera, tipologia);
-        document.getElementById("asignaturas-cargadas").textContent = `Asignaturas cargadas: ${materias.length}`;
         document.getElementById("collapse-materias").open = true;
+        document.getElementById("asignaturas-cargadas").textContent = `Asignaturas cargadas: ${materias.length}`;
         mostrarListadoMaterias(materias);
     });
 
@@ -179,10 +189,7 @@ function addOptions(selectElement, optionValues) {
     });
 }
 
-const CALENDAR = {
-    materias: {},
-    grupos: {},
-};
+
 
 function seCruza(grupo1, grupo2) {
     const horarios1 = grupo1.horarios;
@@ -290,6 +297,7 @@ function guardarMateria(materia, prevButton) {
         limpiar(arraysDias);
         prevButton.disabled = false;
         prevButton.className = "btn btn-outline-success my-button";
+        updateDatosSelected();
     });
 
 
