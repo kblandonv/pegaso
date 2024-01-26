@@ -5,8 +5,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     font-size: small !important;
-    background-color: #ffffff;
+    color: black;
+    background-color: #f9f9fb;
 }
+
 
 .my-toast {
     background-color: #a728c7;
@@ -15,7 +17,7 @@ body {
 }
 
 .my-table-hover tbody tr:hover {
-    background-color: #fce8ff;
+    background-color: #fdf1ff;
 }
 
 .celda-horario {
@@ -140,4 +142,38 @@ body {
 
 .tr-color-12 td:first-child::before {
     background-color: #F7D1FF;
+}
+
+.btn-descargar {
+    background-color: #b759ff;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-descargar:hover {
+    background-color: #a42cff;
+    color: white;
+    font-weight: bold;
+}
+
+details {
+    transition: all 10s ease;
+}
+
+summary {
+    list-style: none;
+    justify-content: space-between;
+    background: linear-gradient(90deg, rgb(251, 233, 255) 0%, #faf3ff 100%);
+}
+
+.my-container {
+    background-color: #ffffff;
+}
+
+.label-dropdown {
+    font-weight: bold;
+}
+
+.hr-pink {
+    border-top: 0.2rem solid #f7b0ff;
 }

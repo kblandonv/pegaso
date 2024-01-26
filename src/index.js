@@ -126,6 +126,8 @@ function mostrarListadoMaterias(materias) {
         const tipologia = this.value;
 
         const materias = filtrarMaterias(facultad, carrera, tipologia);
+        document.getElementById("asignaturas-cargadas").textContent = `Asignaturas cargadas: ${materias.length}`;
+        document.getElementById("collapse-materias").open = true;
         mostrarListadoMaterias(materias);
     });
 
@@ -311,3 +313,38 @@ function displayHorario(grupo, materia, colorClass) {
 
     return arraysCeldas;
 }
+
+document.getElementById("btn-descargar").addEventListener("click", () => {
+    const table = document.getElementById("calendar");
+    const tHead = Array.from(table.querySelectorAll("thead tr th")).map(th => th.textContent);
+    const tBody = Array.from(
+        table.querySelectorAll("tbody tr")
+    ).map(tr => Array.from(tr.querySelectorAll("td")).map(td => td.textContent));
+    const data = [tHead, ...tBody];
+    exportHorario(data);
+});
+
+
+function exportHorario(data) {
+    const fileType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+    const fileExtension = ".xlsx";
+    const fileName = "Horario"
+    const workSheet = XLSX.utils.aoa_to_sheet(data);
+    const workBook = {
+        Sheets: { data: workSheet, cols: [] },
+        SheetNames: ["data"],
+    };
+    const excelBuffer = XLSX.write(workBook, { bookType: "xlsx", type: "array" });
+    const fileData = new Blob([excelBuffer], { type: fileType });
+    const blobUrl = URL.createObjectURL(fileData);
+    const link = document.createElement("a");
+    link.href = blobUrl;
+    link.download = fileName + fileExtension;
+    link.dispatchEvent(
+        new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        })
+    );
+};
