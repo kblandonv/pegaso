@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@50;100;150;200;250;300;350;400;450;500;550;600;650;700;750;800;850;900;950;1000;&display=swap');
+
 body {
-    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11" !important;
+
+    /* font-family: 'JetBrains Mono', monospace; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -163,12 +167,9 @@ details {
 summary {
     list-style: none;
     justify-content: space-between;
-    background: linear-gradient(90deg, rgb(251, 233, 255) 0%, #faf3ff 100%);
+    background: linear-gradient(90deg, rgba(210, 175, 255, 0.5), rgba(255, 140, 243, 0.4) 100%);
 }
 
-.my-container {
-    background-color: #ffffff;
-}
 
 .label-dropdown {
     font-weight: bold;
@@ -176,4 +177,72 @@ summary {
 
 .hr-pink {
     border-top: 0.2rem solid #f7b0ff;
+}
+
+/* Blob */
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1 1.5;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#blob {
+    background-color: white;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgba(205, 187, 255, 0.837), rgba(249, 207, 255, 0.918));
+    animation: rotate 20s infinite;
+    opacity: 0.7;
+}
+
+.blur-wrapper {
+    backdrop-filter: blur(12vmax);
+}
+
+.main-section {
+    position: relative;
+    z-index: 3;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+#imlargo {
+    font-size: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.button-donar {
+    background-color: #a84aff;
+    color: white;
+    font-weight: bold;
+}
+
+.font-my-mono {
+    font-family: 'JetBrains Mono', monospace;
+    word-spacing: -0.05rem;
+}
+
+.my-footer {
+    color: black;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
 }
