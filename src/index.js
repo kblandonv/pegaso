@@ -1,6 +1,6 @@
 function getPopUp(materia) {
     const popUp = document.getElementById("popUp");
-    popUp.querySelector("#popUp-body").textContent = `Se agrego: ${materia.nombre}.`;
+    popUp.querySelector("#popUp-body").textContent = `Se agregó: ${materia.nombre}.`;
 
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(popUp);
     toastBootstrap.show();
