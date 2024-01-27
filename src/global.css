@@ -11,6 +11,10 @@ body {
     font-size: small !important;
     color: black;
     background-color: #f9f9fb;
+    margin: 0rem;
+    overflow: hidden;
+    overflow-y:scroll;
+ 
 }
 
 
@@ -235,16 +239,80 @@ summary {
     background-color: #a84aff;
     color: white;
     font-weight: bold;
+    transition: all .5s;
+}
+
+.button-donar:hover {
+    background-color: #8c2aff;
+    color: white;
+    transition: all .5s;
+}
+
+.button-donar:active {
+    transition: all .5s;
+    transform: scale(0.9);
 }
 
 .font-my-mono {
     font-family: 'JetBrains Mono', monospace;
-    word-spacing: -0.05rem;
-    font-weight: 550;
 }
 
 .my-footer {
     color: black;
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
+}
+
+.dialog-donar {
+    z-index: 5;
+    background: rgba(237, 164, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transition: all 0.5s ease;
+}
+
+.dialog-donar img {
+    width: 20rem;
+    height: auto;
+}
+
+.dialog-donar button {
+    background-color: #b26eff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-donar button:hover {
+    background-color: #9345ff;
+    color: white;
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0.7)!important;
+}
+
+.my-social {
+    transition: all .2s;
+}
+
+.my-social:hover {
+    transform: scale(1.15);
+}
+
+.my-social:active {
+    transform: scale(0.9);
 }
