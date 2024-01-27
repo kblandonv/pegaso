@@ -239,17 +239,15 @@ summary {
     background-color: #a84aff;
     color: white;
     font-weight: bold;
-    transition: all .5s;
+    transition: all .1s;
 }
 
 .button-donar:hover {
     background-color: #8c2aff;
     color: white;
-    transition: all .5s;
 }
 
 .button-donar:active {
-    transition: all .5s;
     transform: scale(0.9);
 }
 

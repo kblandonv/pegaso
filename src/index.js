@@ -401,4 +401,4 @@ document.querySelector("#imlargo").onmouseover = (event) => {
     }, 30);
 }
 
-const showDonar = () => document.getElementById('dialog-donar').show();
+document.getElementById("button-donar").addEventListener("click", () => document.getElementById('dialog-donar').show());
