@@ -154,6 +154,7 @@ body {
 }
 
 .btn-descargar {
+    transition: all .1s;
     background-color: #b759ff;
     color: white;
     font-weight: bold;
@@ -164,6 +165,11 @@ body {
     color: white;
     font-weight: bold;
 }
+
+.btn-descargar:active {
+    transform: scale(0.9);
+}
+
 
 details {
     transition: all 10s ease;
