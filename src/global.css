@@ -13,8 +13,8 @@ body {
     background-color: #f9f9fb;
     margin: 0rem;
     overflow: hidden;
-    overflow-y:scroll;
- 
+    overflow-y: scroll;
+
 }
 
 
@@ -172,12 +172,11 @@ body {
 
 
 details i {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 details[open] i {
     transform: rotate(180deg);
-
 }
 
 summary {
@@ -185,7 +184,6 @@ summary {
     justify-content: space-between;
     background: linear-gradient(90deg, rgba(210, 175, 255, 0.5), rgba(255, 140, 243, 0.4) 100%);
 }
-
 
 .label-dropdown {
     font-weight: bold;
@@ -219,7 +217,7 @@ summary {
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    
+
     background: linear-gradient(to right, rgba(205, 187, 255), rgba(249, 207, 255));
     animation: rotate 20s infinite;
     opacity: 0.7;
@@ -311,7 +309,7 @@ summary {
 }
 
 select {
-    background-color: rgba(255, 255, 255, 0.4)!important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
     transition: all .3s;
 }
 
@@ -329,4 +327,42 @@ select option:checked {
 
 .my-social:active {
     transform: scale(0.9);
+}
+
+.btn-add {
+    color: #b362ff;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add:hover {
+    color: #9345ff;
+    transform: scale(1.08);
+}
+
+.my-delete-button {
+    color: #ff8fb1;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-delete-button:hover {
+    color: #ff6b97;
+}
+
+.btn-add-disabled {
+    color: rgba(156, 50, 255, 0.4) !important;
+}
+
+.onclick-push-me:active {
+    transition: all .2s;
+    transform: scale(0.9) !important;
 }

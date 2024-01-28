@@ -71,7 +71,7 @@ function mostrarListadoMaterias(materias) {
             <td class="border px-2 text-center">${materia.codigo}</td>
             <td class="border px-2 text-center">${materia.creditos}</td>
             <td class="border px-2">${materia.nombre}</td>
-            <td class="border px-2"><button class="btn btn-outline-success my-button">+</button></td>
+            <td class="border px-2"><button class="btn-add onclick-push-me"><i class="bi bi-plus-square-fill text-2xl"></i></i></button></td>
             <td class="border px-2 text-center">${materia.tipologia}</td>
             <td class="border px-2 text-center">${materia.grupos.length}</td>
         `;
@@ -82,7 +82,7 @@ function mostrarListadoMaterias(materias) {
             getPopUp(materia);
             guardarMateria(materia, button);
             button.disabled = true;
-            button.className = "btn btn-outline-secondary my-button";
+            button.classList.add("btn-add-disabled");
             updateDatosSelected();
         });
         tbody.appendChild(tr);
@@ -189,8 +189,6 @@ function addOptions(selectElement, optionValues) {
     });
 }
 
-
-
 function seCruza(grupo1, grupo2) {
     const horarios1 = grupo1.horarios;
     const horarios2 = grupo2.horarios;
@@ -224,7 +222,7 @@ function guardarMateria(materia, prevButton) {
         <td id="docente" class="px-3 border text-center"></td>
         <td id="cupos" class="px-3 border text-center"></td>
         <td id="horario" class="px-3 border text-center"></td>
-        <td class="px-3 border text-center"><button class="btn btn-outline-danger my-button"><i class="bi bi-trash"></i></button></td>
+        <td class="px-3 border text-center"><button class="onclick-push-me my-delete-button"><i class="bi bi-x-square-fill text-2xl"></i></button></td>
     `;
     const selectGrupo = tr.querySelector("select");
 
@@ -296,7 +294,7 @@ function guardarMateria(materia, prevButton) {
         }
         limpiar(arraysDias);
         prevButton.disabled = false;
-        prevButton.className = "btn btn-outline-success my-button";
+        prevButton.classList.remove("btn-add-disabled");
         updateDatosSelected();
     });
 
