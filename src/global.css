@@ -164,6 +164,7 @@ body {
     background-color: #a42cff;
     color: white;
     font-weight: bold;
+    transform: scale(1.07);
 }
 
 .btn-descargar:active {
