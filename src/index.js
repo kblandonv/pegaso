@@ -91,7 +91,7 @@ function mostrarListadoMaterias(materias) {
 
 // Main function
 (async () => {
-    const raw = await fetch("assets/data.json");
+    const raw = await fetch("https://raw.githubusercontent.com/imlargo/api/main/data.json");
     const data = await raw.json();
 
     const facultades = Object.keys(data);
