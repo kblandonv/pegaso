@@ -1,3 +1,15 @@
+const CALENDAR = {
+    materias: {},
+    grupos: {},
+};
+
+
+// Global variable to keep track of used colors
+const GLOBALS = {
+    usedColors: []
+};
+
+
 function getPopUp(materia) {
     const popUp = document.getElementById("popUp");
     popUp.querySelector("#popUp-body").textContent = `Se agregó: ${materia.nombre}.`;
@@ -5,11 +17,6 @@ function getPopUp(materia) {
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(popUp);
     toastBootstrap.show();
 }
-
-const CALENDAR = {
-    materias: {},
-    grupos: {},
-};
 
 function updateDatosSelected() {
     document.getElementById("asignaturas-seleccionadas").textContent = `Asignaturas seleccionadas: ${Object.keys(CALENDAR.materias).length}`;
@@ -146,10 +153,6 @@ function mostrarListadoMaterias(materias) {
 })();
 
 
-// Global variable to keep track of used colors
-const GLOBALS = {
-    usedColors: []
-};
 
 const calendarBody = document.getElementById("calendar-body");
 
@@ -370,28 +373,33 @@ window.onpointermove = event => {
     }, { duration: 3000, fill: "forwards" });
 }
 
+function aplyTextEffect(id) {
+    document.getElementById(id).onmouseover = (event) => {
+        dispatchTextEffect(event.target);
+    }
+}
 
+aplyTextEffect("imlargo");
 
-const letters = "abcdefghijklmnopqrstuvwxyz";
+function dispatchTextEffect(element) {
+    let interval = null;
+    const letters = "abcdefghijklmnopqrstuvwxyz";
 
-let interval = null;
-
-document.querySelector("#imlargo").onmouseover = (event) => {
     let iteration = 0;
     clearInterval(interval);
     interval = setInterval(() => {
-        event.target.innerText = event.target.innerText
+        element.innerText = element.innerText
             .split("")
             .map((letter, index) => {
                 if (index < iteration) {
-                    return event.target.dataset.value[index];
+                    return element.dataset.value[index];
                 }
 
                 return letters[Math.floor(Math.random() * 26)]
             })
             .join("");
 
-        if (iteration >= event.target.dataset.value.length) {
+        if (iteration >= element.dataset.value.length) {
             clearInterval(interval);
         }
 
@@ -399,4 +407,12 @@ document.querySelector("#imlargo").onmouseover = (event) => {
     }, 30);
 }
 
-document.getElementById("button-donar").addEventListener("click", () => document.getElementById('dialog-donar').show());
+setTimeout(() => {
+    dispatchTextEffect(document.getElementById("imlargo"));
+}, 2000);
+
+
+document.getElementById("button-donar").addEventListener("click", () => {
+    document.getElementById('dialog-donar').show()
+    dispatchTextEffect(document.getElementById("imlargo"));
+});
