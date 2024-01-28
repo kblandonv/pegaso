@@ -171,8 +171,13 @@ body {
 }
 
 
-details {
-    transition: all 10s ease;
+details i {
+    transition: all 0.3s ease;
+}
+
+details[open] i {
+    transform: rotate(180deg);
+
 }
 
 summary {
@@ -306,7 +311,12 @@ summary {
 }
 
 select {
-    background-color: rgba(255, 255, 255, 0.7)!important;
+    background-color: rgba(255, 255, 255, 0.4)!important;
+    transition: all .3s;
+}
+
+select option:checked {
+    background-color: #b26eff33;
 }
 
 .my-social {
