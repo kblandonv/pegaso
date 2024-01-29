@@ -102,6 +102,9 @@ function mostrarListadoMaterias(materias) {
     const data = await raw.json();
 
     // Set ultima hora de extraccion
+    const lastUpdateElement = document.getElementById("last-update");
+    const lastUpdate = data["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion
+    lastUpdateElement.textContent = `Última actualización de cupos: ${lastUpdate}`;
 
     const facultades = Object.keys(data);
     const selectFacultad = document.getElementById("facultad");
