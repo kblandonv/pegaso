@@ -31,7 +31,6 @@
         </form>
     </dialog>
 
-    <div id="blob"></div>
     <div id="popUp-stack" class="toast-container position-fixed bottom-2 end-2 p-3">
         <div id="popUp" class="toast align-items-center my-toast border-0" role="alert" aria-live="assertive"
             aria-atomic="true">
@@ -44,311 +43,310 @@
         </div>
     </div>
 
-    <div class="blur-wrapper">
 
+    <div id="blob"></div>
 
-        <main class="container main-section">
-            <!-- Header -->
-            <section class="py-4">
-                <div class="d-flex justify-content-between">
-                    <h1 id="imlargo" data-value="imlargo">imlargo</h1>
+    <main class="container main-section">
+        <!-- Header -->
+        <section class="py-4">
+            <div class="d-flex justify-content-between">
+                <h1 id="imlargo" data-value="imlargo">imlargo</h1>
 
-                    <div class="d-flex justify-content-center align-items-center gap-5 my-footer text-lg">
+                <div class="d-flex justify-content-center align-items-center gap-5 my-footer text-lg">
 
-                        <a class="my-social" href="https://github.com/imlargo" target="_blank">
-                            <i class="bi bi-github my-icon"></i>
-                        </a>
+                    <a class="my-social" href="https://github.com/imlargo" target="_blank">
+                        <i class="bi bi-github my-icon"></i>
+                    </a>
 
-                        <a class="my-social" href="https://www.instagram.com/imlargo" target="_blank">
-                            <i class="bi bi-instagram my-icon"></i>
-                        </a>
+                    <a class="my-social" href="https://www.instagram.com/imlargo" target="_blank">
+                        <i class="bi bi-instagram my-icon"></i>
+                    </a>
 
-                        <a class="my-social" href="https://www.linkedin.com/in/imlargo" target="_blank">
-                            <i class="bi bi-linkedin my-icon"></i>
-                        </a>
-                    </div>
-
-                    <a id="button-donar" class="btn button-donar" href="#">
-                        <i class="bi bi-heart-fill me-1"></i>
-                        Donar
+                    <a class="my-social" href="https://www.linkedin.com/in/imlargo" target="_blank">
+                        <i class="bi bi-linkedin my-icon"></i>
                     </a>
                 </div>
-            </section>
 
-            <!-- Buscador de cursos -->
-            <section class="rounded container px-3 py-4 mt-3 mb-4 my-container glass">
+                <a id="button-donar" class="btn button-donar" href="#">
+                    <i class="bi bi-heart-fill me-1"></i>
+                    Donar
+                </a>
+            </div>
+        </section>
 
-                <div class="row align-items-center mb-4">
-                    <div class="col">
-                        <label id="label-facultad" class="label-dropdown">Facultad</label>
-                        <select id="facultad" class="mt-2 form-select form-select-sm"></select>
-                    </div>
-                    <div class="col">
-                        <label class="label-dropdown">Plan de estudios</label>
-                        <select id="carrera" class="mt-2 form-select form-select-sm"></select>
-                    </div>
-                    <div class="col">
-                        <label class="label-dropdown">Tipologia de asignatura</label>
-                        <select id="tipologia" class="mt-2 form-select form-select-sm"></select>
-                    </div>
+        <!-- Buscador de cursos -->
+        <section class="rounded container px-3 py-4 mt-3 mb-4 my-container glass">
+
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <label id="label-facultad" class="label-dropdown">Facultad</label>
+                    <select id="facultad" class="mt-2 form-select form-select-sm"></select>
                 </div>
-
-                <hr class="hr-pink">
-
-                <p class="mt-4 font-my-mono">Nota: el sitio web aun esta en construccion :)</p>
-
-                <details id="collapse-materias" class="mt-4">
-                    <summary class="rounded-top py-2 px-3 font-bold">
-                        <div class="d-flex justify-content-between">
-                            <span id="asignaturas-cargadas">Asignaturas cargadas: 0</span>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                    </summary>
-                    <table class="table-auto w-full border rounded mb-4 my-table-hover">
-                        <thead class="text-center">
-                            <tr>
-                                <th class="border px-4 py-2">Código</th>
-                                <th class="border px-4 py-2">Créditos</th>
-                                <th class="border px-4 py-2">Nombre</th>
-                                <th class="border px-4 py-2">Agregar al horario</th>
-                                <th class="border px-4 py-2">Tipologia</th>
-                                <th class="border px-4 py-2">Grupos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materias">
-                        </tbody>
-                    </table>
-                </details>
-
-            </section>
+                <div class="col">
+                    <label class="label-dropdown">Plan de estudios</label>
+                    <select id="carrera" class="mt-2 form-select form-select-sm"></select>
+                </div>
+                <div class="col">
+                    <label class="label-dropdown">Tipologia de asignatura</label>
+                    <select id="tipologia" class="mt-2 form-select form-select-sm"></select>
+                </div>
+            </div>
 
             <hr class="hr-pink">
 
-            <!-- Horario -->
-            <section class="rounded container px-3 py-4 my-4 glass">
-                <details open class="mb-4">
-                    <summary class="rounded-top py-2 px-4 font-bold">
-                        <div class="d-flex justify-content-between">
-                            <span id="asignaturas-seleccionadas">Asignaturas seleccionadas: 0</span>
-                            <span id="total-creditos">Total Creditos: 0</span>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                    </summary>
+            <p class="mt-4 font-my-mono">Nota: el sitio web aun esta en construccion :)</p>
 
-                    <table class="table-fixed w-full border rounded mb-4">
-                        <thead class="text-center">
-                            <tr>
-                                <th class="border px-4 py-2">Codigo</th>
-                                <th class="border px-4 py-2">Nombre</th>
-                                <th class="border px-4 py-2">Creditos</th>
-                                <th class="border px-4 py-2">Grupo</th>
-                                <th class="border px-4 py-2">Docente</th>
-                                <th class="border px-4 py-2">Cupos</th>
-                                <th class="border px-4 py-2">Horario</th>
-                                <th class="border px-4 py-2">...</th>
-                            </tr>
-                        </thead>
-                        <tbody class="calendar-body" id="selected">
-                        </tbody>
-                    </table>
-                </details>
-
-                <div class="rounded-top border p-3 font-bold d-flex justify-content-between align-items-center">
-                    <h2>Horario</h2>
-
+            <details id="collapse-materias" class="mt-4">
+                <summary class="rounded-top py-2 px-3 font-bold">
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-sm btn-descargar" id="btn-descargar">
-                            <div class="d-flex gap-1">
-                                <i class="bi bi-download"></i>
-                                Descargar
-                            </div>
-                        </button>
+                        <span id="asignaturas-cargadas">Asignaturas cargadas: 0</span>
+                        <i class="bi bi-chevron-down"></i>
                     </div>
-                </div>
-
-                <table class="table-fixed w-full text-center border rounded" id="calendar">
-                    <thead>
+                </summary>
+                <table class="table-auto w-full my-border rounded mb-4 my-table-hover">
+                    <thead class="text-center">
                         <tr>
-                            <th class="px-4 py-2">Hora</th>
-                            <th class="px-4 py-2">Lunes</th>
-                            <th class="px-4 py-2">Martes</th>
-                            <th class="px-4 py-2">Miércoles</th>
-                            <th class="px-4 py-2">Jueves</th>
-                            <th class="px-4 py-2">Viernes</th>
-                            <th class="px-4 py-2">Sábado</th>
-                            <th class="px-4 py-2">Domingo</th>
+                            <th class="my-border px-4 py-2">Código</th>
+                            <th class="my-border px-4 py-2">Créditos</th>
+                            <th class="my-border px-4 py-2">Nombre</th>
+                            <th class="my-border px-4 py-2">Agregar al horario</th>
+                            <th class="my-border px-4 py-2">Tipologia</th>
+                            <th class="my-border px-4 py-2">Grupos</th>
                         </tr>
                     </thead>
-                    <tbody id="calendar-body">
-                        <tr id="hora-6">
-                            <td class="border px-4 py-2 opacity-50">6:00 - 7:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-7">
-                            <td class="border px-4 py-2 opacity-50">7:00 - 8:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-8">
-                            <td class="border px-4 py-2 opacity-50">8:00 - 9:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-9">
-                            <td class="border px-4 py-2 opacity-50">9:00 - 10:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-10">
-                            <td class="border px-4 py-2 opacity-50">10:00 - 11:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-11">
-                            <td class="border px-4 py-2 opacity-50">11:00 - 12:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-12">
-                            <td class="border px-4 py-2 opacity-50">12:00 - 1:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-13">
-                            <td class="border px-4 py-2 opacity-50">1:00 - 2:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-14">
-                            <td class="border px-4 py-2 opacity-50">2:00 - 3:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-15">
-                            <td class="border px-4 py-2 opacity-50">3:00 - 4:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-16">
-                            <td class="border px-4 py-2 opacity-50">4:00 - 5:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-17">
-                            <td class="border px-4 py-2 opacity-50">5:00 - 6:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-18">
-                            <td class="border px-4 py-2 opacity-50">6:00 - 7:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-                        <tr id="hora-19">
-                            <td class="border px-4 py-2 opacity-50">7:00 - 8:00</td>
-                            <td id="lunes" class="celda-horario border px-4 py-2"></td>
-                            <td id="martes" class="celda-horario border px-4 py-2"></td>
-                            <td id="miercoles" class="celda-horario border px-4 py-2"></td>
-                            <td id="jueves" class="celda-horario border px-4 py-2"></td>
-                            <td id="viernes" class="celda-horario border px-4 py-2"></td>
-                            <td id="sabado" class="celda-horario border px-4 py-2"></td>
-                            <td id="domingo" class="celda-horario border px-4 py-2"></td>
-                        </tr>
-
+                    <tbody id="materias">
                     </tbody>
                 </table>
-            </section>
+            </details>
 
-            <!-- Footer -->
-            <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 gap-4 my-footer">
-                <span class="">© Juan Carlos Largo</span>
-                <div class="vr"></div>
+        </section>
 
-                <span class=" mx-5">imlargo</span>
-                <div class="vr"></div>
+        <hr class="hr-pink">
 
-                <a class="" href="https://www.instagram.com/imlargo" target="_blank">
-                    <i class="bi bi-instagram my-icon"></i>
-                </a>
-                <div class="vr"></div>
+        <!-- Horario -->
+        <section class="rounded container px-3 py-4 my-4 glass">
+            <details open class="mb-4">
+                <summary class="rounded-top py-2 px-4 font-bold">
+                    <div class="d-flex justify-content-between">
+                        <span id="asignaturas-seleccionadas">Asignaturas seleccionadas: 0</span>
+                        <span id="total-creditos">Total Creditos: 0</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                </summary>
 
-                <a class="" href="https://github.com/imlargo" target="_blank">
-                    <i class="bi bi-github my-icon"></i>
-                </a>
-                <div class="vr"></div>
+                <table class="table-fixed w-full border rounded mb-4">
+                    <thead class="text-center">
+                        <tr>
+                            <th class="my-border px-4 py-2">Codigo</th>
+                            <th class="my-border px-4 py-2">Nombre</th>
+                            <th class="my-border px-4 py-2">Creditos</th>
+                            <th class="my-border px-4 py-2">Grupo</th>
+                            <th class="my-border px-4 py-2">Docente</th>
+                            <th class="my-border px-4 py-2">Cupos</th>
+                            <th class="my-border px-4 py-2">Horario</th>
+                            <th class="my-border px-4 py-2">...</th>
+                        </tr>
+                    </thead>
+                    <tbody class="calendar-body" id="selected">
+                    </tbody>
+                </table>
+            </details>
 
-                <a class="" href="https://www.linkedin.com/in/imlargo" target="_blank">
-                    <i class="bi bi-linkedin my-icon"></i>
-                </a>
-            </footer>
-        </main>
-    </div>
+            <div class="rounded-top border p-3 font-bold d-flex justify-content-between align-items-center">
+                <h2>Horario</h2>
+
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-sm btn-descargar" id="btn-descargar">
+                        <div class="d-flex gap-1">
+                            <i class="bi bi-download"></i>
+                            Descargar
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <table class="table-fixed w-full text-center my-border rounded" id="calendar">
+                <thead>
+                    <tr>
+                        <th class="my-border px-4 py-2">Hora</th>
+                        <th class="my-border px-4 py-2">Lunes</th>
+                        <th class="my-border px-4 py-2">Martes</th>
+                        <th class="my-border px-4 py-2">Miércoles</th>
+                        <th class="my-border px-4 py-2">Jueves</th>
+                        <th class="my-border px-4 py-2">Viernes</th>
+                        <th class="my-border px-4 py-2">Sábado</th>
+                        <th class="my-border px-4 py-2">Domingo</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <tr id="hora-6">
+                        <td class="my-border px-4 py-2 opacity-60">6:00 - 7:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-7">
+                        <td class="my-border px-4 py-2 opacity-60">7:00 - 8:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-8">
+                        <td class="my-border px-4 py-2 opacity-60">8:00 - 9:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-9">
+                        <td class="my-border px-4 py-2 opacity-60">9:00 - 10:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-10">
+                        <td class="my-border px-4 py-2 opacity-60">10:00 - 11:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-11">
+                        <td class="my-border px-4 py-2 opacity-60">11:00 - 12:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-12">
+                        <td class="my-border px-4 py-2 opacity-60">12:00 - 1:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-13">
+                        <td class="my-border px-4 py-2 opacity-60">1:00 - 2:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-14">
+                        <td class="my-border px-4 py-2 opacity-60">2:00 - 3:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-15">
+                        <td class="my-border px-4 py-2 opacity-60">3:00 - 4:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-16">
+                        <td class="my-border px-4 py-2 opacity-60">4:00 - 5:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-17">
+                        <td class="my-border px-4 py-2 opacity-60">5:00 - 6:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-18">
+                        <td class="my-border px-4 py-2 opacity-60">6:00 - 7:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+                    <tr id="hora-19">
+                        <td class="my-border px-4 py-2 opacity-60">7:00 - 8:00</td>
+                        <td id="lunes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="martes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="miercoles" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="jueves" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="viernes" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="sabado" class="celda-horario my-border px-4 py-2"></td>
+                        <td id="domingo" class="celda-horario my-border px-4 py-2"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Footer -->
+        <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 gap-4 my-footer">
+            <span class="">© Juan Carlos Largo</span>
+            <div class="vr"></div>
+
+            <span class=" mx-5">imlargo</span>
+            <div class="vr"></div>
+
+            <a class="" href="https://www.instagram.com/imlargo" target="_blank">
+                <i class="bi bi-instagram my-icon"></i>
+            </a>
+            <div class="vr"></div>
+
+            <a class="" href="https://github.com/imlargo" target="_blank">
+                <i class="bi bi-github my-icon"></i>
+            </a>
+            <div class="vr"></div>
+
+            <a class="" href="https://www.linkedin.com/in/imlargo" target="_blank">
+                <i class="bi bi-linkedin my-icon"></i>
+            </a>
+        </footer>
+    </main>
 
 </body>
 

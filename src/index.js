@@ -75,12 +75,12 @@ function mostrarListadoMaterias(materias) {
     materias.forEach(materia => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-            <td class="border px-2 text-center">${materia.codigo}</td>
-            <td class="border px-2 text-center">${materia.creditos}</td>
-            <td class="border px-2">${materia.nombre}</td>
-            <td class="border px-2"><button class="btn-add onclick-push-me"><i class="bi bi-plus-square-fill text-2xl"></i></i></button></td>
-            <td class="border px-2 text-center">${materia.tipologia}</td>
-            <td class="border px-2 text-center">${materia.grupos.length}</td>
+            <td class="my-border px-2 text-center">${materia.codigo}</td>
+            <td class="my-border px-2 text-center">${materia.creditos}</td>
+            <td class="my-border px-2">${materia.nombre}</td>
+            <td class="my-border px-2"><button class="btn-add onclick-push-me"><i class="bi bi-plus-square-fill text-2xl"></i></i></button></td>
+            <td class="my-border px-2 text-center">${materia.tipologia}</td>
+            <td class="my-border px-2 text-center">${materia.grupos.length}</td>
         `;
 
         // Event listener for the "Add" button
@@ -218,14 +218,14 @@ function guardarMateria(materia, prevButton) {
     const tableGuardadas = document.getElementById("selected");
     const tr = document.createElement("tr");
     tr.innerHTML = `
-        <td id="codigo" class="px-3 border">${materia.codigo}</td>
-        <td id="nombre" class="px-3 border">${materia.nombre}</td>
-        <td class="px-3 border text-center">${materia.creditos}</td>
-        <td class="px-3 border text-center"><select class="form-select form-select-sm"></select></td>
-        <td id="docente" class="px-3 border text-center"></td>
-        <td id="cupos" class="px-3 border text-center"></td>
-        <td id="horario" class="px-3 border text-center"></td>
-        <td class="px-3 border text-center"><button class="onclick-push-me my-delete-button"><i class="bi bi-x-square-fill text-2xl"></i></button></td>
+        <td id="codigo" class="px-3 my-border">${materia.codigo}</td>
+        <td id="nombre" class="px-3 my-border">${materia.nombre}</td>
+        <td class="px-3 my-border text-center">${materia.creditos}</td>
+        <td class="px-3 my-border text-center"><select class="form-select form-select-sm"></select></td>
+        <td id="docente" class="px-3 my-border text-center"></td>
+        <td id="cupos" class="px-3 my-border text-center"></td>
+        <td id="horario" class="px-3 my-border text-center"></td>
+        <td class="px-3 my-border text-center"><button class="onclick-push-me my-delete-button"><i class="bi bi-x-square-fill text-2xl"></i></button></td>
     `;
     const selectGrupo = tr.querySelector("select");
 
