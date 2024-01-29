@@ -73,6 +73,7 @@ function mostrarListadoMaterias(materias) {
     tbody.innerHTML = "";
 
     materias.forEach(materia => {
+        const totalCupos = materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0);
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td class="my-border px-2 text-center">${materia.codigo}</td>
@@ -80,7 +81,7 @@ function mostrarListadoMaterias(materias) {
             <td class="my-border px-2">${materia.nombre}</td>
             <td class="my-border px-2"><button class="btn-add onclick-push-me"><i class="bi bi-plus-square-fill text-2xl"></i></i></button></td>
             <td class="my-border px-2 text-center">${materia.tipologia}</td>
-            <td class="my-border px-2 text-center">${materia.grupos.length}</td>
+            <td class="my-border px-2 text-center">${totalCupos}</td>
         `;
 
         // Event listener for the "Add" button
