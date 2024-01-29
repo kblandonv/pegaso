@@ -99,7 +99,10 @@ function mostrarListadoMaterias(materias) {
 
 // Main function
 (async () => {
-    const raw = await fetch("https://raw.githubusercontent.com/imlargo/api/main/data.json");
+    const raw = await fetch("https://raw.githubusercontent.com/imlargo/api/main/data.json", {
+        method: 'GET',
+        cache: 'no-store'
+    });
     const data = await raw.json();
 
     // Set ultima hora de extraccion
