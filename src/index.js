@@ -101,6 +101,8 @@ function mostrarListadoMaterias(materias) {
     const raw = await fetch("https://raw.githubusercontent.com/imlargo/api/main/data.json");
     const data = await raw.json();
 
+    // Set ultima hora de extraccion
+
     const facultades = Object.keys(data);
     const selectFacultad = document.getElementById("facultad");
     const selectCarrera = document.getElementById("carrera");
