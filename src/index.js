@@ -3,7 +3,6 @@ const CALENDAR = {
     grupos: {},
 };
 
-
 // Global variable to keep track of used colors
 const GLOBALS = {
     usedColors: []
