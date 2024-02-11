@@ -9,18 +9,18 @@ const GLOBALS = {
     usedColors: []
 };
 
-
 function getPopUp(materia) {
-    const popUp = document.getElementById("popUp");
-    popUp.querySelector("#popUp-body").textContent = `Se agregó: ${materia.nombre}.`;
+    const popUp = $("#popUp");
+    popUp.find("#popUp-body").text(`Se agregó: ${materia.nombre}.`);
 
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(popUp);
     toastBootstrap.show();
 }
 
 function updateDatosSelected() {
-    document.getElementById("asignaturas-seleccionadas").textContent = `Asignaturas seleccionadas: ${Object.keys(CALENDAR.materias).length}`;
-    document.getElementById("total-creditos").textContent = `Total créditos: ${Object.values(CALENDAR.materias).reduce((acc, materia) => acc + parseInt(materia.creditos), 0)}`;
+    const totalCreditos = Object.values(CALENDAR.materias).reduce((acc, materia) => acc + parseInt(materia.creditos), 0)
+    $("#asignaturas-seleccionadas").text(`Asignaturas seleccionadas: ${Object.keys(CALENDAR.materias).length}`);
+    $("#total-creditos").text(`Total créditos: ${totalCreditos}`);
 }
 
 function isValid(grupoOption, codigoMateria) {
@@ -62,9 +62,9 @@ function updateOptions(actualTr) {
 }
 
 function addDataGroup(tr, newGrupo) {
-    tr.querySelector("#docente").textContent = newGrupo.profesor;
-    tr.querySelector("#cupos").textContent = newGrupo.cupos;
-    tr.querySelector("#horario").textContent = newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", ");
+    $(tr).find("#docente").text(newGrupo.profesor);
+    $(tr).find("#cupos").text(newGrupo.cupos);
+    $(tr).find("#horario").text(newGrupo.horarios.map(horario => `${horario.dia} ${horario.inicio}-${horario.fin}`).join(", "));
 }
 
 // Function to display a list of subjects
@@ -165,8 +165,6 @@ function mostrarListadoMaterias(materias) {
     // Trigger faculty selection event
     selectFacultad.dispatchEvent(new Event("change"));
 })();
-
-
 
 const calendarBody = document.getElementById("calendar-body");
 
@@ -425,8 +423,106 @@ setTimeout(() => {
     dispatchTextEffect(document.getElementById("imlargo"));
 }, 2000);
 
-
 document.getElementById("button-donar").addEventListener("click", () => {
     document.getElementById('dialog-donar').show()
     dispatchTextEffect(document.getElementById("imlargo"));
 });
+
+function createGraph(materia) {
+    if (!materia) return;
+
+    const elemento = document.getElementById("graphCanvas")
+    elemento.remove();
+
+    const newCanvas = document.createElement("canvas");
+    newCanvas.id = "graphCanvas"
+    document.getElementById("graphContainer").appendChild(newCanvas);
+
+    const total = materia.total;
+
+    const labels = Object.keys(total);
+    const values = Object.values(total);
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "Cupos",
+            backgroundColor: "#D871FF",
+            data: values,
+        }]
+    };
+
+    const options = {
+        type: "line",
+        data: data,
+        options: {
+            indexAxis: "x",
+        }
+    };
+
+    const chart = new Chart(
+        document.getElementById('graphCanvas'),
+        options
+    );
+}
+
+
+(async () => {
+
+    const res = await fetch("../temp/analisis.json");
+    const analisis = await res.json();
+
+    const selectFacultad = document.getElementById("analisis-facultad");
+    const selectCarrera = document.getElementById("analisis-carrera");
+    const selectTipologia = document.getElementById("analisis-tipologia");
+    const selectMateria = document.getElementById("analisis-materia");
+
+    const facultades = Object.keys(analisis);
+    addOptions(selectFacultad, facultades);
+
+    selectFacultad.addEventListener("change", function () {
+        const carreras = Object.keys(analisis[this.value]);
+        addOptions(selectCarrera, carreras);
+    });
+
+    // Event listener for career selection
+    selectCarrera.addEventListener("change", function () {
+        const facultad = selectFacultad.value;
+        const materias = Object.values(analisis[facultad][this.value]);
+        const tipologias = [
+            "TODAS LAS ASIGNATURAS",
+            ...new Set(materias.map(materia => materia.tipologia))
+        ];
+        addOptions(selectTipologia, tipologias);
+        selectTipologia.dispatchEvent(new Event("change"));
+    });
+
+    // Event listener for typology selection
+    selectTipologia.addEventListener("change", function () {
+        const facultad = selectFacultad.value;
+        const carrera = selectCarrera.value;
+        const tipologia = this.value;
+
+        const allMaterias = Object.values(analisis[facultad][carrera]);
+        const isAll = tipologia === "TODAS LAS ASIGNATURAS";
+        const materias = isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
+
+        selectMateria.innerHTML = "";
+        materias.forEach(materia => {
+            const option = document.createElement("option");
+            option.text = `${materia.codigo} - ${materia.nombre}`;
+            option.value = materia.codigo;
+            selectMateria.appendChild(option);
+        });
+
+        selectMateria.dispatchEvent(new Event("change"));
+    });
+
+    selectMateria.addEventListener("change", function () {
+        const materia = Object.values(analisis[selectFacultad.value][selectCarrera.value]).find(materia => materia.codigo === this.value);
+        createGraph(materia ? materia : null);
+    });
+
+    // Trigger faculty selection event
+    selectFacultad.dispatchEvent(new Event("change"));
+})();

@@ -13,6 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Scripts -->
     <script defer src="src/index.js"></script>
     <link rel="stylesheet" href="src/global.css">
@@ -48,7 +51,6 @@
         </div>
     </div>
 
-
     <div id="blob"></div>
 
     <main class="container main-section">
@@ -80,7 +82,7 @@
         </section>
 
         <!-- Buscador de cursos -->
-        <section class="rounded container px-3 py-4 mt-3 mb-4 my-container glass">
+        <section class="rounded container px-3 py-4 mt-3 mb-4 glass">
 
             <div class="row align-items-center mb-4">
                 <div class="col">
@@ -333,6 +335,41 @@
 
                 </tbody>
             </table>
+        </section>
+
+        <section class="rounded container px-3 py-4 my-4 glass">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <label id="label-facultad" class="label-dropdown">Facultad</label>
+                    <select id="analisis-facultad" class="mt-2 form-select form-select-sm"></select>
+                </div>
+                <div class="col">
+                    <label class="label-dropdown">Plan de estudios</label>
+                    <select id="analisis-carrera" class="mt-2 form-select form-select-sm"></select>
+                </div>
+                <div class="col">
+                    <label class="label-dropdown">Tipologia de asignatura</label>
+                    <select id="analisis-tipologia" class="mt-2 form-select form-select-sm"></select>
+                </div>
+                <div class="col">
+                    <label class="label-dropdown">Asignatura</label>
+                    <select id="analisis-materia" class="mt-2 form-select form-select-sm"></select>
+                </div>
+            </div>
+
+            <hr class="hr-pink">
+
+            <!-- Grafico -->
+            <div class="p-3">
+                <!-- titulo del grafico -->
+                <label class="label mb-4" id="tlGrafico"></label>
+
+                <!-- Contenedor del grafico -->
+                <div class="chart-container" id="graphContainer">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </div>
+
         </section>
 
         <!-- Footer -->
