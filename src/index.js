@@ -451,17 +451,23 @@ function createGraph(materia) {
         }]
     };
 
-    const options = {
+    const config = {
         type: "line",
         data: data,
         options: {
             indexAxis: "x",
-        }
+            scales: {
+                y: {
+                    min: 0,
+                }
+            }
+        },
+        
     };
 
     const chart = new Chart(
         document.getElementById('graphCanvas'),
-        options
+        config
     );
 }
 
@@ -518,7 +524,7 @@ function createGraph(materia) {
     });
 
     selectMateria.addEventListener("change", function () {
-        const materia = Object.values(analisis[selectFacultad.value][selectCarrera.value]).find(materia => materia.codigo === this.value);
+        const materia = analisis[selectFacultad.value][selectCarrera.value][this.value];
         createGraph(materia ? materia : null);
     });
 
