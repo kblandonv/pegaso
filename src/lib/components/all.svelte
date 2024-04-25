@@ -30,57 +30,7 @@
 
 <body>
 
-    <dialog id="dialog-donar" class="dialog-donar p-4">
-        <form method="dialog">
-            <p class="font-my-mono text-lg font-medium text-center">Qr nequi.</p>
-            <img src="assets/qr.png" draggable="false" class="m-3">
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn"><i class="bi bi-check-lg"></i></button>
-            </div>
-        </form>
-    </dialog>
-
-    <div id="popUp-stack" class="toast-container position-fixed bottom-2 end-2 p-3">
-        <div id="popUp" class="toast align-items-center my-toast border-0" role="alert" aria-live="assertive"
-            aria-atomic="true">
-            <div class="d-flex">
-                <div id="popUp-body" class="toast-body">
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                    aria-label="Close"></button>
-            </div>
-        </div>
-    </div>
-
-    <div id="blob"></div>
-
     <main class="container main-section">
-        <!-- Header -->
-        <section class="py-4">
-            <div class="d-flex justify-content-between">
-                <h1 id="imlargo" data-value="imlargo">imlargo</h1>
-
-                <div class="d-flex justify-content-center align-items-center gap-5 my-footer text-lg">
-
-                    <a class="my-social" href="https://github.com/imlargo" target="_blank">
-                        <i class="bi bi-github my-icon"></i>
-                    </a>
-
-                    <a class="my-social" href="https://www.instagram.com/imlargo" target="_blank">
-                        <i class="bi bi-instagram my-icon"></i>
-                    </a>
-
-                    <a class="my-social" href="https://www.linkedin.com/in/imlargo" target="_blank">
-                        <i class="bi bi-linkedin my-icon"></i>
-                    </a>
-                </div>
-
-                <a id="button-donar" class="btn button-donar" href="#">
-                    <i class="bi bi-heart-fill me-1"></i>
-                    Donar
-                </a>
-            </div>
-        </section>
 
         <!-- Buscador de cursos -->
         <section class="rounded container px-3 py-4 mt-3 mb-4 glass">
@@ -373,28 +323,6 @@
 
         </section>
 
-        <!-- Footer -->
-        <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 gap-4 my-footer">
-            <span class="">© Juan Carlos Largo</span>
-            <div class="vr"></div>
-
-            <span class=" mx-5">imlargo</span>
-            <div class="vr"></div>
-
-            <a class="" href="https://www.instagram.com/imlargo" target="_blank">
-                <i class="bi bi-instagram my-icon"></i>
-            </a>
-            <div class="vr"></div>
-
-            <a class="" href="https://github.com/imlargo" target="_blank">
-                <i class="bi bi-github my-icon"></i>
-            </a>
-            <div class="vr"></div>
-
-            <a class="" href="https://www.linkedin.com/in/imlargo" target="_blank">
-                <i class="bi bi-linkedin my-icon"></i>
-            </a>
-        </footer>
     </main>
 
 </body>

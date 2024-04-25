@@ -1,29 +1,22 @@
-<h1 align="center">my-sia</h1>
+# Mi Sistema de Informacion Academica
 
-Organizador de horarios para los estudiantes de la UNAL.
+Platforma web para hacer horarios
 
-Ver aplicacion web ->
+> Actualmente en desarrollo!
+
+## Feedback and Contributing
+
+Si tienes alguna retroalimentación, duda, o sugerencia contactame al: im.j.largo@gmail.com
+
+Contributions are always welcome! Puedes corregir typos directamente en los archivos md, si deseas realizar alguna corrección o encuentras algún error de escritura, no dudes en compartirlo conmigo <3
 
 ## Features
 
-- Organiza tus horarios
-- Buscar cualquier materia en segundos
+- Light/dark mode toggle
+- Google Auth
 
-## Usage/Examples
+### Tools used and Tech Stack
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-## Support
-
-For support, email jlargob@unal.edu.co.
-
-## Tech Stack
-
-
-## Contributing
-
-Contributions are always welcome!.
-
-## Authors
-
-- [@imlargo](https://www.github.com/imlargo)
+<a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=svelte,sass,js,bootstrap,html&theme=dark" />
+</a>

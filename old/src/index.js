@@ -99,32 +99,19 @@ function mostrarListadoMaterias(materias) {
 
 // Main function
 (async () => {
-    const url = "https://raw.githubusercontent.com/imlargo/api/main/data.json";
-    const uniqueUrl = url + "?t=" + Date.now();
-
-    const raw = await fetch(uniqueUrl, {
-        method: 'GET',
-        cache: 'no-store'
-    });
-    const data = await raw.json();
-
 
     // Set ultima hora de extraccion
-    const lastUpdateElement = document.getElementById("last-update");
-    const lastUpdate = data["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion
-    lastUpdateElement.textContent = `Última actualización de cupos: ${lastUpdate}`;
-
-    const facultades = Object.keys(data);
-    const selectFacultad = document.getElementById("facultad");
-    const selectCarrera = document.getElementById("carrera");
-    const selectTipologia = document.getElementById("tipologia");
-
     // Function to filter subjects based on faculty, career, and typology
     function filtrarMaterias(facultad, carrera, tipologia) {
         const allMaterias = data[facultad][carrera];
         const isAll = tipologia === "TODAS LAS ASIGNATURAS";
         return isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
     }
+
+    const facultades = Object.keys(data);
+    const selectFacultad = document.getElementById("facultad");
+    const selectCarrera = document.getElementById("carrera");
+    const selectTipologia = document.getElementById("tipologia");
 
     // Add options to the faculty select
     addOptions(selectFacultad, facultades);
@@ -156,6 +143,7 @@ function mostrarListadoMaterias(materias) {
         const tipologia = this.value;
 
         const materias = filtrarMaterias(facultad, carrera, tipologia);
+        
         document.getElementById("collapse-materias").open = true;
         document.getElementById("asignaturas-cargadas").textContent = `Asignaturas cargadas: ${materias.length}`;
         mostrarListadoMaterias(materias);
@@ -421,11 +409,6 @@ function dispatchTextEffect(element) {
 setTimeout(() => {
     dispatchTextEffect(document.getElementById("imlargo"));
 }, 2000);
-
-document.getElementById("button-donar").addEventListener("click", () => {
-    document.getElementById('dialog-donar').show()
-    dispatchTextEffect(document.getElementById("imlargo"));
-});
 
 function createGraph(materia) {
     if (!materia) return;
