@@ -1,14 +1,17 @@
 <script>
-	export let materia;
+	let { materia } = $props();
 
+	import { getmateriasSeleccionadas } from '../../stores/asignaturas.svelte.js';
+	let materiasSeleccionadas = getmateriasSeleccionadas();
+	
 	let totalCupos = materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0);
-
-	let isDisabled;
+	let isDisabled = $derived(materiasSeleccionadas.data.some(e => e.codigo === materia.codigo));
 
 	// Event listener for the "Add" button
 	function handleClick(e) {
 		console.log(materia);
-		isDisabled = true;
+		materiasSeleccionadas.data.push(materia);
+		
 		// getPopUp(materia);
 		// guardarMateria(materia, button);
 		// updateDatosSelected();
@@ -22,7 +25,7 @@
 	<td class="my-border px-2">
 		<button
 			class={`btn-add onclick-push-me ${isDisabled ? 'btn-add-disabled' : ''}`}
-			on:click={handleClick}
+			onclick={handleClick}
 			disabled={isDisabled}
 		>
 			<i class="bi bi-plus-square-fill text-2xl"></i>
@@ -31,6 +34,8 @@
 	<td class="my-border px-2 text-center">{materia.tipologia}</td>
 	<td class="my-border px-2 text-center">{totalCupos}</td>
 </tr>
+
+
 
 <style lang="scss">
 	button {

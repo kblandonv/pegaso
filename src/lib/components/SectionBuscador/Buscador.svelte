@@ -58,8 +58,6 @@
 
 			materiasFiltradas.set(materias);
         
-        	// document.getElementById("collapse-materias").open = true;
-        	// document.getElementById("asignaturas-cargadas").textContent = `Asignaturas cargadas: ${materias.length}`;
         	// mostrarListadoMaterias(materias);
 		});
 
