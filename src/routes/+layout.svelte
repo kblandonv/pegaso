@@ -1,6 +1,7 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Blob from '../lib/components/Misc/Blob.svelte';
 	import '../styles/global.css';
 </script>
 

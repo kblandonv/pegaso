@@ -1,15 +1,22 @@
 <script>
     let { materia } = $props();
 
-    import { getmateriasSeleccionadas } from '../../stores/asignaturas.svelte.js';
+    import { getmateriasSeleccionadas, getHorario } from '../../stores/asignaturas.svelte.js';
 	let materiasSeleccionadas = getmateriasSeleccionadas();
+    let horario = getHorario();
 
     let groupValue = $state("")
     let selectedGrupo = $derived(materia.grupos.find(grupo => grupo.grupo === groupValue));
 
+    $effect(() => {
+        if (selectedGrupo) {
+            horario.data[materia.codigo] = selectedGrupo.horarios;
+            console.log(horario.data);
+        }
+    });
+
     function deleteMateria() {
         materiasSeleccionadas.set(materiasSeleccionadas.data.filter(m => m.codigo !== materia.codigo));
-        
     }
 </script>
 

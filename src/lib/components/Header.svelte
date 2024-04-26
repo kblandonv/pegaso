@@ -39,8 +39,8 @@
 		</div>
 
 		<a on:click={showModal} class="btn btn-donar" role="button" href>
-			<i class="bi bi-heart-fill me-1"></i>
-			<span>Donar</span>
+			<i class="bi bi-heart-fill"></i>
+			<span> Donar</span>
 		</a>
 	</div>
 </header>
