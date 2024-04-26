@@ -1,20 +1,20 @@
 <script>
-    export let materias;
-    let details;
-    
-    export function open() {
-        details.open = true;
-    }
-
     import ListadoRow from "./ListadoRow.svelte";
 
+    import { getmateriasFiltradas } from '../../stores/asignaturas.svelte.js';
+	let materiasFiltradas = getmateriasFiltradas();
+
+    let details;
+    $effect(() => {
+        details.open = materiasFiltradas.data.length > 0;
+    });
 
 </script>
 
 <details id="collapse-materias" class="mt-4" bind:this={details}>
     <summary class="rounded-top py-2 px-3 font-bold">
         <div class="d-flex justify-content-between">
-            <span id="asignaturas-cargadas">Asignaturas cargadas: {materias.length}</span>
+            <span id="asignaturas-cargadas">Asignaturas cargadas: {materiasFiltradas.data.length}</span>
             <i class="bi bi-chevron-down"></i>
         </div>
     </summary>
@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody id="materias">
-            {#each materias as materia (materia.codigo)}
+            {#each materiasFiltradas.data as materia (materia.codigo)}
                 <ListadoRow materia={materia} />
             {/each}
         </tbody>

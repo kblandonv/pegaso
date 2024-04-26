@@ -1,10 +1,11 @@
 <script>
-	export let data;
+	const { data } = $props();
 	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
 	import Horario from "../lib/components/SectionHorario/Horario.svelte";
 
-	console.log(data.loadedData);
-	console.log("Holi");
+	import { getAsignaturas } from '../lib/stores/asignaturas.svelte.js';
+	let asignaturas = getAsignaturas();
+	asignaturas.asignar(data.loadedData);
 	
 </script>
 

@@ -14,8 +14,6 @@ export async function load({ params }) {
     });
     const data = await raw.json();
 
-    console.log(data);
-
 	return {
         loadedData: data,
     };
