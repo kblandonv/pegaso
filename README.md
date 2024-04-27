@@ -1,22 +1,31 @@
-# Mi Sistema de Informacion Academica
+<h1 align="center">Mi Sistema de Informacion Academica</h1>
+ 
+> Aplicacion web para crear horarios, buscar asignaturas y cupos de manera rapida y sencilla. Creado con cariño para los estudiantes de la Universidad Nacional de Colombia. (**Nota:** Actualmente en desarrollo!)
 
-Platforma web para hacer horarios
+Si tienes alguna retroalimentación, duda, o sugerencia contactame al: ...
 
-> Actualmente en desarrollo!
+## Contributing
 
-## Feedback and Contributing
-
-Si tienes alguna retroalimentación, duda, o sugerencia contactame al: im.j.largo@gmail.com
-
-Contributions are always welcome! Puedes corregir typos directamente en los archivos md, si deseas realizar alguna corrección o encuentras algún error de escritura, no dudes en compartirlo conmigo <3
-
-## Features
-
-- Light/dark mode toggle
-- Google Auth
+Contributions are always welcome!.
 
 ### Tools used and Tech Stack
 
 <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=svelte,sass,js,bootstrap,html&theme=dark" />
 </a>
+
+## Authors
+
+- [@imlargo](https://www.github.com/imlargo)
+
+
+
+
+
+
+
+
+
+
+
+
