@@ -45,122 +45,12 @@ body {
     border: 1px solid rgba(106, 0, 255, 0.15)!important;
 }
 
-.calendar-body tr td:first-child {
-    position: relative;
-}
-
 .my-button {
     display: block;
     margin: auto;
 }
 
-.calendar-body tr td:first-child::before {
-    border-radius: 3px;
-    left: -0.4rem;
-    content: "";
-    display: block;
-    height: 75%;
-    position: absolute;
-    width: calc(0.25em + .5ex);
-    top: 50%;
-    transform: translateY(-50%);
-}
 
-.color-1 {
-    background-color: #FFDEDE;
-}
-
-.color-2 {
-    background-color: #FFB7B7;
-}
-
-.color-3 {
-    background-color: #FFF5C3;
-}
-
-.color-4 {
-    background-color: #D1FFF9;
-}
-
-.color-5 {
-    background-color: #CFFFDF;
-}
-
-.color-6 {
-    background-color: #FFBAEC;
-}
-
-.color-7 {
-    background-color: #CBCEFF;
-}
-
-.color-8 {
-    background-color: #ACFF9B;
-}
-
-.color-9 {
-    background-color: #E4D5FF;
-}
-
-.color-10 {
-    background-color: #DCB9FF;
-}
-
-.color-11 {
-    background-color: #FFD5F5;
-}
-
-.color-12 {
-    background-color: #F7D1FF;
-}
-
-.tr-color-1 td:first-child::before {
-    background-color: #FFDEDE;
-}
-
-.tr-color-2 td:first-child::before {
-    background-color: #FFB7B7;
-}
-
-.tr-color-3 td:first-child::before {
-    background-color: #FFF5C3;
-}
-
-.tr-color-4 td:first-child::before {
-    background-color: #D1FFF9;
-}
-
-.tr-color-5 td:first-child::before {
-    background-color: #CFFFDF;
-}
-
-.tr-color-6 td:first-child::before {
-    background-color: #FFBAEC;
-}
-
-.tr-color-7 td:first-child::before {
-    background-color: #CBCEFF;
-}
-
-.tr-color-8 td:first-child::before {
-    background-color: #ACFF9B;
-}
-
-.tr-color-9 td:first-child::before {
-    background-color: #E4D5FF;
-}
-
-.tr-color-10 td:first-child::before {
-    background-color: #DCB9FF;
-}
-
-.tr-color-11 td:first-child::before {
-    background-color: #FFD5F5;
-}
-
-.tr-color-12 td:first-child::before {
-    background-color: #F7D1FF;
-}
 
 .btn-descargar {
     transition: all .1s;

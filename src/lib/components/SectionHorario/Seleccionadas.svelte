@@ -31,7 +31,7 @@
         </thead>
         <tbody class="calendar-body" id="selected">
             {#each Object.entries(storeSeleccion.data) as entries (entries[0])}
-                <MateriaRow materia={entries[1].materia} />
+                <MateriaRow color={entries[1].color} materia={entries[1].materia} />
             {/each}
         </tbody>
     </table>

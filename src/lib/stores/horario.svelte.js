@@ -1,4 +1,4 @@
-import { getDataHorario } from "../utils/utils";
+import { getDataHorario, getColor } from "../utils/utils";
 
 let StoreSeleccion = $state({});
 let StoreHorario = $state(Object.fromEntries(
@@ -15,6 +15,7 @@ function agregarMateriaSeleccion(materia) {
 	StoreSeleccion[materia.codigo] = {
 		materia: materia,
 		horarios: null,
+		color: getColor(),
 	};
 }
 

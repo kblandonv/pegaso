@@ -2,6 +2,11 @@
 	const { data } = $props();
 	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
 	import Horario from "../lib/components/SectionHorario/Horario.svelte";
+
+	/*
+		- Agregar guardar horario en local
+		- Agregar ver grafico
+	*/
 </script>
 
 <svelte:head>
