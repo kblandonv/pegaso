@@ -28,8 +28,8 @@
 	<td class="px-3 my-border">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
-			{#each materia.grupos as grupo (grupo)}
-				<option value={grupo.grupo}>{grupo.grupo}</option>
+			{#each materia.grupos as grupo (grupo.grupo)}
+				<option disabled={!storeHorario.verificarHorarios(materia.codigo, grupo.horarios)} value={grupo.grupo}>{grupo.grupo}</option>
 			{/each}
 		</select>
 	</td>

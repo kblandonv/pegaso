@@ -1,21 +1,28 @@
-import { getDataHorario, getColor } from "../utils/utils";
+import { getDataHorario, getColor } from '../utils/utils';
 
 let StoreSeleccion = $state({});
-let StoreHorario = $state(Object.fromEntries(
-	["6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"].map(dia => {
-		return [
-			dia,
-			Object.fromEntries(["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"].map(h => [h, null]))
-		]
-	})
-));
+let StoreHorario = $state(
+	Object.fromEntries(
+		['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'].map((dia) => {
+			return [
+				dia,
+				Object.fromEntries(
+					['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'].map((h) => [
+						h,
+						null
+					])
+				)
+			];
+		})
+	)
+);
 
 /* Metodos asignaturas seleccionadas */
 function agregarMateriaSeleccion(materia) {
 	StoreSeleccion[materia.codigo] = {
 		materia: materia,
 		horarios: null,
-		color: getColor(),
+		color: getColor()
 	};
 }
 
@@ -27,10 +34,10 @@ function eliminarMateriaSeleccion(materia) {
 /* Metodos horario */
 function eliminarHorarios(horarios) {
 	for (const h of horarios) {
-		const {dia, inicio, fin} = getDataHorario(h);
+		const { dia, inicio, fin } = getDataHorario(h);
 
 		for (let time = inicio; time < fin; time++) {
-			StoreHorario[time][dia.toString()] = null;
+			StoreHorario[time.toString()][dia.toString()] = null;
 		}
 	}
 }
@@ -43,38 +50,50 @@ function limpiarMateriaHorario(materia) {
 }
 
 function asignarHorario(materia, horarios) {
-
 	limpiarMateriaHorario(materia);
 
 	StoreSeleccion[materia.codigo].horarios = horarios;
 
 	for (const h of horarios) {
-		const {dia, inicio, fin} = getDataHorario(h);
+		const { dia, inicio, fin } = getDataHorario(h);
 
 		for (let time = inicio; time < fin; time++) {
-			StoreHorario[time][dia.toString()] = materia.codigo;
+			StoreHorario[time.toString()][dia.toString()] = materia.codigo;
 		}
 	}
 }
 
-export function getStoreHorario() {
+function verificarGrupoHorario(codigo, horarios) {
+	for (const h of horarios) {
+		const { dia, inicio, fin } = getDataHorario(h);
 
+		for (let time = inicio; time < fin; time++) {
+			const materia = StoreHorario[time.toString()][dia.toString()];
+			if (materia !== null && materia !== codigo) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+export function getStoreHorario() {
 	return {
 		get data() {
 			return StoreHorario;
 		},
 		asignar: asignarHorario,
-		limpiar: limpiarMateriaHorario
+		limpiar: limpiarMateriaHorario,
+		verificarHorarios: verificarGrupoHorario
 	};
 }
 
 export function getStoreSeleccion() {
-
 	return {
 		get data() {
 			return StoreSeleccion;
 		},
 		agregar: agregarMateriaSeleccion,
-		eliminar: eliminarMateriaSeleccion,
+		eliminar: eliminarMateriaSeleccion
 	};
 }
