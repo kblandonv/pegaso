@@ -8,7 +8,9 @@
 <div class="app container">
 	<Header />
 
+	<!--
 	<Blob />
+	-->
 
 	<main>
 		<slot />

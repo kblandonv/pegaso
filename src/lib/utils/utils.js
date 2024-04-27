@@ -1,5 +1,6 @@
 import { utils, write } from "xlsx";
 import Chart from 'chart.js/auto';
+import { color } from "chart.js/helpers";
 
 let usedChart = null;
 
@@ -61,7 +62,9 @@ export function createGraph(canvas, asignatura) {
         labels: labels,
         datasets: [{
             label: "Cupos",
-            backgroundColor: "#D871FF",
+            backgroundColor: "#B346FF",
+            borderColor: "rgb(85, 60, 144, 0.5)",
+            color: "#ffffff",
             data: values,
         }]
     };
@@ -70,6 +73,7 @@ export function createGraph(canvas, asignatura) {
         type: "line",
         data: data,
         options: {
+            animation: false,
             indexAxis: "x",
             scales: {
                 y: {

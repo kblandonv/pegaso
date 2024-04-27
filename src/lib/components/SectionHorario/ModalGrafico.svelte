@@ -47,14 +47,15 @@
 
 <style lang="scss">
 	dialog {
-		z-index: 5;
 
-		background: rgba(233, 199, 255, 0.37);
+		z-index: 10;
+		background: rgba(238, 210, 255, 0.3);
 		border-radius: 16px;
-		box-shadow: 0 4px 30px rgba(65, 36, 104, 0.1);
-		backdrop-filter: blur(19.4px);
-		-webkit-backdrop-filter: blur(19.4px);
-		border: 1px solid rgba(255, 255, 255, 0.3);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(14.2px);
+		-webkit-backdrop-filter: blur(14.2px);
+		border: 1px solid rgba(238, 210, 255, 0.3);
+		transition: all 0.2s ease;
 
 		width: auto;
 		height: auto;

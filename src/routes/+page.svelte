@@ -2,6 +2,7 @@
 	const { data } = $props();
 	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
 	import Horario from "../lib/components/SectionHorario/Horario.svelte";
+	import ModalGrafico from "$lib/components/SectionHorario/ModalGrafico.svelte";
 
 	/*
 		- Agregar guardar horario en local
@@ -20,6 +21,8 @@
 	<Buscador asignaturas={data.asignaturas}/>
 
 	<hr class="hr-pink" />
+
+	<ModalGrafico />
 
 	<!-- Horario -->
 	<Horario />
