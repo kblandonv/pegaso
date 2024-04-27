@@ -1,0 +1,30 @@
+<script>
+	const { data } = $props();
+	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
+	import Horario from "../lib/components/SectionHorario/Horario.svelte";
+
+	/*
+		- Agregar guardar horario en local
+		- Agregar ver grafico
+	*/
+</script>
+
+<svelte:head>
+	<title>imlargo - Buscador Cursos</title>
+	<meta name="description" content="Sia creado por imlargo" />
+</svelte:head>
+
+<main>
+	
+	<!-- Buscador de cursos -->
+	<Buscador asignaturas={data.asignaturas}/>
+
+	<hr class="hr-pink" />
+
+	<!-- Horario -->
+	<Horario />
+
+</main>
+
+<style lang="scss">
+</style>

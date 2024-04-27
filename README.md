@@ -1,29 +1,31 @@
-<h1 align="center">my-sia</h1>
+<h1 align="center">Mi Sistema de Informacion Academica</h1>
+ 
+> Aplicacion web para crear horarios, buscar asignaturas y cupos de manera rapida y sencilla. Creado con cariño para los estudiantes de la Universidad Nacional de Colombia. (**Nota:** Actualmente en desarrollo!)
 
-Organizador de horarios para los estudiantes de la UNAL.
-
-Ver aplicacion web ->
-
-## Features
-
-- Organiza tus horarios
-- Buscar cualquier materia en segundos
-
-## Usage/Examples
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-## Support
-
-For support, email jlargob@unal.edu.co.
-
-## Tech Stack
-
+Si tienes alguna retroalimentación, duda, o sugerencia contactame al: ...
 
 ## Contributing
 
 Contributions are always welcome!.
 
+### Tools used and Tech Stack
+
+<a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=svelte,sass,js,bootstrap,html&theme=dark" />
+</a>
+
 ## Authors
 
 - [@imlargo](https://www.github.com/imlargo)
+
+
+
+
+
+
+
+
+
+
+
+
