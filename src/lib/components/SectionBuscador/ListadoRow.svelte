@@ -3,14 +3,19 @@
 
 	import { getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
 	let materiasSeleccionadas = getmateriasSeleccionadas();
-	
-	let totalCupos = materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0);
-	let isDisabled = $derived(materiasSeleccionadas.data.some(e => e.codigo === materia.codigo));
+
+	let isDisabled = $derived(Object.keys(materiasSeleccionadas.data).includes(materia.codigo));
 
 	// Event listener for the "Add" button
 	function handleClick(e) {
-		console.log(materia);
-		materiasSeleccionadas.data.push(materia);
+		console.log("Reasignando");
+		materiasSeleccionadas.data[materia.codigo] = {
+			materia: materia,
+			horarios: null,
+			toDelete: false,
+		};
+		materiasSeleccionadas.data = materiasSeleccionadas.data;
+		console.log("Continue");
 		
 		// getPopUp(materia);
 		// guardarMateria(materia, button);
@@ -32,7 +37,7 @@
 		</button>
 	</td>
 	<td class="my-border px-2 text-center">{materia.tipologia}</td>
-	<td class="my-border px-2 text-center">{totalCupos}</td>
+	<td class="my-border px-2 text-center">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</td>
 </tr>
 
 
