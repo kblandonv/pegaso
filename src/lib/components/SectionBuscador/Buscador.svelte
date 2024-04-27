@@ -9,7 +9,6 @@
 	let selectFacultad;
 	let selectCarrera;
 	let selectTipologia;
-	let componentListado;
 
 	function filtrarMaterias(asignaturas, facultad, carrera, tipologia) {
         const allMaterias = asignaturas[facultad][carrera];
@@ -57,8 +56,6 @@
         	const materias = filtrarMaterias(asignaturas.data, facultad, carrera, tipologia);
 
 			materiasFiltradas.set(materias);
-        
-        	// mostrarListadoMaterias(materias);
 		});
 
 		// Dispatch change event to start
@@ -90,5 +87,5 @@
 
 	<hr class="hr-pink" />
 
-	<Listado bind:this={componentListado}/>
+	<Listado />
 </section>
