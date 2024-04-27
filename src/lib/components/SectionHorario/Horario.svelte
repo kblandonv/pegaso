@@ -1,9 +1,11 @@
 <script>
-	import Seleccionadas from '$lib/components/SectionHorario/Seleccionadas.svelte';
-	import CeldaHorario from './CeldaHorario.svelte';
 	import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
+
+	import Seleccionadas from '$lib/components/SectionHorario/Seleccionadas.svelte';
+	import CeldaHorario from './CeldaHorario.svelte';
+	import BotonDescargar from './BotonDescargar.svelte';
 </script>
 
 <section class="rounded container px-3 py-4 my-4 glass">
@@ -13,12 +15,7 @@
 		<h2>Horario</h2>
 
 		<div class="d-flex justify-content-between">
-			<button class="btn btn-sm btn-descargar" id="btn-descargar">
-				<div class="d-flex gap-1">
-					<i class="bi bi-download"></i>
-					Descargar
-				</div>
-			</button>
+			<BotonDescargar />
 		</div>
 	</div>
 
