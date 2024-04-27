@@ -6,9 +6,13 @@
 	import Seleccionadas from '$lib/components/SectionHorario/Seleccionadas.svelte';
 	import CeldaHorario from './CeldaHorario.svelte';
 	import BotonDescargar from './BotonDescargar.svelte';
+	import ModalGrafico from './ModalGrafico.svelte';
+	
 </script>
 
 <section class="rounded container px-3 py-4 my-4 glass">
+	<ModalGrafico />
+	
 	<Seleccionadas />
 
 	<div class="rounded-top border p-3 font-bold d-flex justify-content-between align-items-center">

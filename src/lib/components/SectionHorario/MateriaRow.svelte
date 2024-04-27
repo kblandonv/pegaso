@@ -1,7 +1,9 @@
 <script>
 	let { materia, color } = $props();
 	import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
+	import { getStoreGrafico } from "$lib/stores/grafico.svelte.js";
 
+	let storeGrafico = getStoreGrafico();
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
 
@@ -19,10 +21,19 @@
 	function deleteMateria() {
 		storeSeleccion.eliminar(materia);
 	}
+
+	function onclickShowGrafico(event) {
+		storeGrafico.codigo = materia.codigo;
+		storeGrafico.element.show();
+	}
+
 </script>
 
 <tr class={`tr-${color}`}>
-	<td id="codigo" class="px-3 my-border">{materia.codigo}</td>
+	<td id="codigo" class="px-3 my-border" onclick={onclickShowGrafico}>
+		<i class="bi bi-bar-chart-line"></i>
+		<span>{materia.codigo}</span>
+	</td>
 	<td id="nombre" class="px-3 my-border">{materia.nombre}</td>
 	<td class="px-3 my-border">{materia.creditos}</td>
 	<td class="px-3 my-border">
@@ -51,6 +62,12 @@
 <style>
 	tr td:first-child {
 		position: relative;
+	}
+
+	#codigo:hover {
+		cursor: pointer;
+		background-color: rgba(177, 94, 255, 0.1);
+	
 	}
 
 	tr td:first-child::before {

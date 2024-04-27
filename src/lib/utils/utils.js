@@ -1,4 +1,7 @@
 import { utils, write } from "xlsx";
+import Chart from 'chart.js/auto';
+
+let usedChart = null;
 
 const usedColors = new Set()
 
@@ -41,4 +44,44 @@ export function getColor() {
         usedColors.add(color);
         return color;
     }
+}
+
+export function createGraph(canvas, asignatura) {
+    if (!asignatura) return;
+
+    if (usedChart) {
+        usedChart.destroy();
+    }
+
+    const total = asignatura.total;
+    const labels = Object.keys(total);
+    const values = Object.values(total);
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "Cupos",
+            backgroundColor: "#D871FF",
+            data: values,
+        }]
+    };
+
+    const config = {
+        type: "line",
+        data: data,
+        options: {
+            indexAxis: "x",
+            scales: {
+                y: {
+                    min: 0,
+                }
+            }
+        },
+        
+    };
+
+    usedChart = new Chart(
+        canvas,
+        config
+    );
 }
