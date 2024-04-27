@@ -1,8 +1,10 @@
 <script>
     let { materia } = $props();
 
-    import { getmateriasSeleccionadas, getHorario } from '../../stores/asignaturas.svelte.js';
+    import { getHorario, getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
+
 	let materiasSeleccionadas = getmateriasSeleccionadas();
+
     let horario = getHorario();
 
     let groupValue = $state("")
@@ -10,8 +12,10 @@
 
     $effect(() => {
         if (selectedGrupo) {
-            horario.data[materia.codigo] = selectedGrupo.horarios;
-            console.log(horario.data);
+            
+            console.log(selectedGrupo.horarios);
+            horario.agregar(materia, selectedGrupo.horarios);
+
         }
     });
 

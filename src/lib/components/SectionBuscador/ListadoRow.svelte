@@ -1,7 +1,7 @@
 <script>
 	let { materia } = $props();
 
-	import { getmateriasSeleccionadas } from '../../stores/asignaturas.svelte.js';
+	import { getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
 	let materiasSeleccionadas = getmateriasSeleccionadas();
 	
 	let totalCupos = materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0);

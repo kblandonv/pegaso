@@ -1,6 +1,6 @@
 <script>
     import MateriaRow from './MateriaRow.svelte';
-    import { getmateriasSeleccionadas } from '../../stores/asignaturas.svelte.js';
+    import { getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
     let materiasSeleccionadas = getmateriasSeleccionadas();
 
     let totalCreditos = $derived(Object.values(materiasSeleccionadas.data).reduce((acc, materia) => acc + parseInt(materia.creditos), 0));

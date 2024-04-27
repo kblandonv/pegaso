@@ -1,21 +1,6 @@
 let asignaturas = $state([]);
 let materias = $state([]);
-let seleccionadas = $state([]);
-let horario = $state({});
 
-export function getHorario() {
-
-    function set(data) {
-        horario = data;
-    }
-
-	return {
-		get data() {
-			return horario;
-		},
-        set
-	};
-}
 
 export function getmateriasFiltradas() {
 
@@ -26,20 +11,6 @@ export function getmateriasFiltradas() {
 	return {
 		get data() {
 			return materias;
-		},
-        set
-	};
-}
-
-export function getmateriasSeleccionadas() {
-
-    function set(data) {
-        seleccionadas = data;
-    }
-
-	return {
-		get data() {
-			return seleccionadas;
 		},
         set
 	};

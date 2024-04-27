@@ -1,9 +1,7 @@
 <script>
     import Seleccionadas from "$lib/components/SectionHorario/Seleccionadas.svelte";
-    import { getmateriasSeleccionadas, getHorario } from '../../stores/asignaturas.svelte.js';
-	let materiasSeleccionadas = getmateriasSeleccionadas();
+    import { getHorario } from '../../stores/horario.svelte.js';
     let horario = getHorario();
-
 	
 </script>
 
@@ -39,146 +37,14 @@
             </tr>
         </thead>
         <tbody id="calendar-body">
-            <tr id="hora-6">
-                <td class="my-border px-4 py-2 opacity-60">6:00 - 7:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-7">
-                <td class="my-border px-4 py-2 opacity-60">7:00 - 8:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-8">
-                <td class="my-border px-4 py-2 opacity-60">8:00 - 9:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-9">
-                <td class="my-border px-4 py-2 opacity-60">9:00 - 10:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-10">
-                <td class="my-border px-4 py-2 opacity-60">10:00 - 11:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-11">
-                <td class="my-border px-4 py-2 opacity-60">11:00 - 12:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-12">
-                <td class="my-border px-4 py-2 opacity-60">12:00 - 1:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-13">
-                <td class="my-border px-4 py-2 opacity-60">1:00 - 2:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-14">
-                <td class="my-border px-4 py-2 opacity-60">2:00 - 3:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-15">
-                <td class="my-border px-4 py-2 opacity-60">3:00 - 4:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-16">
-                <td class="my-border px-4 py-2 opacity-60">4:00 - 5:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-17">
-                <td class="my-border px-4 py-2 opacity-60">5:00 - 6:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-18">
-                <td class="my-border px-4 py-2 opacity-60">6:00 - 7:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
-            <tr id="hora-19">
-                <td class="my-border px-4 py-2 opacity-60">7:00 - 8:00</td>
-                <td id="lunes" class="my-border px-4 py-2"></td>
-                <td id="martes" class="my-border px-4 py-2"></td>
-                <td id="miercoles" class="my-border px-4 py-2"></td>
-                <td id="jueves" class="my-border px-4 py-2"></td>
-                <td id="viernes" class="my-border px-4 py-2"></td>
-                <td id="sabado" class="my-border px-4 py-2"></td>
-                <td id="domingo" class="my-border px-4 py-2"></td>
-            </tr>
+            {#each Object.entries(horario.data) as entry (entry[0])}
+                <tr id={entry[0]}>
+                    <td class="my-border px-4 py-2 opacity-60">{`${entry[0]}:00 - ${parseInt(entry[0])+1}:00`}</td>
+                    {#each Object.entries(entry[1]) as dias (dias[0])}
+                        <td id={dias[0]} class="my-border px-4 py-2">{dias[1] ? "Materia" : ""}</td>    
+                    {/each}
+                </tr>
+            {/each}
         </tbody>
     </table>
 </section>
