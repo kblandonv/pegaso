@@ -1,6 +1,5 @@
 <script>
 	let blobElement;
-
 	$effect(() => {
 		window.onpointermove = (event) => {
 			const { clientX, clientY } = event;
@@ -10,13 +9,13 @@
 					left: `${clientX}px`,
 					top: `${clientY}px`
 				},
-				{ duration: 3000, fill: 'forwards' }
+				{ duration: 8000, fill: 'forwards', easing: 'ease-in' }
 			);
 		};
 	});
 </script>
 
-<div bind:this={blobElement}></div>
+<div id="blob" bind:this={blobElement}></div>
 
 <style lang="scss">
 	@keyframes rotate {
@@ -33,7 +32,7 @@
 		}
 	}
 
-	div {
+	#blob {
 		background-color: white;
 		height: 34vmax;
 		aspect-ratio: 1;
@@ -44,12 +43,11 @@
 		border-radius: 50%;
 
 		background: linear-gradient(to right, rgba(205, 187, 255), rgba(249, 207, 255));
-		animation: rotate 20s infinite;
-		opacity: 1;
+		animation: rotate 20s infinite linear;
+		opacity: 0.5;
 		filter: blur(20px);
 
-		z-index: -1;
 
-		transition: all 0.5s;
+		z-index: -1;
 	}
 </style>

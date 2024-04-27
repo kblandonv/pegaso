@@ -15,6 +15,7 @@
 </svelte:head>
 
 <main>
+	
 	<!-- Buscador de cursos -->
 	<Buscador asignaturas={data.asignaturas}/>
 
