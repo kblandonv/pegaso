@@ -3,9 +3,11 @@
 	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
 	import Horario from "../lib/components/SectionHorario/Horario.svelte";
 
-	import { getAsignaturas } from '../lib/stores/asignaturas.svelte.js';
-	let asignaturas = getAsignaturas();
-	asignaturas.asignar(data.loadedData);
+	//import { getAsignaturas } from '../lib/stores/asignaturas.svelte.js';
+	//let asignaturas = getAsignaturas();
+	//asignaturas.asignar(data.loadedData);
+
+	console.log(data.asignaturas);
 	
 </script>
 
@@ -16,7 +18,7 @@
 
 <main>
 	<!-- Buscador de cursos -->
-	<Buscador/>
+	<Buscador asignaturas={data.asignaturas}/>
 
 	<hr class="hr-pink" />
 

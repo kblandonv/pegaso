@@ -2,19 +2,18 @@
 	import { onMount } from 'svelte';
 	import Listado from './Listado.svelte';
 
-	import { getAsignaturas, getmateriasFiltradas } from '../../stores/asignaturas.svelte.js';
-	let asignaturas = getAsignaturas();
-	let materiasFiltradas = getmateriasFiltradas();
-	
+	const { asignaturas } = $props();
+	let materiasFiltradas = $state([]);
+
 	let selectFacultad;
 	let selectCarrera;
 	let selectTipologia;
 
 	function filtrarMaterias(asignaturas, facultad, carrera, tipologia) {
-        const allMaterias = asignaturas[facultad][carrera];
-        const isAll = tipologia === "TODAS LAS ASIGNATURAS";
-        return isAll ? allMaterias : allMaterias.filter(materia => materia.tipologia === tipologia);
-    }
+		const allMaterias = asignaturas[facultad][carrera];
+		const isAll = tipologia === 'TODAS LAS ASIGNATURAS';
+		return isAll ? allMaterias : allMaterias.filter((materia) => materia.tipologia === tipologia);
+	}
 
 	function addOptions(element, options) {
 		element.innerHTML = '';
@@ -28,10 +27,10 @@
 
 	onMount(() => {
 		// Agregar facultades
-		addOptions(selectFacultad, Object.keys(asignaturas.data));
+		addOptions(selectFacultad, Object.keys(asignaturas));
 
 		selectFacultad.addEventListener('change', function () {
-			const carreras = Object.keys(asignaturas.data[this.value]);
+			const carreras = Object.keys(asignaturas[this.value]);
 			addOptions(selectCarrera, carreras);
 			selectCarrera.dispatchEvent(new Event('change'));
 		});
@@ -39,7 +38,7 @@
 		selectCarrera.addEventListener('change', function () {
 			const facultad = selectFacultad.value;
 			const carrera = this.value;
-			const materiasCarrera = asignaturas.data[facultad][carrera];
+			const materiasCarrera = asignaturas[facultad][carrera];
 			const tipologias = [
 				'TODAS LAS ASIGNATURAS',
 				...new Set(materiasCarrera.map((materia) => materia.tipologia))
@@ -50,17 +49,15 @@
 
 		selectTipologia.addEventListener('change', function () {
 			const facultad = selectFacultad.value;
-        	const carrera = selectCarrera.value;
-        	const tipologia = this.value;
+			const carrera = selectCarrera.value;
+			const tipologia = this.value;
 
-        	const materias = filtrarMaterias(asignaturas.data, facultad, carrera, tipologia);
-
-			materiasFiltradas.set(materias);
+			// Asignar materias al estado
+			materiasFiltradas = filtrarMaterias(asignaturas, facultad, carrera, tipologia);
 		});
 
 		// Dispatch change event to start
 		selectFacultad.dispatchEvent(new Event('change'));
-
 	});
 </script>
 
@@ -87,5 +84,5 @@
 
 	<hr class="hr-pink" />
 
-	<Listado />
+	<Listado {materiasFiltradas} />
 </section>

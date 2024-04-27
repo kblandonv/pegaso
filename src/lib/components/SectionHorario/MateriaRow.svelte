@@ -1,23 +1,23 @@
 <script>
     let { materia } = $props();
-    import { getHorario, getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
+    import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
 
-    let horario = getHorario();
-    let materiasSeleccionadas = getmateriasSeleccionadas();
+    let storeHorario = getStoreHorario();
+    let storeSeleccion = getStoreSeleccion();
 
     let groupValue = $state("")
     let selectedGrupo = $derived(materia.grupos.find(grupo => grupo.grupo === groupValue));
 
     $effect(() => {
         if (selectedGrupo) {
-            horario.asignar(materia, selectedGrupo.horarios);
+            storeHorario.asignar(materia, selectedGrupo.horarios);
         } else {
-            horario.limpiar(materia);
+            storeHorario.limpiar(materia);
         }
     });
 
     function deleteMateria() {
-        materiasSeleccionadas.eliminar(materia);
+        storeSeleccion.eliminar(materia);
     }
 </script>
 

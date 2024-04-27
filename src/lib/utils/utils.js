@@ -1,10 +1,8 @@
-function getDataHorario(horario) {
-    const inicio = parseInt(horario.inicio.split(":")[0]);
-    const fin = parseInt(horario.fin.split(":")[0]);
-    const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    
-    return [inicio, fin, dia];
+export function getDataHorario(horario) {
+	const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	const inicio = parseInt(horario.inicio.split(":")[0]);
+	const fin = parseInt(horario.fin.split(":")[0]);
+	return {dia, inicio, fin};
 }
 
 export function seCruza(grupo1, grupo2) {

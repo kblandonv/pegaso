@@ -15,6 +15,6 @@ export async function load({ params }) {
     const data = await raw.json();
 
 	return {
-        loadedData: data,
+        asignaturas: data,
     };
 }

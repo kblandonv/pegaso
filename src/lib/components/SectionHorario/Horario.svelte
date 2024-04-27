@@ -1,16 +1,16 @@
 <script>
     import Seleccionadas from "$lib/components/SectionHorario/Seleccionadas.svelte";
-    import { getHorario, getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
-    let horario = getHorario();
-    let materiasSeleccionadas = getmateriasSeleccionadas();
-	
+    import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
+    let storeHorario = getStoreHorario();
+    let storeSeleccion = getStoreSeleccion();
+
 </script>
 
 
 <section class="rounded container px-3 py-4 my-4 glass">
 
     <Seleccionadas />
-    
+
     <div class="rounded-top border p-3 font-bold d-flex justify-content-between align-items-center">
         <h2>Horario</h2>
 
@@ -38,11 +38,11 @@
             </tr>
         </thead>
         <tbody id="calendar-body">
-            {#each Object.entries(horario.data) as entry (entry[0])}
+            {#each Object.entries(storeHorario.data) as entry (entry[0])}
                 <tr id={entry[0]}>
                     <td class="my-border px-4 py-2 opacity-60">{`${entry[0]}:00 - ${parseInt(entry[0])+1}:00`}</td>
                     {#each Object.entries(entry[1]) as dias (dias[0])}
-                        <td id={dias[0]} class="my-border px-4 py-2">{dias[1] ? materiasSeleccionadas.data[dias[1]].materia.nombre : ""}</td>
+                        <td id={dias[0]} class="my-border px-4 py-2">{dias[1] ? storeSeleccion.data[dias[1]].materia.nombre : ""}</td>
                     {/each}
                 </tr>
             {/each}

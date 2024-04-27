@@ -1,15 +1,15 @@
 <script>
 	let { materia } = $props();
 
-	import { getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
-	let materiasSeleccionadas = getmateriasSeleccionadas();
+	import { getStoreSeleccion } from '../../stores/horario.svelte.js';
+	let storeSeleccion = getStoreSeleccion();
 
-	let isDisabled = $derived(Object.keys(materiasSeleccionadas.data).includes(materia.codigo));
+	let isDisabled = $derived(Object.keys(storeSeleccion.data).includes(materia.codigo));
 
 	// Event listener for the "Add" button
 	function handleClick(e) {
-		materiasSeleccionadas.agregar(materia);
-		
+		storeSeleccion.agregar(materia);
+
 		// getPopUp(materia);
 		// guardarMateria(materia, button);
 		// updateDatosSelected();
@@ -32,8 +32,6 @@
 	<td class="my-border px-2 text-center">{materia.tipologia}</td>
 	<td class="my-border px-2 text-center">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</td>
 </tr>
-
-
 
 <style lang="scss">
 	button {

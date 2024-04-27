@@ -1,16 +1,16 @@
 <script>
     import MateriaRow from './MateriaRow.svelte';
-    import { getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
-    let materiasSeleccionadas = getmateriasSeleccionadas();
+    import { getStoreSeleccion } from '../../stores/horario.svelte.js';
+    let storeSeleccion = getStoreSeleccion();
 
-    let totalCreditos = $derived(Object.values(materiasSeleccionadas.data).reduce((acc, obj) => acc + parseInt(obj.materia.creditos), 0));
+    let totalCreditos = $derived(Object.values(storeSeleccion.data).reduce((acc, obj) => acc + parseInt(obj.materia.creditos), 0));
 
 </script>
 
 <details open class="mb-4">
     <summary class="rounded-top py-2 px-4 font-bold">
         <div class="d-flex justify-content-between">
-            <span id="asignaturas-seleccionadas">Asignaturas seleccionadas: {Object.keys(materiasSeleccionadas.data).length}</span>
+            <span id="asignaturas-seleccionadas">Asignaturas seleccionadas: {Object.keys(storeSeleccion.data).length}</span>
             <span id="total-creditos">Total Creditos: {totalCreditos}</span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody class="calendar-body" id="selected">
-            {#each Object.entries(materiasSeleccionadas.data) as entries (entries[0])}
+            {#each Object.entries(storeSeleccion.data) as entries (entries[0])}
                 <MateriaRow materia={entries[1].materia} />
             {/each}
         </tbody>
