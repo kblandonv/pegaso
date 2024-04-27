@@ -8,14 +8,7 @@
 
 	// Event listener for the "Add" button
 	function handleClick(e) {
-		console.log("Reasignando");
-		materiasSeleccionadas.data[materia.codigo] = {
-			materia: materia,
-			horarios: null,
-			toDelete: false,
-		};
-		materiasSeleccionadas.data = materiasSeleccionadas.data;
-		console.log("Continue");
+		materiasSeleccionadas.agregar(materia);
 		
 		// getPopUp(materia);
 		// guardarMateria(materia, button);

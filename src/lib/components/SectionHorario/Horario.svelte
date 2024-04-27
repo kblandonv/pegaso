@@ -3,10 +3,6 @@
     import { getHorario, getmateriasSeleccionadas } from '../../stores/horario.svelte.js';
     let horario = getHorario();
     let materiasSeleccionadas = getmateriasSeleccionadas();
-
-    $effect(() => {
-        console.log("fromH", materiasSeleccionadas.data);
-    });
 	
 </script>
 
@@ -46,7 +42,7 @@
                 <tr id={entry[0]}>
                     <td class="my-border px-4 py-2 opacity-60">{`${entry[0]}:00 - ${parseInt(entry[0])+1}:00`}</td>
                     {#each Object.entries(entry[1]) as dias (dias[0])}
-                        <td id={dias[0]} class="my-border px-4 py-2">{dias[1] ? materiasSeleccionadas.data[dias[1]].materia.nombre : ""}</td>    
+                        <td id={dias[0]} class="my-border px-4 py-2">{dias[1] ? materiasSeleccionadas.data[dias[1]].materia.nombre : ""}</td>
                     {/each}
                 </tr>
             {/each}
