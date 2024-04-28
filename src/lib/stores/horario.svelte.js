@@ -22,7 +22,8 @@ function agregarMateriaSeleccion(materia) {
 	StoreSeleccion[materia.codigo] = {
 		materia: materia,
 		horarios: null,
-		color: getColor()
+		color: getColor(),
+		grupo: null,
 	};
 }
 
@@ -47,12 +48,16 @@ function limpiarMateriaHorario(materia) {
 	if (toDelete) {
 		eliminarHorarios(toDelete);
 	}
+	StoreSeleccion[materia.codigo].grupo = null;
 }
 
-function asignarHorario(materia, horarios) {
+function asignarHorario(materia, grupo) {
 	limpiarMateriaHorario(materia);
 
+	const horarios = grupo.horarios
+
 	StoreSeleccion[materia.codigo].horarios = horarios;
+	StoreSeleccion[materia.codigo].grupo = grupo;
 
 	for (const h of horarios) {
 		const { dia, inicio, fin } = getDataHorario(h);

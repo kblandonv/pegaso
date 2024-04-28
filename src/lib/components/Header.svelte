@@ -16,6 +16,11 @@
 		setTimeout(() => {
     		dispatchTextEffect(imlargo);
 		}, 2000);
+
+		// Repetir cada 5 segundos
+		setInterval(() => {
+			dispatchTextEffect(imlargo);
+		}, 7000);
 	});
 
 </script>

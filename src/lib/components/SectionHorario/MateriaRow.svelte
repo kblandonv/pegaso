@@ -12,7 +12,7 @@
 
 	$effect(() => {
 		if (selectedGrupo) {
-			storeHorario.asignar(materia, selectedGrupo.horarios);
+			storeHorario.asignar(materia, selectedGrupo);
 		} else {
 			storeHorario.limpiar(materia);
 		}

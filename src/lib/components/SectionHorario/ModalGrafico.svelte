@@ -2,13 +2,16 @@
 	import { createGraph } from '$lib/utils/utils.js';
 	import * as jsonAnalisis from '$lib/assets/analisis.json';
 
+	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
 	let storeGrafico = getStoreGrafico();
+	let storeSeleccion = getStoreSeleccion();
 
 	const analisis = Object.values(jsonAnalisis.default)
 		.map((fac) => Object.values(fac))
 		.flat()
 		.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+
 	let asignatura = $derived(storeGrafico.codigo ? analisis[storeGrafico.codigo] : null);
 
 	let dialog;
@@ -19,7 +22,11 @@
 
 	$effect(() => {
 		if (asignatura) {
-			createGraph(canvas, asignatura);
+			createGraph(
+				canvas,
+				asignatura,
+				storeSeleccion.data[asignatura.codigo].grupo,
+			);
 		}
 	});
 

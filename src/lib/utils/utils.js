@@ -47,7 +47,7 @@ export function getColor() {
     }
 }
 
-export function createGraph(canvas, asignatura) {
+export function createGraph(canvas, asignatura, grupo) {
     if (!asignatura) return;
 
     if (usedChart) {
@@ -56,17 +56,25 @@ export function createGraph(canvas, asignatura) {
 
     const total = asignatura.total;
     const labels = Object.keys(total);
-    const values = Object.values(total);
+
+    const datasetTotal = {
+        label: "Cupos totales",
+        backgroundColor: "#B346FF",
+        borderColor: "rgb(85, 60, 144, 0.5)",
+        color: "#ffffff",
+        data: Object.values(total),
+    };
+    const datasetGrupo = grupo ? {
+        label: `Cupos ${grupo.grupo}`,
+        backgroundColor: "#FF6B97",
+        borderColor: "rgb(233, 124, 156, 0.6)",
+        color: "#ffffff",
+        data: Object.values(asignatura.grupos[grupo.grupo].cupos),
+    } : false
 
     const data = {
         labels: labels,
-        datasets: [{
-            label: "Cupos",
-            backgroundColor: "#B346FF",
-            borderColor: "rgb(85, 60, 144, 0.5)",
-            color: "#ffffff",
-            data: values,
-        }]
+        datasets: grupo ? [datasetTotal, datasetGrupo] : [datasetTotal],
     };
 
     const config = {

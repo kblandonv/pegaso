@@ -9,10 +9,6 @@
 	// Event listener for the "Add" button
 	function handleClick(e) {
 		storeSeleccion.agregar(materia);
-
-		// getPopUp(materia);
-		// guardarMateria(materia, button);
-		// updateDatosSelected();
 	}
 </script>
 
