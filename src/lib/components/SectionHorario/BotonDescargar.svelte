@@ -6,9 +6,9 @@
 
     function descargar() {
 
-        const titulos = ['Hora', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        const titulosHorario = ['Hora', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-        const horario = Object.entries(storeHorario.data).map(data => {
+        const datosHorario = Object.entries(storeHorario.data).map(data => {
             const [hora, dias] = data;
 
             const nombres = Object.values(dias).map(d => d ? `${storeSeleccion.data[d].materia.nombre}`: '');
@@ -19,7 +19,28 @@
             ]);
         });
 
-        const data = [titulos, ...horario];
+		const titulosConsolidado = [
+			"Código",
+			"Nombre",
+			"Créditos",
+			"Grupo",
+			"Docente",
+			"Horario",
+		]
+
+		const datosConsolidado = Object.entries(storeSeleccion.data).map(([codigo, datos]) => {
+			const { materia, grupo } = datos;
+			return [
+				codigo,
+				materia.nombre,
+				materia.creditos,
+				grupo.grupo,
+				grupo.profesor,
+				grupo.horarios.map((h) => `${h.dia} ${h.inicio}-${h.fin}`).join(',\n'),
+			];
+		});
+
+        const data = [titulosHorario, ...datosHorario, Array(8).fill(''), titulosConsolidado, ...datosConsolidado];
 		ArrayToExcel(data, 'Mi horario')
     }
 </script>
