@@ -1,7 +1,7 @@
 <script>
 	let { materia, color } = $props();
 	import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
-	import { getStoreGrafico } from "$lib/stores/grafico.svelte.js";
+	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
 
 	let storeGrafico = getStoreGrafico();
 	let storeHorario = getStoreHorario();
@@ -26,7 +26,6 @@
 		storeGrafico.codigo = materia.codigo;
 		storeGrafico.element.show();
 	}
-
 </script>
 
 <tr class={`tr-${color}`}>
@@ -40,7 +39,10 @@
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
-				<option disabled={!storeHorario.verificarHorarios(materia.codigo, grupo.horarios)} value={grupo.grupo}>{grupo.grupo}</option>
+				<option
+					disabled={!storeHorario.verificarHorarios(materia.codigo, grupo.horarios)}
+					value={grupo.grupo}>{grupo.grupo}</option
+				>
 			{/each}
 		</select>
 	</td>
@@ -53,13 +55,27 @@
 				.join(', ')}</td
 	>
 	<td class="px-3 my-border">
-		<button onclick={deleteMateria} class="onclick-push-me my-delete-button"
+		<button onclick={deleteMateria} class="onclick-push-me delete-button"
 			><i class="bi bi-x-square-fill text-2xl"></i></button
 		>
 	</td>
 </tr>
 
-<style>
+<style lang="scss">
+	.delete-button {
+		color: #ff8fb1;
+		width: 50%;
+		text-align: center;
+		display: flex;
+		margin: auto;
+		justify-content: center;
+		align-items: center;
+
+		&:hover {
+			color: #ff6b97;
+		}
+	}
+
 	tr td:first-child {
 		position: relative;
 	}
@@ -67,7 +83,6 @@
 	#codigo:hover {
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
-	
 	}
 
 	tr td:first-child::before {

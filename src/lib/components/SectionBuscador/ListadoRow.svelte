@@ -18,7 +18,7 @@
 	<td class="my-border px-2">{materia.nombre}</td>
 	<td class="my-border px-2">
 		<button
-			class={`btn-add onclick-push-me ${isDisabled ? 'btn-add-disabled' : ''}`}
+			class='onclick-push-me'
 			onclick={handleClick}
 			disabled={isDisabled}
 		>
@@ -43,5 +43,14 @@
 			color: #9345ff;
 			transform: scale(1.08);
 		}
+
+		&:disabled, &[disabled]{
+			color: rgba(156, 50, 255, 0.4) !important;
+		}
+
+	}
+
+	tr:hover {
+    	background: linear-gradient(90deg, rgba(111, 3, 244, 0.1), rgba(204, 57, 164, 0.1), rgba(255, 181, 210, 0.1));
 	}
 </style>

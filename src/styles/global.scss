@@ -26,10 +26,6 @@ body {
     border-top: 0.2rem solid #b566ffb0;
 }
 
-
-
-
-
 .my-toast {
     background-color: #a728c7;
     color: #ffffff;
@@ -37,26 +33,18 @@ body {
     z-index: 4;
 }
 
-.my-table-hover tbody tr:hover {
-    background: linear-gradient(90deg, rgba(111, 3, 244, 0.1), rgba(204, 57, 164, 0.1), rgba(255, 181, 210, 0.1));
-}
-
 .my-border {
     border: 1px solid rgba(106, 0, 255, 0.15)!important;
 }
 
-.my-button {
-    display: block;
-    margin: auto;
-}
+details {
+    i {
+        transition: all 0.4s ease;
+    }
 
-
-details i {
-    transition: all 0.4s ease;
-}
-
-details[open] i {
-    transform: rotate(180deg);
+    &[open] i {
+        transform: rotate(180deg);
+    }
 }
 
 summary {
@@ -65,9 +53,13 @@ summary {
     background: linear-gradient(90deg, rgba(210, 175, 255, 0.5), rgba(255, 140, 243, 0.4) 100%);
 }
 
+select {
+    background-color: rgba(253, 250, 255, 0.4) !important;
+    transition: all .3s;
 
-.blur-wrapper {
-    backdrop-filter: blur(12vmax);
+    option:checked {
+        background-color: #b26eff33;
+    }
 }
 
 .glass {
@@ -82,36 +74,12 @@ summary {
     font-family: 'JetBrains Mono', monospace;
 }
 
-select {
-    background-color: rgba(253, 250, 255, 0.4) !important;
-    transition: all .3s;
-}
-
-select option:checked {
-    background-color: #b26eff33;
-}
-
-
-.my-delete-button {
-    color: #ff8fb1;
-    width: 50%;
-    text-align: center;
-    display: flex;
+.my-button {
+    display: block;
     margin: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.my-delete-button:hover {
-    color: #ff6b97;
-}
-
-.btn-add-disabled {
-    color: rgba(156, 50, 255, 0.4) !important;
 }
 
 .onclick-push-me:active {
     transition: all .2s;
     transform: scale(0.9) !important;
 }
-

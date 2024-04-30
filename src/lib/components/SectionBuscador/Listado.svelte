@@ -15,7 +15,7 @@
 			<i class="bi bi-chevron-down"></i>
 		</div>
 	</summary>
-	<table class="table-auto w-full my-border rounded mb-4 my-table-hover">
+	<table class="table-auto w-full my-border rounded mb-4">
 		<thead class="text-center">
 			<tr>
 				<th class="my-border px-4 py-2">Código</th>
