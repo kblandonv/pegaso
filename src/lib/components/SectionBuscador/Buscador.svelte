@@ -9,6 +9,8 @@
 	let selectCarrera;
 	let selectTipologia;
 
+	let lastUpdate = asignaturas["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion;
+
 	function filtrarMaterias(asignaturas, facultad, carrera, tipologia) {
 		const allMaterias = asignaturas[facultad][carrera];
 		const isAll = tipologia === 'TODAS LAS ASIGNATURAS';
@@ -62,7 +64,7 @@
 </script>
 
 <section class="rounded container px-3 py-4 mt-3 mb-4 glass">
-	<div class="row align-items-center mb-4">
+	<div class="row align-items-center">
 		<div class="col">
 			<label class="fw-bold" for="facultad">Facultad</label>
 			<select id="facultad" class="mt-2 form-select form-select-sm" bind:this={selectFacultad}>
@@ -80,6 +82,13 @@
 			<select id="tipologia" class="mt-2 form-select form-select-sm" bind:this={selectTipologia}>
 			</select>
 		</div>
+	</div>
+
+	<div class="my-3">
+		<span>
+			<strong class="mt-4">Última actualización de cupos: </strong>
+			<span>{lastUpdate}</span>
+		</span>
 	</div>
 
 	<hr class="hr-pink" />
