@@ -1,10 +1,17 @@
-import { apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId, measurementId } from "$env/static/private"
+import { APIKEY, AUTHDOMAIN, DATABASEURL, PROJECTID, STORAGEBUCKET, MESSAGINGSENDERID, APPID, MEASUREMENTID, } from "$env/static/private"
 
 
 export async function load({ params }) {
-	return {
+    return {
         firebaseConfig: {
-            apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId, measurementId
+            apiKey: APIKEY,
+            authDomain: AUTHDOMAIN,
+            databaseURL: DATABASEURL,
+            projectId: PROJECTID,
+            storageBucket: STORAGEBUCKET,
+            messagingSenderId: MESSAGINGSENDERID,
+            appId: APPID,
+            measurementId: MEASUREMENTID,
         }
     };
 }
