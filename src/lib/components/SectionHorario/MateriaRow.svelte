@@ -39,8 +39,10 @@
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
+				{@const isDisponible = storeHorario.verificarHorarios(materia.codigo, grupo.horarios)}
 				<option
-					disabled={!storeHorario.verificarHorarios(materia.codigo, grupo.horarios)}
+					title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
+					disabled={isDisponible !== true}
 					value={grupo.grupo}>{grupo.grupo}</option
 				>
 			{/each}

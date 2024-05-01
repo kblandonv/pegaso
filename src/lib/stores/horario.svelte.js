@@ -73,9 +73,9 @@ function verificarGrupoHorario(codigo, horarios) {
 		const { dia, inicio, fin } = getDataHorario(h);
 
 		for (let time = inicio; time < fin; time++) {
-			const materia = StoreHorario[time.toString()][dia.toString()];
-			if (materia !== null && materia !== codigo) {
-				return false;
+			const materiaCodigo = StoreHorario[time.toString()][dia.toString()];
+			if (materiaCodigo !== null && materiaCodigo !== codigo) {
+				return StoreSeleccion[materiaCodigo].materia;
 			}
 		}
 	}
