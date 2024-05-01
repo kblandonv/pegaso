@@ -1,4 +1,5 @@
 <script>
+	const { logDescargaEvent } = $props();
 	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
@@ -17,7 +18,7 @@
 		<h2>Horario</h2>
 
 		<div class="d-flex justify-content-between">
-			<BotonDescargar />
+			<BotonDescargar {logDescargaEvent} />
 		</div>
 	</div>
 

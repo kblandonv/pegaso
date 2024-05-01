@@ -1,4 +1,5 @@
 <script>
+	const { logDescargaEvent } = $props();
 	import { ArrayToExcel } from "../../utils/utils.js";
     import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
 	let storeHorario = getStoreHorario();
@@ -6,6 +7,8 @@
 
     function descargar() {
 
+		logDescargaEvent();
+		
         const titulosHorario = ['Hora', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
         const datosHorario = Object.entries(storeHorario.data).map(data => {

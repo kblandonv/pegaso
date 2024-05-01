@@ -25,7 +25,7 @@
 	<ModalGrafico />
 
 	<!-- Horario -->
-	<Horario />
+	<Horario logDescargaEvent={data.logDescargaEvent} />
 
 </main>
 

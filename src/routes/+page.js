@@ -1,7 +1,9 @@
 export const csr = true;
 import { browser } from '$app/environment'
 
-export async function load({ params }) {
+import { init } from "$lib/utils/firebase.js"
+
+export async function load({ params, data }) {
 
     const url = "https://raw.githubusercontent.com/imlargo/api/main/data.json";
     const uniqueUrl = url + "?t=" + Date.now();
@@ -10,15 +12,18 @@ export async function load({ params }) {
         method: 'GET',
         cache: 'no-store'
     });
-    const data = await raw.json();
+    const asignaturas = await raw.json();
 
     let horarioLocal = null;
+    let logDescargaEvent = () => {};
     if (browser) {
 		horarioLocal = localStorage.getItem("horarioLocal");
+        logDescargaEvent = init(data.firebaseConfig);
 	}
 
 	return {
-        asignaturas: data,
+        asignaturas: asignaturas,
         horarioLocal: horarioLocal ? JSON.parse(horarioLocal) : null,
+        logDescargaEvent: logDescargaEvent,
     };
 }
