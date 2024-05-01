@@ -18,7 +18,7 @@
 <main>
 	
 	<!-- Buscador de cursos -->
-	<Buscador asignaturas={data.asignaturas}/>
+	<Buscador asignaturas={data.asignaturas} horarioLocal={data.horarioLocal} />
 
 	<hr class="hr-pink" />
 

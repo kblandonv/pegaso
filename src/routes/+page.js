@@ -1,7 +1,5 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-// export const prerender = true;
 export const csr = true;
+import { browser } from '$app/environment'
 
 export async function load({ params }) {
 
@@ -14,7 +12,13 @@ export async function load({ params }) {
     });
     const data = await raw.json();
 
+    let horarioLocal = null;
+    if (browser) {
+		horarioLocal = localStorage.getItem("horarioLocal");
+	}
+
 	return {
         asignaturas: data,
+        horarioLocal: horarioLocal ? JSON.parse(horarioLocal) : null,
     };
 }

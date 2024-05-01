@@ -1,5 +1,5 @@
 <script>
-	import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
+	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
 

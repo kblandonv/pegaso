@@ -25,11 +25,13 @@ function agregarMateriaSeleccion(materia) {
 		color: getColor(),
 		grupo: null,
 	};
+	saveToLocalHorario();
 }
 
 function eliminarMateriaSeleccion(materia) {
 	limpiarMateriaHorario(materia);
 	delete StoreSeleccion[materia.codigo];
+	saveToLocalHorario();
 }
 
 /* Metodos horario */
@@ -68,6 +70,10 @@ function asignarHorario(materia, grupo) {
 	}
 }
 
+function saveToLocalHorario() {
+	localStorage.setItem('horarioLocal', JSON.stringify(StoreSeleccion));
+}
+
 function verificarGrupoHorario(codigo, horarios) {
 	for (const h of horarios) {
 		const { dia, inicio, fin } = getDataHorario(h);
@@ -99,6 +105,11 @@ export function getStoreSeleccion() {
 			return StoreSeleccion;
 		},
 		agregar: agregarMateriaSeleccion,
-		eliminar: eliminarMateriaSeleccion
+		eliminar: eliminarMateriaSeleccion,
+		cargar: function (localHorario) {
+			Object.values(localHorario).forEach((materia) => {
+				agregarMateriaSeleccion(materia.materia);
+			});
+		}
 	};
 }

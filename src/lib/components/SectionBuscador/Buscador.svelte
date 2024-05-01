@@ -1,10 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
 	import Listado from './Listado.svelte';
+	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
+	let storeSeleccion = getStoreSeleccion();
 
-	const { asignaturas } = $props();
+	const { asignaturas, horarioLocal } = $props();
+
+	if (horarioLocal !== null) {
+		storeSeleccion.cargar(horarioLocal);
+	}
+
 	let materiasFiltradas = $state([]);
-
 	let selectFacultad;
 	let selectCarrera;
 	let selectTipologia;
