@@ -4,7 +4,7 @@
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
 
-	import Seleccionadas from '$lib/components/SectionHorario/Seleccionadas.svelte';
+	import Seleccionadas from './Seleccionadas.svelte';
 	import CeldaHorario from './CeldaHorario.svelte';
 	import BotonDescargar from './BotonDescargar.svelte';
 	

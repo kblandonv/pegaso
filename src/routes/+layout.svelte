@@ -1,8 +1,20 @@
 <script>
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Blob from '../lib/components/Misc/Blob.svelte';
-	import '../styles/global.scss';
+	import { setContext } from 'svelte';
+	import Header from '$components/UI/Header.svelte';
+	import Footer from '$components/UI/Footer.svelte';
+	import Blob from '$components/UI/Blob.svelte';
+	import Toast from '$components/UI/Toast.svelte';
+	import '$src/styles/global.scss';
+
+
+	let toastInstance;
+	function addToast(mensaje) {
+		toastInstance.addToast(mensaje)
+	}
+
+	setContext('toast', {
+		addToast
+	});
 </script>
 
 <div class="app container">
@@ -21,6 +33,8 @@
 	<div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
 
 	</div>
+
+	<Toast bind:this={toastInstance} />
 </div>
 
 <style>

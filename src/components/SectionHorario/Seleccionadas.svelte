@@ -1,6 +1,6 @@
 <script>
     import MateriaRow from './MateriaRow.svelte';
-    import { getStoreSeleccion } from '../../stores/horario.svelte.js';
+    import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
     let storeSeleccion = getStoreSeleccion();
 
     let totalCreditos = $derived(Object.values(storeSeleccion.data).reduce((acc, obj) => acc + parseInt(obj.materia.creditos), 0));

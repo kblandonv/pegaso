@@ -1,7 +1,7 @@
 <script>
 	const { logDescargaEvent } = $props();
-	import { ArrayToExcel } from "../../utils/utils.js";
-    import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
+	import { ArrayToExcel } from "$lib/utils/utils.js";
+    import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
 

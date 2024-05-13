@@ -1,4 +1,4 @@
-import { getDataHorario, getColor } from '../utils/utils';
+import { getDataHorario, getColor } from '$lib/utils/utils';
 
 let StoreSeleccion = $state({});
 let StoreHorario = $state(

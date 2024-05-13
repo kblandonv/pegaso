@@ -1,8 +1,8 @@
 <script>
 	const { data } = $props();
-	import Buscador from "../lib/components/SectionBuscador/Buscador.svelte";
-	import Horario from "../lib/components/SectionHorario/Horario.svelte";
-	import ModalGrafico from "$lib/components/SectionHorario/ModalGrafico.svelte";
+	import Buscador from "$components/SectionBuscador/Buscador.svelte";
+	import Horario from "$components/SectionHorario/Horario.svelte";
+	import ModalGrafico from "$components/SectionHorario/ModalGrafico.svelte";
 
 	/*
 		- Agregar guardar horario en local

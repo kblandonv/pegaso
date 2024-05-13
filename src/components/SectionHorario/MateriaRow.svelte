@@ -1,6 +1,6 @@
 <script>
 	let { materia, color } = $props();
-	import { getStoreHorario, getStoreSeleccion } from '../../stores/horario.svelte.js';
+	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
 
 	let storeGrafico = getStoreGrafico();

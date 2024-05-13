@@ -1,13 +1,16 @@
 <script>
 	let { materia } = $props();
+	import { getContext } from 'svelte';
+	const toastContext = getContext('toast');
 
-	import { getStoreSeleccion } from '../../stores/horario.svelte.js';
+	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	let storeSeleccion = getStoreSeleccion();
 
 	let isDisabled = $derived(Object.keys(storeSeleccion.data).includes(materia.codigo));
 
 	// Event listener for the "Add" button
 	function handleClick(e) {
+		toastContext.addToast(`Se agregó: ${materia.nombre}.`);
 		storeSeleccion.agregar(materia);
 	}
 </script>
