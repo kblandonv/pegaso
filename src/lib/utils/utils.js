@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { color } from "chart.js/helpers";
 
 let usedChart = null;
+let usedRecomendado = null;
 
 const usedColors = new Set()
 
@@ -48,6 +49,7 @@ export function getColor() {
 }
 
 export function createGraph(canvas, asignatura, grupo) {
+
     if (!asignatura) return;
 
     if (usedChart) {
@@ -93,6 +95,39 @@ export function createGraph(canvas, asignatura, grupo) {
     };
 
     usedChart = new Chart(
+        canvas,
+        config
+    );
+}
+
+export function createGraphRecomendado(canvas, asignatura) {
+    if (!asignatura) return;
+
+    if (usedRecomendado) {
+        usedRecomendado.destroy();
+    }
+
+    const recomendado = asignatura.recomendaciones.sort((a, b) => b.inscritos - a.inscritos);
+
+    const data = {
+        labels: recomendado.map(docente => docente.docente),
+        datasets: [{
+            label: "Cupos inscritos",
+            data: recomendado.map(docente => docente.inscritos),
+            hoverOffset: 4
+        }],
+    };
+
+    const config = {
+        type: "doughnut",
+        data: data,
+        options: {
+            animation: false,
+        },
+        
+    };
+
+    usedRecomendado = new Chart(
         canvas,
         config
     );

@@ -1,9 +1,12 @@
 <script>
 	let { materia, color } = $props();
 	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
+	import { getStoreGrafico, getStoreRecomendado, getStoreDocente } from '$lib/stores/grafico.svelte.js';
 
 	let storeGrafico = getStoreGrafico();
+	let storeRecomendado = getStoreRecomendado();
+	let storeDocente = getStoreDocente();
+
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
 
@@ -29,8 +32,15 @@
 
 	function showRecomendado(event) {
 		console.log("Mostrando");
-		
+		storeRecomendado.codigo = materia.codigo;
+		storeRecomendado.element.show();
 	}
+
+	function showDocentes(e) {
+		storeDocente.codigo = materia.codigo;
+		storeDocente.element.show();
+	}
+
 </script>
 
 <tr class={`tr-${color}`}>
@@ -53,7 +63,7 @@
 			{/each}
 		</select>
 	</td>
-	<td id="docente" class="px-3 my-border">{selectedGrupo && selectedGrupo.profesor}</td>
+	<td id="docente" onclick={showDocentes} class="px-3 my-border">{selectedGrupo && selectedGrupo.profesor}</td>
 	<td onclick={showRecomendado} id="cupos" class="px-3 my-border">
 		{selectedGrupo && selectedGrupo.cupos}
 	</td>
@@ -89,7 +99,7 @@
 		position: relative;
 	}
 
-	#codigo:hover, #cupos:hover{
+	#codigo:hover, #cupos:hover, #docente:hover {
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
 	}

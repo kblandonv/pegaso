@@ -3,6 +3,8 @@
 	import Buscador from "$components/SectionBuscador/Buscador.svelte";
 	import Horario from "$components/SectionHorario/Horario.svelte";
 	import ModalGrafico from "$components/SectionHorario/ModalGrafico.svelte";
+	import GraficoPie from "$components/SectionHorario/GraficoPie.svelte";
+	import GraficoDocente from "$components/SectionHorario/GraficoDocente.svelte";
 
 	/*
 		- Agregar guardar horario en local
@@ -23,6 +25,8 @@
 	<hr class="hr-pink" />
 
 	<ModalGrafico />
+	<GraficoPie />
+	<GraficoDocente />
 
 	<!-- Horario -->
 	<Horario logDescargaEvent={data.logDescargaEvent} />
