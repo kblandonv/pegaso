@@ -26,6 +26,11 @@
 		storeGrafico.codigo = materia.codigo;
 		storeGrafico.element.show();
 	}
+
+	function showRecomendado(event) {
+		console.log("Mostrando");
+		
+	}
 </script>
 
 <tr class={`tr-${color}`}>
@@ -49,7 +54,9 @@
 		</select>
 	</td>
 	<td id="docente" class="px-3 my-border">{selectedGrupo && selectedGrupo.profesor}</td>
-	<td id="cupos" class="px-3 my-border">{selectedGrupo && selectedGrupo.cupos}</td>
+	<td onclick={showRecomendado} id="cupos" class="px-3 my-border">
+		{selectedGrupo && selectedGrupo.cupos}
+	</td>
 	<td id="horario" class="px-3 my-border"
 		>{selectedGrupo &&
 			selectedGrupo.horarios
@@ -82,7 +89,7 @@
 		position: relative;
 	}
 
-	#codigo:hover {
+	#codigo:hover, #cupos:hover{
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
 	}
