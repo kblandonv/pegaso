@@ -26,18 +26,26 @@
 	}
 
 	function onclickShowGrafico(event) {
-		storeGrafico.codigo = materia.codigo;
+		storeGrafico.data.facultad = materia.facultad;
+		storeGrafico.data.carrera = materia.carrera;
+		storeGrafico.data.codigo = materia.codigo;
+
 		storeGrafico.element.show();
 	}
 
 	function showRecomendado(event) {
-		console.log("Mostrando");
-		storeRecomendado.codigo = materia.codigo;
+		storeRecomendado.data.facultad = materia.facultad;
+		storeRecomendado.data.carrera = materia.carrera;
+		storeRecomendado.data.codigo = materia.codigo;
+
 		storeRecomendado.element.show();
 	}
 
 	function showDocentes(e) {
-		storeDocente.codigo = materia.codigo;
+		storeDocente.data.facultad = materia.facultad;
+		storeDocente.data.carrera = materia.carrera;
+		storeDocente.data.codigo = materia.codigo;
+		
 		storeDocente.element.show();
 	}
 

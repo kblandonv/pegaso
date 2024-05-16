@@ -1,18 +1,18 @@
 <script>
-	import { createGraph } from '$lib/utils/utils.js';
 	import * as jsonAnalisis from '$lib/assets/analisis.json';
 
+	import { createGraph } from '$lib/utils/utils.js';
 	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
 	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
 	let storeGrafico = getStoreGrafico();
 	let storeSeleccion = getStoreSeleccion();
 
-	const analisis = Object.values(jsonAnalisis.default)
-		.map((fac) => Object.values(fac))
-		.flat()
-		.reduce((acc, curr) => ({ ...acc, ...curr }), {});
-
-	let asignatura = $derived(storeGrafico.codigo ? analisis[storeGrafico.codigo] : null);
+	const analisis = jsonAnalisis.default;
+	let asignatura = $derived(
+		storeGrafico.data.facultad ?
+		analisis[storeGrafico.data.facultad][storeGrafico.data.carrera][storeGrafico.data.codigo] :
+		null
+	);
 
 	let dialog;
 	let canvas;

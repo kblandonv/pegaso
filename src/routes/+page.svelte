@@ -5,6 +5,13 @@
 	import ModalGrafico from "$components/SectionHorario/ModalGrafico.svelte";
 	import GraficoPie from "$components/SectionHorario/GraficoPie.svelte";
 	import GraficoDocente from "$components/SectionHorario/GraficoDocente.svelte";
+	import { loadAsignaturas } from "$lib/utils/loadAsignaturas";
+
+	let asignaturas = $state(data.asignaturas);
+	
+	async function reloadAsignaturas() {
+		asignaturas = await loadAsignaturas();
+	}
 
 	/*
 		- Agregar guardar horario en local
@@ -18,9 +25,11 @@
 </svelte:head>
 
 <main>
+
+	<button onclick={reloadAsignaturas} type="button">Actualizar</button>
 	
 	<!-- Buscador de cursos -->
-	<Buscador asignaturas={data.asignaturas} horarioLocal={data.horarioLocal} />
+	<Buscador asignaturas={asignaturas} horarioLocal={data.horarioLocal} />
 
 	<hr class="hr-pink" />
 

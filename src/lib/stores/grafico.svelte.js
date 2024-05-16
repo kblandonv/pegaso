@@ -1,19 +1,31 @@
 let storeElement = $state(null);
-let StoreCodigo = $state(null);
+let StoreData = $state({
+    facultad: null,
+    carrera: null,
+    codigo: null,
+});
 
 let elementRecomendado = $state(null);
-let codigoRecomendado = $state(null);
+let codigoRecomendado = $state({
+    facultad: null,
+    carrera: null,
+    codigo: null,
+});
 
 let elementDocente = $state(null);
-let codigoDocente = $state(null);
+let codigoDocente = $state({
+    facultad: null,
+    carrera: null,
+    codigo: null,
+});
 
 export function getStoreGrafico() {
 	return {
-		get codigo() {
-			return StoreCodigo;
+		get data() {
+			return StoreData;
 		},
-        set codigo(v) {
-            StoreCodigo = v;
+        set data(v) {
+            StoreData = v;
         },
         get element() {
             return storeElement;
@@ -26,10 +38,10 @@ export function getStoreGrafico() {
 
 export function getStoreRecomendado() {
     return {
-		get codigo() {
+		get data() {
 			return codigoRecomendado;
 		},
-        set codigo(v) {
+        set data(v) {
             codigoRecomendado = v;
         },
         get element() {
@@ -43,10 +55,10 @@ export function getStoreRecomendado() {
 
 export function getStoreDocente() {
     return {
-		get codigo() {
+		get data() {
 			return codigoDocente;
 		},
-        set codigo(v) {
+        set data(v) {
             codigoDocente = v;
         },
         get element() {

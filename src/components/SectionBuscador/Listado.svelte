@@ -27,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody id="materias">
-			{#each materiasFiltradas as materia (materia.codigo)}
+			{#each materiasFiltradas as materia (`${materia.facultad}-${materia.carrera}-${materia.codigo}`)}
 				<ListadoRow {materia} />
 			{/each}
 		</tbody>

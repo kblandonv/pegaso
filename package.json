@@ -27,6 +27,7 @@
 	"dependencies": {
 		"chart.js": "^4.4.2",
 		"firebase": "^10.7.2",
+		"mongodb": "^6.6.1",
 		"sass": "^1.75.0",
 		"xlsx": "^0.18.5"
 	}
