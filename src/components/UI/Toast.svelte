@@ -17,7 +17,7 @@
 </script>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    {#each mensajes as mensaje (mensaje)}
+    {#each mensajes as mensaje, index (`${index}-${mensaje}`)}
         <div use:toastAction class="toast align-items-center toast-purple border-0" role="alert">
             <div class="d-flex">
                 <div class="toast-body">{mensaje}</div>
