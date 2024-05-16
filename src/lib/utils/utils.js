@@ -29,7 +29,7 @@ export function ArrayToExcel(array, fileName = "Horario") {
     );
 };
 
-export function getDataHorario(horario) {
+export function parseHorario(horario) {
 	const dia = horario.dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	const inicio = parseInt(horario.inicio.split(":")[0]);
 	const fin = parseInt(horario.fin.split(":")[0]);

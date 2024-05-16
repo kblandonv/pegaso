@@ -1,24 +1,21 @@
 <script>
 	let { materia, color } = $props();
-	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
+	import { storeHorario } from '$lib/stores/horario.svelte.js';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
-
-	let storeHorario = getStoreHorario();
-	let storeSeleccion = getStoreSeleccion();
 
 	let groupValue = $state('');
 	let selectedGrupo = $derived(materia.grupos.find((grupo) => grupo.grupo === groupValue));
 
 	$effect(() => {
 		if (selectedGrupo) {
-			storeHorario.asignar(materia, selectedGrupo);
+			storeHorario.asignarHorario(materia, selectedGrupo);
 		} else {
-			storeHorario.limpiar(materia);
+			storeHorario.limpiarHorario(materia);
 		}
 	});
 
 	function deleteMateria() {
-		storeSeleccion.eliminar(materia);
+		storeHorario.eliminarAsignatura(materia);
 	}
 
 	function onclickShowGrafico(event) {
@@ -48,7 +45,7 @@
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
-				{@const isDisponible = storeHorario.verificarHorarios(materia.codigo, grupo.horarios)}
+				{@const isDisponible = storeHorario.verificarHorario(materia.codigo, grupo.horarios)}
 				<option
 					title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
 					disabled={isDisponible !== true}

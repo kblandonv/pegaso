@@ -1,9 +1,7 @@
 <script>
 	const { logDescargaEvent } = $props();
 	import { ArrayToExcel } from "$lib/utils/utils.js";
-    import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	let storeHorario = getStoreHorario();
-	let storeSeleccion = getStoreSeleccion();
+    import { storeHorario } from '$lib/stores/horario.svelte.js';
 
     function descargar() {
 
@@ -11,10 +9,10 @@
 		
         const titulosHorario = ['Hora', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-        const datosHorario = Object.entries(storeHorario.data).map(data => {
+        const datosHorario = Object.entries(storeHorario.horario).map(data => {
             const [hora, dias] = data;
 
-            const nombres = Object.values(dias).map(d => d ? `${storeSeleccion.data[d].materia.nombre}`: '');
+            const nombres = Object.values(dias).map(d => d ? `${storeHorario.seleccion[d].materia.nombre}`: '');
 
             return Array.from([
                 `${hora}:00 - ${parseInt(hora) + 1}:00`,
@@ -31,7 +29,7 @@
 			"Horario",
 		]
 
-		const datosConsolidado = Object.entries(storeSeleccion.data).map(([codigo, datos]) => {
+		const datosConsolidado = Object.entries(storeHorario.seleccion).map(([codigo, datos]) => {
 			const { materia, grupo } = datos;
 			return [
 				codigo,

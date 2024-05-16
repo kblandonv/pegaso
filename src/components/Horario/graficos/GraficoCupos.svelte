@@ -1,8 +1,7 @@
 <script>
 	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 	import { createGraph } from '$lib/utils/utils.js';
-	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	let storeSeleccion = getStoreSeleccion();
+	import { storeHorario } from '$lib/stores/horario.svelte.js';
 
 	let dialog;
 	let canvas;
@@ -15,7 +14,7 @@
 			createGraph(
 				canvas,
 				storeAnalisis.analized,
-				storeSeleccion.data[storeAnalisis.analized.codigo].grupo,
+				storeHorario.seleccion[storeAnalisis.analized.codigo].grupo,
 			);
 		}
 	});

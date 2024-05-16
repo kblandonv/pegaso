@@ -1,9 +1,7 @@
 <script>
 	const { logDescargaEvent } = $props();
-	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	let storeHorario = getStoreHorario();
-	let storeSeleccion = getStoreSeleccion();
-
+	import { storeHorario } from '$lib/stores/horario.svelte.js';
+	
 	import Seleccionadas from './Seleccionadas.svelte';
 	import CeldaHorario from './CeldaHorario.svelte';
 	import BotonDescargar from './BotonDescargar.svelte';
@@ -36,13 +34,13 @@
 			</tr>
 		</thead>
 		<tbody id="calendar-body">
-			{#each Object.entries(storeHorario.data) as entry (entry[0])}
+			{#each Object.entries(storeHorario.horario) as entry (entry[0])}
 				<tr id={entry[0]}>
 					<td class="my-border px-4 py-2 opacity-60"
 						>{`${entry[0]}:00 - ${parseInt(entry[0]) + 1}:00`}</td
 					>
 					{#each Object.entries(entry[1]) as dias (dias[0])}
-                        <CeldaHorario id={dias[0]} color={dias[1] ? storeSeleccion.data[dias[1]].color : ''} materia={dias[1] ? storeSeleccion.data[dias[1]].materia.nombre : ''} />
+                        <CeldaHorario id={dias[0]} color={dias[1] ? storeHorario.seleccion[dias[1]].color : ''} materia={dias[1] ? storeHorario.seleccion[dias[1]].materia.nombre : ''} />
 					{/each}
 				</tr>
 			{/each}
