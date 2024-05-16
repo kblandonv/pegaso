@@ -2,9 +2,9 @@
 	const { data } = $props();
 	import Buscador from "$components/SectionBuscador/Buscador.svelte";
 	import Horario from "$components/SectionHorario/Horario.svelte";
-	import ModalGrafico from "$components/SectionHorario/ModalGrafico.svelte";
-	import GraficoPie from "$components/SectionHorario/GraficoPie.svelte";
-	import GraficoDocente from "$components/SectionHorario/GraficoDocente.svelte";
+	import GraficoCupos from "$components/SectionHorario/graficos/GraficoCupos.svelte";
+	import GraficoDistribucion from "$components/SectionHorario/graficos/GraficoDistribucion.svelte";
+	import GraficoDocente from "$components/SectionHorario/graficos/GraficoDocente.svelte";
 	import { loadAsignaturas } from "$lib/utils/loadAsignaturas";
 
 	let asignaturas = $state(data.asignaturas);
@@ -33,8 +33,8 @@
 
 	<hr class="hr-pink" />
 
-	<ModalGrafico />
-	<GraficoPie />
+	<GraficoCupos />
+	<GraficoDistribucion />
 	<GraficoDocente />
 
 	<!-- Horario -->

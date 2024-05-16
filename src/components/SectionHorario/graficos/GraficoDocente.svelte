@@ -1,25 +1,9 @@
 <script>
-	import * as jsonAnalisis from '$lib/assets/analisis.json';
-
-	import { getStoreDocente } from '$lib/stores/grafico.svelte.js';
-	let storeGrafico = getStoreDocente();
-
-	const analisis = jsonAnalisis.default
-	let asignatura = $derived(
-		storeGrafico.data.facultad ?
-		analisis[storeGrafico.data.facultad][storeGrafico.data.carrera][storeGrafico.data.codigo] :
-		null
-	);
+	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 
 	let dialog;
 	$effect(() => {
-		storeGrafico.element = dialog;
-	});
-
-	$effect(() => {
-		if (asignatura) {
-			console.log(asignatura);
-		}
+		storeAnalisis.elementos.docentes = dialog;
 	});
 
 	function hide() {
@@ -31,12 +15,12 @@
 </script>
 
 <dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2 mono">{asignatura ? asignatura.nombre : ''}</h5>
+	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2 mono">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
 
 	<div id="contenedor-grafico">
         <h5 class="text-lg font-medium w-auto w-100 text-center mb-2 mono">Docentes más seleccionados</h5>
-        {#if asignatura !== null}
-	        {#each asignatura.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
+        {#if storeAnalisis.analized !== null}
+	        {#each storeAnalisis.analized.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
             <div class="d-flex justify-content-between container-docente px-3 py-2 mb-1 rounded">
                     <p class="lead text-sm "><strong>{i+1}</strong><span>. {recomendacion.docente}</span></p>
                     <p class="lead fw-bold text-sm">{recomendacion.puntaje}</p>

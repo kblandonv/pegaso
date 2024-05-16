@@ -1,31 +1,21 @@
 <script>
-	import * as jsonAnalisis from '$lib/assets/analisis.json';
-
+	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 	import { createGraph } from '$lib/utils/utils.js';
 	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	import { getStoreGrafico } from '$lib/stores/grafico.svelte.js';
-	let storeGrafico = getStoreGrafico();
 	let storeSeleccion = getStoreSeleccion();
-
-	const analisis = jsonAnalisis.default;
-	let asignatura = $derived(
-		storeGrafico.data.facultad ?
-		analisis[storeGrafico.data.facultad][storeGrafico.data.carrera][storeGrafico.data.codigo] :
-		null
-	);
 
 	let dialog;
 	let canvas;
 	$effect(() => {
-		storeGrafico.element = dialog;
+		storeAnalisis.elementos.cupos = dialog;
 	});
 
 	$effect(() => {
-		if (asignatura) {
+		if (storeAnalisis.analized) {
 			createGraph(
 				canvas,
-				asignatura,
-				storeSeleccion.data[asignatura.codigo].grupo,
+				storeAnalisis.analized,
+				storeSeleccion.data[storeAnalisis.analized.codigo].grupo,
 			);
 		}
 	});
@@ -39,7 +29,7 @@
 </script>
 
 <dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2">{asignatura ? asignatura.nombre : ''}</h5>
+	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2">{storeAnalisis.asignatura ? storeAnalisis.asignatura.nombre : ''}</h5>
 
 	<div id="contenedor-grafico">
 		<canvas bind:this={canvas}></canvas>

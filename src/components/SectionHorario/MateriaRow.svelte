@@ -1,11 +1,7 @@
 <script>
 	let { materia, color } = $props();
 	import { getStoreHorario, getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	import { getStoreGrafico, getStoreRecomendado, getStoreDocente } from '$lib/stores/grafico.svelte.js';
-
-	let storeGrafico = getStoreGrafico();
-	let storeRecomendado = getStoreRecomendado();
-	let storeDocente = getStoreDocente();
+	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 
 	let storeHorario = getStoreHorario();
 	let storeSeleccion = getStoreSeleccion();
@@ -26,27 +22,18 @@
 	}
 
 	function onclickShowGrafico(event) {
-		storeGrafico.data.facultad = materia.facultad;
-		storeGrafico.data.carrera = materia.carrera;
-		storeGrafico.data.codigo = materia.codigo;
-
-		storeGrafico.element.show();
+		storeAnalisis.asignatura = materia;
+		storeAnalisis.elementos.cupos.show();
 	}
 
 	function showRecomendado(event) {
-		storeRecomendado.data.facultad = materia.facultad;
-		storeRecomendado.data.carrera = materia.carrera;
-		storeRecomendado.data.codigo = materia.codigo;
-
-		storeRecomendado.element.show();
+		storeAnalisis.asignatura = materia;
+		storeAnalisis.elementos.distribucion.show();
 	}
 
 	function showDocentes(e) {
-		storeDocente.data.facultad = materia.facultad;
-		storeDocente.data.carrera = materia.carrera;
-		storeDocente.data.codigo = materia.codigo;
-		
-		storeDocente.element.show();
+		storeAnalisis.asignatura = materia;
+		storeAnalisis.elementos.docentes.show();
 	}
 
 </script>

@@ -1,28 +1,18 @@
 <script>
 	import { createGraphRecomendado } from '$lib/utils/utils.js';
-	import * as jsonAnalisis from '$lib/assets/analisis.json';
-
-	import { getStoreRecomendado } from '$lib/stores/grafico.svelte.js';
-	let storeGrafico = getStoreRecomendado();
-
-	const analisis = jsonAnalisis.default
-	let asignatura = $derived(
-		storeGrafico.data.facultad ?
-		analisis[storeGrafico.data.facultad][storeGrafico.data.carrera][storeGrafico.data.codigo] :
-		null
-	);
+	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 
 	let dialog;
 	let canvas;
 	$effect(() => {
-		storeGrafico.element = dialog;
+		storeAnalisis.elementos.distribucion = dialog;
 	});
 
 	$effect(() => {
-		if (asignatura) {
+		if (storeAnalisis.analized) {
 			createGraphRecomendado(
 				canvas,
-				asignatura,
+				storeAnalisis.analized,
 			);
 		}
 	});
@@ -36,7 +26,7 @@
 </script>
 
 <dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2">{asignatura ? asignatura.nombre : ''}</h5>
+	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
 
 	<div id="contenedor-grafico">
 		<canvas bind:this={canvas}></canvas>
