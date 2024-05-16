@@ -38,14 +38,13 @@
 
 </script>
 
-<tr class={`tr-${color}`}>
-	<td id="codigo" class="px-3 my-border" onclick={onclickShowGrafico}>
+	<div id="codigo" class="col" onclick={onclickShowGrafico}>
 		<i class="bi bi-bar-chart-line"></i>
 		<span>{materia.codigo}</span>
-	</td>
-	<td id="nombre" class="px-3 my-border">{materia.nombre}</td>
-	<td class="px-3 my-border">{materia.creditos}</td>
-	<td class="px-3 my-border">
+	</div>
+	<div id="nombre" class="col">{materia.nombre}</div>
+	<div class="col">{materia.creditos}</div>
+	<div class="col">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
@@ -57,23 +56,22 @@
 				>
 			{/each}
 		</select>
-	</td>
-	<td id="docente" onclick={showDocentes} class="px-3 my-border">{selectedGrupo && selectedGrupo.profesor}</td>
-	<td onclick={showRecomendado} id="cupos" class="px-3 my-border">
+	</div>
+	<div id="docente" onclick={showDocentes} class="col">{selectedGrupo && selectedGrupo.profesor}</div>
+	<div onclick={showRecomendado} id="cupos" class="col">
 		{selectedGrupo && selectedGrupo.cupos}
-	</td>
-	<td id="horario" class="px-3 my-border"
+	</div>
+	<div id="horario" class="col"
 		>{selectedGrupo &&
 			selectedGrupo.horarios
 				.map((horario) => `${horario.dia} ${horario.inicio}-${horario.fin}`)
-				.join(', ')}</td
+				.join(', ')}</div
 	>
-	<td class="px-3 my-border">
+	<div class="col">
 		<button onclick={deleteMateria} class="onclick-push-me delete-button"
 			><i class="bi bi-x-square-fill text-2xl"></i></button
 		>
-	</td>
-</tr>
+	</div>
 
 <style lang="scss">
 	.delete-button {

@@ -1,6 +1,5 @@
 import { utils, write } from "xlsx";
 import Chart from 'chart.js/auto';
-import { color } from "chart.js/helpers";
 
 let usedChart = null;
 let usedRecomendado = null;
