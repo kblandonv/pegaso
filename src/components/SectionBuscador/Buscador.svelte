@@ -7,7 +7,7 @@
 	const { asignaturas, horarioLocal } = $props();
 
 	if (horarioLocal !== null) {
-		storeSeleccion.cargar(horarioLocal);
+		// storeSeleccion.cargar(horarioLocal);
 	}
 
 	let materiasFiltradas = $state([]);

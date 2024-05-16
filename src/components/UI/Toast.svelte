@@ -16,7 +16,6 @@
     }
 </script>
 
-
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
     {#each mensajes as mensaje (mensaje)}
         <div use:toastAction class="toast align-items-center toast-purple border-0" role="alert">
@@ -29,8 +28,6 @@
 </div>
 
 <style lang="scss">
-
-    
     .toast-purple {
         margin-top: 1rem;
         margin-bottom: 0px;
