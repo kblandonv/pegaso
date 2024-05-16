@@ -1,13 +1,20 @@
 <script>
-	import { onMount } from 'svelte';
-	import Listado from './Listado.svelte';
-	import { getStoreSeleccion } from '$lib/stores/horario.svelte.js';
-	let storeSeleccion = getStoreSeleccion();
+	const { horarioLocal } = $props();
+	import { loadAsignaturas } from "$lib/utils/loadAsignaturas";
+	import { onMount, getContext } from 'svelte';
+	import { storeAsignaturas } from "$lib/stores/asignaturas.svelte.js";
 
-	const { asignaturas, horarioLocal } = $props();
+	const toastContext = getContext('toast');
+
+	import Listado from './Listado.svelte';
 
 	if (horarioLocal !== null) {
 		// storeSeleccion.cargar(horarioLocal);
+	}
+
+	async function updateAsignaturas(e) {
+		storeAsignaturas.data = await loadAsignaturas();
+		toastContext.addToast('Se cargaron las asignaturas.');
 	}
 
 	let materiasFiltradas = $state([]);
@@ -15,7 +22,7 @@
 	let selectCarrera;
 	let selectTipologia;
 
-	let lastUpdate = asignaturas["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion;
+	let lastUpdate = $derived(storeAsignaturas.data["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion);
 
 	function filtrarMaterias(asignaturas, facultad, carrera, tipologia) {
 		const allMaterias = asignaturas[facultad][carrera];
@@ -35,10 +42,10 @@
 
 	onMount(() => {
 		// Agregar facultades
-		addOptions(selectFacultad, Object.keys(asignaturas));
+		addOptions(selectFacultad, Object.keys(storeAsignaturas.data));
 
 		selectFacultad.addEventListener('change', function () {
-			const carreras = Object.keys(asignaturas[this.value]);
+			const carreras = Object.keys(storeAsignaturas.data[this.value]);
 			addOptions(selectCarrera, carreras);
 			selectCarrera.dispatchEvent(new Event('change'));
 		});
@@ -46,7 +53,7 @@
 		selectCarrera.addEventListener('change', function () {
 			const facultad = selectFacultad.value;
 			const carrera = this.value;
-			const materiasCarrera = asignaturas[facultad][carrera];
+			const materiasCarrera = storeAsignaturas.data[facultad][carrera];
 			const tipologias = [
 				'TODAS LAS ASIGNATURAS',
 				...new Set(materiasCarrera.map((materia) => materia.tipologia))
@@ -61,7 +68,7 @@
 			const tipologia = this.value;
 
 			// Asignar materias al estado
-			materiasFiltradas = filtrarMaterias(asignaturas, facultad, carrera, tipologia);
+			materiasFiltradas = filtrarMaterias(storeAsignaturas.data, facultad, carrera, tipologia);
 		});
 
 		// Dispatch change event to start
@@ -90,11 +97,15 @@
 		</div>
 	</div>
 
-	<div class="my-3">
+	<div class="d-flex justify-content-between my-3">
 		<span>
 			<strong class="mt-4">Última actualización de cupos: </strong>
 			<span>{lastUpdate}</span>
 		</span>
+
+		<button onclick={updateAsignaturas} type="button">
+			<i class="bi bi-arrow-clockwise"></i>
+		</button>
 	</div>
 
 	<hr class="hr-pink" />

@@ -6,7 +6,6 @@
 	import Toast from '$components/UI/Toast.svelte';
 	import '$src/styles/global.scss';
 
-
 	let toastInstance;
 	function addToast(mensaje) {
 		toastInstance.addToast(mensaje)

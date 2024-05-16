@@ -1,6 +1,5 @@
 import * as jsonAnalisis from '$lib/assets/analisis.json';
 const analisisData = jsonAnalisis.default;
-
 class Analisis {
     asignatura = $state(null);
     elementos = $state({
