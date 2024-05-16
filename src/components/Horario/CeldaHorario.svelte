@@ -6,6 +6,10 @@
 
 <style>
 
+	td {
+		transition: background-color 0.1s;
+	}
+
     .color-1 {
 		background-color: #ffdede;
 	}
