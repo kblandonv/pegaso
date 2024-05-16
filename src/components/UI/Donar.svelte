@@ -25,6 +25,15 @@
 </dialog>
 
 <style lang="scss">
+	@keyframes fadein{
+	  0%{
+	    opacity:0;
+	  }
+	  100%{
+	    opacity:1;
+	  }
+	}
+
 	dialog {
 		z-index: 5;
 		background: rgba(237, 164, 255, 0.2);
@@ -36,6 +45,10 @@
 		top: 4rem;
 		left: 50%;
 		transition: all 0.5s ease;
+
+		&[open] {
+	  		animation: fadein 120ms ease forwards;
+		}
 
 		p {
 			font-family: 'JetBrains Mono', monospace;
