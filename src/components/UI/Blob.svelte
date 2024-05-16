@@ -1,6 +1,6 @@
 <script>
-	let blobElement;
-	$effect(() => {
+
+	function blobAction(blobElement) {
 		window.onpointermove = (event) => {
 			const { clientX, clientY } = event;
 
@@ -12,10 +12,11 @@
 				{ duration: 8000, fill: 'forwards', easing: 'ease-in' }
 			);
 		};
-	});
+	}
+
 </script>
 
-<div id="blob" bind:this={blobElement}></div>
+<div id="blob" use:blobAction></div>
 
 <style lang="scss">
 	@keyframes rotate {
