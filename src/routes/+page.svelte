@@ -1,6 +1,5 @@
 <script>
 	const { data } = $props();
-	import { onMount } from 'svelte';
 
 	import { setContext } from 'svelte';
 	import Header from '$components/UI/Header.svelte';
@@ -25,12 +24,10 @@
 		addToast
 	});
 
-	onMount(async () => {
-		for await (const changes of data.collection.watch()) {
-			const { documentKey, fullDocument } = changes;
-			delete fullDocument._id;
-			storeAsignaturas.data[documentKey] = fullDocument;
-			addToast('Actualizacion de cupos');
+	$effect(() => {
+		if (storeAsignaturas.updated) {
+			addToast('Cupos actualizados!');
+			storeAsignaturas.updated = false;
 		}
 	});
 
