@@ -4,6 +4,7 @@ import { initMongo } from '$lib/db/mongo.js';
 class StoreAsignaturas {
     data = $state({});
     updated = $state(false);
+    lastUpdate = $derived(this.data['3068 FACULTAD DE MINAS']['3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA'][0].fechaExtraccion)
 
     constructor() {
         this.initMongo();
