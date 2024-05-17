@@ -1,5 +1,7 @@
 <script>
 	const { data } = $props();
+	// import { initMongo } from '$lib/db/mongo.js';
+	import { onMount } from 'svelte';
 
 	import { setContext } from 'svelte';
 	import Header from '$components/UI/Header.svelte';
@@ -23,6 +25,7 @@
 	setContext('toast', {
 		addToast
 	});
+
 </script>
 
 <svelte:head>

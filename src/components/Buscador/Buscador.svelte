@@ -15,7 +15,7 @@
 	let selectCarrera;
 	let selectTipologia;
 
-	let lastUpdate = $derived(storeAsignaturas.data["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion);
+	let lastUpdate = 1 // $derived(storeAsignaturas.data["3068 FACULTAD DE MINAS"]["3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA"][0].fechaExtraccion);
 
 	function filtrarMaterias(asignaturas, facultad, carrera, tipologia) {
 		const allMaterias = asignaturas[facultad][carrera];

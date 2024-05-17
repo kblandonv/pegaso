@@ -1,22 +1,20 @@
 <script>
-
-	function blobAction(blobElement) {
+	function blobAction(blob) {
 		window.onpointermove = (event) => {
 			const { clientX, clientY } = event;
 
-			blobElement.animate(
+			blob.animate(
 				{
 					left: `${clientX}px`,
 					top: `${clientY}px`
 				},
-				{ duration: 8000, fill: 'forwards', easing: 'ease-in' }
+				{ duration: 3000, fill: 'forwards' }
 			);
 		};
 	}
-
 </script>
 
-<div id="blob" use:blobAction></div>
+<div use:blobAction id="blob"></div>
 
 <style lang="scss">
 	@keyframes rotate {
@@ -35,19 +33,21 @@
 
 	#blob {
 		background-color: white;
-		height: 34vmax;
+		height: 15vmax;
 		aspect-ratio: 1;
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		translate: -50% -50%;
 		border-radius: 50%;
+		background: linear-gradient(to right, aquamarine, mediumpurple);
+		animation: rotate 20s infinite;
+		opacity: 0.3;
 
-		background: linear-gradient(to right, rgba(205, 187, 255), rgba(249, 207, 255));
-		animation: rotate 20s infinite linear;
-		opacity: 0.5;
-		filter: blur(20px);
+        z-index: -1;
 
-		z-index: -1;
+        /* blur */
+        filter: blur(120px);
+        
 	}
 </style>

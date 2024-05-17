@@ -103,77 +103,10 @@
 		}
 	}
 
-	tr td:first-child {
-		position: relative;
-	}
-
 	#codigo:hover, #cupos:hover, #docente:hover {
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
 	}
 
-	tr td:first-child::before {
-		background-color: rgb(192, 136, 255);
-		border-radius: 2px;
-		left: -0.25rem;
-		content: '';
-		display: block;
-		height: 80%;
-		position: absolute;
-		width: calc(0.45em);
-		top: 50%;
-		transform: translateY(-50%);
-	}
 
-	td {
-		text-align: center;
-	}
-
-	.tr-color-1 td:first-child::before {
-		background-color: #ffdede;
-	}
-
-	.tr-color-2 td:first-child::before {
-		background-color: #ffb7b7;
-	}
-
-	.tr-color-3 td:first-child::before {
-		background-color: #fff5c3;
-	}
-
-	.tr-color-4 td:first-child::before {
-		background-color: #d1fff9;
-	}
-
-	.tr-color-5 td:first-child::before {
-		background-color: #cfffdf;
-	}
-
-	.tr-color-6 td:first-child::before {
-		background-color: #ffbaec;
-	}
-
-	.tr-color-7 td:first-child::before {
-		background-color: #cbceff;
-	}
-
-	.tr-color-8 td:first-child::before {
-		background-color: #acff9b;
-	}
-
-	.tr-color-9 td:first-child::before {
-		background-color: #e4d5ff;
-	}
-
-	.tr-color-10 td:first-child::before {
-		background-color: #dcb9ff;
-	}
-
-	.tr-color-11 td:first-child::before {
-		background-color: #ffd5f5;
-	}
-
-	.tr-color-12 td:first-child::before {
-		background-color: #f7d1ff;
-	}
 </style>
