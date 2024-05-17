@@ -69,7 +69,7 @@
 	});
 </script>
 
-<section class="rounded container px-3 py-4 mt-3 mb-4 glass">
+<section class="rounded container px-4 py-4 mt-3 mb-4 glass">
 	<div class="row align-items-center">
 		<div class="col">
 			<label class="fw-bold" for="facultad">Facultad</label>

@@ -8,11 +8,13 @@
 	
 </script>
 
-<section class="rounded container px-3 py-4 my-4 glass">
+<section class="rounded container px-4 py-4 my-4 glass">
 	
 	<Seleccionadas />
 
-	<div class="rounded-top border p-3 font-bold d-flex justify-content-between align-items-center">
+	<hr class="hr-pink" />
+
+	<div class="p-3 mt-3 font-bold d-flex justify-content-between align-items-center">
 		<h2>Horario</h2>
 
 		<div class="d-flex justify-content-between">
@@ -20,7 +22,7 @@
 		</div>
 	</div>
 
-	<table class="table-fixed w-full text-center my-border rounded" id="calendar">
+	<table class="table-fixed w-full text-center my-border rounded">
 		<thead>
 			<tr>
 				<th class="my-border px-4 py-2">Hora</th>
@@ -33,7 +35,7 @@
 				<th class="my-border px-4 py-2">Domingo</th>
 			</tr>
 		</thead>
-		<tbody id="calendar-body">
+		<tbody>
 			{#each Object.entries(storeHorario.horario) as entry (entry[0])}
 				<tr id={entry[0]}>
 					<td class="my-border px-4 py-2 opacity-60"

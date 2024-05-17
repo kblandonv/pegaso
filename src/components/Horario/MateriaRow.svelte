@@ -35,13 +35,20 @@
 
 </script>
 
-	<div id="codigo" class="col" onclick={onclickShowGrafico}>
+	<button id="codigo" class="col-1 rounded" onclick={showRecomendado}>
 		<i class="bi bi-bar-chart-line"></i>
 		<span>{materia.codigo}</span>
+	</button>
+	
+	<div id="nombre" class="col-2 justify-content-center align-content-center">
+		<span>{materia.nombre}</span>
 	</div>
-	<div id="nombre" class="col">{materia.nombre}</div>
-	<div class="col">{materia.creditos}</div>
-	<div class="col">
+	
+	<div class="col-1 justify-content-center align-content-center text-center">
+		<span>{materia.creditos}</span>
+	</div>
+
+	<div class="col  justify-content-center align-content-center">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
@@ -54,17 +61,29 @@
 			{/each}
 		</select>
 	</div>
-	<div id="docente" onclick={showDocentes} class="col">{selectedGrupo && selectedGrupo.profesor}</div>
-	<div onclick={showRecomendado} id="cupos" class="col">
+	<button id="docente" onclick={showDocentes} class="col-2 rounded text-start">
+		{selectedGrupo && selectedGrupo.profesor}
+	</button>
+	
+	<button onclick={onclickShowGrafico} id="cupos" class="col-1 rounded text-center">
 		{selectedGrupo && selectedGrupo.cupos}
+	</button>
+	
+	<div id="horario" class="col-2 ps-5 justify-content-center align-content-center">
+
+		{#if selectedGrupo}
+			{#each selectedGrupo.horarios as horario (`${horario.dia} ${horario.inicio}-${horario.fin}`)}
+				<div>
+					<i class="bi bi-clock"></i>
+					<span class=""> {`${horario.dia} ${horario.inicio}-${horario.fin}`}</span>
+				</div>
+			{/each}
+		{:else}
+			<span></span>
+		{/if}
+		
 	</div>
-	<div id="horario" class="col"
-		>{selectedGrupo &&
-			selectedGrupo.horarios
-				.map((horario) => `${horario.dia} ${horario.inicio}-${horario.fin}`)
-				.join(', ')}</div
-	>
-	<div class="col">
+	<div class="col-1  justify-content-center align-content-center">
 		<button onclick={deleteMateria} class="onclick-push-me delete-button"
 			><i class="bi bi-x-square-fill text-2xl"></i></button
 		>
@@ -73,7 +92,6 @@
 <style lang="scss">
 	.delete-button {
 		color: #ff8fb1;
-		width: 50%;
 		text-align: center;
 		display: flex;
 		margin: auto;
