@@ -1,6 +1,5 @@
 <script>
 	const { data } = $props();
-	// import { initMongo } from '$lib/db/mongo.js';
 	import { onMount } from 'svelte';
 
 	import { setContext } from 'svelte';
@@ -24,6 +23,15 @@
 
 	setContext('toast', {
 		addToast
+	});
+
+	onMount(async () => {
+		for await (const changes of data.collection.watch()) {
+			const { documentKey, fullDocument } = changes;
+			delete fullDocument._id;
+			storeAsignaturas.data[documentKey] = fullDocument;
+			addToast('Actualizacion de cupos');
+		}
 	});
 
 </script>

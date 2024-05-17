@@ -8,7 +8,6 @@ export async function load({ params, data }) {
     let logDescargaEvent = () => {};
     const collection = await initMongo();
     if (browser) {
-
         logDescargaEvent = init(data.firebaseConfig);
 	}
 
