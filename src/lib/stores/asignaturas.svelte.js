@@ -13,7 +13,6 @@ class StoreAsignaturas {
         const collAsignaturas = await initMongo();
 
         for await (const change of collAsignaturas.watch()) {
-            console.log(change);
             const { documentKey, fullDocument } = change;
             const facultad = documentKey._id;
 			delete fullDocument._id;
