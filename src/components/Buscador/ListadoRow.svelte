@@ -2,12 +2,11 @@
 	let { materia } = $props();
 	import { getContext } from 'svelte';
 	import { storeHorario } from '$lib/stores/horario.svelte.js';
-	
-	const toastContext = getContext('toast');
 
 	let isDisabled = $derived(Object.keys(storeHorario.seleccion).includes(materia.codigo));
 
 	// Event listener for the "Add" button
+	const toastContext = getContext('toast');
 	function handleClick(e) {
 		toastContext.addToast(`Se agregó: ${materia.nombre}.`);
 		storeHorario.agregarAsignatura(materia);

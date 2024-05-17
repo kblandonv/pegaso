@@ -35,7 +35,7 @@
 
 	<section>
 		<!-- Buscador de cursos -->
-		<Buscador horarioLocal={data.horarioLocal} />
+		<Buscador  />
 
 		<hr class="hr-pink" />
 

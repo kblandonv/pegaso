@@ -1,17 +1,10 @@
 <script>
-	const { horarioLocal } = $props();
 	import { loadAsignaturas } from "$lib/utils/loadAsignaturas";
 	import { onMount, getContext } from 'svelte';
 	import { storeAsignaturas } from "$lib/stores/asignaturas.svelte.js";
-
-	const toastContext = getContext('toast');
-
 	import Listado from './Listado.svelte';
 
-	if (horarioLocal !== null) {
-		// storeSeleccion.cargar(horarioLocal);
-	}
-
+	const toastContext = getContext('toast');
 	async function updateAsignaturas(e) {
 		storeAsignaturas.data = await loadAsignaturas();
 		toastContext.addToast('Se cargaron las asignaturas.');

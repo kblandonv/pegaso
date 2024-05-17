@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import Donar from './Donar.svelte';
 	import { aplyTextEffect, dispatchTextEffect } from '$lib/utils/textEffect.js';
 
@@ -8,26 +7,25 @@
 		modal.show();
 	}
 
-	/* Other */
-	let imlargo;
-	onMount(() => {
+	function textEffectAction(element) {
 		aplyTextEffect(imlargo);
 
 		setTimeout(() => {
-    		dispatchTextEffect(imlargo);
+			dispatchTextEffect(imlargo);
 		}, 2000);
-
+		
 		// Repetir cada 5 segundos
 		setInterval(() => {
 			dispatchTextEffect(imlargo);
 		}, 7000);
-	});
+	}
+
 
 </script>
 
 <header class="py-4">
-	<div class="d-flex justify-content-between">
-		<h1 bind:this={imlargo} id="imlargo" data-value="imlargo">imlargo</h1>
+	<div use:textEffectAction class="d-flex justify-content-between">
+		<h1  id="imlargo" data-value="imlargo">imlargo</h1>
 
 		<div class="d-flex justify-content-center align-items-center gap-5 text-lg">
 			<a class="my-social" href="https://github.com/imlargo" target="_blank">
