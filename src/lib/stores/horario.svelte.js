@@ -1,4 +1,22 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
+import { storeAsignaturas } from './asignaturas.svelte.js';
+
+class SeleccionItem {
+    ref = $state(false)
+    materia = $derived(
+        this.ref ?
+        storeAsignaturas.data[this.ref.facultad][this.ref.carrera].find((materia) => materia.codigo === this.ref.codigo)
+        : null
+    )
+
+    horarios = $state(null)
+    color = $state(getColor())
+    grupo = $state(null)
+
+    constructor(refMateria) {
+        this.ref = refMateria;
+    }
+}
 
 class StoreHorario {
     seleccion = $state({});
@@ -15,13 +33,7 @@ class StoreHorario {
 
     /* Metodos asignaturas seleccionadas */
     agregarAsignatura(materia) {
-        this.seleccion[materia.codigo] = {
-            materia: materia,
-            horarios: null,
-            color: getColor(),
-            grupo: null,
-        };
-
+        this.seleccion[materia.codigo] = new SeleccionItem(materia);
     }
 
     eliminarAsignatura(materia) {
