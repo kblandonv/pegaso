@@ -50,9 +50,12 @@
 
 </script>
 
-	<button id="codigo" class="col rounded" onclick={showRecomendado}>
-		<span class="text-sm">{materia.codigo}</span>
-	</button>
+	<div class="col rounded px-1">
+		<button id="codigo" class="rounded w-100 h-100" onclick={showRecomendado}>
+			<span class="text-sm">{materia.codigo}</span>
+		</button>
+	</div>
+	
 	
 	<div id="nombre" class="col-3 justify-content-center align-content-center text-sm">
 		<span>{materia.nombre}</span>
@@ -99,13 +102,23 @@
 		margin: auto;
 		justify-content: center;
 		align-items: center;
+		transition: color 0.3s;
 
 		&:hover {
 			color: #ff6b97;
 		}
 	}
+	
+	#codigo {
+		cursor: pointer;
+		background-color: rgba(177, 94, 255, 0.1);
 
-	#codigo:hover, #cupos:hover, #docente:hover {
+		&:hover {
+			background-color: rgba(185, 98, 255, 0.233);
+		}
+	}
+
+	#cupos:hover, #docente:hover {
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
 	}

@@ -8,8 +8,14 @@
 </script>
 
 <Container>
-	
-	<h1 class="text-2xl font-bold">Buscar asignaturas</h1>
+
+	<div class="d-flex justify-content-between align-items-center">
+		<h1 class="text-2xl font-bold">Buscar asignaturas</h1>
+		<button class="icon-purple pe-2">
+			<i class="bi bi-info-circle-fill"></i>
+		</button>
+		
+	</div>
 
 	<BigHr/>
 
@@ -65,3 +71,8 @@
 	<Listado materiasFiltradas={storeFiltro.materiasFiltradas} />
 </Container>
 
+<style lang="scss">
+	.icon-purple {
+		color: #a35af7;
+	}
+</style>
