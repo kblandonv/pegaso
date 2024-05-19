@@ -34,7 +34,7 @@
 
 	<div class="w-full d-flex flex-column gap-2">
 		{#each Object.entries(storeHorario.seleccion) as entries (entries[0])}
-			<div class={`seleccion row p-2 rounded tr-${entries[1].color}`} animate:flip={{ duration: 200 }}>
+			<div class={`seleccion row p-2 rounded ${entries[1].color}`} animate:flip={{ duration: 200 }}>
 				<MateriaRow color={entries[1].color} materia={entries[1].materia} />
 			</div>
 		{/each}
@@ -65,51 +65,51 @@
 
 	}
 
-	.tr-color-1::before {
+	.color-1::before {
 		background-color: #ffdede;
 	}
 
-	.tr-color-2::before {
+	.color-2::before {
 		background-color: #ffb7b7;
 	}
 
-	.tr-color-3::before {
+	.color-3::before {
 		background-color: #fff5c3;
 	}
 
-	.tr-color-4::before {
+	.color-4::before {
 		background-color: #d1fff9;
 	}
 
-	.tr-color-5::before {
+	.color-5::before {
 		background-color: #cfffdf;
 	}
 
-	.tr-color-6::before {
+	.color-6::before {
 		background-color: #ffbaec;
 	}
 
-	.tr-color-7::before {
+	.color-7::before {
 		background-color: #cbceff;
 	}
 
-	.tr-color-8::before {
+	.color-8::before {
 		background-color: #acff9b;
 	}
 
-	.tr-color-9::before {
+	.color-9::before {
 		background-color: #e4d5ff;
 	}
 
-	.tr-color-10::before {
+	.color-10::before {
 		background-color: #dcb9ff;
 	}
 
-	.tr-color-11::before {
+	.color-11::before {
 		background-color: #ffd5f5;
 	}
 
-	.tr-color-12::before {
+	.color-12::before {
 		background-color: #f7d1ff;
 	}
 	
