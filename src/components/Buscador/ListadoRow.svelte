@@ -13,24 +13,25 @@
 	}
 </script>
 
-<tr>
-	<td class="my-border px-2 text-center">{materia.codigo}</td>
-	<td class="my-border px-2 text-center">{materia.creditos}</td>
-	<td class="my-border px-2">{materia.nombre}</td>
-	<td class="my-border px-2">
-		<button
-			class='onclick-push-me'
-			onclick={handleClick}
-			disabled={isDisabled}
-		>
-			<i class="bi bi-plus-square-fill text-2xl"></i>
-		</button>
-	</td>
-	<td class="my-border px-2 text-center">{materia.tipologia}</td>
-	<td class="my-border px-2 text-center">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</td>
-</tr>
+<div class="row row-asignatura align-items-center py-1">
+	<div class="text-sm p-0 col-1">{materia.codigo}</div>
+	<div class="text-sm p-0 col-1">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</div>
+	<div class="text-sm p-0 col-5">{materia.nombre}</div>
+	<div class="text-sm p-0 col-1">{materia.creditos}</div>
+	<div class="text-sm p-0 col-3">{materia.tipologia}</div>
+	<div class="text-sm p-0 col-1"><button class='onclick-push-me' onclick={handleClick} disabled={isDisabled}><i class="bi bi-plus-square-fill text-2xl"></i></button></div>
+</div>
 
 <style lang="scss">
+
+	.row-asignatura {
+		border-top: 1px solid #e5caff;
+
+		&:hover {
+			background: linear-gradient(90deg, rgba(111, 3, 244, 0.05), rgba(204, 57, 164, 0.05), rgba(255, 181, 210, 0.05));
+		}
+	}
+
 	button {
 		color: #b362ff;
 		width: 50%;
@@ -39,6 +40,7 @@
 		margin: auto;
 		justify-content: center;
 		align-items: center;
+		transition: all 0.2s ease-in-out;
 
 		&:hover {
 			color: #9345ff;
@@ -51,7 +53,4 @@
 
 	}
 
-	tr:hover {
-    	background: linear-gradient(90deg, rgba(111, 3, 244, 0.1), rgba(204, 57, 164, 0.1), rgba(255, 181, 210, 0.1));
-	}
 </style>

@@ -18,21 +18,25 @@
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
     {#each mensajes as mensaje, index (`${index}-${mensaje}`)}
-        <div use:toastAction class="toast align-items-center toast-purple border-0" role="alert">
+        <div use:toastAction class="toast align-items-center toast-purple border-0 text-sm" role="alert">
             <div class="d-flex">
                 <div class="toast-body">{mensaje}</div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                <button type="button" class="btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
         </div>
     {/each}  
 </div>
 
 <style lang="scss">
+
     .toast-purple {
         margin-top: 1rem;
         margin-bottom: 0px;
-        background-color: #a728c7;
-        color: #ffffff;
+        background-color: #e787ff52;
+        color: #000000;
         z-index: 4;
+
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
     }
 </style>

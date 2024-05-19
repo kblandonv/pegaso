@@ -1,35 +1,34 @@
 <script>
 	const { materiasFiltradas } = $props();
 	import ListadoRow from './ListadoRow.svelte';
-
-	let details;
-	$effect(() => {
-		details.open = materiasFiltradas.length > 0;
-	});
 </script>
 
-<details id="collapse-materias" class="mt-4" bind:this={details}>
-	<summary class="rounded-top py-2 px-3 font-bold">
-		<div class="d-flex justify-content-between">
-			<span id="asignaturas-cargadas">Asignaturas cargadas: {materiasFiltradas.length}</span>
-			<i class="bi bi-chevron-down"></i>
+<section class="container mt-4">
+	{#if materiasFiltradas.length === 0}
+		<div class="row mt-3">
+			<div class="p-0"><span>Por favor seleccione asignaturas...</span></div>
 		</div>
-	</summary>
-	<table class="table-auto w-full my-border rounded mb-4">
-		<thead class="text-center">
-			<tr>
-				<th class="my-border px-4 py-2">Código</th>
-				<th class="my-border px-4 py-2">Créditos</th>
-				<th class="my-border px-4 py-2">Nombre</th>
-				<th class="my-border px-4 py-2">Agregar al horario</th>
-				<th class="my-border px-4 py-2">Tipologia</th>
-				<th class="my-border px-4 py-2">Cupos</th>
-			</tr>
-		</thead>
-		<tbody id="materias">
+	{:else}
+		<div class="row">
+			<div class="p-0 col-1 title-mono font-bold">Código</div>
+			<div class="p-0 col-1 title-mono font-bold">Cupos</div>
+			<div class="p-0 col-5 title-mono font-bold">Nombre</div>
+			<div class="p-0 col-1 title-mono font-bold">Créditos</div>
+			<div class="p-0 col-3 title-mono font-bold">Tipologia</div>
+			<div class="p-0 col-1 title-mono font-bold">
+				<div class="d-flex justify-content-center align-content-center">
+					<button><i class="bi bi-chevron-down"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-3">
 			{#each materiasFiltradas as materia (`${materia.facultad}-${materia.carrera}-${materia.codigo}`)}
 				<ListadoRow {materia} />
 			{/each}
-		</tbody>
-	</table>
-</details>
+		</div>
+	{/if}
+</section>
+
+<style lang="scss">
+</style>

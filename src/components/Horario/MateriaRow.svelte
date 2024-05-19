@@ -33,22 +33,37 @@
 		storeAnalisis.elementos.docentes.show();
 	}
 
+	/*
+	<div id="horario" class="col-2 ps-5 justify-content-center align-content-center text-sm">
+		{#if selectedGrupo}
+			{#each selectedGrupo.horarios as horario (`${horario.dia} ${horario.inicio}-${horario.fin}`)}
+				<div>
+					<i class="bi bi-clock"></i>
+					<span class=""> {`${horario.dia} ${horario.inicio}-${horario.fin}`}</span>
+				</div>
+			{/each}
+		{:else}
+			<span></span>
+		{/if}
+	</div>
+	*/
+
 </script>
 
-	<button id="codigo" class="col-1 rounded" onclick={showRecomendado}>
+	<button id="codigo" class="col-2 rounded" onclick={showRecomendado}>
 		<i class="bi bi-bar-chart-line"></i>
-		<span>{materia.codigo}</span>
+		<span class="text-sm">{materia.codigo}</span>
 	</button>
 	
-	<div id="nombre" class="col-2 justify-content-center align-content-center">
+	<div id="nombre" class="col-3 justify-content-center align-content-center text-sm">
 		<span>{materia.nombre}</span>
 	</div>
 	
-	<div class="col-1 justify-content-center align-content-center text-center">
+	<div class="col-1 justify-content-center align-content-center text-center text-sm">
 		<span>{materia.creditos}</span>
 	</div>
 
-	<div class="col  justify-content-center align-content-center">
+	<div class="col-2 justify-content-center align-content-center text-sm">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
@@ -61,29 +76,16 @@
 			{/each}
 		</select>
 	</div>
-	<button id="docente" onclick={showDocentes} class="col-2 rounded text-start">
+	<button id="docente" onclick={showDocentes} class="col rounded text-start text-sm">
 		{selectedGrupo && selectedGrupo.profesor}
 	</button>
 	
-	<button onclick={onclickShowGrafico} id="cupos" class="col-1 rounded text-center">
+	<button onclick={onclickShowGrafico} id="cupos" class="col-1 rounded text-center text-sm">
 		{selectedGrupo && selectedGrupo.cupos}
 	</button>
 	
-	<div id="horario" class="col-2 ps-5 justify-content-center align-content-center">
-
-		{#if selectedGrupo}
-			{#each selectedGrupo.horarios as horario (`${horario.dia} ${horario.inicio}-${horario.fin}`)}
-				<div>
-					<i class="bi bi-clock"></i>
-					<span class=""> {`${horario.dia} ${horario.inicio}-${horario.fin}`}</span>
-				</div>
-			{/each}
-		{:else}
-			<span></span>
-		{/if}
-		
-	</div>
-	<div class="col-1  justify-content-center align-content-center">
+	
+	<div class="col-1 w-10 justify-content-center align-content-center">
 		<button onclick={deleteMateria} class="onclick-push-me delete-button"
 			><i class="bi bi-x-square-fill text-2xl"></i></button
 		>

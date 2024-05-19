@@ -53,6 +53,7 @@
 
 <style lang="scss">
 	button {
+		width: 12.5%;
 		transition: all 0.1s;
 		background-color: #b759ff;
 		color: white;

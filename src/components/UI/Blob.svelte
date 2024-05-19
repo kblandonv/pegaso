@@ -35,7 +35,7 @@
 
 	#blob {
 		background-color: white;
-		height: 34vmax;
+		height: 40rem;
 		aspect-ratio: 1;
 		position: absolute;
 		left: 50%;
@@ -45,7 +45,7 @@
 
 		background: linear-gradient(to right, rgba(205, 187, 255), rgba(249, 207, 255));
 		animation: rotate 20s infinite linear;
-		opacity: 0.5;
+		opacity: 0.3;
 		filter: blur(20px);
 
 		z-index: -1;
