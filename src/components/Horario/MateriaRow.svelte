@@ -50,8 +50,7 @@
 
 </script>
 
-	<button id="codigo" class="col-2 rounded" onclick={showRecomendado}>
-		<i class="bi bi-bar-chart-line"></i>
+	<button id="codigo" class="col rounded" onclick={showRecomendado}>
 		<span class="text-sm">{materia.codigo}</span>
 	</button>
 	
@@ -59,11 +58,11 @@
 		<span>{materia.nombre}</span>
 	</div>
 	
-	<div class="col-1 justify-content-center align-content-center text-center text-sm">
+	<div class="col justify-content-center align-content-center text-center text-sm">
 		<span>{materia.creditos}</span>
 	</div>
 
-	<div class="col-2 justify-content-center align-content-center text-sm">
+	<div class="col justify-content-center align-content-center text-sm">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
 			{#each materia.grupos as grupo (grupo.grupo)}
@@ -76,12 +75,13 @@
 			{/each}
 		</select>
 	</div>
-	<button id="docente" onclick={showDocentes} class="col rounded text-start text-sm">
+	<button id="docente" onclick={showDocentes} class="col-3 rounded text-start text-sm">
 		{selectedGrupo && selectedGrupo.profesor}
 	</button>
 	
 	<button onclick={onclickShowGrafico} id="cupos" class="col-1 rounded text-center text-sm">
-		{selectedGrupo && selectedGrupo.cupos}
+		<i class="bi bi-graph-down"></i>
+		<span>{selectedGrupo && selectedGrupo.cupos}</span>
 	</button>
 	
 	

@@ -2,7 +2,10 @@
 </script>
 
 <section class="container px-4 py-4 my-4 rounded-3">
-    <slot></slot>
+    <div class="p-2 px-3">
+        <slot></slot>
+    </div>
+    
 </section>
 
 <style lang="scss">

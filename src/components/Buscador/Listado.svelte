@@ -10,14 +10,14 @@
 		</div>
 	{:else}
 		<div class="row">
-			<div class="p-0 col-1 title-mono font-bold">Código</div>
-			<div class="p-0 col-1 title-mono font-bold">Cupos</div>
-			<div class="p-0 col-5 title-mono font-bold">Nombre</div>
-			<div class="p-0 col-1 title-mono font-bold">Créditos</div>
-			<div class="p-0 col-3 title-mono font-bold">Tipologia</div>
+			<div class="p-0 col title-mono font-bold">Código</div>
+			<div class="p-0 col title-mono font-bold">Cupos</div>
+			<div class="p-0 col-4 title-mono font-bold">Nombre</div>
+			<div class="p-0 col title-mono font-bold">Créditos</div>
+			<div class="p-0 col title-mono font-bold">Tipologia</div>
 			<div class="p-0 col-1 title-mono font-bold">
-				<div class="d-flex justify-content-center align-content-center">
-					<button><i class="bi bi-chevron-down"></i></button>
+				<div class="d-flex justify-content-end align-content-center pe-2">
+					<button class="pe-1"><i class="bi bi-chevron-down"></i></button>
 				</div>
 			</div>
 		</div>

@@ -14,12 +14,14 @@
 </script>
 
 <div class="row row-asignatura align-items-center py-1">
-	<div class="text-sm p-0 col-1">{materia.codigo}</div>
-	<div class="text-sm p-0 col-1">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</div>
-	<div class="text-sm p-0 col-5">{materia.nombre}</div>
-	<div class="text-sm p-0 col-1">{materia.creditos}</div>
-	<div class="text-sm p-0 col-3">{materia.tipologia}</div>
-	<div class="text-sm p-0 col-1"><button class='onclick-push-me' onclick={handleClick} disabled={isDisabled}><i class="bi bi-plus-square-fill text-2xl"></i></button></div>
+	<div class="text-sm p-0 col">{materia.codigo}</div>
+	<div class="text-sm p-0 col">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</div>
+	<div class="text-sm p-0 col-4">{materia.nombre}</div>
+	<div class="text-sm p-0 col">{materia.creditos}</div>
+	<div class="text-sm p-0 col">{materia.tipologia}</div>
+	<div class="text-sm p-0 col-1 d-flex justify-content-end">
+		<button class='onclick-push-me pe-2 w-20' onclick={handleClick} disabled={isDisabled}><i class="bi bi-plus-square-fill text-2xl"></i></button>
+	</div>
 </div>
 
 <style lang="scss">
@@ -34,11 +36,9 @@
 
 	button {
 		color: #b362ff;
-		width: 50%;
-		text-align: center;
+		text-align: end;
 		display: flex;
-		margin: auto;
-		justify-content: center;
+		justify-content: end;
 		align-items: center;
 		transition: all 0.2s ease-in-out;
 

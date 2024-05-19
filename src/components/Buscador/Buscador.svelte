@@ -54,7 +54,7 @@
 			<Badge>{storeFiltro.materiasFiltradas.length}</Badge>	
 		</div>
 
-		<div class="text-sm">
+		<div class="text-sm font-mono">
 			<strong>Última actualización de cupos: </strong>
 			<span>{storeAsignaturas.lastUpdate}</span>
 		</div>

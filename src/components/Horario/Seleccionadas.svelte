@@ -23,11 +23,11 @@
 
 <section class="container mb-4 mt-4">
 	<div class="row text-center">
-		<div class="col-2 py-2 title-mono font-bold">Codigo</div>
+		<div class="col py-2 title-mono font-bold">Codigo</div>
 		<div class="col-3 py-2 title-mono font-bold">Nombre</div>
-		<div class="col-1 py-2 title-mono font-bold">Creditos</div>
-		<div class="col-2 py-2 title-mono font-bold">Grupo</div>
-		<div class="col py-2 title-mono font-bold">Docente</div>
+		<div class="col py-2 title-mono font-bold">Creditos</div>
+		<div class="col py-2 title-mono font-bold">Grupo</div>
+		<div class="col-3 py-2 title-mono font-bold">Docente</div>
 		<div class="col-1 py-2 title-mono font-bold">Cupos</div>
 		<div class="col-1 w-12 py-2 title-mono font-bold"></div>
 	</div>
@@ -52,12 +52,13 @@
 		&::before {
 			background-color: rgb(192, 136, 255);
 			border-radius: 2px;
-			left: -0.2rem;
+
+			left: 0.1rem;
 			content: '';
 			display: block;
 			height: 80%;
 			position: absolute;
-			width: calc(0.5em);
+			width: calc(0.4em);
 			top: 50%;
 			transform: translateY(-50%);
 		}

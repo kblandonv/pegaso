@@ -6,7 +6,7 @@
 
 <style lang="scss">
     hr {
-        width: 8rem;
+        width: 12.5%;
         border: 0;
         height: 5px;
         background-color: var(--hr-big) !important;

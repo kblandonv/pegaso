@@ -7,7 +7,7 @@
 <style>
 
 	td {
-		transition: background-color 200ms;
+		transition: background-color 400ms;
 	}
 
     .color-1 {

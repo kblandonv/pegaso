@@ -1,8 +1,8 @@
 <script>
 </script>
 
-<div class="d-flex align-items-center">
-    <span class="px-2 rounded-2 text-xs">
+<div class="d-flex align-items-center text-center">
+    <span class="px-2 rounded-4 text-xs">
         <slot></slot>
     </span>
 </div>
@@ -19,7 +19,7 @@
         border-radius: 9999px;
 
         box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px inset, rgba(79, 70, 229, 0.1) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-        width: fit-content;
+        width: 3rem;
         font-weight: 600;
         -webkit-font-smoothing: antialiased;
 
