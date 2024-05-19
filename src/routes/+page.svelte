@@ -41,6 +41,8 @@
 <main class="container">
 	<Header />
 
+	<Blob />
+
 	<main>
 		<!-- Buscador de cursos -->
 		<Buscador  />

@@ -21,8 +21,8 @@ body {
     overflow: hidden;
     overflow-y: scroll;
 
-    //background: url("../lib/assets/background.png");
-    //background-size: cover;
+    background-image: linear-gradient(var(--background), var(--background)), url("$lib/assets/background.png") !important;
+    background-size: cover;
 }
 
 select {
