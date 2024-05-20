@@ -1,6 +1,6 @@
-<h1 align="center">Mi Sistema de Informacion Academica</h1>
- 
-> Aplicacion web para crear horarios, buscar asignaturas y cupos de manera rapida y sencilla. Creado con cariño para los estudiantes de la Universidad Nacional de Colombia. (**Nota:** Actualmente en desarrollo!)
+# PEGASO
+
+> Aplicacion web para crear horarios, buscar asignaturas, y visualizar el comportamiento de cupos de manera rapida y sencilla. Creado con cariño para los estudiantes de la Universidad Nacional de Colombia. (**Nota:** Actualmente en desarrollo!)
 
 Si tienes alguna retroalimentación, duda, o sugerencia contactame al: ...
 
