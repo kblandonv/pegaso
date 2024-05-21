@@ -100,12 +100,14 @@
 		text-align: center;
 		display: flex;
 		margin: auto;
+
 		justify-content: center;
 		align-items: center;
-		transition: color 0.3s;
+		transition: all 0.2s ease-in-out;
 
 		&:hover {
 			color: #ff6b97;
+			transform: scale(1.07);
 		}
 	}
 	
