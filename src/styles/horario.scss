@@ -36,13 +36,6 @@ select {
     border-top: 0.2rem solid #b566ffb0;
 }
 
-.my-toast {
-    background-color: #a728c7;
-    color: #ffffff;
-    font-weight: 500;
-    z-index: 4;
-}
-
 .my-border {
     border: 1px solid rgba(106, 0, 255, 0.15)!important;
 }
@@ -63,17 +56,12 @@ summary {
     background: linear-gradient(90deg, rgba(210, 175, 255, 0.5), rgba(255, 140, 243, 0.4) 100%);
 }
 
-
 .glass {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-}
-
-.font-my-mono {
-    font-family: 'JetBrains Mono', monospace;
 }
 
 .my-button {

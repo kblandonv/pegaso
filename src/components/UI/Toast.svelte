@@ -28,7 +28,6 @@
 </div>
 
 <style lang="scss">
-
     .toast-purple {
         margin-top: 1rem;
         margin-bottom: 0px;
