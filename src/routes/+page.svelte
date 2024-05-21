@@ -6,7 +6,7 @@
 	import Footer from '$components/UI/Footer.svelte';
 	import Blob from '$components/UI/Blob.svelte';
 	import Toast from '$components/UI/Toast.svelte';
-	import '$src/styles/global.scss';
+	import '$src/styles/horario.scss';
 
 	import Buscador from '$components/Buscador';
 	import Horario from '$components/Horario';

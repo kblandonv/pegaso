@@ -2,9 +2,9 @@
 <footer>
 	<p>© 2023</p>
 	<div class="footer_links">
-		<a href="#">Discord</a>
-		<a href="#">X</a>
-		<a href="#">GitHub</a>
+		<a href="instagram.com/imlargo">Discord</a>
+		<a href="instagram.com/imlargo">X</a>
+		<a href="instagram.com/imlargo">GitHub</a>
 	</div>
 </footer>
 

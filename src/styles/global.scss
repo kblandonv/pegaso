@@ -6,7 +6,6 @@ $font-mono: 'JetBrains Mono', monospace;
 $font-inter: 'Inter', sans-serif;
 
 body {
-
     font-family: $font-inter!important;
     font-optical-sizing: auto;
     font-style: normal;
@@ -14,88 +13,6 @@ body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11" !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    color: var(--texto)!important;
-    background-color: var(--background)!important;
-    
-    overflow: hidden;
-    overflow-y: scroll;
-
-    background-image: linear-gradient(var(--background), var(--background)), url("$lib/assets/background.png") !important;
-    background-size: cover;
-}
-
-select {
-    background-color: #F3EEFF!important;
-    border: 1px solid #BDA6FF!important;
-    transition: all .3s;
-
-    option:checked {
-        background-color: #c99aff33;
-    }
-}
-
-.font-mono {
-    font-family: $font-mono;
-    letter-spacing: -0.03rem!important;
-}
-
-.title-mono {
-    font-family: $font-mono;
-    font-size: 1.1rem;
-}
-
-
-.hr-pink {
-    border-top: 0.2rem solid #b566ffb0;
-}
-
-.my-toast {
-    background-color: #a728c7;
-    color: #ffffff;
-    font-weight: 500;
-    z-index: 4;
-}
-
-.my-border {
-    border: 1px solid rgba(106, 0, 255, 0.15)!important;
-}
-
-details {
-    i {
-        transition: all 0.3s ease-out;
-    }
-
-    &[open] i {
-        transform: rotate(180deg);
-    }
-}
-
-summary {
-    list-style: none;
-    justify-content: space-between;
-    background: linear-gradient(90deg, rgba(210, 175, 255, 0.5), rgba(255, 140, 243, 0.4) 100%);
-}
-
-
-.glass {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-}
-
-.font-my-mono {
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.my-button {
-    display: block;
-    margin: auto;
-}
-
-.onclick-push-me:active {
-    transition: all .2s;
-    transform: scale(0.9) !important;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
 }

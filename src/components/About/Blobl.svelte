@@ -40,7 +40,7 @@
 		top: 50%;
 		translate: -50% -50%;
 		border-radius: 50%;
-		background: linear-gradient(to right, aquamarine, mediumpurple);
+		background: linear-gradient(to right, rgb(215, 184, 255), rgb(233, 121, 255));
 		animation: rotate 20s infinite;
 		opacity: 0.3;
 
