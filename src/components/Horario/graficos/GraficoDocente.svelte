@@ -15,20 +15,20 @@
 </script>
 
 <dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2 mono">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
+	<h5 class="text-lg font-bold w-auto w-100 text-center mb-2 font-mono">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
 
 	<div id="contenedor-grafico">
-        <h5 class="text-lg font-medium w-auto w-100 text-center mb-2 mono">Docentes más seleccionados</h5>
+        <h5 class="text-lg font-normal w-auto w-100 text-center mb-2 font-mono">Docentes más seleccionados</h5>
         {#if storeAnalisis.analized !== null}
 	        {#each storeAnalisis.analized.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
             <div class="d-flex justify-content-between container-docente px-3 py-2 mb-1 rounded">
                     <p class="lead text-sm "><strong>{i+1}</strong><span>. {recomendacion.docente}</span></p>
-                    <p class="lead fw-bold text-sm">{recomendacion.puntaje}</p>
+                    <p class="lead fw-medium text-sm">{recomendacion.puntaje}</p>
             </div>
             {/each}
         {/if}
 		<hr>
-		<p class="my-3 mono text-justify">
+		<p class="my-3 font-mono text-justify text-base">
 			Nota: puntajes generados mediante analisis de datos
 		</p>
 	</div>
@@ -67,10 +67,6 @@
             }
             
         }
-
-		.mono {
-			font-family: 'JetBrains Mono', monospace;
-		}
 
 		button {
 			background-color: #b26eff;

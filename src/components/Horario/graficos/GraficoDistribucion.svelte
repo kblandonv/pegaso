@@ -26,7 +26,7 @@
 </script>
 
 <dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-medium w-auto w-100 text-center mb-2">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
+	<h5 class="text-lg font-bold w-auto w-100 text-center mb-2 font-mono">{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}</h5>
 
 	<div id="contenedor-grafico">
 		<canvas bind:this={canvas}></canvas>
@@ -58,10 +58,6 @@
 		#contenedor-grafico {
 			width: 100%;
 			height: 100%;
-		}
-
-		h5 {
-			font-family: 'JetBrains Mono', monospace;
 		}
 
 		button {
