@@ -114,6 +114,7 @@
 	#codigo {
 		cursor: pointer;
 		background-color: rgba(177, 94, 255, 0.1);
+		transition: all 0.3s ease-in-out;
 
 		&:hover {
 			background-color: rgba(185, 98, 255, 0.233);
@@ -122,6 +123,7 @@
 
 	#cupos:hover, #docente:hover {
 		cursor: pointer;
+		transition: all 0.3s ease-in-out;
 		background-color: rgba(177, 94, 255, 0.1);
 	}
 
