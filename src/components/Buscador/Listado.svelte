@@ -52,7 +52,7 @@
 <style lang="scss">
 
 	button {
-		transition: all 0.3s linear;
+		transition: all 0.4s ease;
 
 		i {
 			color: #c17fff;
