@@ -41,7 +41,7 @@
 			</a>
 		</div>
 
-		<a on:click={showModal} class="btn btn-donar" role="button" href>
+		<a on:click={showModal} class="d-flex btn btn-donar text-base align-items-center justify-content-center gap-2 font-medium" role="button" href>
 			<i class="bi bi-heart-fill"></i>
 			<span> Donar</span>
 		</a>
@@ -77,10 +77,11 @@
 	.btn-donar {
 		background-color: #a84aff;
 		color: white;
-		font-weight: bold;
 		transition: all 0.1s;
+		font-family: "Inter", sans-serif!important;
 
 		&:hover {
+			transform: scale(1.02);
 			background-color: #8c2aff;
 			color: white;
 		}
