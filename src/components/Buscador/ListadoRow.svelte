@@ -15,7 +15,7 @@
 
 <div class="row row-asignatura align-items-center py-1">
 	<div class="text-sm p-0 col">{materia.codigo}</div>
-	<div class="text-sm p-0 col">{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</div>
+	<div class="text-sm p-0 col"><i class="bi bi-check2-circle"></i> {materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos), 0)}</div>
 	<div class="text-sm p-0 col-4">{materia.nombre}</div>
 	<div class="text-sm p-0 col">{materia.creditos}</div>
 	<div class="text-sm p-0 col">{materia.tipologia}</div>
