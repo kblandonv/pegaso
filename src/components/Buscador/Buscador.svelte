@@ -5,13 +5,14 @@
 	import Container from '$components/UI/Container.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '../UI/Badge.svelte';
+	import { tooltipAction } from "$lib/utils/actions/tooltip.js"
 </script>
 
 <Container>
 
 	<div class="d-flex justify-content-between align-items-center">
 		<h1 class="text-2xl font-bold">Buscar asignaturas</h1>
-		<button class="icon-purple pe-2">
+		<button class="icon-purple pe-2" use:tooltipAction={"Selecciona una facultad, plan de estudios y tipología para filtrar las asignaturas y agregarlas a tu horario"}>
 			<i class="bi bi-info-circle-fill"></i>
 		</button>
 		
@@ -60,8 +61,8 @@
 			<Badge>{storeFiltro.materiasFiltradas.length}</Badge>	
 		</div>
 
-		<div class="text-sm font-mono">
-			<strong>Última actualización de cupos: </strong>
+		<div class="text-sm font-mono" use:tooltipAction={"Última actualización de cupos"}>
+			<i class="bi bi-clock"></i>
 			<span>{storeAsignaturas.lastUpdate}</span>
 		</div>
 	</div>

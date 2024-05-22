@@ -53,6 +53,7 @@
 
 	<div class="col rounded px-1">
 		<button id="codigo" class="rounded w-100 h-100" onclick={showRecomendado}>
+			<i class="bi bi-bar-chart-line"></i>
 			<span class="text-sm">{materia.codigo}</span>
 		</button>
 	</div>
@@ -84,7 +85,8 @@
 			{/each}
 		</select>
 	</div>
-	<button id="docente" onclick={showDocentes} class="col-3 rounded text-start text-sm">
+	<button id="docente" onclick={showDocentes} class="col-3 rounded text-start text-sm ">
+		<i class="bi bi-ui-checks"></i>
 		{selectedGrupo && selectedGrupo.profesor}
 	</button>
 	
