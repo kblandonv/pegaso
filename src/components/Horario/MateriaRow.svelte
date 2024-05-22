@@ -118,12 +118,15 @@
 	}
 
 	optgroup {
-		font-weight: 550;
+		font-weight: 500;
 		font-size: 0.875rem; /* 14px */
 
 		option {
 			font-size: 0.95rem; /* 16px */
-			color: #000;
+			font-weight: 400;
+			&:disabled {
+    			background-color: rgba(255, 154, 184, 0.07);
+			}	
 		}
 	}
 	
