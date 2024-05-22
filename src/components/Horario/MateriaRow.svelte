@@ -5,9 +5,10 @@
 
 	let groupValue = $state('');
 	let selectedGrupo = $derived(materia.grupos.find((grupo) => grupo.grupo === groupValue));
+	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
 
 	$effect(() => {
-		if (selectedGrupo) {
+		if (selectedGrupo) {		
 			storeHorario.asignarHorario(materia, selectedGrupo);
 		} else {
 			storeHorario.limpiarHorario(materia);
@@ -68,13 +69,18 @@
 	<div class="col justify-content-center align-content-center text-sm">
 		<select class="form-select form-select-sm" bind:value={groupValue}>
 			<option value="">No seleccionado</option>
-			{#each materia.grupos as grupo (grupo.grupo)}
-				{@const isDisponible = storeHorario.verificarHorario(materia.codigo, grupo.horarios)}
-				<option
-					title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
-					disabled={isDisponible !== true}
-					value={grupo.grupo}>{grupo.grupo}</option
-				>
+
+			{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}
+				<optgroup label={entriesDocente[0]}>
+					{#each entriesDocente[1] as grupo (grupo.grupo)}
+						{@const isDisponible = storeHorario.verificarHorario(materia.codigo, grupo.horarios)}
+						<option
+							title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
+							disabled={isDisponible !== true}
+							value={grupo.grupo}>{grupo.grupo}</option
+						>	
+					{/each}
+				</optgroup>
 			{/each}
 		</select>
 	</div>
@@ -108,6 +114,16 @@
 		&:hover {
 			color: #ff6b97;
 			transform: scale(1.07);
+		}
+	}
+
+	optgroup {
+		font-weight: 550;
+		font-size: 0.875rem; /* 14px */
+
+		option {
+			font-size: 0.95rem; /* 16px */
+			color: #000;
 		}
 	}
 	
