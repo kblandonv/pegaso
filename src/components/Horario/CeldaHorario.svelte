@@ -2,7 +2,7 @@
     const { id, color, materia } = $props();
 </script>
 
-<td {id} class={`text-xs my-border px-4 py-2 ${color}`}>{materia}</td>
+<td {id} class={`text-xs px-4 py-2 ${color ? color : "my-border"}`}>{materia}</td>
 
 <style>
 
