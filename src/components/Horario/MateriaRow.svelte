@@ -14,40 +14,16 @@
 		storeHorario.eliminarAsignatura(materia);
 	}
 
-	function onclickShowGrafico(event) {
+	function showGrafico(e) {
 		storeAnalisis.asignatura = materia;
-		storeAnalisis.elementos.cupos.show();
+		const grafico = this.dataset.graph;
+		storeAnalisis.elementos[grafico].show();
 	}
-
-	function showRecomendado(event) {
-		storeAnalisis.asignatura = materia;
-		storeAnalisis.elementos.distribucion.show();
-	}
-
-	function showDocentes(e) {
-		storeAnalisis.asignatura = materia;
-		storeAnalisis.elementos.docentes.show();
-	}
-
-	/*
-	<div id="horario" class="col-2 ps-5 justify-content-center align-content-center text-sm">
-		{#if selectedGrupo}
-			{#each selectedGrupo.horarios as horario (`${horario.dia} ${horario.inicio}-${horario.fin}`)}
-				<div>
-					<i class="bi bi-clock"></i>
-					<span class=""> {`${horario.dia} ${horario.inicio}-${horario.fin}`}</span>
-				</div>
-			{/each}
-		{:else}
-			<span></span>
-		{/if}
-	</div>
-	*/
 
 </script>
 
 	<div class="col rounded px-1">
-		<button id="codigo" class="rounded w-100 h-100" onclick={showRecomendado}>
+		<button id="codigo" class="rounded w-100 h-100" data-graph="distribucion" onclick={showGrafico}>
 			<i class="bi bi-bar-chart-line"></i>
 			<span class="text-sm">{materia.codigo}</span>
 		</button>
@@ -80,12 +56,12 @@
 			{/each}
 		</select>
 	</div>
-	<button id="docente" onclick={showDocentes} class="col-3 rounded text-start text-sm ">
+	<button id="docente" class="col-3 rounded text-start text-sm" data-graph="docentes" onclick={showGrafico}>
 		<i class="bi bi-ui-checks"></i>
 		{selectedGrupo && selectedGrupo.profesor}
 	</button>
 	
-	<button onclick={onclickShowGrafico} id="cupos" class="col-1 rounded text-center text-sm">
+	<button id="cupos" class="col-1 rounded text-center text-sm" data-graph="cupos" onclick={showGrafico}>
 		<i class="bi bi-graph-down"></i>
 		<span>{selectedGrupo && selectedGrupo.cupos}</span>
 	</button>
