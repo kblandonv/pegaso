@@ -5,6 +5,7 @@
 
 	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
+	let initValue = storeHorario.seleccion[materia.codigo].groupValue;
 
 	function handleChangeGrupo(e) {
 		storeHorario.asignarHorario(materia, e.target.value);
@@ -21,7 +22,6 @@
 	}
 
 </script>
-
 	<div class="col rounded px-1">
 		<button id="codigo" class="rounded w-100 h-100" data-graph="distribucion" onclick={showGrafico}>
 			<i class="bi bi-bar-chart-line"></i>
@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="col justify-content-center align-content-center text-sm">
-		<select class="form-select form-select-sm" onchange={handleChangeGrupo}>
+		<select class="form-select form-select-sm" onchange={handleChangeGrupo} bind:value={initValue}>
 			<option value="">No seleccionado</option>
 
 			{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}

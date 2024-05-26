@@ -3,7 +3,7 @@ import { storeAsignaturas } from './asignaturas.svelte.js';
 
 class SeleccionItem {
     ref = $state(false);
-    groupValue = $state(null);
+    groupValue = $state("");
 
     materia = $derived(
         this.ref ?
