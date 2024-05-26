@@ -7,8 +7,6 @@
 	import BotonDescargar from './BotonDescargar.svelte';
 	import Container from '$components/UI/Container.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
-	import Badge from '../UI/Badge.svelte';
-	
 </script>
 
 

@@ -2,16 +2,23 @@ import { parseHorario, getColor } from '$lib/utils/utils';
 import { storeAsignaturas } from './asignaturas.svelte.js';
 
 class SeleccionItem {
-    ref = $state(false)
+    ref = $state(false);
+    groupValue = $state(null);
+
     materia = $derived(
         this.ref ?
         storeAsignaturas.data[this.ref.facultad][this.ref.carrera].find((materia) => materia.codigo === this.ref.codigo)
         : null
-    )
+    );
+    
+    grupo = $derived(
+        this.groupValue && this.materia ?
+        this.materia.grupos.find((grupo) => grupo.grupo === this.groupValue)
+        : null
+    );
 
-    horarios = $state(null)
-    color = $state(getColor())
-    grupo = $state(null)
+    horarios = $state(null);
+    color = $state(getColor());
 
     constructor(refMateria) {
         this.ref = refMateria;
@@ -34,7 +41,7 @@ class StoreHorario {
     saveToStorage() {
         const data = Object.values(this.seleccion).map(seleccion => ({
             materia: seleccion.materia,
-            grupo: seleccion.grupo
+            groupValue: seleccion.groupValue
         }));
         localStorage.setItem('localHorario', JSON.stringify(data));
     }
@@ -47,6 +54,7 @@ class StoreHorario {
         const seleccionHorario = JSON.parse(storedData);
         for (const seleccion of seleccionHorario) {
             this.agregarAsignatura(seleccion.materia);
+            this.asignarHorario(seleccion.materia, seleccion.groupValue)
         }
     }
 
@@ -73,16 +81,23 @@ class StoreHorario {
                 }
             }
         }
-        this.seleccion[materia.codigo].grupo = null;
     }
 
-    asignarHorario(materia, grupo) {
+    asignarHorario(materia, groupValue) {
+
+        this.seleccion[materia.codigo].groupValue = groupValue;
+        this.saveToStorage();
+
+        // Si no hay un grupo o se deselecciono, limpiar horario
+        if (!groupValue) {
+			storeHorario.limpiarHorario(materia);
+            return;
+		}
+
         this.limpiarHorario(materia);
 
-        const horarios = grupo.horarios
-
+        const horarios = this.seleccion[materia.codigo].grupo.horarios
         this.seleccion[materia.codigo].horarios = horarios;
-        this.seleccion[materia.codigo].grupo = grupo;
 
         for (const h of horarios) {
             const { dia, inicio, fin } = parseHorario(h);

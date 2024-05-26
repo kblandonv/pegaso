@@ -3,21 +3,12 @@
 	import { storeHorario } from '$lib/stores/horario.svelte.js';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
 
-	let groupValue = $state('');
-	let selectedGrupo = $derived(materia.grupos.find((grupo) => grupo.grupo === groupValue));
+	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
 
 	function handleChangeGrupo(e) {
-		groupValue = e.target.value;
+		storeHorario.asignarHorario(materia, e.target.value);
 	}
-
-	$effect(() => {
-		if (selectedGrupo) {
-			storeHorario.asignarHorario(materia, selectedGrupo);
-		} else {
-			storeHorario.limpiarHorario(materia);
-		}
-	});
 
 	function deleteMateria() {
 		storeHorario.eliminarAsignatura(materia);
