@@ -9,58 +9,90 @@
 	import BigHr from '$components/UI/BigHr.svelte';
 </script>
 
-
 <Container>
 	<Seleccionadas />
 
 	<hr class="hr-pink" />
 
 	<div class="d-flex justify-content-between align-items-bottom mt-5">
-
-		<div class="d-flex gap-3 align-items-bottom">
+		<div class="d-flex align-items-bottom gap-3">
 			<h1 class="text-2xl font-bold">Horario</h1>
 		</div>
-
 		<BotonDescargar {logDescargaEvent} />
 	</div>
-	<BigHr/>
+	<BigHr />
 
+	<section>
+		<section class="horario-titulos text-center">
+			<div class="px-4 title-mono font-bold py-2">Hora</div>
+			<div class="px-4 title-mono font-bold py-2">Lunes</div>
+			<div class="px-4 title-mono font-bold py-2">Martes</div>
+			<div class="px-4 title-mono font-bold py-2">Miércoles</div>
+			<div class="px-4 title-mono font-bold py-2">Jueves</div>
+			<div class="px-4 title-mono font-bold py-2">Viernes</div>
+			<div class="px-4 title-mono font-bold py-2">Sábado</div>
+			<div class="px-4 title-mono font-bold py-2">Domingo</div>
+		</section>
 
-	<table class="table-fixed w-full text-center rounded mt-4">
-		<thead class="mb-5">
-			<tr>
-				<th class="px-4 title-mono font-bold py-2">Hora</th>
-				<th class="px-4 title-mono font-bold py-2">Lunes</th>
-				<th class="px-4 title-mono font-bold py-2">Martes</th>
-				<th class="px-4 title-mono font-bold py-2">Miércoles</th>
-				<th class="px-4 title-mono font-bold py-2">Jueves</th>
-				<th class="px-4 title-mono font-bold py-2">Viernes</th>
-				<th class="px-4 title-mono font-bold py-2">Sábado</th>
-				<th class="px-4 title-mono font-bold py-2">Domingo</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each Object.entries(storeHorario.horario) as entry (entry[0])}
-				<tr id={entry[0]}>
-					<td class="text-sm my-border px-4 py-2 opacity-60"
-						>{`${entry[0]}:00 - ${parseInt(entry[0]) + 1}:00`}</td
-					>
-					{#each Object.entries(entry[1]) as dias (dias[0])}
-                        <CeldaHorario id={dias[0]} color={dias[1] ? storeHorario.seleccion[dias[1]].color : ''} materia={dias[1] ? storeHorario.seleccion[dias[1]].materia.nombre : ''} />
+		<section class="horario rounded">
+			<div class="horario-horas text-center">
+				<div class="text-sm px-4 py-2.5 opacity-60">6:00 - 7:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">7:00 - 8:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">8:00 - 9:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">9:00 - 10:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">10:00 - 11:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">11:00 - 12:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">12:00 - 13:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">13:00 - 14:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">14:00 - 15:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">15:00 - 16:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">16:00 - 17:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">17:00 - 18:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">18:00 - 19:00</div>
+				<div class="text-sm px-4 py-2.5 opacity-60">19:00 - 20:00</div>
+			</div>
+
+			<div class="horario-dias">
+				{#each Object.values(storeHorario.seleccion) as seleccion}
+					{#each seleccion.horarios as horario (JSON.stringify(horario))}
+						<CeldaHorario {seleccion} {horario} />
 					{/each}
-				</tr>
-			{/each}
-		</tbody>
-	</table>
+				{/each}
+			</div>
+
+		</section>
+	</section>
+
 </Container>
-	
-	
 
 <style class="scss">
-	td {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+
+	.horario-titulos {
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	.horario {
+		display: grid;
+		grid-template-columns: 1fr 7fr;
+
+		background-size: calc(100% / 8) calc(100% / 14);
+		background-image: linear-gradient(to right, rgba(106, 0, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(106, 0, 255, 0.15) 1px, transparent 1px);
+		border-bottom: 1px solid rgba(106, 0, 255, 0.06)!important;
+		border-right: 1px solid rgba(106, 0, 255, 0.06)!important;
+	}
+
+	.horario-horas {
+		display: grid;
+		grid-template-rows: repeat(14, 1fr);
+	}
+
+	.horario-dias {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-rows: repeat(14, 1fr);
+
+		transition: all 0.3s;
 	}
 
 </style>

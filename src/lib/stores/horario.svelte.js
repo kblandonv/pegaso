@@ -91,6 +91,7 @@ class StoreHorario {
         // Si no hay un grupo o se deselecciono, limpiar horario
         if (!groupValue) {
 			storeHorario.limpiarHorario(materia);
+            this.seleccion[materia.codigo].horarios = null;
             return;
 		}
 
