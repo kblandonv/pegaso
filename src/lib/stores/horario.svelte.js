@@ -36,11 +36,11 @@ class StoreHorario {
             materia: seleccion.materia,
             grupo: seleccion.grupo
         }));
-        localStorage.setItem('test', JSON.stringify(data));
+        localStorage.setItem('localHorario', JSON.stringify(data));
     }
 
     loadFromStorage() {
-        const storedData = localStorage.getItem('test');
+        const storedData = localStorage.getItem('localHorario');
 
         if (!storedData) return false;
 
