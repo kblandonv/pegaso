@@ -1,6 +1,5 @@
 import { initMongo } from '$lib/db/mongo.js';
 
-
 class StoreAsignaturas {
     data = $state({});
     updated = $state(false);
@@ -8,6 +7,10 @@ class StoreAsignaturas {
 
     constructor() {
         this.initMongo();
+    }
+
+    dispatchUpdated() {
+        this.updated = true;
     }
 
     async initMongo() {
@@ -23,7 +26,7 @@ class StoreAsignaturas {
 			this.data[facultad] = fullDocument;
             
             if (count === 5) {
-                this.updated = true;
+                this.dispatchUpdated();
                 count = 0;
             }
         }

@@ -4,10 +4,22 @@
 	import { storeHorario } from '$lib/stores/horario.svelte.js';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '../UI/Badge.svelte';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce((acc, obj) => acc + parseInt(obj.materia.creditos), 0)
 	);
+	
+	onMount(() => {
+		if (!browser) return;
+
+		const hasHorario = storeHorario.loadFromStorage();
+		if (!hasHorario) {
+			storeHorario.saveToStorage();
+		}
+	});
+
 </script>
 
 <div class="d-flex justify-content-between align-items-bottom mb-2">

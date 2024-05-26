@@ -7,8 +7,12 @@
 	let selectedGrupo = $derived(materia.grupos.find((grupo) => grupo.grupo === groupValue));
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
 
+	function handleChangeGrupo(e) {
+		groupValue = e.target.value;
+	}
+
 	$effect(() => {
-		if (selectedGrupo) {		
+		if (selectedGrupo) {
 			storeHorario.asignarHorario(materia, selectedGrupo);
 		} else {
 			storeHorario.limpiarHorario(materia);
@@ -68,7 +72,7 @@
 	</div>
 
 	<div class="col justify-content-center align-content-center text-sm">
-		<select class="form-select form-select-sm" bind:value={groupValue}>
+		<select class="form-select form-select-sm" onchange={handleChangeGrupo}>
 			<option value="">No seleccionado</option>
 
 			{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}

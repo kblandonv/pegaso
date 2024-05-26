@@ -29,17 +29,37 @@ class StoreHorario {
         })
     ));
 
-    constructor() { };
+    constructor() {};
+
+    saveToStorage() {
+        const data = Object.values(this.seleccion).map(seleccion => ({
+            materia: seleccion.materia,
+            grupo: seleccion.grupo
+        }));
+        localStorage.setItem('test', JSON.stringify(data));
+    }
+
+    loadFromStorage() {
+        const storedData = localStorage.getItem('test');
+
+        if (!storedData) return false;
+
+        const seleccionHorario = JSON.parse(storedData);
+        for (const seleccion of seleccionHorario) {
+            this.agregarAsignatura(seleccion.materia);
+        }
+    }
 
     /* Metodos asignaturas seleccionadas */
     agregarAsignatura(materia) {
         this.seleccion[materia.codigo] = new SeleccionItem(materia);
+        this.saveToStorage();
     }
 
     eliminarAsignatura(materia) {
         this.limpiarHorario(materia);
         delete this.seleccion[materia.codigo];
-
+        this.saveToStorage();
     }
 
     limpiarHorario(materia) {
