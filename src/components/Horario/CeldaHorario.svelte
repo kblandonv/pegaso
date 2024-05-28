@@ -6,6 +6,7 @@
 
 <div transition:fade={{ duration: 400 }} class={`text-xs px-2 py-2 rounded m-1 evento dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(":")[0])} end-${parseInt(horario.fin.split(":")[0])} ${seleccion.color}`}>
 	<span>{seleccion.materia.nombre}</span>
+	<span>{seleccion.groupValue}</span>
 </div>
 
 <style>
