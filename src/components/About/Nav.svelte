@@ -1,3 +1,7 @@
+<script>
+	import '$src/styles/about.scss';
+</script>
+
 <header>
 	<nav>
 		<h2 id="site_title">
@@ -34,7 +38,6 @@
 			display: flex;
 			align-items: center;
 			gap: 10px;
-			color: #ffffff;
 			
 			font-size: 16px;
 			font-weight: 700;
@@ -45,7 +48,6 @@
 		}
 		.links a {
 			margin-left: 1em;
-			color: #ffffff;
 		}
 	}
 </style>

@@ -1,19 +1,33 @@
+<script>
+	import '$src/styles/about.scss';
+</script>
+
 <div class="content">
 	<section id="presentation" use:observeAction>
 		<h2>Presentando Pegaso V1</h2>
 		<p>
-			Pegaso es una aplicación web rápida y robusta para la creación de horarios enfocado en brindar información adicional y en mejorar la experiencia y el proceso de inscripción de asignaturas y organización de horarios en la sede Medellín, haciéndolo más eficiente, rápido y sencillo para los estudiantes.
+			Pegaso es una aplicación web rápida y robusta diseñada para la creación de horarios y enfocada en brindar información esencial para optimizar y mejorar la experiencia de los estudiantes de la sede Medellín, haciendo el proceso de inscripción de asignaturas y organización de horarios más eficiente, rápido y sencillo para los estudiantes.
 		</p>
 		<p>
-			Pegaso va más allá de selección de asignaturas o organización de horario, gracias a todas las herramientas que pone a disposición para los estudiantes permite tener una experiencia completa.
+			Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas, ofrece una experiencia agradable y completa a los estudiantes, permitiéndoles:
 		</p>
 	</section>
 
 	<section id="presentation-2" use:observeAction>
 		<h5>Busquedas instantaneas</h5>
-		<p>No más búsquedas manuales ni información desactualizada, experiencia de selección de asignaturas rapida e instantanea. Selecciona las asignaturas que necesitas en un abrir y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu horario.</p>
-		<p>Datos en tiempo real: Los datos de asignaturas backend siempre están actualizados para garantizar la información más precisa, además de esto se actualizan constantemente sin necesidad de que debas recargar la página,  lo que garantiza que siempre tenga acceso a la información más precisa en tiempo real. Sistema robusto
-		</p>
+
+		<ul>
+
+			<li>
+				<p>No más búsquedas manuales ni información desactualizada, experiencia de selección de asignaturas rapida e instantanea. Selecciona las asignaturas que necesitas en un abrir y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu horario.
+				</p>
+			</li>
+
+			<li>
+				<p>Datos en tiempo real: Los datos de asignaturas siempre están actualizados para garantizar la información más precisa, además de esto se actualizan constantemente sin necesidad de que debas recargar la página, lo que garantiza que siempre tenga acceso a la información más precisa en tiempo real.
+				</p>
+			</li>
+		</ul>
 
 		<h5>Información Completa para Decisiones Informadas:</h5>
 
@@ -34,11 +48,6 @@
 		</p>
 		<p>Rendimiento y Usabilidad en Primer Plano está diseñado teniendo en cuenta la velocidad y la usabilidad. Nuestra aplicación liviana cuenta con una interfaz limpia y organizada, lo que la hace fácil de navegar y utilizar. Las actualizaciones de inscripción en tiempo real lo mantienen informado sin necesidad de actualizaciones constantes de la página. Diseño elegante y minimalista: Disfruten de una interfaz limpia y ordenada que facilita la navegación y la búsqueda de información. Velocidad y ligereza: Pegaso V1.0 está diseñado para ser rápido y ligero, ofreciendo una experiencia fluida y sin interrupciones. Actualizaciones de cupos en tiempo real: Reciban actualizaciones de cupos en tiempo real sin necesidad de actualizar la página manualmente. Con Pegaso V1.0, la selección de asignaturas ya no será un proceso tedioso y lleno de incertidumbre. ¡Optimice su tiempo, tome decisiones informadas y comience su semestre con el pie derecho!
 		</p>
-
-		
-
-
-
 	</section>
 </div>
 
@@ -66,11 +75,15 @@
 		}
 
 		ul {
-			list-style: none;
+			
+			list-style:disc;
 
 			li {
 				position: relative;
 				margin-bottom: 0.75em;
+				&::marker {
+  					color: rgb(194, 90, 255);
+				}
 
 				&:before {
 					content: '';

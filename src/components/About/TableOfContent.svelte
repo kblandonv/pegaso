@@ -1,4 +1,5 @@
 <script>
+	import '$src/styles/about.scss';
 	let estados = $state({
 		presentation: false,
 		'presentation-2': false

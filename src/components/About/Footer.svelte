@@ -1,3 +1,6 @@
+<script>
+	import '$src/styles/about.scss';
+</script>
 
 <footer>
 	<p>© 2023</p>
@@ -14,17 +17,12 @@ footer {
     display: flex;
     padding: 2em 0;
     
-    color: #ffffff;
     justify-content: space-between;
     border-top: 1px solid  #ffffff;
-    
-
     a {
         margin-left: 1em;
-        color: #ffffff;
         text-decoration: none;
         &:hover {
-            color: #ffffff;
             opacity: 0.6;
         }
     }
