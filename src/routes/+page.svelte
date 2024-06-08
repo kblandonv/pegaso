@@ -1,5 +1,4 @@
 <script>
-	const { data } = $props();
 	import '$src/styles/about.scss';
 </script>
 

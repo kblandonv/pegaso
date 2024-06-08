@@ -1,5 +1,5 @@
 <div class="content">
-	<section id="presentation" use:observeAction>
+	<section id="presentation">
 		<h2>Presentando Pegaso V1</h2>
 		<p>
 			Pegaso es una aplicación web rápida y robusta diseñada para la creación de horarios y enfocada en brindar información esencial para optimizar y mejorar la experiencia de los estudiantes de la sede Medellín, haciendo el proceso de inscripción de asignaturas y organización de horarios más eficiente, rápido y sencillo para los estudiantes.
@@ -9,7 +9,7 @@
 		</p>
 	</section>
 
-	<section id="presentation-2" use:observeAction>
+	<section id="presentation-2">
 		<h5>Busquedas instantaneas</h5>
 
 		<ul>
@@ -57,14 +57,7 @@
 		*:first-child {
 			margin-top: 0;
 		}
-		img {
-			max-width: 100%;
-			height: auto;
-			border-radius: 12px;
-			border: 1px solid color(gray, 200);
-		}
 
-		ol,
 		ul {
 			padding-left: 2em;
 			margin-bottom: 1em;

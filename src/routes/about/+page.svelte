@@ -1,11 +1,7 @@
 <script>
-	import Footer from '$components/About/Footer.svelte';
-	import Header from '$components/About/Header.svelte';
-	import TableOfContent from '$components/About/TableOfContent.svelte';
-	import Nav from '$components/About/Nav.svelte';
-	import Content from '$components/About/Content.svelte';
+	import { Footer, Header, TableOfContent, Nav, Content } from '$components/About';
 	import Blobl from '$components/About/Blobl.svelte';
-	import '$src/styles/about.scss';
+	import "$src/styles/about.scss";
 </script>
 
 <svelte:head>
@@ -31,5 +27,4 @@
 </main>
 
 <style lang="scss">
-	@import '../../styles/about.scss';
 </style>
