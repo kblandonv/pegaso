@@ -1,7 +1,7 @@
 <script>
 	import { Footer, Header, TableOfContent, Nav, Content } from '$components/About';
 	import Blobl from '$components/About/Blobl.svelte';
-	import "$src/styles/about.scss";
+	import '$src/styles/about.scss';
 </script>
 
 <svelte:head>
@@ -26,5 +26,6 @@
 	<Footer />
 </main>
 
-<style lang="scss">
+<style lang="scss" global>
+	@import 'src/styles/about.scss';
 </style>
