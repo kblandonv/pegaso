@@ -15,54 +15,50 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-	line-height: 1.2;
-	margin: 1em 0 0.5em 0;
+	line-height: 1.2!important;
+	margin: 1em 0 0.5em 0!important;
 	color: var(--texto)!important;
-	font-weight: 700;
+	font-weight: 700!important;
 }
 
 h1 {
-	font-size: 3.052em;
+	font-size: 3.052em!important;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 2.441em!important;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.953em!important;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.563em!important;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1.25em!important;
 }
 p {
-	margin: 0 0 1em 0;
-	text-align: justify;
+	margin: 0 0 1em 0!important;
+	text-align: justify!important;
 }
 
 code {
-	font-family: $font-mono;
+	font-family: $font-mono!important;
 }
 
 b,
 strong {
-	font-weight: 700;
-}
-
-* {
-	box-sizing: border-box;
+	font-weight: 700!important;
 }
 
 ::selection {
-	background: #dabbff;
-	color: black;
+	background: #dabbff!important;
+	color: black!important;
 }
 
 hr {
-	margin: 1em 0;
-	border: 0;
-	border-bottom: 1px solid #888888;
+	margin: 1em 0!important;
+	border: 0!important;
+	border-bottom: 1px solid #888888!important;
 }
 
 .post {
