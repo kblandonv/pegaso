@@ -1,5 +1,5 @@
 <header>
-	<nav>
+	<nav class="py-5">
 		<h2 id="site_title">
 			<a href="/">
 				<i class="bi bi-feather"></i>
@@ -17,8 +17,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin: 0 0 2em 0;
-		padding: 2em 0;
 
 		a {
 			transition: 0.1s ease;
