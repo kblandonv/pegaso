@@ -1,20 +1,11 @@
 <script>
-	import { Footer, Header, TableOfContent, Nav } from '$components/About';
+	import Footer from '$components/About/Footer.svelte';
+	import Header from '$components/About/Header.svelte';
+	import TableOfContent from '$components/About/TableOfContent.svelte';
+	import Nav from '$components/About/Nav.svelte';
 	import Content from '$components/About/Content.svelte';
 	import Blobl from '$components/About/Blobl.svelte';
 	import '$src/styles/about.scss';
-
-	let toc;
-	function observeAction(element) {
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				const id = entry.target.getAttribute('id');
-				entry.intersectionRatio > 0 ? toc.setActive(id) : toc.deleteActive(id);
-			});
-		});
-
-		observer.observe(element);
-	}
 </script>
 
 <svelte:head>
@@ -27,15 +18,18 @@
 
 	<Nav />
 	<Header />
-	
+
 	<div class="post">
 		<div class="version_wrapper">
-			<TableOfContent bind:this={toc} />
+			<TableOfContent  />
 		</div>
 
 		<Content />
-		
 	</div>
 
 	<Footer />
 </main>
+
+<style lang="scss">
+	@import '../../styles/about.scss';
+</style>

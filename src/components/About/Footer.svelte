@@ -1,13 +1,9 @@
-<script>
-	import '$src/styles/about.scss';
-</script>
-
 <footer>
 	<p>© 2023</p>
 	<div class="footer_links">
-		<a href="instagram.com/imlargo">Discord</a>
-		<a href="instagram.com/imlargo">X</a>
-		<a href="instagram.com/imlargo">GitHub</a>
+		<a href="https://www.instagram.com/imlargo">Discord</a>
+		<a href="https://www.instagram.com/imlargo">X</a>
+		<a href="https://www.instagram.com/imlargo">GitHub</a>
 	</div>
 </footer>
 

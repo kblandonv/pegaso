@@ -1,7 +1,3 @@
-<script>
-	import '$src/styles/about.scss';
-</script>
-
 <div class="content">
 	<section id="presentation" use:observeAction>
 		<h2>Presentando Pegaso V1</h2>

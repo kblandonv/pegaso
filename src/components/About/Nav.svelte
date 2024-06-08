@@ -1,7 +1,3 @@
-<script>
-	import '$src/styles/about.scss';
-</script>
-
 <header>
 	<nav>
 		<h2 id="site_title">

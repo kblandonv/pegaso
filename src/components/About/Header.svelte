@@ -1,6 +1,3 @@
-<script>
-	import '$src/styles/about.scss';
-</script>
 
 <h1>About</h1>
 

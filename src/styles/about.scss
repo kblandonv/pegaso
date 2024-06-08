@@ -1,7 +1,5 @@
 @import "global.scss";
 
-$container: 1040px;
-
 body {
 	font-family: $font-inter!important;
 	font-size: 18px;
@@ -52,8 +50,6 @@ strong {
 	font-weight: 700;
 }
 
-$container: 1040px;
-
 * {
 	box-sizing: border-box;
 }
@@ -76,9 +72,6 @@ hr {
 
 .version_wrapper {
 	flex-basis: 260px;
-	@media (max-width: $container) {
-		flex-basis: 140px;
-	}
 	flex-grow: 0;
 	flex-shrink: 0;
 	margin: 4.5em 0 0 0;
