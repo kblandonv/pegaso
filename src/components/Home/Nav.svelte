@@ -1,7 +1,10 @@
-<nav class="d-flex justify-content-between py-4">
-    <h1  id="imlargo" data-value="imlargo">imlargo</h1>
+<nav class="row py-4">
 
-    <div class="d-flex justify-content-center align-items-center gap-5 text-lg">
+	<div class="col-4">
+		<h1  id="imlargo" data-value="imlargo">Pegaso</h1>
+	</div>
+
+	<div class="col-4 d-flex justify-content-center align-items-center gap-5 text-lg">
         <a class="my-social" href="https://github.com/imlargo" target="_blank">
             <i class="bi bi-github"></i>
         </a>
@@ -14,15 +17,27 @@
             <i class="bi bi-linkedin"></i>
         </a>
     </div>
-</nav>
 
-<hr>
+    <div class="col-4 d-flex justify-content-end align-items-center gap-5 ">
+        <a href="/app" class="link-app">
+            App
+        </a>
+
+        <a href="https://www.instagram.com/imlargo">
+            Blog
+        </a>
+
+        <a href="https://www.linkedin.com/in/imlargo">
+            Acerca de
+        </a>
+    </div>
+</nav>
 
 <style lang="scss">
 
-	nav {
-
-	}
+	.link-app {
+        color: #9335ff;
+    }
 
 	#imlargo {
 		font-size: 2rem;

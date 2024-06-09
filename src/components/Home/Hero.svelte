@@ -5,29 +5,50 @@
 
 <header class="grid lg:grid-cols-4 place-items-center relative py-5">
 
-    <div class="col-span-2">
-        <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-start">Titulo</h1>
-        <p class="text-lg mt-4 max-w-lg text-slate-600 text-start">Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.</p>
+    <div class="col-span-2 w-100">
+        <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-start">Crea tu horario<br>con Pegaso</h1>
+        <p class="text-lg mt-4 max-w-2xl text-slate-600 text-start">Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.</p>
 
         <div class="d-flex gap-3 mt-4">
-            <button class="btn btn-info">Accion 1</button>
-            <button class="btn btn-info">Accion 2</button>
+            <button class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</button>
+            <button class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></button>
         </div>
     </div>
 
-    <div class="col-span-2">
+    <div class="col-span-2 w-100">
         <img src={Mockup} draggable="false" class="" alt="mockup" >
     </div>
 </header>
 
-<section class="text-center py-5 rounded">
-    <h1 class="text-lg font-semibold">
-        <i class="bi bi-heart"></i>
-        <span>+3000 usuarios</span>
-    </h1>
+<section class="grid gap-16 grid-cols-3 py-4 rounded-full">
+
+    <div class="d-flex justify-content-center align-items-end">
+        <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
+        <div>
+            <span>Asignaturas</span>
+            <h1 class="font-bold text-4xl tracking-tight">3500</h1>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-end">
+        <i class="bi bi-arrow-up font-bold text-4xl tracking-tight"></i>
+        <div>
+            <span>Usuarios</span>
+            <h1 class="font-bold text-4xl tracking-tight">3000</h1>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-end">
+        <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
+        <div>
+            <span>Electivas</span>
+            <h1 class="font-bold text-4xl tracking-tight">1200</h1>
+        </div>
+    </div>
+
 </section>
 
-<style>
+<style lang="scss">
 
     img {
         width: 100%;
@@ -41,8 +62,22 @@
     header {
         display: grid;
     }
-
     section {
         background-color: rgb(229, 206, 255);
     }
+
+
+    .btn-primary {
+        background: linear-gradient(90deg, #a85cff 40%, rgba(198,92,255,1) 100%);
+        color: white;
+
+        &:hover {
+            background: #983fff;
+        }
+    }
+
+    .btn-secondary {
+        color: #9335ff;
+    }
+
 </style>

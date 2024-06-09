@@ -4,6 +4,7 @@
 	import Nav from '$src/components/Home/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
 	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
+	import ShotBusqueda from "$lib/images/home/shot2.jpg";
 </script>
 
 <svelte:head>
@@ -11,15 +12,15 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<div class="container">
+<div class="max-w-screen-2xl mx-auto px-5">
 	<Nav />
 
 	<Hero />
 
-	<main class="mb-5">
+	<main class="mt-7 mb-5">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Acerca de</h3>
+				<h3 class="mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Acerca de</h3>
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
 					ofrece una experiencia agradable y completa a los estudiantes
@@ -29,7 +30,7 @@
 			<div>
 				<div class="grid py-10 md:grid-cols-2">
 					<div class="col-span-1">
-						<h1>Imagen</h1>
+						<img src={ShotBusqueda} draggable="false" class="img-feature rounded" alt="mockup">
 					</div>
 
 					<div class="col-span-1 max-w-lg">
@@ -37,31 +38,25 @@
 
 						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
 
-						<p class="mt-4 text-slate-600 [text-wrap:balance]">
-							No más búsquedas manuales ni información desactualizada, experiencia de selección de
-							asignaturas rapida e instantanea. Selecciona las asignaturas que necesitas en un abrir
-							y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu
-							horario.
-						</p>
-					</div>
-				</div>
 
-				<div class="grid py-10 md:grid-cols-2">
-					<div class="col-span-1 max-w-lg">
-						<FeatureBadge />
+						<div class="mt-4 text-slate-600 [text-wrap:balance]">
+							<p>
+								No más búsquedas manuales ni información desactualizada, experiencia de selección de
+								asignaturas rapida e instantanea.
+							</p>
+	
+							<ul class="list-disc mt-2 grid gap-y-2">
+								<li>Selecciona las asignaturas que necesitas en un abrir
+									y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu
+									horario.
+								</li>
 
-						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
-
-						<p class="mt-4 text-slate-600 [text-wrap:balance]">
-							No más búsquedas manuales ni información desactualizada, experiencia de selección de
-							asignaturas rapida e instantanea. Selecciona las asignaturas que necesitas en un abrir
-							y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu
-							horario.
-						</p>
-					</div>
-
-					<div class="col-span-1">
-						<h1>Imagen</h1>
+								<li>
+									Datos en tiempo real: Los datos de asignaturas siempre están actualizados para garantizar la información más precisa, además de esto se actualizan constantemente sin necesidad de que debas recargar la página, lo que garantiza que siempre tenga acceso a la información más precisa en tiempo real.
+								</li>
+							</ul>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -117,6 +112,12 @@
 </div>
 
 <style lang="scss">
+
+	.img-feature {
+		width: 90%;
+		height: auto;
+		z-index: 1;
+	}
 
 	.inscribir {
 		background-color: rgb(229, 206, 255);
