@@ -1,5 +1,6 @@
 <script>
-	import { Footer, Header, TableOfContent, Nav, Content } from '$components/About';
+	import { Header, TableOfContent, Nav, Content } from '$components/About';
+	import Footer from '$components/UI/Footer.svelte';
 	import Blobl from '$components/About/Blobl.svelte';
 	import '$src/styles/about.scss';
 </script>
@@ -9,7 +10,7 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<main class="container-sm max-w-5xl">
+<main class="container-sm max-w-7xl">
 	<Blobl />
 
 	<Nav />
@@ -22,6 +23,8 @@
 
 		<Content />
 	</div>
+
+	<hr>
 
 	<Footer />
 </main>
