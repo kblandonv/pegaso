@@ -215,11 +215,11 @@
 	</main>
 
 	<section class="inscribir d-flex justify-content-between align-items-center rounded py-20 px-5">
-		<div class="w-50">
+		<div class="cta">
 			<h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
 				<span>Listo para empezar?</span>
 			</h1>
-			<p class="mt-3 text-lg text-slate-800 [text-wrap:pretty]">Pegaso es un proyecto personal creado por mi para la comunidad universitaria, si te ha gustado, considera donar, ayudas a la continuacion del proyecto.</p>
+			<p class="mt-3 text-lg text-slate-700 [text-wrap:pretty]">Pegaso es un proyecto personal desarrollado en su totalidad por una sola persona.<br>Si te ha gustado, considera hacer una donación. Tu apoyo contribuye al proyecto :3</p>
 		</div>
 
 		<div class="d-flex gap-3 align-items-center">
@@ -271,5 +271,9 @@
 
 	.inscribir {
 		background: linear-gradient(90deg, #f5ceff 0%, #E5CEFF 100%);
+	}
+
+	.cta {
+		width: 60%;
 	}
 </style>
