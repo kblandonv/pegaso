@@ -6,8 +6,8 @@
 	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
 	import FeatureCard from '$src/components/Home/FeatureCard.svelte';
 
-	import ShotBusqueda from "$lib/images/home/shot-1.jpg";
-	import ShotGrafico from "$lib/images/home/shot-2.jpg";
+	import ShotBusqueda from '$lib/images/home/shot-1.jpg';
+	import ShotGrafico from '$lib/images/home/shot-2.jpg';
 </script>
 
 <svelte:head>
@@ -15,16 +15,18 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<div class="max-w-screen-2xl mx-auto px-5">
+<div class="mx-auto max-w-screen-2xl px-5">
 	<Nav />
 
 	<Hero />
 
-	<main class="mt-7 mb-5">
+	<main class="mb-5 mt-7">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-6 mb-2 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Más que un horario</h3>
-				<hr class="hr-small">
+				<h3 class="mb-2 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+					Más que un horario
+				</h3>
+				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
 					ofrece una experiencia agradable y completa a los estudiantes
@@ -32,9 +34,14 @@
 			</div>
 
 			<div>
-				<div class="grid py-10 md:grid-cols-2 place-items-center">
-					<div class="col-span-1 justify-content-center">
-						<img src={ShotBusqueda} draggable="false" class="img-feature rounded mx-auto" alt="mockup">
+				<div class="grid place-items-center py-10 md:grid-cols-2">
+					<div class="justify-content-center col-span-1">
+						<img
+							src={ShotBusqueda}
+							draggable="false"
+							class="img-feature mx-auto rounded"
+							alt="mockup"
+						/>
 					</div>
 
 					<div class="col-span-1 max-w-lg">
@@ -48,113 +55,142 @@
 								asignaturas rapida e instantanea.
 							</p>
 
-							<div class="d-flex align-items-top gap-3 mt-3">
+							<div class="d-flex align-items-top mt-3 gap-3">
 								<i class="bi bi-search-heart"></i>
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
-									<p>Realice la selección de asignaturas de manera rápida y automática. Añada materias a su horario sin necesidad de ingresar información manualmente.</p>
+									<p>
+										Realice la selección de asignaturas de manera rápida y automática. Añada
+										materias a su horario sin necesidad de ingresar información manualmente.
+									</p>
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top mt-2 gap-3">
 								<i class="bi bi-cloud-check"></i>
 								<div>
 									<strong>Datos en Tiempo Real</strong>
-									<p>Acceda a información actualizada constantemente sobre las asignaturas, sin necesidad de recargar la página.</p>
+									<p>
+										Acceda a información actualizada constantemente sobre las asignaturas, sin
+										necesidad de recargar la página.
+									</p>
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top mt-2 gap-3">
 								<i class="bi bi-cloud-check"></i>
 								<div>
 									<strong>Datos en Tiempo Real</strong>
-									<p>Acceda a información actualizada constantemente sobre las asignaturas, sin necesidad de recargar la página.</p>
+									<p>
+										Acceda a información actualizada constantemente sobre las asignaturas, sin
+										necesidad de recargar la página.
+									</p>
 								</div>
 							</div>
-
 						</div>
-						
 					</div>
 				</div>
 
-				<div class="grid py-10 md:grid-cols-2 place-items-center">
+				<div class="grid place-items-center py-10 md:grid-cols-2">
 					<div class="col-span-1 max-w-lg">
 						<FeatureBadge>Graficos y estadisticas</FeatureBadge>
 
-						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
+						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">
+							Información Completa para Decisiones Informadas
+						</h3>
 
 						<div class="mt-3 [text-wrap:balance]">
 							<p>
-								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de decisiones académicas:
+								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de
+								decisiones académicas:
 							</p>
 
-							<div class="d-flex align-items-top gap-3 mt-3">
+							<div class="d-flex align-items-top mt-3 gap-3">
 								<i class="bi bi-graph-up"></i>
 								<div>
 									<strong>Comportamiento de los Cupos</strong>
-									<p>Analice patrones de inscripción pasados para prever la disponibilidad de cupos en las asignaturas y grupos deseados.</p>
+									<p>
+										Analice patrones de inscripción pasados para prever la disponibilidad de cupos
+										en las asignaturas y grupos deseados.
+									</p>
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top mt-2 gap-3">
 								<i class="bi bi-ui-checks"></i>
 								<div>
 									<strong>Recomendaciones de Docentes</strong>
-									<p>Basado en análisis de datos, Pegaso sugiere los docentes más seleccionados, para asegurarse de seleccionar los mejores.</p>
+									<p>
+										Basado en análisis de datos, Pegaso sugiere los docentes más seleccionados, para
+										asegurarse de seleccionar los mejores.
+									</p>
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top mt-2 gap-3">
 								<i class="bi bi-bar-chart-line"></i>
 								<div>
 									<strong>Distribución de Cupos</strong>
-									<p>Visualice la distribución de cupos por docente en cada asignatura, ayudándole a evitar los menos seleccionados.</p>
+									<p>
+										Visualice la distribución de cupos por docente en cada asignatura, ayudándole a
+										evitar los menos seleccionados.
+									</p>
 								</div>
 							</div>
-
 						</div>
-						
 					</div>
 
-					<div class="col-span-1 justify-content-center">
-						<img src={ShotGrafico} draggable="false" class="img-feature rounded mx-auto" alt="mockup">
+					<div class="justify-content-center col-span-1">
+						<img
+							src={ShotGrafico}
+							draggable="false"
+							class="img-feature mx-auto rounded"
+							alt="mockup"
+						/>
 					</div>
-					
 				</div>
-
 			</div>
 		</section>
 
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-4 mb-2 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<h3 class="mb-2 mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					<span>Diseñado</span>
 					<span class="resaltado"> para ti</span>
 				</h3>
-				<hr class="hr-small">
+				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y la experiencia del usuario.
+					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y
+					la experiencia del usuario.
 				</p>
 			</div>
 
 			<div class="mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-				
 				<FeatureCard>
 					<i slot="icon" class="bi bi-check-circle"></i>
 					<span slot="title">Detección Inteligente de Conflictos</span>
-					<span slot="content">Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</span>
+					<span slot="content"
+						>Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre
+						posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</span
+					>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-heart"></i>
 					<span slot="title">Agradable de usar</span>
-					<span slot="content">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar, agrupado por docentes y contador de creditos</span>
+					<span slot="content"
+						>Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia,
+						rapida y agradable de usar, agrupado por docentes y contador de creditos</span
+					>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-save"></i>
 					<span slot="title">Guardado automatico</span>
-					<span slot="content">El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que acceda a la plataforma.</span>
+					<span slot="content"
+						>El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir
+						búsquedas cada vez que acceda a la plataforma.</span
+					>
 				</FeatureCard>
 
 				<FeatureCard>
@@ -174,17 +210,28 @@
 					<span slot="title">Graficos y estadisticas</span>
 					<span slot="content">Texto texto</span>
 				</FeatureCard>
-
 			</div>
-
 		</section>
 	</main>
 
+	<section class="inscribir d-flex justify-content-between align-items-center rounded py-20 px-5">
+		<div class="w-50">
+			<h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<span>Listo para empezar?</span>
+			</h1>
+			<p class="mt-3 text-lg text-slate-800 [text-wrap:pretty]">Pegaso es un proyecto personal creado por mi para la comunidad universitaria, si te ha gustado, considera donar, ayudas a la continuacion del proyecto.</p>
+		</div>
 
-	<section class="text-center py-12 rounded inscribir">
-		<h1 class="text-lg font-semibold">
-			<span>Empezar a usar</span>
-		</h1>
+		<div class="d-flex gap-3 align-items-center">
+			<a href="/auth/login" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">
+				<i class="bi bi-heart-fill me-1"></i>
+				<span>Donar</span>
+			</a>
+			<a href="/auth/register" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">
+				<span>Ir a la App</span>
+				<i class="ms-1 bi bi-arrow-right"></i>
+			</a>
+		</div>
 	</section>
 
 	<Footer />
@@ -192,11 +239,21 @@
 
 <style lang="scss">
 
+	.btn-primary {
+        background: linear-gradient(90deg, #a85cff 40%, rgba(198,92,255,1) 100%);
+        color: white;
+
+        &:hover {
+            background: #983fff;
+        }
+    }
+
+
 	.resaltado {
-        background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
-        -webkit-background-clip: text;
+		background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
+		-webkit-background-clip: text;
 		background-clip: text;
-        -webkit-text-fill-color: transparent;
+		-webkit-text-fill-color: transparent;
 	}
 
 	.img-feature {
@@ -213,6 +270,6 @@
 	}
 
 	.inscribir {
-		background-color: rgb(229, 206, 255);
+		background: linear-gradient(90deg, #f5ceff 0%, #E5CEFF 100%);
 	}
 </style>
