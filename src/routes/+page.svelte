@@ -224,11 +224,11 @@
 		</div>
 
 		<div class="d-flex align-items-center gap-3">
-			<a href="/app" class="btn-primary rounded-full px-6 py-2.5 text-center font-medium">
+			<a data-sveltekit-reload href="/app" class="btn-primary rounded-full px-6 py-2.5 text-center font-medium">
 				<i class="bi bi-heart-fill me-1"></i>
 				<span>Donar</span>
 			</a>
-			<a href="/app" class="btn-secondary rounded px-6 py-2.5 text-center font-medium">
+			<a data-sveltekit-reload href="/app" class="btn-secondary rounded px-6 py-2.5 text-center font-medium">
 				<span>Ir a la App</span>
 				<i class="bi bi-arrow-right ms-1"></i>
 			</a>

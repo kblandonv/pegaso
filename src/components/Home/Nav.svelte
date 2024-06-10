@@ -19,15 +19,15 @@
     </div>
 
     <div class="col-4 d-flex justify-content-end align-items-center gap-5 ">
-        <a href="/app" class="link-app">
+        <a data-sveltekit-reload href="/app" class="link-app">
             App
         </a>
 
-        <a href="/about">
+        <a data-sveltekit-reload href="/about">
             Blog
         </a>
 
-        <a href="/about">
+        <a data-sveltekit-reload href="/about">
             About
         </a>
     </div>

@@ -11,8 +11,8 @@
         <p class="text-lg mt-4 max-w-2xl text-slate-600 text-start">Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.</p>
 
         <div class="d-flex gap-3 mt-5">
-            <a href="/app" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</a>
-            <a href="/about" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></a>
+            <a data-sveltekit-reload href="/app" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</a>
+            <a data-sveltekit-reload href="/about" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Asignaturas</span>
-            <h1 class="font-bold text-4xl tracking-tight">3500</h1>
+            <h1 class="font-bold text-4xl tracking-tight">3.500</h1>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         <i class="bi bi-arrow-up font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Usuarios</span>
-            <h1 class="font-bold text-4xl tracking-tight">3000</h1>
+            <h1 class="font-bold text-4xl tracking-tight">3.000</h1>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
         <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Electivas</span>
-            <h1 class="font-bold text-4xl tracking-tight">1200</h1>
+            <h1 class="font-bold text-4xl tracking-tight">1.200</h1>
         </div>
     </div>
 
