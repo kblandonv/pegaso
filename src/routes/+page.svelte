@@ -4,7 +4,9 @@
 	import Nav from '$src/components/Home/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
 	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
-	import ShotBusqueda from "$lib/images/home/shot2.jpg";
+
+	import ShotBusqueda from "$lib/images/home/shot-1.jpg";
+	import ShotGrafico from "$lib/images/home/shot-2.jpg";
 </script>
 
 <svelte:head>
@@ -50,6 +52,14 @@
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
 									<p>Realice la selección de asignaturas de manera rápida y automática. Añada materias a su horario sin necesidad de ingresar información manualmente.</p>
+								</div>
+							</div>
+
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-cloud-check"></i>
+								<div>
+									<strong>Datos en Tiempo Real</strong>
+									<p>Acceda a información actualizada constantemente sobre las asignaturas, sin necesidad de recargar la página.</p>
 								</div>
 							</div>
 
@@ -107,7 +117,7 @@
 					</div>
 
 					<div class="col-span-1">
-						<img src={ShotBusqueda} draggable="false" class="img-feature rounded" alt="mockup">
+						<img src={ShotGrafico} draggable="false" class="img-feature rounded" alt="mockup">
 					</div>
 					
 				</div>
