@@ -4,6 +4,7 @@
 	import Nav from '$src/components/Home/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
 	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
+	import FeatureCard from '$src/components/Home/FeatureCard.svelte';
 
 	import ShotBusqueda from "$lib/images/home/shot-1.jpg";
 	import ShotGrafico from "$lib/images/home/shot-2.jpg";
@@ -137,55 +138,42 @@
 			</div>
 
 			<div class="mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-check-circle"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Detección Inteligente de Conflictos</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</p>
-					</div>
-				</div>
-
 				
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-heart"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Agradable de usar</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar, agrupado por docentes y contador de creditos</p>
-					</div>
-				</div>
-				
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-save"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Guardado automatico</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que acceda a la plataforma.</p>
-					</div>
-				</div>
+				<FeatureCard>
+					<i slot="icon" class="bi bi-check-circle"></i>
+					<span slot="title">Detección Inteligente de Conflictos</span>
+					<span slot="content">Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</span>
+				</FeatureCard>
 
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-clock-history"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Actualizaciones en tiempo real</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
-					</div>
-				</div>
+				<FeatureCard>
+					<i slot="icon" class="bi bi-heart"></i>
+					<span slot="title">Agradable de usar</span>
+					<span slot="content">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar, agrupado por docentes y contador de creditos</span>
+				</FeatureCard>
 
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					
-					<i class="bi bi-trophy"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Rendimiento y usabilidad</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
-					</div>
-				</div>
+				<FeatureCard>
+					<i slot="icon" class="bi bi-save"></i>
+					<span slot="title">Guardado automatico</span>
+					<span slot="content">El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que acceda a la plataforma.</span>
+				</FeatureCard>
 
-				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-graph-up"></i>
-					<div>
-						<h3 class="text-lg font-semibold">Graficos y estadisticas</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
-					</div>
-				</div>
+				<FeatureCard>
+					<i slot="icon" class="bi bi-clock-history"></i>
+					<span slot="title">Actualizaciones en tiempo real</span>
+					<span slot="content">Texto texto</span>
+				</FeatureCard>
+
+				<FeatureCard>
+					<i slot="icon" class="bi bi-trophy"></i>
+					<span slot="title">Rendimiento y usabilidad</span>
+					<span slot="content">Texto texto</span>
+				</FeatureCard>
+
+				<FeatureCard>
+					<i slot="icon" class="bi bi-graph-up"></i>
+					<span slot="title">Graficos y estadisticas</span>
+					<span slot="content">Texto texto</span>
+				</FeatureCard>
 
 			</div>
 
