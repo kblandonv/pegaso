@@ -31,24 +31,23 @@
 			</div>
 
 			<div>
-				<div class="grid py-10 md:grid-cols-2">
-					<div class="col-span-1">
-						<img src={ShotBusqueda} draggable="false" class="img-feature rounded" alt="mockup">
+				<div class="grid py-10 md:grid-cols-2 place-items-center">
+					<div class="col-span-1 justify-content-center">
+						<img src={ShotBusqueda} draggable="false" class="img-feature rounded mx-auto" alt="mockup">
 					</div>
 
 					<div class="col-span-1 max-w-lg">
 						<FeatureBadge>Rapido y completo</FeatureBadge>
 
-						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
+						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
 
-
-						<div class="mt-4 text-slate-600 [text-wrap:balance]">
+						<div class="mt-3 text-slate-600 [text-wrap:balance]">
 							<p>
 								No más búsquedas manuales ni información desactualizada, experiencia de selección de
 								asignaturas rapida e instantanea.
 							</p>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top gap-3 mt-3">
 								<i class="bi bi-search-heart"></i>
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
@@ -77,19 +76,18 @@
 					</div>
 				</div>
 
-				<div class="grid py-10 md:grid-cols-2">
+				<div class="grid py-10 md:grid-cols-2 place-items-center">
 					<div class="col-span-1 max-w-lg">
 						<FeatureBadge>Graficos y estadisticas</FeatureBadge>
 
-						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
+						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
 
-
-						<div class="mt-4 text-slate-600 [text-wrap:balance]">
+						<div class="mt-3 text-slate-600 [text-wrap:balance]">
 							<p>
 								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de decisiones académicas:
 							</p>
 
-							<div class="d-flex align-items-top gap-3 mt-2">
+							<div class="d-flex align-items-top gap-3 mt-3">
 								<i class="bi bi-graph-up"></i>
 								<div>
 									<strong>Comportamiento de los Cupos</strong>
@@ -117,8 +115,8 @@
 						
 					</div>
 
-					<div class="col-span-1">
-						<img src={ShotGrafico} draggable="false" class="img-feature rounded" alt="mockup">
+					<div class="col-span-1 justify-content-center">
+						<img src={ShotGrafico} draggable="false" class="img-feature rounded mx-auto" alt="mockup">
 					</div>
 					
 				</div>
@@ -199,7 +197,7 @@
 	}
 
 	.img-feature {
-		width: 90%;
+		width: 40.5rem;
 		height: auto;
 		z-index: 1;
 	}
