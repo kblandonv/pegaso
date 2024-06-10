@@ -7,17 +7,17 @@
     
     <div>
         <h3 class="text-lg font-semibold"><slot name="title" /></h3>
-        <p class="mt-2 leading-relaxed text-slate-500"><slot name="content" /></p>
+        <p class="mt-2 leading-relaxed text-slate-600"><slot name="content" /></p>
     </div>
 </div>
 
 <style lang="scss">
     .container-icon {
-        
         .icon {
             font-family: 'JetBrains Mono', monospace;
             background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
