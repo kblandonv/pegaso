@@ -34,7 +34,7 @@
 					</div>
 
 					<div class="col-span-1 max-w-lg">
-						<FeatureBadge />
+						<FeatureBadge>Rapido y completo</FeatureBadge>
 
 						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
 
@@ -68,7 +68,7 @@
 
 				<div class="grid py-10 md:grid-cols-2">
 					<div class="col-span-1 max-w-lg">
-						<FeatureBadge />
+						<FeatureBadge>Graficos y estadisticas</FeatureBadge>
 
 						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
 

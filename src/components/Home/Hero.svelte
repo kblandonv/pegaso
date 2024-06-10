@@ -6,10 +6,11 @@
 <header class="grid lg:grid-cols-4 place-items-center relative py-5">
 
     <div class="col-span-2 w-100">
-        <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-start">Crea tu horario<br>con Pegaso</h1>
+        <span class="created-by ">By: @imlargo</span>
+        <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-start mt-2">Crea tu horario<br>con Pegaso</h1>
         <p class="text-lg mt-4 max-w-2xl text-slate-600 text-start">Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.</p>
 
-        <div class="d-flex gap-3 mt-4">
+        <div class="d-flex gap-3 mt-5">
             <button class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</button>
             <button class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></button>
         </div>
@@ -57,6 +58,13 @@
         z-index: 1;
         
         filter: drop-shadow(rgb(224, 197, 255) 0.5rem 0.5rem 1rem);
+    }
+
+    .created-by {
+        font-family: 'JetBrains Mono', monospace;
+        background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     header {
