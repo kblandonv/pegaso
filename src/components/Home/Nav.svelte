@@ -23,11 +23,11 @@
             App
         </a>
 
-        <a href="https://www.instagram.com/imlargo">
+        <a href="/about">
             Blog
         </a>
 
-        <a href="https://www.linkedin.com/in/imlargo">
+        <a href="/about">
             About
         </a>
     </div>

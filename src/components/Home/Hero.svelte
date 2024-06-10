@@ -11,8 +11,8 @@
         <p class="text-lg mt-4 max-w-2xl text-slate-600 text-start">Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.</p>
 
         <div class="d-flex gap-3 mt-5">
-            <button class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</button>
-            <button class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></button>
+            <a href="/app" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">Empieza ahora</a>
+            <a href="/about" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">Leer más <i class="bi bi-arrow-right"></i></a>
         </div>
     </div>
 

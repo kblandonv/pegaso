@@ -223,11 +223,11 @@
 		</div>
 
 		<div class="d-flex gap-3 align-items-center">
-			<a href="/auth/login" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">
+			<a href="/app" class="rounded-full px-6 py-2.5 font-medium text-center btn-primary">
 				<i class="bi bi-heart-fill me-1"></i>
 				<span>Donar</span>
 			</a>
-			<a href="/auth/register" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">
+			<a href="/app" class="rounded px-6 py-2.5 font-medium text-center btn-secondary">
 				<span>Ir a la App</span>
 				<i class="ms-1 bi bi-arrow-right"></i>
 			</a>
