@@ -20,7 +20,7 @@
 	<main class="mt-7 mb-5">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Acerca de</h3>
+				<h3 class="mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Más que un horario</h3>
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
 					ofrece una experiencia agradable y completa a los estudiantes
@@ -44,30 +44,82 @@
 								No más búsquedas manuales ni información desactualizada, experiencia de selección de
 								asignaturas rapida e instantanea.
 							</p>
-	
-							<ul class="list-disc mt-2 grid gap-y-2">
-								<li>Selecciona las asignaturas que necesitas en un abrir
-									y cerrar de ojos, sin necesidad de ingresar información manualmente y agregalas a tu
-									horario.
-								</li>
 
-								<li>
-									Datos en tiempo real: Los datos de asignaturas siempre están actualizados para garantizar la información más precisa, además de esto se actualizan constantemente sin necesidad de que debas recargar la página, lo que garantiza que siempre tenga acceso a la información más precisa en tiempo real.
-								</li>
-							</ul>
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-search-heart"></i>
+								<div>
+									<strong>Búsquedas Instantáneas</strong>
+									<p>Realice la selección de asignaturas de manera rápida y automática. Añada materias a su horario sin necesidad de ingresar información manualmente.</p>
+								</div>
+							</div>
+
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-cloud-check"></i>
+								<div>
+									<strong>Datos en Tiempo Real</strong>
+									<p>Acceda a información actualizada constantemente sobre las asignaturas, sin necesidad de recargar la página.</p>
+								</div>
+							</div>
+
 						</div>
 						
 					</div>
 				</div>
+
+				<div class="grid py-10 md:grid-cols-2">
+					<div class="col-span-1 max-w-lg">
+						<FeatureBadge />
+
+						<h3 class="mt-4 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
+
+
+						<div class="mt-4 text-slate-600 [text-wrap:balance]">
+							<p>
+								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de decisiones académicas:
+							</p>
+
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-graph-up"></i>
+								<div>
+									<strong>Comportamiento de los Cupos</strong>
+									<p>Analice patrones de inscripción pasados para prever la disponibilidad de cupos en las asignaturas y grupos deseados.</p>
+								</div>
+							</div>
+
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-ui-checks"></i>
+								<div>
+									<strong>Recomendaciones de Docentes</strong>
+									<p>Basado en análisis de datos, Pegaso sugiere los docentes más seleccionados, para asegurarse de seleccionar los mejores.</p>
+								</div>
+							</div>
+
+							<div class="d-flex align-items-top gap-3 mt-2">
+								<i class="bi bi-bar-chart-line"></i>
+								<div>
+									<strong>Distribución de Cupos</strong>
+									<p>Visualice la distribución de cupos por docente en cada asignatura, ayudándole a evitar los menos seleccionados.</p>
+								</div>
+							</div>
+
+						</div>
+						
+					</div>
+
+					<div class="col-span-1">
+						<img src={ShotBusqueda} draggable="false" class="img-feature rounded" alt="mockup">
+					</div>
+					
+				</div>
+
 			</div>
 		</section>
 
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Features</h3>
+				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Diseñado para ti</h3>
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
-					ofrece una experiencia agradable y completa a los estudiantes
+					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y la experiencia del usuario. 
 				</p>
 			</div>
 
@@ -75,24 +127,24 @@
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
 					<i class="bi bi-star"></i>
 					<div>
-						<h3 class="text-lg font-semibold">Titulo</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto texto</p>
+						<h3 class="text-lg font-semibold">Detección Inteligente de Conflictos</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</p>
 					</div>
 				</div>
 
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
 					<i class="bi bi-star"></i>
 					<div>
-						<h3 class="text-lg font-semibold">Titulo</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto texto</p>
+						<h3 class="text-lg font-semibold">Selección Automática</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que acceda a la plataforma.</p>
 					</div>
 				</div>
 
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
 					<i class="bi bi-star"></i>
 					<div>
-						<h3 class="text-lg font-semibold">Titulo</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Texto texto texto</p>
+						<h3 class="text-lg font-semibold">Rendimiento y Usabilidad</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar</p>
 					</div>
 				</div>
 
