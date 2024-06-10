@@ -1,5 +1,6 @@
 <script>
-	import { Header, TableOfContent, Nav, Content } from '$components/About';
+	import Nav from '$src/components/Home/Nav.svelte';
+	import { Header, TableOfContent, Content } from '$components/About';
 	import Footer from '$components/UI/Footer.svelte';
 	import Blobl from '$components/About/Blobl.svelte';
 	import '$src/styles/about.scss';
