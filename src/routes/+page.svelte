@@ -23,8 +23,9 @@
 	<main class="mt-7 mb-5">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Más que un horario</h3>
-				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
+				<h3 class="mt-6 mb-2 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Más que un horario</h3>
+				<hr class="hr-small">
+				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
 					ofrece una experiencia agradable y completa a los estudiantes
 				</p>
@@ -126,11 +127,12 @@
 
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<h3 class="mt-4 mb-2 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					<span>Diseñado</span>
 					<span class="resaltado"> para ti</span>
 				</h3>
-				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
+				<hr class="hr-small">
+				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y la experiencia del usuario.
 				</p>
 			</div>
@@ -200,6 +202,13 @@
 		width: 40.5rem;
 		height: auto;
 		z-index: 1;
+	}
+
+	.hr-small {
+		width: 35%;
+		height: 0.25rem;
+		background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
+		border: none;
 	}
 
 	.inscribir {
