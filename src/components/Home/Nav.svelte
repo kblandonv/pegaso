@@ -1,4 +1,4 @@
-<nav class="row py-4">
+<nav class="row py-4 rounded">
 
 	<div class="col-4">
 		<h1  id="imlargo" data-value="imlargo">Pegaso</h1>
@@ -28,7 +28,7 @@
         </a>
 
         <a href="https://www.linkedin.com/in/imlargo">
-            Acerca de
+            About
         </a>
     </div>
 </nav>

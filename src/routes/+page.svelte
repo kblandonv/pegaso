@@ -127,34 +127,63 @@
 
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">Diseñado para ti</h3>
+				<h3 class="mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+					<span>Diseñado</span>
+					<span class="resaltado"> para ti</span>
+				</h3>
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y la experiencia del usuario. 
+					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y la experiencia del usuario.
 				</p>
 			</div>
 
-			<div class="mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-16">
+			<div class="mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-star"></i>
+					<i class="bi bi-check-circle"></i>
 					<div>
 						<h3 class="text-lg font-semibold">Detección Inteligente de Conflictos</h3>
 						<p class="mt-2 leading-relaxed text-slate-500">Pegaso identifica y previene conflictos de programación. Reciba alertas claras sobre posibles solapamientos de horarios, ahorrándole tiempo y evitando frustraciones.</p>
 					</div>
 				</div>
 
+				
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-star"></i>
+					<i class="bi bi-heart"></i>
 					<div>
-						<h3 class="text-lg font-semibold">Selección Automática</h3>
+						<h3 class="text-lg font-semibold">Agradable de usar</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar, agrupado por docentes y contador de creditos</p>
+					</div>
+				</div>
+				
+				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
+					<i class="bi bi-save"></i>
+					<div>
+						<h3 class="text-lg font-semibold">Guardado automatico</h3>
 						<p class="mt-2 leading-relaxed text-slate-500">El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que acceda a la plataforma.</p>
 					</div>
 				</div>
 
 				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
-					<i class="bi bi-star"></i>
+					<i class="bi bi-clock-history"></i>
 					<div>
-						<h3 class="text-lg font-semibold">Rendimiento y Usabilidad</h3>
-						<p class="mt-2 leading-relaxed text-slate-500">Pegaso está diseñado para ser rápido, ligero e intuitivo. Con una interfaz limpia, rapida y agradable de usar</p>
+						<h3 class="text-lg font-semibold">Actualizaciones en tiempo real</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
+					</div>
+				</div>
+
+				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
+					
+					<i class="bi bi-trophy"></i>
+					<div>
+						<h3 class="text-lg font-semibold">Rendimiento y usabilidad</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
+					</div>
+				</div>
+
+				<div class="flex flex-col items-start gap-1 rounded-lg border p-4">
+					<i class="bi bi-graph-up"></i>
+					<div>
+						<h3 class="text-lg font-semibold">Graficos y estadisticas</h3>
+						<p class="mt-2 leading-relaxed text-slate-500">Texto texto</p>
 					</div>
 				</div>
 
@@ -174,6 +203,12 @@
 </div>
 
 <style lang="scss">
+
+	.resaltado {
+        background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+	}
 
 	.img-feature {
 		width: 90%;
