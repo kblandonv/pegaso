@@ -42,7 +42,7 @@
 
 						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Busquedas instantaneas</h3>
 
-						<div class="mt-3 text-slate-600 [text-wrap:balance]">
+						<div class="mt-3 [text-wrap:balance]">
 							<p>
 								No más búsquedas manuales ni información desactualizada, experiencia de selección de
 								asignaturas rapida e instantanea.
@@ -83,7 +83,7 @@
 
 						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Información Completa para Decisiones Informadas</h3>
 
-						<div class="mt-3 text-slate-600 [text-wrap:balance]">
+						<div class="mt-3 [text-wrap:balance]">
 							<p>
 								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de decisiones académicas:
 							</p>
@@ -195,6 +195,7 @@
 	.resaltado {
         background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
         -webkit-background-clip: text;
+		background-clip: text;
         -webkit-text-fill-color: transparent;
 	}
 
