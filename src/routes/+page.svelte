@@ -1,7 +1,7 @@
 <script>
 	import '$src/styles/home.scss';
 	import Hero from '$src/components/Home/Hero.svelte';
-	import Nav from '$src/components/Home/Nav.svelte';
+	import Nav from '$src/components/UI/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
 	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
 	import FeatureCard from '$src/components/Home/FeatureCard.svelte';
@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Pegaso | Buscador de Cursos</title>
+	<title>Pegaso - Buscador de Cursos</title>
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 

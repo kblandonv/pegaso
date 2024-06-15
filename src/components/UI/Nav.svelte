@@ -1,0 +1,106 @@
+<script>
+    import Donar from '$src/components/UI/Donar.svelte';
+	import { aplyTextEffect, dispatchTextEffect } from '$lib/utils/textEffect.js';
+
+	let modal;
+	function showModal() {
+		modal.show();
+	}
+
+	function textEffectAction(element) {
+		aplyTextEffect(element);
+
+		setTimeout(() => {
+			dispatchTextEffect(element);
+		}, 2000);
+		
+		// Repetir cada 5 segundos
+		setInterval(() => {
+			dispatchTextEffect(element);
+		}, 7000);
+	}
+</script>
+
+<nav class="row py-4 rounded">
+
+	<div class="col-4">
+		<span class="text-3xl" use:textEffectAction id="imlargo" data-value="Pegaso">Pegaso</span>
+	</div>
+
+	<div class="col-4 d-flex justify-content-center align-items-center gap-5 text-lg">
+        <a class="my-social" href="https://github.com/imlargo" target="_blank">
+            <i class="bi bi-github"></i>
+        </a>
+
+        <a class="my-social" href="https://www.instagram.com/imlargo" target="_blank">
+            <i class="bi bi-instagram"></i>
+        </a>
+
+        <a class="my-social" href="https://www.linkedin.com/in/imlargo" target="_blank">
+            <i class="bi bi-linkedin"></i>
+        </a>
+    </div>
+
+    <div class="col-4 d-flex justify-content-end align-items-center gap-5 ">
+        <a data-sveltekit-reload href="/app" class="link-app">
+            App
+        </a>
+
+        <a data-sveltekit-reload href="/about">
+            About
+        </a>
+
+        <a on:click={showModal} class="d-flex btn btn-donar text-base align-items-center justify-content-center gap-2 font-medium" role="button" href>
+			<i class="bi bi-heart-fill"></i>
+			<span> Donar</span>
+		</a>
+    </div>
+</nav>
+
+<Donar bind:this={modal} />
+
+<style lang="scss">
+
+	.link-app {
+        color: #9335ff;
+    }
+
+	#imlargo {
+		font-size: 2rem;
+		font-family: 'JetBrains Mono', monospace;
+	}
+
+	.my-social {
+		transition: all 0.2s;
+
+		&:hover {
+			transform: scale(1.15);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+    #imlargo {
+		font-size: 2rem;
+		font-family: 'JetBrains Mono', monospace;
+	}
+
+	.btn-donar {
+		background-color: #a84aff;
+		color: white;
+		transition: all 0.1s;
+		font-family: "Inter", sans-serif!important;
+
+		&:hover {
+			transform: scale(1.02);
+			background-color: #8c2aff;
+			color: white;
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+</style>

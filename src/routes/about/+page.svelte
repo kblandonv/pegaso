@@ -1,5 +1,5 @@
 <script>
-	import Nav from '$src/components/Home/Nav.svelte';
+	import Nav from '$src/components/UI/Nav.svelte';
 	import { Header, TableOfContent, Content } from '$components/About';
 	import Footer from '$components/UI/Footer.svelte';
 	import Blobl from '$components/About/Blobl.svelte';
@@ -11,7 +11,7 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<main class="container-sm max-w-7xl">
+<main class="mx-auto max-w-screen-2xl px-5">
 	<Blobl />
 
 	<Nav />

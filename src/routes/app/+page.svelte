@@ -2,7 +2,7 @@
 	const { data } = $props();
 
 	import { setContext } from 'svelte';
-	import Header from '$components/UI/Header.svelte';
+	import Nav from '$src/components/UI/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 	import Blob from '$components/UI/Blob.svelte';
 	import Toast from '$components/UI/Toast.svelte';
@@ -39,7 +39,7 @@
 </svelte:head>
 
 <main class="container">
-	<Header />
+	<Nav />
 
 	<main>
 		<!-- Buscador de cursos -->
