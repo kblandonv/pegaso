@@ -1,4 +1,6 @@
 <script>
+	import { page } from '$app/stores';
+
     import Donar from '$src/components/UI/Donar.svelte';
 	import { aplyTextEffect, dispatchTextEffect } from '$lib/utils/textEffect.js';
 
@@ -28,15 +30,15 @@
 	</div>
 
 	<div class="col-4 d-flex justify-content-center align-items-center gap-5">
-		<a data-sveltekit-reload href="/">
+		<a class="nav-link" class:nav-link-active={$page.url.pathname === "/"} data-sveltekit-reload href="/">
             Home
         </a>
 
-		<a data-sveltekit-reload href="/app" class="link-app">
+		<a class="nav-link" class:nav-link-active={$page.url.pathname === "/app"} data-sveltekit-reload href="/app">
             App
         </a>
 
-        <a data-sveltekit-reload href="/about">
+        <a class="nav-link" class:nav-link-active={$page.url.pathname === "/about"} data-sveltekit-reload href="/about">
             About
         </a>
     </div>
@@ -68,9 +70,24 @@
 
 <style lang="scss">
 
-	.link-app {
-        color: #9335ff;
+	.nav-link {
+		position: relative;
+		&:hover {
+			color: #9335ff;
+		}
     }
+
+	.nav-link-active:after {
+		content: "";
+  		position: absolute;
+  		width: 100%;
+  		height: 0.1rem;
+  		bottom: -0.1rem;
+  		left: 0;
+  		background-color: #d3acff;
+  		transform-origin: bottom right;
+  		transform-origin: bottom left;
+	}
 
 	#imlargo {
 		font-size: 2rem;
