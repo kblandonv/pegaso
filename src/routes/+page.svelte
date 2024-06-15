@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Pegaso - Buscador de Cursos</title>
+	<title>Pegaso</title>
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
@@ -28,8 +28,7 @@
 				</h3>
 				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso va más allá de la creación de horarios. Gracias a su conjunto de herramientas,
-					ofrece una experiencia agradable y completa a los estudiantes.
+					Pegaso no solo te permite crear horarios, gracias a su conjunto completo de herramientas diseñadas para facilitar tu vida académica transforma tu experiencia de inscripcion.
 				</p>
 			</div>
 
@@ -45,14 +44,14 @@
 					</div>
 
 					<div class="col-span-1 max-w-lg">
-						<FeatureBadge>Rápido y completo</FeatureBadge>
+						<FeatureBadge>Rápido y sencillo</FeatureBadge>
 
 						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Búsquedas instantáneas</h3>
 
-						<div class="mt-3 [text-wrap:balance]">
+						<div class="mt-3 text-pretty">
 							<p>
-								No más búsquedas manuales ni información desactualizada, experiencia de selección de
-								asignaturas rápida e instantánea.
+								No más búsquedas manuales ni información desactualizada, disfruta una experiencia de selección de
+								asignaturas instantánea.
 							</p>
 
 							<div class="d-flex align-items-top mt-3 gap-3">
@@ -88,7 +87,7 @@
 							Información Completa para Decisiones Informadas
 						</h3>
 
-						<div class="mt-3 [text-wrap:balance]">
+						<div class="mt-3 text-pretty">
 							<p>
 								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de
 								decisiones académicas:
@@ -99,8 +98,7 @@
 								<div>
 									<strong>Comportamiento de los Cupos</strong>
 									<p>
-										Analice patrones de inscripción pasados para prever la disponibilidad de cupos
-										en las asignaturas y grupos deseados.
+										Revisa los patrones de inscripción pasados para predecir la disponibilidad de cupos en las materias y grupos que te interesan.
 									</p>
 								</div>
 							</div>
@@ -110,8 +108,7 @@
 								<div>
 									<strong>Recomendaciones de Docentes</strong>
 									<p>
-										Basado en análisis de datos, Pegaso sugiere los docentes más seleccionados, para
-										asegurarse de seleccionar los mejores.
+										Basado en análisis de datos, Pegaso te sugiere los docentes más seleccionados, para que elijas a los mejores.
 									</p>
 								</div>
 							</div>
@@ -121,7 +118,7 @@
 								<div>
 									<strong>Distribución de Cupos</strong>
 									<p>
-										Visualice la distribución de cupos por docente en cada asignatura, ayudándole a
+										Visualiza la distribución de cupos por docente en cada asignatura, ayudándole a
 										evitar los menos seleccionados.
 									</p>
 								</div>
@@ -149,8 +146,7 @@
 				</h3>
 				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso está diseñado para el estudiante, por lo tanto se enfoca en la facilidad de uso y
-					la experiencia del usuario.
+					Pegaso ha sido creado para el estudiante, ofreciendo una experiencia intuitiva y herramientas útiles que transforman y simplifican tu inscripcion de asignaturas.
 				</p>
 			</div>
 
@@ -158,55 +154,38 @@
 				<FeatureCard>
 					<i slot="icon" class="bi bi-check-circle"></i>
 					<span slot="title">Detección Inteligente de Conflictos</span>
-					<span slot="content"
-						>Pegaso identifica y previene conflictos entre asignaturas en su horario. Ahorrándole
-						tiempo y evitando frustraciones.</span
-					>
+					<span slot="content">Pegaso identifica y previene conflictos entre asignaturas en tu horario, ahorrándote tiempo y evitando frustraciones.</span>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-heart"></i>
 					<span slot="title">Agradable de usar</span>
-					<span slot="content"
-						>Pegaso está diseñado con funcionalidades pensadas para el estudiante, por ejemplo
-						grupos agrupados por docentes y contador de créditos</span
-					>
+					<span slot="content">Disfruta de funcionalidades diseñadas para ti, como la agrupación de grupos por docentes y un contador de créditos.</span>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-save"></i>
 					<span slot="title">Guardado automático</span>
-					<span slot="content"
-						>El horario seleccionado se guarda automáticamente, eliminando la necesidad de repetir
-						búsquedas cada vez que acceda a la aplicación.</span
-					>
+					<span slot="content">Tu horario se guarda automáticamente, eliminando la necesidad de repetir búsquedas cada vez que accedes a la aplicación.</span>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-clock-history"></i>
 					<span slot="title">Actualizaciones en tiempo real</span>
-					<span slot="content"
-						>Acceda a información actualizada constantemente sobre las asignaturas, sin necesidad de
-						recargar la página.</span
-					>
+					<span slot="content">Accede a información actualizada constantemente sobre las asignaturas, sin necesidad de recargar la página.</span>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-trophy"></i>
 					<span slot="title">Rendimiento y usabilidad</span>
 					<span slot="content"
-						>Pegaso está diseñado para ser intuitivo. Con una interfaz limpia, rápida y agradable de
-						usar.</span
-					>
+						>Pegaso es intuitivo y fácil de usar, además de ser robusto y rápido. Cuenta con una interfaz limpia, y agradable.</span>
 				</FeatureCard>
 
 				<FeatureCard>
 					<i slot="icon" class="bi bi-graph-up"></i>
 					<span slot="title">Gráficos y estadísticas</span>
-					<span slot="content"
-						>Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de decisiones
-						académicas.</span
-					>
+					<span slot="content">Obtén datos y estadísticas valiosas para tomar decisiones académicas informadas.</span>
 				</FeatureCard>
 			</div>
 		</section>

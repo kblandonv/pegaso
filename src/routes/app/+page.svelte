@@ -34,7 +34,7 @@
 </script>
 
 <svelte:head>
-	<title>Pegaso | Buscador Cursos</title>
+	<title>Pegaso - App</title>
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 

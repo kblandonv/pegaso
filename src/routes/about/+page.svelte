@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Pegaso | About</title>
+	<title>Pegaso - About</title>
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
