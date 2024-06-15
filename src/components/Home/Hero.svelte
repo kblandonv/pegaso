@@ -27,7 +27,7 @@
         <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Asignaturas</span>
-            <h1 class="font-bold text-4xl tracking-tight">3.500</h1>
+            <h1 class="font-bold text-4xl tracking-tight">2.450</h1>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         <i class="bi bi-arrow-up font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Usuarios</span>
-            <h1 class="font-bold text-4xl tracking-tight">3.000</h1>
+            <h1 class="font-bold text-4xl tracking-tight">1.300</h1>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
         <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
         <div>
             <span>Electivas</span>
-            <h1 class="font-bold text-4xl tracking-tight">1.200</h1>
+            <h1 class="font-bold text-4xl tracking-tight">0</h1>
         </div>
     </div>
 
