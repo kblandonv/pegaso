@@ -15,7 +15,7 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<div class="mx-auto max-w-screen-2xl px-5">
+<div class="container">
 	<Nav />
 
 	<Hero />

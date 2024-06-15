@@ -11,7 +11,7 @@
 	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
-<main class="mx-auto max-w-screen-2xl px-5">
+<main class="container">
 	<Blobl />
 
 	<Nav />

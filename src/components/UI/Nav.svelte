@@ -27,28 +27,35 @@
 		<span class="text-3xl" use:textEffectAction id="imlargo" data-value="Pegaso">Pegaso</span>
 	</div>
 
-	<div class="col-4 d-flex justify-content-center align-items-center gap-5 text-lg">
-        <a class="my-social" href="https://github.com/imlargo" target="_blank">
-            <i class="bi bi-github"></i>
+	<div class="col-4 d-flex justify-content-center align-items-center gap-5">
+		<a data-sveltekit-reload href="/">
+            Home
         </a>
 
-        <a class="my-social" href="https://www.instagram.com/imlargo" target="_blank">
-            <i class="bi bi-instagram"></i>
-        </a>
-
-        <a class="my-social" href="https://www.linkedin.com/in/imlargo" target="_blank">
-            <i class="bi bi-linkedin"></i>
-        </a>
-    </div>
-
-    <div class="col-4 d-flex justify-content-end align-items-center gap-5 ">
-        <a data-sveltekit-reload href="/app" class="link-app">
+		<a data-sveltekit-reload href="/app" class="link-app">
             App
         </a>
 
         <a data-sveltekit-reload href="/about">
             About
         </a>
+    </div>
+
+    <div class="col-4 d-flex justify-content-end align-items-center gap-4 ">
+
+        <a class="my-social text-lg" href="https://github.com/imlargo" target="_blank">
+            <i class="bi bi-github"></i>
+        </a>
+
+        <a class="my-social text-lg" href="https://www.instagram.com/imlargo" target="_blank">
+            <i class="bi bi-instagram"></i>
+        </a>
+
+        <a class="my-social text-lg" href="https://www.linkedin.com/in/imlargo" target="_blank">
+            <i class="bi bi-linkedin"></i>
+        </a>
+
+		<div class="h-3/5 vr my-auto"></div>
 
         <a on:click={showModal} class="d-flex btn btn-donar text-base align-items-center justify-content-center gap-2 font-medium" role="button" href>
 			<i class="bi bi-heart-fill"></i>
