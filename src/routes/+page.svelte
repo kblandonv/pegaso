@@ -50,8 +50,7 @@
 
 						<div class="mt-3 text-pretty">
 							<p>
-								No más búsquedas manuales ni información desactualizada, disfruta una experiencia de selección de
-								asignaturas instantánea.
+								Olvidate de las búsquedas manuales y la información desactualizada. Experimenta una selección de asignaturas rapida.
 							</p>
 
 							<div class="d-flex align-items-top mt-3 gap-3">
@@ -59,8 +58,7 @@
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
 									<p>
-										Realice la selección de asignaturas de manera rápida y automática. Añada
-										materias a su horario sin necesidad de ingresar información manualmente.
+										Busca y selecciona tus asignaturas de forma rápida. Añade materias a tu horario sin necesidad de ingresar datos manualmente.
 									</p>
 								</div>
 							</div>
@@ -70,8 +68,7 @@
 								<div>
 									<strong>Datos en Tiempo Real</strong>
 									<p>
-										Acceda a información actualizada constantemente sobre las asignaturas, sin
-										necesidad de recargar la página.
+										Accede a información actualizada al momento sobre las asignaturas, sin necesidad de recargar la página.
 									</p>
 								</div>
 							</div>
@@ -146,7 +143,7 @@
 				</h3>
 				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso ha sido creado para el estudiante, ofreciendo una experiencia intuitiva y herramientas útiles que transforman y simplifican tu inscripcion de asignaturas.
+					Pegaso ha sido creado para el estudiante, ofreciendo una experiencia intuitiva y herramientas útiles que mejoran y simplifican tu inscripcion de asignaturas.
 				</p>
 			</div>
 
