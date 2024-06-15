@@ -43,7 +43,7 @@
         </a>
     </div>
 
-    <div class="col-4 d-flex justify-content-end align-items-center gap-4 ">
+    <div class="col-4 d-flex justify-content-end align-items-center gap-7">
 
         <a class="my-social text-lg" href="https://github.com/imlargo" target="_blank">
             <i class="bi bi-github"></i>
