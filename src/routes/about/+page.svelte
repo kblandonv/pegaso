@@ -13,26 +13,22 @@
 <main class="container">
 	<Nav />
 
-	<header class="grid place-items-center py-5 md:grid-cols-2">
-		<div class="w-100 col-span-1">
+	<header class="grid place-items-center py-5 md:grid-cols-1">
+		<div class="w-50 col-span-1 text-center">
 			<span class="text-color-gradient font-mono">Acerca de</span>
-			<h3 class="mt-4 text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tight">
+			<h3 class="text-3xl lg:text-4xl xl:text-6xl font-bold mt-2">
 				Pensado para el estudiante.
 			</h3>
 
-			<p class="mb-2 mt-3 text-pretty text-slate-600">
-				<i class="bi bi-quote"></i>
+			<p class="text-lg mt-4 text-slate-600 text-pretty">
+				
 				Pegaso nació con un objetivo claro: mejorar la experiencia de inscripción y gestión de horarios
 				de los estudiantes de la sede Medellín.
 			</p>
 		</div>
-
-		<div class="justify-content-center col-span-1">
-			<div id="blob"></div>
-		</div>
 	</header>
 
-	<section class="grid grid-cols-3 gap-16 rounded-full py-4">
+	<section class="grid grid-cols-3 gap-16 rounded-full py-4 border">
 		<div class="d-flex justify-content-center align-items-end">
 			<div>
 				<span class="text-color-gradient font-mono">Asignaturas</span>
@@ -58,14 +54,15 @@
 		</div>
 	</section>
 
-	<section class="grid grid-cols-2 place-items-top py-10 mt-3">
-		<div class="col-span-1 w-75">
-			<h3 class="text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tightww">
+	<section class="grid grid-cols-2 place-items-top py-10 mt-5">
+		<div class="col-span-1  w-50 mx-auto">
+			<h3 class="mb-2 text-4xl font-bold lg:text-5xl lg:tracking-tight">
 				Nuestra mision
 			</h3>
 		</div>
 		<div class="justify-content-center col-span-1 w-75">
 			<p class="mb-2 text-pretty text-slate-600">
+				<i class="bi bi-quote"></i>
 				Pegaso es un proyecto personal desarrollado en su totalidad por <span class="font-mono"
 					>@imlargo</span
 				>. Cada línea de código y cada diseño ha sido creado con dedicación y pasión por ofrecer una
@@ -81,8 +78,10 @@
 		</div>
 	</section>
 
+	<hr>
+
 	<section class="grid grid-cols-2 place-items-top py-10">
-		<div class="w-100 col-span-1">
+		<div class="col-span-1 w-50 mx-auto">
 			<h3 class="text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tight">
 				El Creador
 			</h3>
@@ -144,18 +143,6 @@
 </main>
 
 <style lang="scss">
-		#blob {
-		position: relative;
-			background-color: rgb(166, 58, 255);
-			height: 15vmax;
-			aspect-ratio: 1;
-			border-radius: 50%;
-			background: linear-gradient(to right, rgb(215, 184, 255), rgb(233, 121, 255));
-			opacity: 0.5;
-	        z-index: -1;
-	        /* blur */
-	        filter: blur(120px);
-	}
 
 	.inscribir {
 		background: linear-gradient(90deg, #f5ceff 0%, #e5ceff 100%);
