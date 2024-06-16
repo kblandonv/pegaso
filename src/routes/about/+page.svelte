@@ -83,7 +83,7 @@
 	<section class="grid grid-cols-2 place-items-top py-10">
 		<div class="col-span-1 w-50 mx-auto">
 			<h3 class="text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tight">
-				El Creador
+				Hi, imlargo!
 			</h3>
 		</div>
 		<div class="justify-content-center w-75 col-span-1">

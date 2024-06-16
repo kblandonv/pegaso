@@ -3,12 +3,12 @@
 		<rect rx="8" ry="8" class="line" height="100%" width="100%" stroke-linejoin="round" />
 	</svg>
 
-	<div class="grid grid-cols-4 place-items-center p-5">
+	<div class="grid grid-cols-4 place-items-center p-3">
 		<div class="col-span-1">
 			<img
 				src="https://avatars.githubusercontent.com/u/134282467?v=4"
 				alt="imlargo"
-				class="h-20 w-20 rounded-full"
+				class="h-20 w-20 rounded"
 			/>
 		</div>
 
@@ -48,7 +48,6 @@
 	}
 
 	.card-team {
-		width: 90%;
         background: linear-gradient(43deg, #ffbcfb33 0%, #ff94f838 46%, #e5c5ff27 100%);
 		position: relative;
 
