@@ -16,3 +16,7 @@ body {
     text-rendering: optimizeLegibility;
     font-optical-sizing: auto;
 }
+
+.font-mono {
+    font-family: $font-mono!important;
+}

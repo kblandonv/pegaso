@@ -48,6 +48,5 @@
 
         /* blur */
         filter: blur(120px);
-        
 	}
 </style>

@@ -1,5 +1,5 @@
-
 <script>
+    import Numbers from "$components/Home/Numbers.svelte";
     import Mockup from "$lib/images/mockup.png";
 </script>
 
@@ -21,33 +21,7 @@
     </div>
 </header>
 
-<section class="grid gap-16 grid-cols-3 py-4 rounded-full">
-
-    <div class="d-flex justify-content-center align-items-end">
-        <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
-        <div>
-            <span>Asignaturas</span>
-            <h1 class="font-bold text-4xl tracking-tight">2.450</h1>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-center align-items-end">
-        <i class="bi bi-arrow-up font-bold text-4xl tracking-tight"></i>
-        <div>
-            <span>Usuarios</span>
-            <h1 class="font-bold text-4xl tracking-tight">1.300</h1>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-center align-items-end">
-        <i class="bi bi-plus font-bold text-4xl tracking-tight"></i>
-        <div>
-            <span>Electivas</span>
-            <h1 class="font-bold text-4xl tracking-tight">0</h1>
-        </div>
-    </div>
-
-</section>
+<Numbers />
 
 <style lang="scss">
 
@@ -71,10 +45,7 @@
     header {
         display: grid;
     }
-    section {
-        background-color: rgb(229, 206, 255);
-    }
-
+   
 
     .btn-primary {
         background: linear-gradient(90deg, #a85cff 40%, rgba(198,92,255,1) 100%);
