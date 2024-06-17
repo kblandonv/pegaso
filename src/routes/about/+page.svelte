@@ -62,11 +62,7 @@
 		</div>
 		<div class="justify-content-center col-span-1 w-75">
 			<p class="mb-2 text-pretty text-slate-600">
-				<i class="bi bi-quote"></i>
-				Pegaso es un proyecto personal desarrollado en su totalidad por <span class="font-mono"
-					>@imlargo</span
-				>. Cada línea de código y cada diseño ha sido creado con dedicación y pasión por ofrecer una
-				solución que realmente haga la diferencia en la vida académica de los estudiantes.
+				La idea de Pegaso nació de la frustración común que enfrentan muchos estudiantes al inscribirse en sus asignaturas. Los procesos manuales, la información desactualizada y la falta de herramientas eficientes hacen que esta tarea sea tediosa y estresante. Pegaso se propone resolver estos problemas proporcionando una plataforma donde todo esté al alcance de la mano:
 			</p>
 
 			<p class="mb-2 mt-3 text-pretty text-slate-600">
@@ -82,27 +78,23 @@
 
 	<section class="grid grid-cols-2 place-items-top py-10">
 		<div class="col-span-1 w-50 mx-auto">
-			<h3 class="text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tight">
+			<h3 class="text-4xl font-bold [text-wrap:balance] lg:text-5xl lg:tracking-tight mb-5">
 				Hi, imlargo!
 			</h3>
+
+			<TeamCard />
 		</div>
 		<div class="justify-content-center w-75 col-span-1">
-			
-			<p class="mb-2 text-pretty text-slate-600">
-				Pegaso es un proyecto personal desarrollado en su totalidad por <span class="font-mono"
-					>@imlargo</span
-				>. Cada línea de código y cada diseño ha sido creado con dedicación y pasión por ofrecer una
+
+			<p class="mb-2 mt-3 text-pretty text-slate-600">
+				Pegaso es un proyecto personal desarrollado en su totalidad por <span class="font-mono">@imlargo</span>. Cada línea de código y cada diseño ha sido creado con dedicación y pasión por ofrecer una
 				solución que realmente haga la diferencia en la vida académica de los estudiantes.
 			</p>
 
 			<p class="mb-2 mt-3 text-pretty text-slate-600">
-				Nuestra misión es transformar la manera en que los estudiantes gestionan sus horarios y
-				toman decisiones académicas. Queremos que Pegaso sea más que una simple aplicación para
-				crear horarios; queremos que sea una plataforma integral que facilite y enriquezca la vida
-				académica de cada estudiante.
+				Pegaso es el resultado del esfuerzo y dedicación de una sola persona: <span class="font-mono">@imlargo</span>. Como fundador, desarrollador frontend, desarrollador backend, diseñador, investigador y líder de marketing, he puesto mi visión y habilidades al servicio de los estudiantes para crear una herramienta única y poderosa. Cada aspecto de Pegaso, desde el diseño hasta la implementación, ha sido cuidadosamente desarrollado para garantizar una experiencia de usuario excepcional.
 			</p>
-
-			<TeamCard />
+			
 		</div>
 	</section>
 
