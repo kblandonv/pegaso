@@ -50,6 +50,11 @@
 				satisfaga la necesidad de tener información útil y de primera mano que facilite la toma de
 				decisiones.
 			</p>
+
+			<p class="mb-2 mt-3">
+				Actualmente, Pegaso ha experimentado un rápido crecimiento con más de 1.300 usuarios participando en su fase inicial, y seguira en constante evolucion, comprometido con la mejora continua a través del feedback de los usuarios, la incorporación de nuevas funcionalidades y continuando con el objetivo de simplificar el proceso de inscripción y facilitar la creación de horarios para los estudiantes.
+			</p>
+			
 		</div>
 	</section>
 
@@ -93,27 +98,15 @@
 
 			<div class="col-span-1 text-pretty text-lg text-slate-700">
 				<p class="mb-2">
-					Soy <span class="font-mono">@imlargo</span>, el creador detrás de Pegaso. Diseñé y
-					desarrollé esta aplicación por mi cuenta, inspirado por mi propia experiencia como
-					estudiante y mi pasión por la tecnología. Desde los primeros bocetos hasta el código
-					final, cada parte de Pegaso lleva mi dedicación y esfuerzo. Trabajé incansablemente para
-					asegurar que la aplicación no solo funcione bien, sino que también sea intuitiva y
-					agradable de usar.
+					¡Hola! Soy Juan Carlos Largo, el creador de Pegaso. Diseñé y desarrollé esta aplicación por mi cuenta, inspirado tanto en mi experiencia como estudiante como en mi pasión por el desarrollo de software. Como dato curioso me encantan los colores rosa y morado, y es por eso que decidí dejar ese toque en toda la web, ademas, siento que transmiten la sensación agradable que buscaba con la aplicacion.
 				</p>
 
 				<p class="mb-2 mt-3">
-					Como estudiante y desarrollador, entiendo los desafíos y necesidades del entorno
-					académico. Mi formación en desarrollo de software y mi experiencia personal me permitieron
-					crear Pegaso, una herramienta que realmente resuena con los estudiantes. Estoy
-					comprometido con la mejora continua de la aplicación, escuchando siempre el feedback de
-					los usuarios para seguir innovando y ofreciendo el mejor servicio posible.
+					Inicialmente, Pegaso surgió como un proyecto personal y un hobby. Sin embargo, gracias a la respuesta positiva de quienes lo probaron y al ver cómo realmente beneficiaba a los estudiantes, decidí que era necesario brindar una solucion, por lo que continúe trabajando y mejorando el proyecto, siempre asegurandome de que la aplicación no solo funcionara correctamente, sino que también fuera intuitiva y agradable de usar. Cada aspecto de Pegaso refleja mi dedicación, cariño y esfuerzo.
 				</p>
 
 				<p class="mb-2 mt-3">
-					He diseñado y desarrollado este proyecto completamente solo, impulsado por mi pasión por
-					la tecnología y la educación. Pegaso es un proyecto en constante evolución, y estoy
-					comprometido con su mejora continua, incorporando el feedback de los usuarios y añadiendo
-					nuevas funcionalidades.
+					Si quieres saber más acerca de mí, actualmente estoy estudiando Ingeniería de Sistemas en la sede de Medellín, disfruto dedicando mi tiempo a programar, escuchar música, aprender cosas nuevas y nadar.					
 				</p>
 			</div>
 		</div>
