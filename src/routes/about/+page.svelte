@@ -59,8 +59,6 @@
 		<span class="text-color-gradient font-mono">Sobre mí</span>
 		<h3 class="mt-4 text-balance text-4xl font-bold lg:text-5xl lg:tracking-tight">Hi, imlargo!</h3>
 
-		
-
 		<div class="place-items-top mt-1 grid grid-cols-2 py-10">
 			<div class="w-100 col-span-1">
 				<img
