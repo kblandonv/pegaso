@@ -28,9 +28,10 @@
 				</h3>
 				<hr class="hr-small" />
 				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
-					Pegaso no solo te permite crear horarios, gracias a su conjunto completo de herramientas diseñadas para facilitar tu vida académica transforma tu experiencia de inscripcion.
+					Pegaso no solo te permite crear horarios, sino que transforma tu experiencia de inscripción gracias a su conjunto completo de herramientas.
 				</p>
 			</div>
+			
 
 			<div>
 				<div class="grid place-items-center py-10 md:grid-cols-2">
@@ -58,7 +59,7 @@
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
 									<p>
-										Busca y selecciona tus asignaturas de forma rápida. Añade materias a tu horario sin necesidad de ingresar datos manualmente.
+										Encuentra y selecciona asignaturas rápidamente, sin búsquedas manuales ni información desactualizada.
 									</p>
 								</div>
 							</div>
@@ -68,7 +69,7 @@
 								<div>
 									<strong>Datos en Tiempo Real</strong>
 									<p>
-										Accede a información actualizada al momento sobre las asignaturas, sin necesidad de recargar la página.
+										Accede a información actualizada sobre las asignaturas, sin necesidad de recargar la página.
 									</p>
 								</div>
 							</div>
@@ -115,8 +116,7 @@
 								<div>
 									<strong>Distribución de Cupos</strong>
 									<p>
-										Visualiza la distribución de cupos por docente en cada asignatura, ayudándole a
-										evitar los menos seleccionados.
+										Visualiza la distribución de cupos por docente para evitar los menos seleccionados.
 									</p>
 								</div>
 							</div>
@@ -195,7 +195,7 @@
 			</h1>
 			<p class="mt-3 text-lg text-slate-700 [text-wrap:pretty]">
 				Pegaso es un proyecto personal desarrollado en su totalidad por una sola persona.<br />Si te
-				ha gustado, considera hacer una donación. Tu apoyo contribuye al proyecto :3
+				ha gustado, considera hacer una donación para apoyar el proyecto. :3
 			</p>
 		</div>
 
