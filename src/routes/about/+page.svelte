@@ -2,14 +2,7 @@
 	import '$src/styles/about.scss';
 	import Nav from '$src/components/UI/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
-	import TeamCard from '$components/About/TeamCard.svelte';
 	import Numbers from '$components/Home/Numbers.svelte';
-
-	import FeatureBadge from '$src/components/Home/FeatureBadge.svelte';
-	import FeatureCard from '$src/components/Home/FeatureCard.svelte';
-
-	import ShotBusqueda from '$lib/images/home/shot-1.jpg';
-	import ShotGrafico from '$lib/images/home/shot-2.jpg';
 </script>
 
 <svelte:head>
