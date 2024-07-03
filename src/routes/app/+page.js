@@ -1,5 +1,4 @@
 export const ssr = true;
-export const prerender = true;
 
 import { browser } from '$app/environment'
 import { init } from "$lib/utils/firebase.js"
