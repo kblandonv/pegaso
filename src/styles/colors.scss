@@ -1,20 +1,20 @@
-$primary-light: #7664E9;
-$primary-dark: #7664E9;
+$primary-light: #7664e9;
+$primary-dark: #7664e9;
 
-$close-light: #7664E9;
-$close-dark: #7664E9;
+$close-light: #7664e9;
+$close-dark: #7664e9;
 
 $texto-light: #000000;
 $texto-dark: #ffffff;
 
 $background-light: rgb(244, 238, 246, 0.6);
-$background-dark: #19181B;
+$background-dark: #19181b;
 
 $container-light: rgba(255, 255, 255, 0.5);
 $container-dark: rgba(42, 41, 46, 0.5);
 
-$container-stroke-light: #E1E1E1;
-$container-stroke-dark: #F4EEF6;
+$container-stroke-light: #e1e1e1;
+$container-stroke-dark: #f4eef6;
 
 $container-shadow-bottom-light: rgba(28, 6, 117, 0.12);
 $container-shadow-bottom-dark: rgb(122, 89, 255, 0.12);
@@ -23,67 +23,67 @@ $container-shadow-top-light: rgb(251, 225, 255, 0.75);
 $container-shadow-top-dark: rgb(251, 225, 255, 0.02);
 
 $hr-big-light: rgb(118, 100, 233, 0.7);
-$hr-big-dark: #7664E9;
+$hr-big-dark: #7664e9;
 
-$hr-light: #7664E9;
-$hr-dark: #7664E9;
+$hr-light: #7664e9;
+$hr-dark: #7664e9;
 
-$badge-background-light: #7664E9;
-$badge-stroke-light: #7664E9;
+$badge-background-light: #7664e9;
+$badge-stroke-light: #7664e9;
 
-$badge-background-dark: #7664E9;
-$badge-stroke-dark: #7664E9;
+$badge-background-dark: #7664e9;
+$badge-stroke-dark: #7664e9;
 
-$select-background-light: #7664E9;
-$select-stroke-light: #7664E9;
-$select-icon-light: #7664E9;
+$select-background-light: #7664e9;
+$select-stroke-light: #7664e9;
+$select-icon-light: #7664e9;
 
-$select-background-dark: #7664E9;
-$select-stroke-dark: #7664E9;
-$select-icon-dark: #7664E9;
+$select-background-dark: #7664e9;
+$select-stroke-dark: #7664e9;
+$select-icon-dark: #7664e9;
 
-$asignatura-row-light: #7664E9;
-$asignatura-row-dark: #7664E9;
+$asignatura-row-light: #7664e9;
+$asignatura-row-dark: #7664e9;
 
-$vr-light: #7664E9;
-$vr-dark: #7664E9;
+$vr-light: #7664e9;
+$vr-dark: #7664e9;
 
-html[data-theme="light"] {
-    --primary: #{$primary-light};
-    --close: #{$close-light};
-    --texto: #{$texto-light};
-    --background: #{$background-light};
-    --container: #{$container-light};
-    --container-stroke: #{$container-stroke-light};
-    --container-shadow-bottom: #{$container-shadow-bottom-light};
-    --container-shadow-top: #{$container-shadow-top-light};
-    --hr-big: #{$hr-big-light};
-    --hr: #{$hr-light};
-    --badge-background: #{$badge-background-light};
-    --badge-stroke: #{$badge-stroke-light};
-    --select-background: #{$select-background-light};
-    --select-stroke: #{$select-stroke-light};
-    --select-icon: #{$select-icon-light};
-    --asignatura-row: #{$asignatura-row-light};
-    --vr: #{$vr-light};
+html[data-theme='light'] {
+	--primary: #{$primary-light};
+	--close: #{$close-light};
+	--texto: #{$texto-light};
+	--background: #{$background-light};
+	--container: #{$container-light};
+	--container-stroke: #{$container-stroke-light};
+	--container-shadow-bottom: #{$container-shadow-bottom-light};
+	--container-shadow-top: #{$container-shadow-top-light};
+	--hr-big: #{$hr-big-light};
+	--hr: #{$hr-light};
+	--badge-background: #{$badge-background-light};
+	--badge-stroke: #{$badge-stroke-light};
+	--select-background: #{$select-background-light};
+	--select-stroke: #{$select-stroke-light};
+	--select-icon: #{$select-icon-light};
+	--asignatura-row: #{$asignatura-row-light};
+	--vr: #{$vr-light};
 }
 
-html[data-theme="dark"] {
-    --primary: #{$primary-dark};
-    --close: #{$close-dark};
-    --texto: #{$texto-dark};
-    --background: #{$background-dark};
-    --container: #{$container-dark};
-    --container-stroke: #{$container-stroke-dark};
-    --container-shadow-bottom: #{$container-shadow-bottom-dark};
-    --container-shadow-top: #{$container-shadow-top-dark};
-    --hr-big: #{$hr-big-dark};
-    --hr: #{$hr-dark};
-    --badge-background: #{$badge-background-dark};
-    --badge-stroke: #{$badge-stroke-dark};
-    --select-background: #{$select-background-dark};
-    --select-stroke: #{$select-stroke-dark};
-    --select-icon: #{$select-icon-dark};
-    --asignatura-row: #{$asignatura-row-dark};
-    --vr: #{$vr-dark};
+html[data-theme='dark'] {
+	--primary: #{$primary-dark};
+	--close: #{$close-dark};
+	--texto: #{$texto-dark};
+	--background: #{$background-dark};
+	--container: #{$container-dark};
+	--container-stroke: #{$container-stroke-dark};
+	--container-shadow-bottom: #{$container-shadow-bottom-dark};
+	--container-shadow-top: #{$container-shadow-top-dark};
+	--hr-big: #{$hr-big-dark};
+	--hr: #{$hr-dark};
+	--badge-background: #{$badge-background-dark};
+	--badge-stroke: #{$badge-stroke-dark};
+	--select-background: #{$select-background-dark};
+	--select-stroke: #{$select-stroke-dark};
+	--select-icon: #{$select-icon-dark};
+	--asignatura-row: #{$asignatura-row-dark};
+	--vr: #{$vr-dark};
 }

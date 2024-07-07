@@ -2,7 +2,7 @@
 	const { data } = $props();
 
 	import { setContext } from 'svelte';
-	import Nav from '$src/components/UI/Nav.svelte';
+	import Nav from '$components/UI/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 	import Blob from '$components/UI/Blob.svelte';
 	import Toast from '$components/UI/Toast.svelte';
@@ -32,7 +32,6 @@
 			storeAsignaturas.updated = false;
 		}
 	});
-
 </script>
 
 <Seo />
@@ -45,7 +44,7 @@
 
 	<main>
 		<!-- Buscador de cursos -->
-		<Buscador  />
+		<Buscador />
 
 		<hr class="hr-pink" />
 

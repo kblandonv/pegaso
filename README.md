@@ -17,15 +17,3 @@ Contributions are always welcome!.
 ## Authors
 
 - [@imlargo](https://www.github.com/imlargo)
-
-
-
-
-
-
-
-
-
-
-
-
