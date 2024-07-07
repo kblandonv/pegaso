@@ -3,11 +3,12 @@
 	import Nav from '$src/components/UI/Nav.svelte';
 	import Footer from '$src/components/UI/Footer.svelte';
 	import Numbers from '$components/Home/Numbers.svelte';
+	import Seo from '$components/Seo.svelte';
 </script>
 
+<Seo />
 <svelte:head>
 	<title>Pegaso - About</title>
-	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
 <main class="container">

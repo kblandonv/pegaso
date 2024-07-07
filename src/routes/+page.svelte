@@ -8,11 +8,12 @@
 
 	import ShotBusqueda from '$lib/images/home/shot-1.jpg';
 	import ShotGrafico from '$lib/images/home/shot-2.jpg';
+	import Seo from '$components/Seo.svelte';
 </script>
 
+<Seo />
 <svelte:head>
 	<title>Pegaso</title>
-	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
 <div class="container">

@@ -8,6 +8,8 @@
 	import Toast from '$components/UI/Toast.svelte';
 	import '$src/styles/horario.scss';
 
+	import Seo from '$components/Seo.svelte';
+
 	import Buscador from '$components/Buscador';
 	import Horario from '$components/Horario';
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
@@ -33,9 +35,9 @@
 
 </script>
 
+<Seo />
 <svelte:head>
 	<title>Pegaso - App</title>
-	<meta name="description" content="Sia creado por imlargo" />
 </svelte:head>
 
 <main class="container">
