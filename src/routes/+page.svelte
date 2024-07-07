@@ -16,12 +16,12 @@
 	<title>Pegaso</title>
 </svelte:head>
 
-<div class="container">
+<div class="max-w-screen-2xl mx-auto px-5">
 	<Nav />
 
 	<Hero />
 
-	<main class="mb-5 mt-7">
+	<main class="mt-24">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
 				<h3 class="mb-2 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
@@ -36,7 +36,7 @@
 
 			<div>
 				<div class="grid place-items-center py-10 md:grid-cols-2">
-					<div class="justify-content-center col-span-1">
+					<div class="justify-center col-span-1">
 						<img
 							src={ShotBusqueda}
 							draggable="false"
@@ -56,7 +56,7 @@
 								selección de asignaturas rapida.
 							</p>
 
-							<div class="d-flex align-items-top mt-3 gap-3">
+							<div class="flex items-top mt-3 gap-3">
 								<i class="bi bi-search-heart"></i>
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
@@ -67,7 +67,7 @@
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top mt-2 gap-3">
+							<div class="flex items-top mt-2 gap-3">
 								<i class="bi bi-cloud-check"></i>
 								<div>
 									<strong>Datos en Tiempo Real</strong>
@@ -95,7 +95,7 @@
 								decisiones académicas:
 							</p>
 
-							<div class="d-flex align-items-top mt-3 gap-3">
+							<div class="flex items-top mt-3 gap-3">
 								<i class="bi bi-graph-up"></i>
 								<div>
 									<strong>Comportamiento de los Cupos</strong>
@@ -106,7 +106,7 @@
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top mt-2 gap-3">
+							<div class="flex items-top mt-2 gap-3">
 								<i class="bi bi-ui-checks"></i>
 								<div>
 									<strong>Recomendaciones de Docentes</strong>
@@ -117,7 +117,7 @@
 								</div>
 							</div>
 
-							<div class="d-flex align-items-top mt-2 gap-3">
+							<div class="flex items-top mt-2 gap-3">
 								<i class="bi bi-bar-chart-line"></i>
 								<div>
 									<strong>Distribución de Cupos</strong>
@@ -130,7 +130,7 @@
 						</div>
 					</div>
 
-					<div class="justify-content-center col-span-1">
+					<div class="justify-center col-span-1">
 						<img
 							src={ShotGrafico}
 							draggable="false"
@@ -143,19 +143,19 @@
 		</section>
 
 		<section>
-			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
+			<div class="mx-auto mt-12 mb flex max-w-4xl flex-col items-center justify-center">
 				<h3 class="mb-2 mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					<span>Diseñado</span>
 					<span class="resaltado"> para ti</span>
 				</h3>
 				<hr class="hr-small" />
-				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
+				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso ha sido creado para el estudiante, ofreciendo una experiencia intuitiva y
 					herramientas útiles que mejoran y simplifican tu inscripcion de asignaturas.
 				</p>
 			</div>
 
-			<div class="mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+			<div class="mt-12 grid gap-12 sm:grid-cols-2 md:grid-cols-3">
 				<FeatureCard>
 					<i slot="icon" class="bi bi-check-circle"></i>
 					<span slot="title">Detección Inteligente de Conflictos</span>
@@ -212,7 +212,7 @@
 		</section>
 	</main>
 
-	<section class="inscribir d-flex justify-content-between align-items-center rounded px-5 py-20">
+	<section class="inscribir flex justify-between items-center rounded px-12 py-20 mt-12">
 		<div class="cta">
 			<h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
 				<span>¿Listo para empezar?</span>
@@ -223,7 +223,7 @@
 			</p>
 		</div>
 
-		<div class="d-flex align-items-center gap-3">
+		<div class="flex items-center gap-3">
 			<a
 				data-sveltekit-reload
 				href="/app"
@@ -273,6 +273,7 @@
 		width: 35%;
 		height: 0.25rem;
 		background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
+		opacity: 0.25;
 		border: none;
 	}
 

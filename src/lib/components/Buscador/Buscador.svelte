@@ -9,7 +9,7 @@
 </script>
 
 <Container>
-	<div class="d-flex justify-content-between align-items-center">
+	<div class="flex justify-between items-center">
 		<h1 class="text-2xl font-bold">Buscar asignaturas</h1>
 		<button
 			class="icon-purple pe-2"
@@ -21,12 +21,12 @@
 
 	<BigHr />
 
-	<div class="row gap-3 align-items-center mt-4 mb-4">
-		<div class="col">
+	<div class="flex gap-12 items-center mt-4 mb-4">
+		<div class="flex flex-col basis-1/3">
 			<label class="title-mono font-bold" for="facultad">Facultad</label>
 			<select
 				id="facultad"
-				class="mt-2 form-select form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded form-select-sm"
 				bind:value={storeFiltro.valueFacultad}
 				onchange={() => {
 					storeFiltro.changeFacultad();
@@ -39,11 +39,11 @@
 			</select>
 		</div>
 
-		<div class="col">
+		<div class="flex flex-col basis-1/3">
 			<label class="title-mono font-bold" for="carrera">Plan de estudios</label>
 			<select
 				id="carrera"
-				class="mt-2 form-select form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded form-select-sm"
 				bind:value={storeFiltro.valueCarrera}
 				onchange={() => {
 					storeFiltro.changeCarrera();
@@ -56,11 +56,11 @@
 			</select>
 		</div>
 
-		<div class="col">
+		<div class="flex flex-col basis-1/3">
 			<label class="title-mono font-bold" for="tipologia">Tipologia</label>
 			<select
 				id="tipologia"
-				class="mt-2 form-select form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded form-select-sm"
 				bind:value={storeFiltro.valueTipologia}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
@@ -73,8 +73,8 @@
 
 	<hr class="hr-pink my-4" />
 
-	<div class="d-flex justify-content-between align-items-bottom mt-4 mb-2">
-		<div class="d-flex gap-3 align-items-bottom">
+	<div class="flex justify-between items-bottom mt-4 mb-2">
+		<div class="flex gap-3 items-bottom">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
 			<Badge>{storeFiltro.materiasFiltradas.length}</Badge>
 		</div>

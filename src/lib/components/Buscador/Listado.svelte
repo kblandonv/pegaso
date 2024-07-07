@@ -19,7 +19,7 @@
 	}
 </script>
 
-<section class="container mt-4">
+<section class="w-full mt-4">
 	{#if materiasFiltradas.length === 0}
 		<div class="row mt-3">
 			<div class="p-0"><span>Por favor seleccione asignaturas...</span></div>

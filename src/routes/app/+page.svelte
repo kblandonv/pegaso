@@ -39,7 +39,7 @@
 	<title>Pegaso - App</title>
 </svelte:head>
 
-<main class="container">
+<main class="max-w-screen-2xl mx-auto px-5">
 	<Nav />
 
 	<main>
@@ -57,10 +57,13 @@
 	</main>
 
 	<Footer />
-	<div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+	<div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
 	<Toast bind:this={toastInstance} />
 </main>
 
 <style lang="scss">
+	hr {
+		opacity: 0.25;	
+	}
 </style>

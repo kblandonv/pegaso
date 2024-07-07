@@ -23,12 +23,12 @@
 	}
 </script>
 
-<nav class="row py-4 rounded">
-	<div class="col-4">
+<nav class="flex py-6 rounded">
+	<div class="flex basis-1/3 align-center">
 		<span class="text-3xl" use:textEffectAction id="imlargo" data-value="Pegaso">Pegaso</span>
 	</div>
 
-	<div class="col-4 d-flex justify-content-center align-items-center gap-5">
+	<div class="flex basis-1/3 align-center justify-center items-center gap-12">
 		<a
 			class="nav-link"
 			class:nav-link-active={$page.url.pathname === '/'}
@@ -57,7 +57,7 @@
 		</a>
 	</div>
 
-	<div class="col-4 d-flex justify-content-end align-items-center gap-7">
+	<div class="flex basis-1/3 align-center justify-end items-center gap-7">
 		<a class="my-social text-lg" href="https://github.com/imlargo" target="_blank">
 			<i class="bi bi-github"></i>
 		</a>
@@ -72,15 +72,13 @@
 
 		<div class="h-3/5 vr my-auto"></div>
 
-		<a
+		<button
 			on:click={showModal}
-			class="d-flex btn btn-donar text-base align-items-center justify-content-center gap-2 font-medium"
-			role="button"
-			href
+			class="flex px-3 py-1.5 btn-donar text-base items-center justify-center gap-2 font-medium rounded-md"
 		>
 			<i class="bi bi-heart-fill"></i>
 			<span> Donar</span>
-		</a>
+		</button>
 	</div>
 </nav>
 

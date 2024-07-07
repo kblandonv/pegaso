@@ -1,7 +1,7 @@
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 gap-4">
+<footer class="flex flex-wrap justify-between items-center py-6 my-4 gap-4">
 	<span>@imlargo</span>
 
-	<div class="d-flex gap-4">
+	<div class="flex gap-7">
 		<a href="https://www.instagram.com/imlargo" target="_blank">
 			<i class="bi bi-instagram"></i>
 		</a>

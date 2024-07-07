@@ -1,6 +1,3 @@
-<script>
-	const { class: className } = $props();
-</script>
 
 <hr class="mt-2 mb-3" />
 

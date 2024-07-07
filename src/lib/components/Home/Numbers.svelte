@@ -1,5 +1,5 @@
 <section class="grid grid-cols-3 gap-16 rounded-full py-4">
-	<div class="d-flex justify-content-center align-items-end">
+	<div class="flex justify-center items-end">
 		<i class="bi bi-plus text-4xl font-bold tracking-tight"></i>
 		<div>
 			<span class="created-by">Asignaturas</span>
@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-	<div class="d-flex justify-content-center align-items-end">
+	<div class="flex justify-center items-end">
 		<i class="bi bi-arrow-up text-4xl font-bold tracking-tight"></i>
 		<div>
 			<span class="created-by">Usuarios</span>
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-	<div class="d-flex justify-content-center align-items-end">
+	<div class="flex justify-center items-end">
 		<i class="bi bi-plus text-4xl font-bold tracking-tight"></i>
 		<div>
 			<span class="created-by">Electivas</span>

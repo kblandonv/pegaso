@@ -3,19 +3,19 @@
 	import Mockup from '$lib/images/mockup.png';
 </script>
 
-<header class="grid lg:grid-cols-4 place-items-center relative py-5">
-	<div class="col-span-2 w-100">
+<header class="grid lg:grid-cols-4 place-items-center relative py-10">
+	<div class="col-span-2 w-full">
 		<span class="created-by">By: @imlargo</span>
 		<h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-start mt-2">
 			Crea tu horario<br />con Pegaso
 		</h1>
-		<p class="text-lg mt-4 max-w-2xl text-slate-600 text-start">
+		<p class="text-lg mt-5 max-w-2xl text-slate-600 text-start">
 			Una aplicación diseñada para la creación de horarios y enfocada en brindar información
 			esencial con el objetivo de mejorar la experiencia de los estudiantes de la Universidad
 			Nacional de Colombia sede Medellín.
 		</p>
 
-		<div class="d-flex gap-3 mt-5">
+		<div class="flex gap-5 mt-12">
 			<a
 				data-sveltekit-reload
 				href="/app"
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	<div class="col-span-2 w-100">
+	<div class="col-span-2 w-full">
 		<img src={Mockup} draggable="false" class="" alt="mockup" />
 	</div>
 </header>
