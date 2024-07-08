@@ -1,11 +1,11 @@
 <script>
-	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte.js';
+	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import Listado from './Listado.svelte';
-	import { storeFiltro } from './filtroAsignaturas.svelte.js';
+	import { storeFiltro } from './filtroAsignaturas.svelte';
 	import Container from '$components/UI/Container.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
-	import { tooltipAction } from '$lib/utils/actions/tooltip.js';
+	import { tooltipAction } from '$src/lib/utils/actions/tooltip';
 </script>
 
 <Container>

@@ -1,7 +1,7 @@
 <script>
 	import { flip } from 'svelte/animate';
 	import MateriaRow from './MateriaRow.svelte';
-	import { storeHorario } from '$lib/stores/horario.svelte.js';
+	import { storeHorario } from '$lib/stores/horario.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';

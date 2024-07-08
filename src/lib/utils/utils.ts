@@ -1,12 +1,13 @@
 import { utils, write } from 'xlsx';
 import Chart from 'chart.js/auto';
+import type { Asignatura, Grupo, Horario } from "$lib/types";
 
 let usedChart = null;
 let usedRecomendado = null;
 
 const usedColors = new Set();
 
-export function ArrayToExcel(array, fileName = 'Horario') {
+export function ArrayToExcel(array: string[][], fileName = 'Horario') {
 	const fileType =
 		'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 	const fileExtension = '.xlsx';
@@ -30,24 +31,22 @@ export function ArrayToExcel(array, fileName = 'Horario') {
 	);
 }
 
-export function normalizeString(s) {
+export function normalizeString(s: string) {
 	return s
 		.toLowerCase()
 		.normalize('NFD')
 		.replace(/[\u0300-\u036f]/g, '');
 }
 
-export function parseHorario(horario) {
-	const dia = horario.dia
-		.toLowerCase()
-		.normalize('NFD')
-		.replace(/[\u0300-\u036f]/g, '');
+export function parseHorario(horario: Horario) {
+	const dia = normalizeString(horario.dia);
 	const inicio = parseInt(horario.inicio.split(':')[0]);
 	const fin = parseInt(horario.fin.split(':')[0]);
+	
 	return { dia, inicio, fin };
 }
 
-export function getColor() {
+export function getColor(): string {
 	// Retorna un color entre 1 y 12
 	const color = `color-${Math.floor(Math.random() * 11) + 1}`;
 	if (usedColors.has(color) && usedColors.size < 11) {
@@ -58,7 +57,7 @@ export function getColor() {
 	}
 }
 
-export function createGraph(canvas, asignatura, grupo) {
+export function createGraph(canvas: HTMLCanvasElement, asignatura, grupo: Grupo) {
 	if (!asignatura) return;
 
 	if (usedChart) {
@@ -107,7 +106,7 @@ export function createGraph(canvas, asignatura, grupo) {
 	usedChart = new Chart(canvas, config);
 }
 
-export function createGraphRecomendado(canvas, asignatura) {
+export function createGraphRecomendado(canvas: HTMLCanvasElement, asignatura) {
 	if (!asignatura) return;
 
 	if (usedRecomendado) {

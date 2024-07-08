@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 
 	import Donar from '$components/UI/Donar.svelte';
-	import { aplyTextEffect, dispatchTextEffect } from '$lib/utils/textEffect.js';
+	import { aplyTextEffect, dispatchTextEffect } from '$src/lib/utils/textEffect';
 
 	let modal;
 	function showModal() {

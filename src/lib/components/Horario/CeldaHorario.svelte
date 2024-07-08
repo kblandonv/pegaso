@@ -1,6 +1,6 @@
 <script>
 	const { seleccion, horario } = $props();
-	import { normalizeString } from '$lib/utils/utils.js';
+	import { normalizeString } from '$src/lib/utils/utils';
 	import { fade } from 'svelte/transition';
 </script>
 

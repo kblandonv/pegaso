@@ -1,11 +1,27 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
 import { storeAsignaturas } from './asignaturas.svelte.js';
+import type { Asignatura, Grupo, Horario } from "$lib/types";
 
-class SeleccionItem {
-	ref = $state(false);
-	groupValue = $state('');
+interface Reference {
+	facultad: string;
+	carrera: string;
+	codigo: string;
+}
 
-	materia = $derived(
+interface SeleccionItemType {
+	ref: Reference;
+	groupValue: string;
+	materia: Asignatura | null | undefined;
+	grupo: Grupo | null | undefined;
+	horarios: Horario[] | null | undefined;
+	color: string;
+}
+
+class SeleccionItem implements SeleccionItemType {
+	ref: Reference = $state({ facultad: '', carrera: '', codigo: ''});
+	groupValue: string = $state('');
+
+	materia: Asignatura | null | undefined = $derived(
 		this.ref
 			? storeAsignaturas.data[this.ref.facultad][this.ref.carrera].find(
 					(materia) => materia.codigo === this.ref.codigo
@@ -13,7 +29,7 @@ class SeleccionItem {
 			: null
 	);
 
-	grupo = $derived(
+	grupo: Grupo | null | undefined = $derived(
 		this.groupValue && this.materia
 			? this.materia.grupos.find((grupo) => grupo.grupo === this.groupValue)
 			: null
@@ -22,13 +38,19 @@ class SeleccionItem {
 	horarios = $state(null);
 	color = $state(getColor());
 
-	constructor(refMateria) {
+	constructor(refMateria: Reference) {
 		this.ref = refMateria;
 	}
 }
 
+
+
+interface Seleccion {
+	[key: string]: SeleccionItem;
+}
+
 class StoreHorario {
-	seleccion = $state({});
+	seleccion: Seleccion = $state({});
 	horario = $state(
 		Object.fromEntries(
 			['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'].map(
@@ -69,19 +91,19 @@ class StoreHorario {
 	}
 
 	/* Metodos asignaturas seleccionadas */
-	agregarAsignatura(materia) {
+	agregarAsignatura(materia: Asignatura) {
 		this.seleccion[materia.codigo] = new SeleccionItem(materia);
 		this.saveToStorage();
 	}
 
-	eliminarAsignatura(materia) {
+	eliminarAsignatura(materia: Asignatura) {
 		this.limpiarHorario(materia);
 		delete this.seleccion[materia.codigo];
 		this.saveToStorage();
 	}
 
-	limpiarHorario(materia) {
-		const horarioAnterior = this.seleccion[materia.codigo].horarios;
+	limpiarHorario(materia: Asignatura) {
+		const horarioAnterior: Horario[] | null = this.seleccion[materia.codigo].horarios;
 		if (horarioAnterior) {
 			for (const h of horarioAnterior) {
 				const { dia, inicio, fin } = parseHorario(h);
@@ -93,7 +115,7 @@ class StoreHorario {
 		}
 	}
 
-	asignarHorario(materia, groupValue) {
+	asignarHorario(materia: Asignatura, groupValue: string) {
 		this.seleccion[materia.codigo].groupValue = groupValue;
 		this.saveToStorage();
 
@@ -106,7 +128,7 @@ class StoreHorario {
 
 		this.limpiarHorario(materia);
 
-		const horarios = this.seleccion[materia.codigo].grupo.horarios;
+		const horarios = this.seleccion[materia.codigo]?.grupo?.horarios;
 		this.seleccion[materia.codigo].horarios = horarios;
 
 		for (const h of horarios) {
@@ -118,7 +140,7 @@ class StoreHorario {
 		}
 	}
 
-	verificarHorario(codigo, horarios) {
+	verificarHorario(codigo: string, horarios: Horario[]) {
 		for (const h of horarios) {
 			const { dia, inicio, fin } = parseHorario(h);
 

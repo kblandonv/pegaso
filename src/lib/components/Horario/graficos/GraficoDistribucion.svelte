@@ -1,6 +1,6 @@
 <script>
-	import { createGraphRecomendado } from '$lib/utils/utils.js';
-	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
+	import { createGraphRecomendado } from '$src/lib/utils/utils';
+	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let dialog;
 	let canvas;

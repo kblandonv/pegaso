@@ -1,7 +1,7 @@
 <script>
 	let { materia } = $props();
 	import { getContext } from 'svelte';
-	import { storeHorario } from '$lib/stores/horario.svelte.js';
+	import { storeHorario } from '$lib/stores/horario.svelte';
 
 	let isDisabled = $derived(Object.keys(storeHorario.seleccion).includes(materia.codigo));
 

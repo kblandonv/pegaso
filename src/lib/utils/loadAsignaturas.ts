@@ -1,4 +1,5 @@
 import * as Realm from 'realm-web';
+import type { Asignaturas } from "$lib/types";
 
 export async function oldloadAsignaturas() {
 	const url = 'https://raw.githubusercontent.com/imlargo/api/main/data.json';
@@ -22,11 +23,13 @@ export async function loadAsignaturas() {
 
 	const documents = await collAsignaturas.find({}, { _id: 0 });
 
-	return Object.fromEntries(
+	const asignaturas: Asignaturas = Object.fromEntries(
 		documents.map((doc) => {
 			const facultad = doc._id;
 			delete doc._id;
 			return [facultad, doc];
 		})
 	);
+
+	return asignaturas;
 }

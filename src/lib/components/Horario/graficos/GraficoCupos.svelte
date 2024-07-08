@@ -1,7 +1,7 @@
 <script>
-	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
-	import { createGraph } from '$lib/utils/utils.js';
-	import { storeHorario } from '$lib/stores/horario.svelte.js';
+	import { storeAnalisis } from '$lib/stores/analisis.svelte';
+	import { createGraph } from '$src/lib/utils/utils';
+	import { storeHorario } from '$lib/stores/horario.svelte';
 
 	let dialog;
 	let canvas;

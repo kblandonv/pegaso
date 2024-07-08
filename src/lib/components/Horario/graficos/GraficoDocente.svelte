@@ -1,5 +1,5 @@
 <script>
-	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
+	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let dialog;
 	$effect(() => {

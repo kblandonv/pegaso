@@ -1,7 +1,7 @@
 <script>
 	let { materia, color } = $props();
-	import { storeHorario } from '$lib/stores/horario.svelte.js';
-	import { storeAnalisis } from '$lib/stores/analisis.svelte.js';
+	import { storeHorario } from '$lib/stores/horario.svelte';
+	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));

@@ -14,7 +14,7 @@
 	import Horario from '$components/Horario';
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
 
-	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte.js';
+	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	storeAsignaturas.data = data.asignaturas;
 
 	let toastInstance;

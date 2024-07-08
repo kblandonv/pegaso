@@ -1,8 +1,9 @@
 import { initMongo } from '$lib/db/mongo.js';
+import type { Asignaturas } from "$lib/types";
 
 class StoreAsignaturas {
-	data = $state({});
-	updated = $state(false);
+	data: Asignaturas = $state({});
+	updated: boolean = $state(false);
 	lastUpdate = $derived(
 		this.data['3068 FACULTAD DE MINAS']['3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA'][0]
 			.fechaExtraccion

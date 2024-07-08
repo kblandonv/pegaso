@@ -1,10 +1,10 @@
-function aplyTextEffect(element) {
+function aplyTextEffect(element: HTMLElement) {
 	element.onmouseover = (event) => {
 		dispatchTextEffect(event.target);
 	};
 }
 
-function dispatchTextEffect(element) {
+function dispatchTextEffect(element: HTMLElement) {
 	let interval = null;
 	const letters = 'abcdefghijklmnopqrstuvwxyz';
 

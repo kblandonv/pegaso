@@ -1,6 +1,6 @@
 <script>
 	const { logDescargaEvent } = $props();
-	import { storeHorario } from '$lib/stores/horario.svelte.js';
+	import { storeHorario } from '$lib/stores/horario.svelte';
 
 	import Seleccionadas from './Seleccionadas.svelte';
 	import CeldaHorario from './CeldaHorario.svelte';
