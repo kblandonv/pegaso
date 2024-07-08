@@ -14,15 +14,15 @@
 
 	<hr class="hr-pink" />
 
-	<div class="d-flex justify-content-between align-items-bottom mt-5">
-		<div class="d-flex align-items-bottom gap-3">
+	<div class="flex justify-between items-bottom mt-12">
+		<div class="flex items-bottom gap-3">
 			<h1 class="text-2xl font-bold">Horario</h1>
 		</div>
 		<BotonDescargar {logDescargaEvent} />
 	</div>
 	<BigHr />
 
-	<section>
+	<section class="mt-8">
 		<section class="horario-titulos text-center">
 			<div class="px-4 title-mono font-bold py-2">Hora</div>
 			<div class="px-4 title-mono font-bold py-2">Lunes</div>

@@ -1,10 +1,8 @@
 <script>
 </script>
 
-<section class="w-full x-6 py-8 my-4 rounded-lg">
-	<div class="p-2 px-3">
+<section class="w-full p-10 my-7 rounded-lg">
 		<slot></slot>
-	</div>
 </section>
 
 <style lang="scss">

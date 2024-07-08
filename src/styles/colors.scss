@@ -48,7 +48,7 @@ $asignatura-row-dark: #7664e9;
 $vr-light: #7664e9;
 $vr-dark: #7664e9;
 
-html[data-theme='light'] {
+html {
 	--primary: #{$primary-light};
 	--close: #{$close-light};
 	--texto: #{$texto-light};
@@ -66,24 +66,4 @@ html[data-theme='light'] {
 	--select-icon: #{$select-icon-light};
 	--asignatura-row: #{$asignatura-row-light};
 	--vr: #{$vr-light};
-}
-
-html[data-theme='dark'] {
-	--primary: #{$primary-dark};
-	--close: #{$close-dark};
-	--texto: #{$texto-dark};
-	--background: #{$background-dark};
-	--container: #{$container-dark};
-	--container-stroke: #{$container-stroke-dark};
-	--container-shadow-bottom: #{$container-shadow-bottom-dark};
-	--container-shadow-top: #{$container-shadow-top-dark};
-	--hr-big: #{$hr-big-dark};
-	--hr: #{$hr-dark};
-	--badge-background: #{$badge-background-dark};
-	--badge-stroke: #{$badge-stroke-dark};
-	--select-background: #{$select-background-dark};
-	--select-stroke: #{$select-stroke-dark};
-	--select-icon: #{$select-icon-dark};
-	--asignatura-row: #{$asignatura-row-dark};
-	--vr: #{$vr-dark};
 }
