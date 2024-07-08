@@ -1,5 +1,5 @@
 import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
-import type { Asignatura } from "$lib/types";
+import type { Asignatura } from '$lib/types';
 
 interface StoreFiltro {
 	valueFacultad: string;
@@ -21,7 +21,9 @@ class StoreFiltro implements StoreFiltro {
 	valueCarrera: string = $state('');
 	valueTipologia: string = $state('');
 
-	listadoCarreras: string[] = $derived(this.valueFacultad ? storeAsignaturas.data[this.valueFacultad] : []);
+	listadoCarreras: string[] = $derived(
+		this.valueFacultad ? storeAsignaturas.data[this.valueFacultad] : []
+	);
 	listadoMaterias: string[] = $derived(
 		this.valueFacultad && this.valueCarrera ? this.listadoCarreras[this.valueCarrera] : []
 	);

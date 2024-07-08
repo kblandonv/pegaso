@@ -49,8 +49,6 @@
 </section>
 
 <style lang="scss">
-
-
 	button {
 		transition: all 0.4s ease;
 

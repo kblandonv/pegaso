@@ -64,6 +64,6 @@
 
 <style lang="scss">
 	hr {
-		opacity: 0.25;	
+		opacity: 0.25;
 	}
 </style>

@@ -1,6 +1,6 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
 import { storeAsignaturas } from './asignaturas.svelte.js';
-import type { Asignatura, Grupo, Horario } from "$lib/types";
+import type { Asignatura, Grupo, Horario } from '$lib/types';
 
 interface Reference {
 	facultad: string;
@@ -18,7 +18,7 @@ interface SeleccionItemType {
 }
 
 class SeleccionItem implements SeleccionItemType {
-	ref: Reference = $state({ facultad: '', carrera: '', codigo: ''});
+	ref: Reference = $state({ facultad: '', carrera: '', codigo: '' });
 	groupValue: string = $state('');
 
 	materia: Asignatura | null | undefined = $derived(
@@ -42,8 +42,6 @@ class SeleccionItem implements SeleccionItemType {
 		this.ref = refMateria;
 	}
 }
-
-
 
 interface Seleccion {
 	[key: string]: SeleccionItem;

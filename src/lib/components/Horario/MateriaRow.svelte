@@ -23,7 +23,12 @@
 </script>
 
 <div class="col rounded px-1">
-	<button id="codigo" class="rounded-md w-full h-full" data-graph="distribucion" onclick={showGrafico}>
+	<button
+		id="codigo"
+		class="rounded-md w-full h-full"
+		data-graph="distribucion"
+		onclick={showGrafico}
+	>
 		<i class="bi bi-bar-chart-line"></i>
 		<span class="text-sm">{materia.codigo}</span>
 	</button>
@@ -38,7 +43,11 @@
 </div>
 
 <div class="col justify-center content-center text-sm px-3">
-	<select class="px-2 py-1 text-sm rounded-md w-full" onchange={handleChangeGrupo} bind:value={initValue}>
+	<select
+		class="px-2 py-1 text-sm rounded-md w-full"
+		onchange={handleChangeGrupo}
+		bind:value={initValue}
+	>
 		<option value="">No seleccionado</option>
 
 		{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}

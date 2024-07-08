@@ -15,11 +15,20 @@
 
 <div class="flex justify-between row-asignatura items-center py-1">
 	<div class="col text-sm p-0">{materia.codigo}</div>
-	<div class="col text-sm p-0"><i class="bi bi-check2-circle"></i>{materia.grupos.reduce((acc, grupo) => acc + parseInt(grupo.cupos),0)}</div>
-	<div class="col col-limit text-sm p-0  w-4/12">{materia.nombre}</div>
+	<div class="col text-sm p-0">
+		<i class="bi bi-check2-circle"></i>{materia.grupos.reduce(
+			(acc, grupo) => acc + parseInt(grupo.cupos),
+			0
+		)}
+	</div>
+	<div class="col col-limit text-sm p-0 w-4/12">{materia.nombre}</div>
 	<div class="col text-sm p-0">{materia.creditos}</div>
 	<div class="col text-sm p-0">{materia.tipologia}</div>
-	<div class="col text-sm p-0 col-limit w-1/12 flex justify-end"><button class="onclick-push-me pe-2 w-20" onclick={handleClick} disabled={isDisabled}><i class="bi bi-plus-square-fill text-2xl"></i></button></div>
+	<div class="col text-sm p-0 col-limit w-1/12 flex justify-end">
+		<button class="onclick-push-me pe-2 w-20" onclick={handleClick} disabled={isDisabled}
+			><i class="bi bi-plus-square-fill text-2xl"></i></button
+		>
+	</div>
 </div>
 
 <style lang="scss">

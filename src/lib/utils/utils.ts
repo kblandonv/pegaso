@@ -1,6 +1,6 @@
 import { utils, write } from 'xlsx';
 import Chart from 'chart.js/auto';
-import type { Asignatura, Grupo, Horario } from "$lib/types";
+import type { Grupo, Horario } from '$lib/types';
 
 let usedChart = null;
 let usedRecomendado = null;
@@ -42,7 +42,7 @@ export function parseHorario(horario: Horario) {
 	const dia = normalizeString(horario.dia);
 	const inicio = parseInt(horario.inicio.split(':')[0]);
 	const fin = parseInt(horario.fin.split(':')[0]);
-	
+
 	return { dia, inicio, fin };
 }
 

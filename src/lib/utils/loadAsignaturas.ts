@@ -1,5 +1,5 @@
 import * as Realm from 'realm-web';
-import type { Asignaturas } from "$lib/types";
+import type { Asignaturas } from '$lib/types';
 
 export async function oldloadAsignaturas() {
 	const url = 'https://raw.githubusercontent.com/imlargo/api/main/data.json';

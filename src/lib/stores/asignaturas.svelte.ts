@@ -1,5 +1,5 @@
 import { initMongo } from '$lib/db/mongo.js';
-import type { Asignaturas } from "$lib/types";
+import type { Asignaturas } from '$lib/types';
 
 class StoreAsignaturas {
 	data: Asignaturas = $state({});
