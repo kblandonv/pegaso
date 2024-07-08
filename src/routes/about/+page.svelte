@@ -1,7 +1,7 @@
 <script>
 	import '$src/styles/about.scss';
-	import Nav from '$src/components/UI/Nav.svelte';
-	import Footer from '$src/components/UI/Footer.svelte';
+	import Nav from '$components/UI/Nav.svelte';
+	import Footer from '$components/UI/Footer.svelte';
 	import Numbers from '$components/Home/Numbers.svelte';
 	import Seo from '$components/Seo.svelte';
 </script>
@@ -11,11 +11,11 @@
 	<title>Pegaso - About</title>
 </svelte:head>
 
-<main class="container">
+<main class="max-w-screen-2xl mx-auto px-5">
 	<Nav />
 
-	<header class="mb-4 mt-3 grid place-items-center py-5 md:grid-cols-1">
-		<div class="w-50 col-span-1 text-center">
+	<header class="py-24 grid place-items-center md:grid-cols-1">
+		<div class="w-1/2 col-span-1 text-center">
 			<span class="text-color-gradient font-mono">Acerca de</span>
 			<h3 class="mt-2 text-3xl font-bold lg:text-4xl xl:text-6xl">Pensado para el estudiante.</h3>
 
@@ -28,7 +28,7 @@
 
 	<Numbers />
 
-	<section class="place-items-top mt-20 grid grid-cols-2 py-10">
+	<section class="place-items-top mt-24 grid grid-cols-2 py-10">
 		<div class="w-100 col-span-1">
 			<span class="text-color-gradient font-mono">Más que un horario</span>
 			<h3 class="mt-4 text-balance text-4xl font-bold lg:text-5xl lg:tracking-tight">
@@ -36,7 +36,7 @@
 			</h3>
 		</div>
 
-		<div class="justify-content-center w-100 col-span-1 text-balance text-lg text-slate-700">
+		<div class="justify-center w-100 col-span-1 text-balance text-lg text-slate-700">
 			<p class="mb-2">
 				<i class="bi bi-quote"></i>
 				Pegaso surgió como una solución dirigida a estudiantes que, al igual que yo, enfrentan el caos
@@ -53,27 +53,30 @@
 			</p>
 
 			<p class="mb-2 mt-3">
-				Actualmente, Pegaso ha experimentado un rápido crecimiento con más de 1.300 usuarios participando en su fase inicial, y seguira en constante evolucion, comprometido con la mejora continua a través del feedback de los usuarios, la incorporación de nuevas funcionalidades y continuando con el objetivo de simplificar el proceso de inscripción y facilitar la creación de horarios para los estudiantes.
+				Actualmente, Pegaso ha experimentado un rápido crecimiento con más de 1.300 usuarios
+				participando en su fase inicial, y seguira en constante evolucion, comprometido con la
+				mejora continua a través del feedback de los usuarios, la incorporación de nuevas
+				funcionalidades y continuando con el objetivo de simplificar el proceso de inscripción y
+				facilitar la creación de horarios para los estudiantes.
 			</p>
-			
 		</div>
 	</section>
 
-	<hr class="mx-auto w-50 ">
+	<hr class="mx-auto w-1/2" />
 
-	<section class="mt-5 py-1">
+	<section class="mt-20">
 		<span class="text-color-gradient font-mono">Sobre mí</span>
 		<h3 class="mt-4 text-balance text-4xl font-bold lg:text-5xl lg:tracking-tight">Hi, imlargo!</h3>
 
 		<div class="place-items-top mt-1 grid grid-cols-2 py-10">
-			<div class="w-100 col-span-1">
+			<div class="w-full col-span-1">
 				<img
 					src="https://media.licdn.com/dms/image/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_800_800/0/1697915419824?e=1724889600&v=beta&t=11qxae0A7GBis-cdKjuA-WWnfweJ59mh2Up1kNg6PAs"
 					alt="imlargo"
-					class="rounded-4 my-pic mb-4 h-20 w-20"
+					class="rounded-2xl my-pic mb-4 h-20 w-20"
 				/>
 
-				<h4 class="d-flex mb-2 gap-2 text-2xl">
+				<h4 class="flex mb-2 gap-2 text-2xl">
 					<i class="bi bi-terminal text-color-gradient"></i>
 					<span class="font-mono font-medium">Juan Carlos Largo.</span>
 				</h4>
@@ -82,7 +85,7 @@
 					Fundador, Desarrollador, Diseñador UI/UX.
 				</p>
 
-				<div class="d-flex mt-3 gap-4 text-lg">
+				<div class="flex mt-3 gap-7 text-lg">
 					<a href="https://www.instagram.com/imlargo" target="_blank">
 						<i class="bi bi-instagram"></i>
 					</a>
@@ -99,32 +102,45 @@
 
 			<div class="col-span-1 text-pretty text-lg text-slate-700">
 				<p class="mb-2">
-					¡Hola! Soy Juan Carlos Largo, el creador de Pegaso. Diseñé y desarrollé esta aplicación por mi cuenta, inspirado tanto en mi experiencia como estudiante como en mi pasión por el desarrollo de software. Como dato curioso me encantan los colores rosa y morado, y es por eso que decidí dejar ese toque en toda la web, ademas, siento que transmiten la sensación agradable que buscaba con la aplicacion.
+					¡Hola! Soy Juan Carlos Largo, el creador de Pegaso. Diseñé y desarrollé esta aplicación
+					por mi cuenta, inspirado tanto en mi experiencia como estudiante como en mi pasión por el
+					desarrollo de software. Como dato curioso me encantan los colores rosa y morado, y es por
+					eso que decidí dejar ese toque en toda la web, ademas, siento que transmiten la sensación
+					agradable que buscaba con la aplicacion.
 				</p>
 
 				<p class="mb-2 mt-3">
-					Inicialmente, Pegaso surgió como un proyecto personal y un hobby. Sin embargo, gracias a la respuesta positiva de quienes lo probaron y al ver cómo realmente beneficiaba a los estudiantes, decidí que era necesario brindar una solucion, por lo que continúe trabajando y mejorando el proyecto, siempre asegurandome de que la aplicación no solo funcionara correctamente, sino que también fuera intuitiva y agradable de usar. Cada aspecto de Pegaso refleja mi dedicación, cariño y esfuerzo.
+					Inicialmente, Pegaso surgió como un proyecto personal y un hobby. Sin embargo, gracias a
+					la respuesta positiva de quienes lo probaron y al ver cómo realmente beneficiaba a los
+					estudiantes, decidí que era necesario brindar una solucion, por lo que continúe trabajando
+					y mejorando el proyecto, siempre asegurandome de que la aplicación no solo funcionara
+					correctamente, sino que también fuera intuitiva y agradable de usar. Cada aspecto de
+					Pegaso refleja mi dedicación, cariño y esfuerzo.
 				</p>
 
 				<p class="mb-2 mt-3">
-					Si quieres saber más acerca de mí, actualmente estoy estudiando Ingeniería de Sistemas en la sede de Medellín, disfruto dedicando mi tiempo a programar, escuchar música, aprender cosas nuevas y nadar.					
+					Si quieres saber más acerca de mí, actualmente estoy estudiando Ingeniería de Sistemas en
+					la Universidad Nacional de Colombia sede de Medellín. Me encanta nadar, escuchar música,
+					comer pizza, ver atardeceres y salir a caminar para relajarme..etc. Diempre estoy abierto
+					a nuevas conexiones y oportunidades asi que si quieres hablar no dudes en escribirme.
+					¡Gracias por visitar mi espacio personal!
 				</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="inscribir d-flex justify-content-between align-items-center rounded px-5 py-20">
+	<section class="inscribir flex justify-between items-center rounded px-12 py-20">
 		<div class="cta">
 			<h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
 				<span>Apoya el proyecto</span>
 			</h1>
-			<p class="mt-3 text-lg text-slate-700 [text-wrap:pretty]">
+			<p class="mt-5 text-lg text-slate-700 [text-wrap:pretty]">
 				Si te ha gustado Pegaso y deseas contribuir al crecimiento del proyecto, considera hacer una
 				donación. Tu apoyo es fundamental para mantener y mejorar la plataforma.
 			</p>
 		</div>
 
-		<div class="d-flex align-items-center gap-3">
+		<div class="flex items-center gap-3">
 			<a
 				data-sveltekit-reload
 				href="/app"
@@ -161,9 +177,9 @@
 	}
 
 	hr {
-		width: 25%;
 		height: 0.25rem;
 		background-color: #f5ceff;
 		border: none;
+		opacity: 0.25;
 	}
 </style>
