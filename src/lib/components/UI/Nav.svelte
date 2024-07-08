@@ -70,7 +70,7 @@
 			<i class="bi bi-linkedin"></i>
 		</a>
 
-		<div class="h-3/5 vr my-auto"></div>
+		<div class="inline-block self-stretch w-px min-h-[0.2rem] h-2/4 my-auto bg-neutral-400"></div>
 
 		<button
 			on:click={showModal}

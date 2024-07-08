@@ -16,7 +16,7 @@
 	<form method="dialog">
 		<p class="text-lg font-medium text-center">Qr nequi.</p>
 		<img src={Qr} draggable="false" class="m-3" alt="qr" />
-		<div class="d-flex justify-content-center">
+		<div class="flex justify-center">
 			<button on:click={hide} type="submit" class="btn"><i class="bi bi-check-lg"></i></button>
 		</div>
 	</form>

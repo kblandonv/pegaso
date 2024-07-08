@@ -24,11 +24,11 @@
 	<main class="mt-24">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mb-2 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<h3 class="mb-3 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					Más que un horario
 				</h3>
 				<hr class="hr-small" />
-				<p class="mt-3 text-center text-lg text-slate-600 [text-wrap:pretty]">
+				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso no solo te permite crear horarios, sino que transforma tu experiencia de
 					inscripción gracias a su conjunto completo de herramientas.
 				</p>
@@ -48,15 +48,15 @@
 					<div class="col-span-1 max-w-lg">
 						<FeatureBadge>Rápido y sencillo</FeatureBadge>
 
-						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">Búsquedas instantáneas</h3>
+						<h3 class="my-4 text-2xl font-medium [text-wrap:balance]">Búsquedas instantáneas</h3>
 
-						<div class="mt-3 text-pretty">
+						<div class="text-pretty">
 							<p>
 								Olvidate de las búsquedas manuales y la información desactualizada. Experimenta una
 								selección de asignaturas rapida.
 							</p>
 
-							<div class="flex items-top mt-3 gap-3">
+							<div class="flex items-top mt-5 gap-3">
 								<i class="bi bi-search-heart"></i>
 								<div>
 									<strong>Búsquedas Instantáneas</strong>
@@ -85,17 +85,17 @@
 					<div class="col-span-1 max-w-lg">
 						<FeatureBadge>Gráficos y estadísticas</FeatureBadge>
 
-						<h3 class="mt-3 text-2xl font-medium [text-wrap:balance]">
+						<h3 class="my-4 text-2xl font-medium [text-wrap:balance]">
 							Información Completa para Decisiones Informadas
 						</h3>
 
-						<div class="mt-3 text-pretty">
+						<div class="text-pretty">
 							<p>
 								Pegaso proporciona datos y estadísticas valiosas para facilitar la toma de
 								decisiones académicas:
 							</p>
 
-							<div class="flex items-top mt-3 gap-3">
+							<div class="flex items-top mt-5 gap-3">
 								<i class="bi bi-graph-up"></i>
 								<div>
 									<strong>Comportamiento de los Cupos</strong>
@@ -155,7 +155,7 @@
 				</p>
 			</div>
 
-			<div class="mt-12 grid gap-12 sm:grid-cols-2 md:grid-cols-3">
+			<div class="mt-10 grid gap-12 sm:grid-cols-2 md:grid-cols-3">
 				<FeatureCard>
 					<i slot="icon" class="bi bi-check-circle"></i>
 					<span slot="title">Detección Inteligente de Conflictos</span>
@@ -212,7 +212,7 @@
 		</section>
 	</main>
 
-	<section class="inscribir flex justify-between items-center rounded px-12 py-20 mt-12">
+	<section class="inscribir flex justify-between items-center rounded px-12 py-20 mt-24">
 		<div class="cta">
 			<h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
 				<span>¿Listo para empezar?</span>

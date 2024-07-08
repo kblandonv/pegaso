@@ -22,8 +22,8 @@
 	}
 </script>
 
-<dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-bold w-auto w-100 text-center mb-2 font-mono">
+<dialog bind:this={dialog} class="p-6">
+	<h5 class="text-lg font-bold w-full text-center mb-4 font-mono">
 		{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}
 	</h5>
 
@@ -31,7 +31,7 @@
 		<canvas bind:this={canvas}></canvas>
 	</div>
 
-	<div class="d-flex justify-content-center mt-2">
+	<div class="flex justify-center mt-4">
 		<button onclick={hide} type="button" class="btn">
 			<i class="bi bi-x"></i>
 		</button>
@@ -51,7 +51,7 @@
 
 		width: auto;
 		height: auto;
-		max-width: 40%;
+		max-width: 30%;
 
 		#contenedor-grafico {
 			width: 100%;

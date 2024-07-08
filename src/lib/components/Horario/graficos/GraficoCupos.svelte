@@ -27,8 +27,8 @@
 	}
 </script>
 
-<dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg w-auto w-100 text-center mb-2 font-bold font-mono">
+<dialog bind:this={dialog} class="p-6">
+	<h5 class="text-lg w-full text-center mb-3 font-bold font-mono">
 		{storeAnalisis.asignatura ? storeAnalisis.asignatura.nombre : ''}
 	</h5>
 
@@ -36,7 +36,7 @@
 		<canvas bind:this={canvas}></canvas>
 	</div>
 
-	<div class="d-flex justify-content-center mt-2">
+	<div class="flex justify-center mt-2">
 		<button onclick={hide} type="button" class="btn">
 			<i class="bi bi-x"></i>
 		</button>
@@ -56,7 +56,7 @@
 
 		width: auto;
 		height: auto;
-		max-width: 60%;
+		max-width: 50%;
 
 		#contenedor-grafico {
 			width: 100%;

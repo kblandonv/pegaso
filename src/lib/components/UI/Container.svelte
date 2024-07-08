@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<section class="w-full p-10 my-7 rounded-lg">
+<section class="w-full px-10 py-7 my-7 rounded-lg">
 	<slot></slot>
 </section>
 

@@ -14,30 +14,37 @@
 	}
 </script>
 
-<dialog bind:this={dialog} class="py-3 px-4">
-	<h5 class="text-lg font-bold w-auto w-100 text-center mb-2 font-mono">
+<dialog bind:this={dialog} class="p-6">
+	<h5 class="text-lg font-bold w-full text-center mb-2 font-mono">
 		{storeAnalisis.analized ? storeAnalisis.analized.nombre : ''}
 	</h5>
 
 	<div id="contenedor-grafico">
-		<h5 class="text-lg font-normal w-auto w-100 text-center mb-2 font-mono">
+		<h5 class="text-lg font-normal w-full text-center mb-2 font-mono">
 			Docentes más seleccionados
 		</h5>
-		{#if storeAnalisis.analized !== null}
-			{#each storeAnalisis.analized.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
-				<div class="d-flex justify-content-between container-docente px-3 py-2 mb-1 rounded">
-					<p class="lead text-sm"><strong>{i + 1}</strong><span>. {recomendacion.docente}</span></p>
-					<p class="lead fw-medium text-sm">{recomendacion.puntaje}</p>
-				</div>
-			{/each}
-		{/if}
+
+		<div class="flex flex-col gap-2 my-4">
+			{#if storeAnalisis.analized !== null}
+				{#each storeAnalisis.analized.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
+					<div class="flex justify-between container-docente px-3 py-2 rounded-md">
+						<p class="lead text-sm">
+							<strong>{i + 1}</strong><span>. {recomendacion.docente}</span>
+						</p>
+						<p class="lead fw-medium text-sm">{recomendacion.puntaje}</p>
+					</div>
+				{/each}
+			{/if}
+		</div>
+
 		<hr />
+
 		<p class="my-3 font-mono text-justify text-base">
 			Nota: puntajes generados mediante analisis de datos
 		</p>
 	</div>
 
-	<div class="d-flex justify-content-center mt-2">
+	<div class="flex justify-center mt-4">
 		<button onclick={hide} type="button" class="btn">
 			<i class="bi bi-x"></i>
 		</button>
