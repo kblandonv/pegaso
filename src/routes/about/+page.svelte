@@ -120,8 +120,10 @@
 
 				<p class="mb-2 mt-3">
 					Si quieres saber más acerca de mí, actualmente estoy estudiando Ingeniería de Sistemas en
-					la sede de Medellín, disfruto dedicando mi tiempo a programar, escuchar música, aprender
-					cosas nuevas y nadar.
+					la Universidad Nacional de Colombia sede de Medellín. Me encanta nadar, escuchar música,
+					comer pizza, ver atardeceres y salir a caminar para relajarme..etc. Diempre estoy abierto
+					a nuevas conexiones y oportunidades asi que si quieres hablar no dudes en escribirme.
+					¡Gracias por visitar mi espacio personal!
 				</p>
 			</div>
 		</div>
