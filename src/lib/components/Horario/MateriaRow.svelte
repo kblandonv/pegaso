@@ -23,22 +23,22 @@
 </script>
 
 <div class="col rounded px-1">
-	<button id="codigo" class="rounded w-100 h-100" data-graph="distribucion" onclick={showGrafico}>
+	<button id="codigo" class="rounded-md w-full h-full" data-graph="distribucion" onclick={showGrafico}>
 		<i class="bi bi-bar-chart-line"></i>
 		<span class="text-sm">{materia.codigo}</span>
 	</button>
 </div>
 
-<div id="nombre" class="col-3 justify-content-center align-content-center text-sm">
+<div id="nombre" class="col-limit px-3 w-3/12 justify-center content-center text-sm">
 	<span>{materia.nombre}</span>
 </div>
 
-<div class="col justify-content-center align-content-center text-center text-sm">
+<div class="col px-3 justify-center content-center text-center text-sm">
 	<span>{materia.creditos}</span>
 </div>
 
-<div class="col justify-content-center align-content-center text-sm">
-	<select class="form-select form-select-sm" onchange={handleChangeGrupo} bind:value={initValue}>
+<div class="col justify-center content-center text-sm px-3">
+	<select class="px-2 py-1 text-sm rounded-md w-full" onchange={handleChangeGrupo} bind:value={initValue}>
 		<option value="">No seleccionado</option>
 
 		{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}
@@ -57,7 +57,7 @@
 </div>
 <button
 	id="docente"
-	class="col-3 rounded text-start text-sm"
+	class="col-limit w-3/12 rounded-lg text-start text-sm px-3"
 	data-graph="docentes"
 	onclick={showGrafico}
 >
@@ -67,7 +67,7 @@
 
 <button
 	id="cupos"
-	class="col-1 rounded text-center text-sm"
+	class="col-limit w-1/12 rounded text-center text-sm px-3"
 	data-graph="cupos"
 	onclick={showGrafico}
 >
@@ -75,7 +75,7 @@
 	<span>{selectedGrupo && selectedGrupo.cupos}</span>
 </button>
 
-<div class="col-1 w-10 justify-content-center align-content-center">
+<div class="col-limit w-12 justify-center content-center px-3">
 	<button onclick={deleteMateria} class="onclick-push-me delete-button"
 		><i class="bi bi-x-square-fill text-2xl"></i></button
 	>

@@ -52,7 +52,7 @@
 	}
 </script>
 
-<button class="btn btn-sm" onclick={descargar}>
+<button class="rounded-md px-2 py-1" onclick={descargar}>
 	<i class="bi bi-download"></i>
 	<span> Descargar</span>
 </button>

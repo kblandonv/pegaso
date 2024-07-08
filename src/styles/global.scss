@@ -21,3 +21,11 @@ body {
 .font-mono {
 	font-family: $font-mono !important;
 }
+
+.col {
+	flex: 1 0 0%;
+}
+
+.col-limit {
+	flex: 0 0 auto;
+}

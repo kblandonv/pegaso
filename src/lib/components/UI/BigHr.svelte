@@ -1,5 +1,5 @@
 
-<hr class="mt-2 mb-3" />
+<hr class="mt-3 mb-8" />
 
 <style lang="scss">
 	hr {

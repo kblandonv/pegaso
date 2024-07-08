@@ -14,8 +14,8 @@
 
 	<hr class="hr-pink" />
 
-	<div class="flex justify-between items-bottom mt-12">
-		<div class="flex items-bottom gap-3">
+	<div class="flex justify-between items-center mt-12">
+		<div class="flex items-center gap-3">
 			<h1 class="text-2xl font-bold">Horario</h1>
 		</div>
 		<BotonDescargar {logDescargaEvent} />

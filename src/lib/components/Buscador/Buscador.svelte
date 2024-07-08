@@ -26,7 +26,7 @@
 			<label class="title-mono font-bold" for="facultad">Facultad</label>
 			<select
 				id="facultad"
-				class="mt-2 px-2 py-0.5 rounded form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded font-light"
 				bind:value={storeFiltro.valueFacultad}
 				onchange={() => {
 					storeFiltro.changeFacultad();
@@ -43,7 +43,7 @@
 			<label class="title-mono font-bold" for="carrera">Plan de estudios</label>
 			<select
 				id="carrera"
-				class="mt-2 px-2 py-0.5 rounded form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded font-light"
 				bind:value={storeFiltro.valueCarrera}
 				onchange={() => {
 					storeFiltro.changeCarrera();
@@ -60,7 +60,7 @@
 			<label class="title-mono font-bold" for="tipologia">Tipologia</label>
 			<select
 				id="tipologia"
-				class="mt-2 px-2 py-0.5 rounded form-select-sm"
+				class="mt-2 px-2 py-0.5 rounded font-light"
 				bind:value={storeFiltro.valueTipologia}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
@@ -71,10 +71,10 @@
 		</div>
 	</div>
 
-	<hr class="hr-pink my-4" />
+	<hr class="hr-pink my-8" />
 
-	<div class="flex justify-between items-bottom mt-4 mb-2">
-		<div class="flex gap-3 items-bottom">
+	<div class="flex justify-between items-center mb-2">
+		<div class="flex gap-4 items-center">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
 			<Badge>{storeFiltro.materiasFiltradas.length}</Badge>
 		</div>

@@ -26,14 +26,14 @@
 		</div>
 	{:else}
 		<div use:detailsAction>
-			<div class="row">
+			<div class="flex flex-wrap w-full max-w-full justify-between">
 				<div class="col title-mono p-0 font-bold">Código</div>
 				<div class="col title-mono p-0 font-bold">Cupos</div>
-				<div class="col-4 title-mono p-0 font-bold">Nombre</div>
+				<div class="col-limit w-4/12 title-mono p-0 font-bold">Nombre</div>
 				<div class="col title-mono p-0 font-bold">Créditos</div>
 				<div class="col title-mono p-0 font-bold">Tipologia</div>
-				<div class="col-1 title-mono p-0 font-bold">
-					<div class="d-flex justify-content-end align-content-center pe-2">
+				<div class="col-limit w-1/12 title-mono p-0 font-bold">
+					<div class="flex justify-end content-center pe-2">
 						<button id="details-button" class="open pe-1"><i class="bi bi-chevron-up"></i></button>
 					</div>
 				</div>
@@ -49,6 +49,8 @@
 </section>
 
 <style lang="scss">
+
+
 	button {
 		transition: all 0.4s ease;
 
