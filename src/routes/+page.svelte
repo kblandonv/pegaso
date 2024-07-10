@@ -24,9 +24,9 @@
 	<main class="mt-24">
 		<section>
 			<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mb-3 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<h2 class="mb-3 mt-6 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					Más que un horario
-				</h3>
+				</h2>
 				<hr class="hr-small" />
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso no solo te permite crear horarios, sino que transforma tu experiencia de
@@ -144,10 +144,10 @@
 
 		<section>
 			<div class="mx-auto mt-12 mb flex max-w-4xl flex-col items-center justify-center">
-				<h3 class="mb-2 mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
+				<h2 class="mb-2 mt-4 text-center text-4xl font-bold lg:text-5xl lg:tracking-tight">
 					<span>Diseñado</span>
 					<span class="resaltado"> para ti</span>
-				</h3>
+				</h2>
 				<hr class="hr-small" />
 				<p class="mt-4 text-center text-lg text-slate-600 [text-wrap:pretty]">
 					Pegaso ha sido creado para el estudiante, ofreciendo una experiencia intuitiva y
