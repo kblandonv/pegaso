@@ -5,6 +5,7 @@
 	import { setContext } from 'svelte';
 	import Toast from '$components/UI/Toast.svelte';
 	import '$src/styles/horario.scss';
+	import '$src/styles/action-control.scss';
 
 	import Seo from '$components/Seo.svelte';
 

@@ -44,7 +44,7 @@
 
 <div class="col justify-center content-center text-sm px-3">
 	<select
-		class="px-2 py-1 text-sm rounded-md w-full"
+		class="control-select"
 		onchange={handleChangeGrupo}
 		bind:value={initValue}
 	>

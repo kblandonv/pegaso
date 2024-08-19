@@ -15,7 +15,7 @@
 
 <div class="flex justify-between row-asignatura items-center py-1">
 	<div class="col text-sm p-0">{materia.codigo}</div>
-	<div class="col text-sm p-0">
+	<div class="col flex gap-1.5 text-sm p-0">
 		<i class="bi bi-check2-circle"></i>{materia.grupos.reduce(
 			(acc, grupo) => acc + parseInt(grupo.cupos),
 			0

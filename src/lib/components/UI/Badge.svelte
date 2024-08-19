@@ -1,9 +1,9 @@
-<span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium font-mono">
-	<slot></slot>
+<span class="badge inline-flex items-center text-center rounded-full px-2 py-0.5 text-xs font-medium font-mono">
+	<span class="text-center w-full"><slot></slot></span>
 </span>
 
 <style lang="scss">
-	span {
+	.badge {
 		font-family: 'JetBrains Mono', monospace;
 		height: min-content;
 		width: 3rem;

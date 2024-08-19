@@ -21,12 +21,12 @@
 
 	<BigHr />
 
-	<div class="flex gap-12 items-center mt-4 mb-4">
-		<div class="flex flex-col basis-1/3">
+	<div class="grid grid-cols-10 gap-6 items-end mt-4 mb-4">
+		<div class="flex flex-col col-span-3">
 			<label class="title-mono font-bold" for="facultad">Facultad</label>
 			<select
 				id="facultad"
-				class="mt-2 px-2 py-0.5 rounded font-light"
+				class="control-select mt-2"
 				bind:value={storeFiltro.valueFacultad}
 				onchange={() => {
 					storeFiltro.changeFacultad();
@@ -39,11 +39,11 @@
 			</select>
 		</div>
 
-		<div class="flex flex-col basis-1/3">
+		<div class="flex flex-col col-span-3">
 			<label class="title-mono font-bold" for="carrera">Plan de estudios</label>
 			<select
 				id="carrera"
-				class="mt-2 px-2 py-0.5 rounded font-light"
+				class="control-select mt-2"
 				bind:value={storeFiltro.valueCarrera}
 				onchange={() => {
 					storeFiltro.changeCarrera();
@@ -56,11 +56,11 @@
 			</select>
 		</div>
 
-		<div class="flex flex-col basis-1/3">
+		<div class="flex flex-col col-span-3">
 			<label class="title-mono font-bold" for="tipologia">Tipologia</label>
 			<select
 				id="tipologia"
-				class="mt-2 px-2 py-0.5 rounded font-light"
+				class="control-select mt-2"
 				bind:value={storeFiltro.valueTipologia}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
@@ -68,6 +68,13 @@
 					<option value={tipologia}>{tipologia}</option>
 				{/each}
 			</select>
+		</div>
+
+		<div class="flex">
+			<button class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5">
+				<i class="bi bi-search"></i>
+				<span>Buscar</span>
+			</button>
 		</div>
 	</div>
 

@@ -59,7 +59,7 @@
 
 <style lang="scss">
 	.seleccion {
-		background-color: #fbf8ff !important;
+		background-color: #ffffff !important;
 		border: 1px solid rgb(163, 82, 243, 0.3);
 		box-shadow: 3px 3px 4px rgb(128, 72, 198, 0.2);
 

@@ -10,16 +10,6 @@ body {
 	background-size: cover;
 }
 
-select {
-	background-color: #f3eeff !important;
-	border: 1px solid #bda6ff !important;
-	transition: all 0.3s;
-
-	option:checked {
-		background-color: #c99aff33;
-	}
-}
-
 .title-mono {
 	font-size: 1.1rem;
 }
