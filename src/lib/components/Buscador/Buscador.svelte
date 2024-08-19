@@ -23,7 +23,7 @@
 
 	<div class="grid grid-cols-10 gap-6 items-end mt-4 mb-4">
 		<div class="flex flex-col col-span-3">
-			<label class="title-mono font-bold" for="facultad">Facultad</label>
+			<label class="font-mono font-medium" for="facultad">Facultad</label>
 			<select
 				id="facultad"
 				class="control-select mt-2"
@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="flex flex-col col-span-3">
-			<label class="title-mono font-bold" for="carrera">Plan de estudios</label>
+			<label class="font-mono font-medium" for="carrera">Plan de estudios</label>
 			<select
 				id="carrera"
 				class="control-select mt-2"
@@ -57,7 +57,7 @@
 		</div>
 
 		<div class="flex flex-col col-span-3">
-			<label class="title-mono font-bold" for="tipologia">Tipologia</label>
+			<label class="font-mono font-medium" for="tipologia">Tipologia</label>
 			<select
 				id="tipologia"
 				class="control-select mt-2"

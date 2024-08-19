@@ -1,21 +1,29 @@
-<script>
-	let { materia, color } = $props();
+<script lang="ts">
+
+	import type { Asignatura } from '$src/lib/types';
+
+	type Props = {
+		materia: Asignatura;
+		color: string;
+	}
+	
+	let { materia, color }: Props = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
-	let initValue = storeHorario.seleccion[materia.codigo].groupValue;
+	const initValue = storeHorario.seleccion[materia.codigo].groupValue;
 
-	function handleChangeGrupo(e) {
-		storeHorario.asignarHorario(materia, e.target.value);
+	function handleChangeGrupo(e: any) {
+		storeHorario.asignarHorario(materia, e.target.value as string);
 	}
 
 	function deleteMateria() {
 		storeHorario.eliminarAsignatura(materia);
 	}
 
-	function showGrafico(e) {
+	function showGrafico() {
 		storeAnalisis.asignatura = materia;
 		const grafico = this.dataset.graph;
 		storeAnalisis.elementos[grafico].show();
@@ -24,8 +32,7 @@
 
 <div class="col rounded px-1">
 	<button
-		id="codigo"
-		class="rounded-md w-full h-full"
+		class="cursor-pointer bg-purple-100 hover:bg-purple-200 transition-all duration-200 rounded-md w-full h-full"
 		data-graph="distribucion"
 		onclick={showGrafico}
 	>
@@ -46,7 +53,7 @@
 	<select
 		class="control-select"
 		onchange={handleChangeGrupo}
-		bind:value={initValue}
+		value={initValue}
 	>
 		<option value="">No seleccionado</option>
 
@@ -65,8 +72,7 @@
 	</select>
 </div>
 <button
-	id="docente"
-	class="col-limit w-3/12 rounded-lg text-start text-sm px-3"
+	class="col-limit w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100"
 	data-graph="docentes"
 	onclick={showGrafico}
 >
@@ -75,8 +81,7 @@
 </button>
 
 <button
-	id="cupos"
-	class="col-limit w-1/12 rounded text-center text-sm px-3"
+	class="col-limit w-1/12 rounded text-center text-sm px-3 transition-all duration-500 hover:bg-purple-100"
 	data-graph="cupos"
 	onclick={showGrafico}
 >
@@ -85,55 +90,8 @@
 </button>
 
 <div class="col-limit w-12 justify-center content-center px-3">
-	<button onclick={deleteMateria} class="onclick-push-me delete-button"
+	<button onclick={deleteMateria} class="transition-all duration-300 hover:scale-105 active:scale-95 text-rose-400/80 hover:text-rose-400"
 		><i class="bi bi-x-square-fill text-2xl"></i></button
 	>
 </div>
 
-<style lang="scss">
-	.delete-button {
-		color: #ff8fb1;
-		text-align: center;
-		display: flex;
-		margin: auto;
-
-		justify-content: center;
-		align-items: center;
-		transition: all 0.2s ease-in-out;
-
-		&:hover {
-			color: #ff6b97;
-			transform: scale(1.07);
-		}
-	}
-
-	optgroup {
-		font-weight: 500;
-		font-size: 0.875rem; /* 14px */
-
-		option {
-			font-size: 0.95rem; /* 16px */
-			font-weight: 400;
-			&:disabled {
-				background-color: rgba(255, 154, 184, 0.07);
-			}
-		}
-	}
-
-	#codigo {
-		cursor: pointer;
-		background-color: rgba(177, 94, 255, 0.1);
-		transition: all 0.3s ease-in-out;
-
-		&:hover {
-			background-color: rgba(185, 98, 255, 0.233);
-		}
-	}
-
-	#cupos:hover,
-	#docente:hover {
-		cursor: pointer;
-		transition: all 0.3s ease-in-out;
-		background-color: rgba(177, 94, 255, 0.1);
-	}
-</style>

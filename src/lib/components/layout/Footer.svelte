@@ -4,9 +4,9 @@
 			<i class="bi bi-calendar2-heart"></i>
 			<h1 class="font-semibold">Pegaso</h1>
 		</a>
-		<p class="text-indigo-50 my-4">Transformando la Experiencia de Inscripcion</p>
+		<p class="text-violet-50 my-4">Transformando la Experiencia de Inscripcion</p>
 
-		<hr class="opacity-50 border border-indigo-50" />
+		<hr class="opacity-50 border border-violet-50" />
 	</section>
 
 	<div class="col-span-1"></div>
@@ -15,28 +15,28 @@
 		<div class="flex flex-col gap-2"></div>
 
 		<div class="flex flex-col gap-2">
-			<span class="font-bold text-white">Navegacion</span>
+			<span class="font-medium text-white">Navegacion</span>
 
-			<a href="/" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
+			<a href="/" class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all">
 				<span>Inicio</span>
 			</a>
 
-			<a href="/app" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
+			<a href="/app" class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all">
 				<span>App</span>
 			</a>
 
-			<a href="/about" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
+			<a href="/about" class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all">
 				<span>Acerca de</span>
 			</a>
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<span class="font-bold text-white">Redes</span>
+			<span class="font-medium text-white">Redes</span>
 
 			<a
 				target="_blank"
 				href="https://github.com/imlargo"
-				class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all"
+				class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all"
 			>
 				<span class="">GitHub</span>
 			</a>
@@ -44,7 +44,7 @@
 			<a
 				target="_blank"
 				href="https://www.instagram.com/imlargo"
-				class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all"
+				class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all"
 			>
 				<span class="">Instagram</span>
 			</a>
@@ -52,7 +52,7 @@
 			<a
 				target="_blank"
 				href="https://www.linkedin.com/in/imlargo"
-				class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all"
+				class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all"
 			>
 				<span class="">LinkedIn</span>
 			</a>
@@ -60,7 +60,7 @@
 			<a
 				target="_blank"
 				href="mailto:jclargob@gmail.com"
-				class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all"
+				class="py-1 flex gap-3 text-violet-100 hover:text-violet-300 transition-all"
 			>
 				<span class="">Email</span>
 			</a>

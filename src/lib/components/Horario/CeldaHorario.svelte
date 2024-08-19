@@ -6,7 +6,7 @@
 
 <div
 	transition:fade={{ duration: 400 }}
-	class={`text-xs px-2 py-2 rounded m-1 evento dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
+	class={`text-xs px-2 py-2 rounded m-1 evento  dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
 >
 	<p class="font-medium">{seleccion.materia.nombre}</p>
 	<p class="font-light">{seleccion.groupValue}</p>
@@ -14,10 +14,6 @@
 
 <style>
 	.evento {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-
 		transition: all 400ms;
 
 		/*

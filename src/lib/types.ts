@@ -17,7 +17,7 @@ export interface Asignatura {
 	codigo: string;
 	nombre: string;
 	tipologia: string;
-	creditos: string;
+	creditos: number;
 	facultad: string;
 	carrera: string;
 	fechaExtraccion: string;

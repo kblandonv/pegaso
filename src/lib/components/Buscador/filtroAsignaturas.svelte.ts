@@ -50,12 +50,12 @@ class StoreFiltro implements StoreFiltro {
 		);
 	});
 
-	changeFacultad(e: Event) {
+	changeFacultad() {
 		this.valueCarrera = '';
 		this.valueTipologia = '';
 	}
 
-	changeCarrera(e: Event) {
+	changeCarrera() {
 		this.valueTipologia = '';
 	}
 }
