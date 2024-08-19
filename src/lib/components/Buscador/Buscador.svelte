@@ -5,7 +5,7 @@
 	import Container from '$components/UI/Container.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
-	import { tooltipAction } from '$src/lib/utils/actions/tooltip';
+	import { tooltipAction } from '$lib/actions/tooltip';
 </script>
 
 <Container>

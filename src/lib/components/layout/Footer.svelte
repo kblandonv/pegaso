@@ -1,12 +1,10 @@
 <footer class="grid grid-cols-6 py-16 text-sm">
 	<section class="col-span-6 md:col-span-2 md:w-8/12">
 		<a href="/" class="flex gap-2 text-4xl w-min text-white">
-			<i class="bi bi-wallet"></i>
+			<i class="bi bi-calendar2-heart"></i>
 			<h1 class="font-semibold">Pegaso</h1>
 		</a>
-		<p class="text-indigo-50 my-4">
-			Selling premium products, designed to elevate your everyday experience
-		</p>
+		<p class="text-indigo-50 my-4">Transformando la Experiencia de Inscripcion</p>
 
 		<hr class="opacity-50 border border-indigo-50" />
 	</section>
@@ -14,6 +12,8 @@
 	<div class="col-span-1"></div>
 
 	<section class="hidden md:grid grid-cols-3 col-span-3">
+		<div class="flex flex-col gap-2"></div>
+
 		<div class="flex flex-col gap-2">
 			<span class="font-bold text-white">Navegacion</span>
 
@@ -21,24 +21,12 @@
 				<span>Inicio</span>
 			</a>
 
+			<a href="/app" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
+				<span>App</span>
+			</a>
+
 			<a href="/about" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
 				<span>Acerca de</span>
-			</a>
-		</div>
-
-		<div class="flex flex-col gap-2">
-			<span class="font-bold text-white">Plataforma</span>
-
-			<a href="/" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
-				<span>Dashboard</span>
-			</a>
-
-			<a href="/" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
-				<span>Retirar</span>
-			</a>
-
-			<a href="/" class="py-1 flex gap-3 text-indigo-100 hover:text-zinc-300 transition-all">
-				<span>Depositar</span>
 			</a>
 		</div>
 

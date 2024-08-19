@@ -1,10 +1,8 @@
-<script>
+<script lang="ts">
 	const { data } = $props();
 
+	import type { SvelteComponent } from 'svelte';
 	import { setContext } from 'svelte';
-	import Nav from '$components/UI/Nav.svelte';
-	import Footer from '$components/UI/Footer.svelte';
-	import Blob from '$components/UI/Blob.svelte';
 	import Toast from '$components/UI/Toast.svelte';
 	import '$src/styles/horario.scss';
 
@@ -17,8 +15,8 @@
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	storeAsignaturas.data = data.asignaturas;
 
-	let toastInstance;
-	function addToast(mensaje) {
+	let toastInstance: SvelteComponent;
+	function addToast(mensaje: string) {
 		toastInstance.addToast(mensaje);
 	}
 
@@ -39,28 +37,30 @@
 	<title>Pegaso - App</title>
 </svelte:head>
 
-<main class="max-w-screen-2xl mx-auto px-5">
-	<Nav />
+<div class="flex items-center justify-center">
+	<div class="flex bg-violet-500 rounded-xl px-6 py-4 w-4/12">
+		<h1 class="inline-flex gap-2 text-center text-lg text-white">
+			<i class="bi bi-info-circle"></i>
+			El sitio se encuentra en remodelacion, algunas cosas podrian no funcionar correctamente.
+		</h1>
+	</div>
+</div>
 
-	<main>
-		<!-- Buscador de cursos -->
-		<Buscador />
+<!-- Buscador de cursos -->
+<Buscador />
 
-		<hr class="hr-pink" />
+<hr class="hr-pink" />
 
-		<GraficoCupos />
-		<GraficoDistribucion />
-		<GraficoDocente />
+<GraficoCupos />
+<GraficoDistribucion />
+<GraficoDocente />
 
-		<!-- Horario -->
-		<Horario logDescargaEvent={data.logDescargaEvent} />
-	</main>
+<!-- Horario -->
+<Horario logDescargaEvent={data.logDescargaEvent} />
 
-	<Footer />
-	<div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
+<div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
-	<Toast bind:this={toastInstance} />
-</main>
+<Toast bind:this={toastInstance} />
 
 <style lang="scss">
 	hr {

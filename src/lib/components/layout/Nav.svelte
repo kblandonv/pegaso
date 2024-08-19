@@ -24,9 +24,12 @@
 	}
 </script>
 
-<nav class="grid grid-cols-3 py-6 rounded">
+<nav class="grid grid-cols-3 py-8 rounded">
 	<div class="flex align-center">
-		<a href="/" class="text-3xl font-mono" use:textEffectAction data-value="Pegaso">Pegaso</a>
+		<a href="/" class="flex gap-2 text-3xl font-mono">
+			<i class="bi bi-calendar2-heart text-violet-500"></i>
+			<span use:textEffectAction data-value="Pegaso">Pegaso</span>
+		</a>
 	</div>
 
 	<div class="flex align-center justify-center items-center gap-12">
@@ -87,7 +90,7 @@
 
 		<button
 			on:click={showModal}
-			class="flex px-3 py-1.5 bg-purple-500 text-white transition-all duration-150 active:scale-95 hover:bg-purple-600 text-base items-center justify-center gap-2 font-medium rounded-md"
+			class="flex px-5 py-1.5 bg-purple-500 text-white transition-all duration-150 active:scale-95 hover:bg-purple-600 text-base items-center justify-center gap-2 font-medium rounded-lg"
 		>
 			<i class="bi bi-heart-fill"></i>
 			<span> Donar</span>

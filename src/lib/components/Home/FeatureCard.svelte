@@ -1,38 +1,19 @@
-<div class="feature-card flex flex-col items-start gap-1 rounded-md p-5">
-	<div class="rounded container-icon">
-		<div class="icon px-2 py-1 text-md">
-			<slot class="icon" name="icon" />
-		</div>
+<script lang="ts">
+	type Props = {
+		icon: string;
+	};
+	const { icon }: Props = $props();
+</script>
+
+<div
+	class="flex flex-col items-start gap-1 rounded-md p-5 transition-all duration-400 border border-white/0 hover:bg-purple-50 hover:border hover:border-purple-200"
+>
+	<div class="p-2 border border-purple-400/50 rounded-lg inline-flex bg-purple-500/10">
+		<i class="leading-none text-md text-purple-500 {icon}"></i>
 	</div>
 
 	<div class="mt-2">
-		<h3 class="text-lg font-semibold"><slot name="title" /></h3>
-		<p class="mt-2 leading-relaxed text-slate-600"><slot name="content" /></p>
+		<h3 class="text-violet-600 font-semibold mb-2"><slot name="title" /></h3>
+		<p class="text-zinc-600"><slot name="content" /></p>
 	</div>
 </div>
-
-<style lang="scss">
-	.container-icon {
-		.icon {
-			font-family: 'JetBrains Mono', monospace;
-			background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
-			-webkit-background-clip: text;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-
-		border: 1px #e8c7ff solid;
-		background: #f8efff;
-	}
-
-	.feature-card {
-		background: none;
-		border: 1px #ffffff00 solid;
-		transition: all 0.5s ease;
-
-		&:hover {
-			background-color: #f8efff;
-			border: 1px #e8c7ff solid;
-		}
-	}
-</style>
