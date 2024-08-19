@@ -5,7 +5,7 @@
 		width: 12.5%;
 		border: 0;
 		height: 5px;
-		background-color: var(--hr-big) !important;
+		background-color: #a855f7 !important;
 		opacity: 1;
 	}
 </style>

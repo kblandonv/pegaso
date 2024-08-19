@@ -1,7 +1,7 @@
 .control-select {
     @apply px-3 py-1.5 rounded-md bg-purple-50/50 border border-purple-200 text-zinc-600 text-sm w-full;
 
-    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239333ea' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -10,4 +10,21 @@
     background-repeat: no-repeat;
     background-position: right .75rem center;
     background-size: 16px 12px;
+
+    option:checked {
+        @apply bg-purple-500 text-white;
+    }
+}
+
+optgroup {
+
+    @apply font-semibold text-sm text-black;
+
+    option {
+        @apply text-black;
+        
+        &:disabled {
+            @apply text-gray-400;
+        }
+    }
 }

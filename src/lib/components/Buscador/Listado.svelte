@@ -34,12 +34,12 @@
 	{:else}
 		<div use:detailsAction>
 			<div class="flex flex-wrap w-full max-w-full justify-between">
-				<div class="col title-mono p-0 font-bold">Código</div>
-				<div class="col title-mono p-0 font-bold">Cupos</div>
-				<div class="col-limit w-4/12 title-mono p-0 font-bold">Nombre</div>
-				<div class="col title-mono p-0 font-bold">Créditos</div>
-				<div class="col title-mono p-0 font-bold">Tipologia</div>
-				<div class="col-limit w-1/12 title-mono p-0 font-bold">
+				<div class="col p-0 font-mono font-medium">Código</div>
+				<div class="col p-0 font-mono font-medium">Cupos</div>
+				<div class="col-limit w-4/12 p-0 font-mono font-medium">Nombre</div>
+				<div class="col p-0 font-mono font-medium">Créditos</div>
+				<div class="col p-0 font-mono font-medium">Tipologia</div>
+				<div class="col-limit w-1/12 p-0 font-mono font-medium">
 					<div class="flex justify-end content-center pe-2">
 						<button id="details-button" class="open pe-1"><i class="bi bi-chevron-up"></i></button>
 					</div>
