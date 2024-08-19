@@ -72,7 +72,7 @@
 	</select>
 </div>
 <button
-	class="col-limit w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100 "
+	class="col-limit w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100"
 	data-graph="docentes"
 	onclick={showGrafico}
 >
@@ -81,8 +81,7 @@
 </button>
 
 <button
-	id="cupos"
-	class="col-limit w-1/12 rounded text-center text-sm px-3"
+	class="col-limit w-1/12 rounded text-center text-sm px-3 transition-all duration-500 hover:bg-purple-100"
 	data-graph="cupos"
 	onclick={showGrafico}
 >
@@ -91,7 +90,7 @@
 </button>
 
 <div class="col-limit w-12 justify-center content-center px-3">
-	<button onclick={deleteMateria} class="transition-all duration-300 hover:scale-105 active:scale-95  text-rose-400/80 hover:text-rose-400"
+	<button onclick={deleteMateria} class="transition-all duration-300 hover:scale-105 active:scale-95 text-rose-400/80 hover:text-rose-400"
 		><i class="bi bi-x-square-fill text-2xl"></i></button
 	>
 </div>
