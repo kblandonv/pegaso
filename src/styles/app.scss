@@ -35,3 +35,16 @@ body {
 .bg-gradient {
 	background: linear-gradient(90deg, #a855f7 40%, #8b5cf6 100%);
 }
+
+
+hr {
+	opacity: 0.25;
+}
+
+.col {
+	flex: 1 0 0%;
+}
+
+.col-limit {
+	flex: 0 0 auto;
+}
