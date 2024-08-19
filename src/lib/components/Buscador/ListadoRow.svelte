@@ -1,25 +1,29 @@
-<script>
-	let { materia } = $props();
+<script lang="ts">
+	import type { Asignatura } from '$src/lib/types';
+
+	type Props = {
+		materia: Asignatura;
+	};
+
+	let { materia }: Props = $props();
 	import { getContext } from 'svelte';
 	import { storeHorario } from '$lib/stores/horario.svelte';
 
 	let isDisabled = $derived(Object.keys(storeHorario.seleccion).includes(materia.codigo));
 
 	// Event listener for the "Add" button
-	const toastContext = getContext('toast');
-	function handleClick(e) {
+	const toastContext: any = getContext('toast');
+	function handleClick() {
 		toastContext.addToast(`Se agregó: ${materia.nombre}.`);
 		storeHorario.agregarAsignatura(materia);
 	}
+
 </script>
 
 <div class="flex justify-between row-asignatura items-center py-1">
 	<div class="col text-sm p-0">{materia.codigo}</div>
 	<div class="col flex gap-1.5 text-sm p-0">
-		<i class="bi bi-check2-circle"></i>{materia.grupos.reduce(
-			(acc, grupo) => acc + parseInt(grupo.cupos),
-			0
-		)}
+		<i class="bi bi-check2-circle"></i>{materia.grupos.reduce((acc, grupo) => acc + grupo.cupos, 0)}
 	</div>
 	<div class="col col-limit text-sm p-0 w-4/12">{materia.nombre}</div>
 	<div class="col text-sm p-0">{materia.creditos}</div>

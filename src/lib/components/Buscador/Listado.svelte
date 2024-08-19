@@ -1,17 +1,24 @@
-<script>
-	const { materiasFiltradas } = $props();
+<script lang="ts">
+
+	import type { Asignatura } from '$src/lib/types';
+
+	type Props = {
+		materiasFiltradas: Asignatura[];
+	};
+
+	const { materiasFiltradas }: Props = $props();
 	import ListadoRow from './ListadoRow.svelte';
 
-	function detailsAction(element) {
-		const button = element.querySelector('#details-button');
-		const listado = element.querySelector('#listado');
+	function detailsAction(element: HTMLElement) {
+		const button = element.querySelector('#details-button') as HTMLButtonElement;
+		const listado = element.querySelector('#listado') as HTMLElement;
 		listado.style.maxHeight = listado.scrollHeight + 'px';
 
 		button.addEventListener('click', function () {
 			button.classList.toggle('open');
 
 			if (listado.style.maxHeight) {
-				listado.style.maxHeight = null;
+				listado.style.maxHeight = "";
 			} else {
 				listado.style.maxHeight = listado.scrollHeight + 'px';
 			}

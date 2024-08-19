@@ -1,21 +1,29 @@
-<script>
-	let { materia, color } = $props();
+<script lang="ts">
+
+	import type { Asignatura } from '$src/lib/types';
+
+	type Props = {
+		materia: Asignatura;
+		color: string;
+	}
+	
+	let { materia, color }: Props = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
 	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
-	let initValue = storeHorario.seleccion[materia.codigo].groupValue;
+	const initValue = storeHorario.seleccion[materia.codigo].groupValue;
 
-	function handleChangeGrupo(e) {
-		storeHorario.asignarHorario(materia, e.target.value);
+	function handleChangeGrupo(e: any) {
+		storeHorario.asignarHorario(materia, e.target.value as string);
 	}
 
 	function deleteMateria() {
 		storeHorario.eliminarAsignatura(materia);
 	}
 
-	function showGrafico(e) {
+	function showGrafico() {
 		storeAnalisis.asignatura = materia;
 		const grafico = this.dataset.graph;
 		storeAnalisis.elementos[grafico].show();
@@ -46,7 +54,7 @@
 	<select
 		class="control-select"
 		onchange={handleChangeGrupo}
-		bind:value={initValue}
+		value={initValue}
 	>
 		<option value="">No seleccionado</option>
 

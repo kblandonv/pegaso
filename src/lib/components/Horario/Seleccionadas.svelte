@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { flip } from 'svelte/animate';
 	import MateriaRow from './MateriaRow.svelte';
 	import { storeHorario } from '$lib/stores/horario.svelte';
@@ -6,10 +6,12 @@
 	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	
+	import type { Asignatura } from '$src/lib/types';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
-			(acc, obj) => acc + parseInt(obj.materia.creditos),
+			(acc, obj ) => acc + (obj.materia?.creditos ?? 0),
 			0
 		)
 	);
