@@ -23,7 +23,7 @@ class SeleccionItem implements SeleccionItemType {
 
 	materia: Asignatura | null | undefined = $derived(
 		this.ref
-			? storeAsignaturas.data[this.ref.facultad][this.ref.carrera].find(
+			? storeAsignaturas.data[this.ref.facultad][this.ref.carrera].asignaturas.find(
 					(materia) => materia.codigo === this.ref.codigo
 				)
 			: null
