@@ -1,28 +1,24 @@
 <script lang="ts">
 	import type { Asignatura } from '$src/lib/types';
+	let { asignatura }: { asignatura: Asignatura } = $props();
 
-	type Props = {
-		materia: Asignatura;
-	};
-
-	let { materia }: Props = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
-	let selectedGrupo = $derived(storeHorario.seleccion[materia.codigo].grupo);
-	let agrupado = $derived(Object.groupBy(materia.grupos, ({ profesor }) => profesor));
-	const initValue = storeHorario.seleccion[materia.codigo].groupValue;
+	let selectedGrupo = $derived(storeHorario.seleccion[asignatura.codigo].grupo);
+	let agrupado = $derived(Object.groupBy(asignatura.grupos, ({ profesor }) => profesor));
+	const initValue = storeHorario.seleccion[asignatura.codigo].groupValue;
 
 	function handleChangeGrupo(e: any) {
-		storeHorario.asignarHorario(materia, e.target.value as string);
+		storeHorario.asignarHorario(asignatura, e.target.value as string);
 	}
 
 	function deleteMateria() {
-		storeHorario.eliminarAsignatura(materia);
+		storeHorario.eliminarAsignatura(asignatura);
 	}
 
 	function showGrafico() {
-		storeAnalisis.asignatura = materia;
+		storeAnalisis.asignatura = asignatura;
 		const grafico = this.dataset.graph;
 		storeAnalisis.elementos[grafico].show();
 	}
@@ -35,16 +31,16 @@
 		onclick={showGrafico}
 	>
 		<i class="bi bi-bar-chart-line"></i>
-		<span class="text-sm">{materia.codigo}</span>
+		<span class="text-sm">{asignatura.codigo}</span>
 	</button>
 </div>
 
 <div id="nombre" class="col-limit px-3 w-3/12 justify-center content-center text-sm">
-	<span>{materia.nombre}</span>
+	<span>{asignatura.nombre}</span>
 </div>
 
 <div class="col px-3 justify-center content-center text-center text-sm">
-	<span>{materia.creditos}</span>
+	<span>{asignatura.creditos}</span>
 </div>
 
 <div class="col justify-center content-center text-sm px-3">
@@ -54,7 +50,7 @@
 		{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}
 			<optgroup label={entriesDocente[0]}>
 				{#each entriesDocente[1] as grupo (grupo.grupo)}
-					{@const isDisponible = storeHorario.verificarHorario(materia.codigo, grupo.horarios)}
+					{@const isDisponible = storeHorario.verificarHorario(asignatura.codigo, grupo.horarios)}
 					<option
 						title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
 						disabled={isDisponible !== true}

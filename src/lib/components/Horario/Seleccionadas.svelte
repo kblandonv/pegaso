@@ -1,16 +1,18 @@
 <script lang="ts">
+	import type { Asignatura } from '$src/lib/types';
+
 	import { flip } from 'svelte/animate';
-	import MateriaRow from './MateriaRow.svelte';
 	import { storeHorario } from '$lib/stores/horario.svelte';
-	import BigHr from '$components/UI/BigHr.svelte';
-	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import type { Asignatura } from '$src/lib/types';
+
+	import MateriaRow from './MateriaRow.svelte';
+	import BigHr from '$components/UI/BigHr.svelte';
+	import Badge from '$components/UI/Badge.svelte';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
-			(acc, obj) => acc + parseInt(obj.materia?.creditos ?? 0),
+			(acc, obj) => acc + parseInt(obj.asignatura?.creditos ?? 0),
 			0
 		)
 	);
@@ -18,10 +20,12 @@
 	onMount(() => {
 		if (!browser) return;
 
+		/*
 		const hasHorario = storeHorario.loadFromStorage();
 		if (!hasHorario) {
 			storeHorario.saveToStorage();
 		}
+			*/
 	});
 </script>
 
@@ -47,12 +51,12 @@
 	</div>
 
 	<div class="w-full flex flex-col gap-3">
-		{#each Object.entries(storeHorario.seleccion) as entries (entries[0])}
+		{#each Object.entries(storeHorario.seleccion) as [codigo, itemSeleccion] (codigo)}
 			<div
-				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${entries[1].color}`}
+				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${itemSeleccion.color}`}
 				animate:flip={{ duration: 200 }}
 			>
-				<MateriaRow materia={entries[1].materia as Asignatura} />
+				<MateriaRow asignatura={itemSeleccion.asignatura} />
 			</div>
 		{/each}
 	</div>

@@ -4,6 +4,8 @@
 
 	import { controllerFiltro } from '$src/lib/controllers/controllerFiltro.svelte';
 	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
+	import { detailsAction } from '$src/lib/actions/details';
+	import ListadoRow from './ListadoRow.svelte';
 
 	let asignaturasFiltradas: Asignatura[] = $derived.by(() => {
 		if (Object.keys(storeAsignaturas.data).length === 0) {
@@ -23,24 +25,6 @@
 			({ tipologia }) => tipologia === controllerFiltro.valueTipologia
 		);
 	});
-
-	import ListadoRow from './ListadoRow.svelte';
-
-	function detailsAction(element: HTMLElement) {
-		const button = element.querySelector('#details-button') as HTMLButtonElement;
-		const listado = element.querySelector('#listado') as HTMLElement;
-		listado.style.maxHeight = listado.scrollHeight + 'px';
-
-		button.addEventListener('click', function () {
-			button.classList.toggle('open');
-
-			if (listado.style.maxHeight) {
-				listado.style.maxHeight = '';
-			} else {
-				listado.style.maxHeight = listado.scrollHeight + 'px';
-			}
-		});
-	}
 </script>
 
 <section class="w-full mt-4">

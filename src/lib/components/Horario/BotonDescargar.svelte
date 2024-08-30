@@ -22,7 +22,7 @@
 			const [hora, dias] = data;
 
 			const nombres = Object.values(dias).map((d) =>
-				d ? `${storeHorario.seleccion[d].materia.nombre}` : ''
+				d ? `${storeHorario.seleccion[d].asignatura.nombre}` : ''
 			);
 
 			return Array.from([`${hora}:00 - ${parseInt(hora) + 1}:00`, ...nombres]);
@@ -31,7 +31,7 @@
 		const titulosConsolidado = ['Código', 'Nombre', 'Créditos', 'Grupo', 'Docente', 'Horario'];
 
 		const datosConsolidado = Object.entries(storeHorario.seleccion).map(([codigo, datos]) => {
-			const { materia, grupo } = datos;
+			const { asignatura: materia, grupo } = datos;
 			return [
 				codigo,
 				materia.nombre,

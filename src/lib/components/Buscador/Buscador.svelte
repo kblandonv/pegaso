@@ -12,10 +12,9 @@
 	<div class="flex justify-between items-center">
 		<h1 class="text-2xl font-bold">Buscar asignaturas</h1>
 		<button
-			class="icon-purple pe-2"
 			use:tooltipAction={'Selecciona una facultad, plan de estudios y tipología para filtrar las asignaturas y agregarlas a tu horario'}
 		>
-			<i class="bi bi-info-circle-fill"></i>
+			<i class="bi bi-info-circle-fill text-purple-500"></i>
 		</button>
 	</div>
 
@@ -105,9 +104,3 @@
 
 	<Listado />
 </Container>
-
-<style lang="scss">
-	.icon-purple {
-		color: #a35af7;
-	}
-</style>

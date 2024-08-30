@@ -1,5 +1,13 @@
-<script>
-	const { seleccion, horario } = $props();
+<script lang="ts">
+	import type { Horario } from '$lib/types';
+	import type { SeleccionItemInterface } from '$stores/horario.svelte';
+
+	type Props = {
+		seleccion: SeleccionItemInterface;
+		horario: Horario;
+	};
+
+	const { seleccion, horario }: Props = $props();
 	import { normalizeString } from '$src/lib/utils/utils';
 	import { fade } from 'svelte/transition';
 </script>
@@ -8,7 +16,7 @@
 	transition:fade={{ duration: 400 }}
 	class={`text-xs px-2 py-2 rounded m-1 evento  dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
 >
-	<p class="font-medium">{seleccion.materia.nombre}</p>
+	<p class="font-medium">{seleccion.asignatura.nombre}</p>
 	<p class="font-light">{seleccion.groupValue}</p>
 </div>
 
