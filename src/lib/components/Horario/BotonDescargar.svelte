@@ -52,28 +52,7 @@
 	}
 </script>
 
-<button class="rounded-md px-2 py-1" onclick={descargar}>
+<button class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-5 py-1.5" onclick={descargar}>
 	<i class="bi bi-download"></i>
 	<span> Descargar</span>
 </button>
-
-<style lang="scss">
-	button {
-		width: 12.5%;
-		transition: all 0.1s;
-		background-color: #b759ff;
-		color: white;
-		font-weight: bold;
-
-		&:hover {
-			background-color: #a42cff;
-			color: white;
-			font-weight: bold;
-			transform: scale(1.05);
-		}
-
-		&:active {
-			transform: scale(0.96);
-		}
-	}
-</style>

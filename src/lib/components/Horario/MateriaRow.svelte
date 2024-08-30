@@ -76,7 +76,7 @@
 	data-graph="docentes"
 	onclick={showGrafico}
 >
-	<i class="bi bi-ui-checks"></i>
+	<i class="bi bi-ui-checks text-purple-500"></i>
 	{selectedGrupo && selectedGrupo.profesor}
 </button>
 
@@ -85,7 +85,7 @@
 	data-graph="cupos"
 	onclick={showGrafico}
 >
-	<i class="bi bi-graph-down"></i>
+	<i class="bi bi-graph-down text-purple-500"></i>
 	<span>{selectedGrupo && selectedGrupo.cupos}</span>
 </button>
 
