@@ -1,6 +1,6 @@
 import { loadAsignaturas } from '$lib/utils/loadAsignaturas';
 
-export async function load({ params }) {
+export async function load() {
 	const asignaturas = await loadAsignaturas();
 
 	return {

@@ -129,13 +129,6 @@
 </section>
 
 <style lang="scss">
-	.inscribir {
-		background: linear-gradient(90deg, #f5ceff 0%, #e5ceff 100%);
-	}
-
-	.cta {
-		width: 60%;
-	}
 	.my-pic {
 		width: 550px;
 		height: 550px;

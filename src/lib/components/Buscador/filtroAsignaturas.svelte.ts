@@ -6,25 +6,23 @@ interface StoreFiltro {
 	valueCarrera: string;
 	valueTipologia: string;
 	listadoFacultades: string[];
-	listadoCarreras: string[];
-	listadoMaterias: string[];
+	listadoCarreras: { [carrera: string]: Asignatura[] };
+	listadoMaterias: Asignatura[];
 	listadoTipologias: string[];
-	materiasFiltradas: Asignatura[] | [];
+	materiasFiltradas: Asignatura[];
 }
 
 class StoreFiltro implements StoreFiltro {
-	listadoFacultades: string[] = $derived.by(() => {
-		return Object.keys(storeAsignaturas.data);
-	});
-
 	valueFacultad: string = $state('');
 	valueCarrera: string = $state('');
 	valueTipologia: string = $state('');
 
-	listadoCarreras: string[] = $derived(
-		this.valueFacultad ? storeAsignaturas.data[this.valueFacultad] : []
-	);
-	listadoMaterias: string[] = $derived(
+	listadoFacultades: string[] = $derived.by(() => {
+		return Object.keys(storeAsignaturas.data);
+	});
+
+	listadoCarreras = $derived(this.valueFacultad ? storeAsignaturas.data[this.valueFacultad] : {});
+	listadoMaterias: Asignatura[] = $derived(
 		this.valueFacultad && this.valueCarrera ? this.listadoCarreras[this.valueCarrera] : []
 	);
 	listadoTipologias: string[] = $derived(
@@ -36,7 +34,7 @@ class StoreFiltro implements StoreFiltro {
 			: []
 	);
 
-	materiasFiltradas: Asignatura[] | [] = $derived.by(() => {
+	materiasFiltradas: Asignatura[] = $derived.by(() => {
 		if (this.listadoMaterias.length === 0 || !this.valueTipologia) {
 			return [];
 		}

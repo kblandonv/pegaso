@@ -3,7 +3,7 @@ export const ssr = true;
 import { browser } from '$app/environment';
 import { init } from '$lib/utils/firebase.js';
 
-export async function load({ params, data }) {
+export async function load({ data }) {
 	let logDescargaEvent = () => {};
 
 	if (browser) {

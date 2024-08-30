@@ -3,10 +3,9 @@
 
 	type Props = {
 		materia: Asignatura;
-		color: string;
 	};
 
-	let { materia, color }: Props = $props();
+	let { materia }: Props = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 

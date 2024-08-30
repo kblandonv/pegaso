@@ -248,15 +248,6 @@
 		filter: drop-shadow(rgb(224, 197, 255) 0.5rem 0.5rem 1rem);
 	}
 
-	.btn-primary {
-		background: linear-gradient(90deg, #a85cff 40%, rgba(198, 92, 255, 1) 100%);
-		color: white;
-
-		&:hover {
-			background: #983fff;
-		}
-	}
-
 	.resaltado {
 		background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
 		-webkit-background-clip: text;
@@ -268,21 +259,5 @@
 		width: 40.5rem;
 		height: auto;
 		z-index: 1;
-	}
-
-	.hr-small {
-		width: 35%;
-		height: 0.25rem;
-		background: linear-gradient(90deg, #9335ff 40%, #bf35ff 100%);
-		opacity: 0.25;
-		border: none;
-	}
-
-	.inscribir {
-		background: linear-gradient(90deg, #f5ceff 0%, #e5ceff 100%);
-	}
-
-	.cta {
-		width: 60%;
 	}
 </style>

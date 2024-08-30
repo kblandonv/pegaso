@@ -6,8 +6,7 @@
 	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-
-	import type { Asignatura } from '$src/lib/types';
+	import { Asignatura } from '$src/lib/types';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
@@ -53,7 +52,7 @@
 				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${entries[1].color}`}
 				animate:flip={{ duration: 200 }}
 			>
-				<MateriaRow color={entries[1].color} materia={entries[1].materia} />
+				<MateriaRow materia={entries[1].materia as Asignatura} />
 			</div>
 		{/each}
 	</div>

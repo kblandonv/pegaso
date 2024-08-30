@@ -15,7 +15,7 @@ export async function loadAsignaturas() {
 	const credentials = Realm.Credentials.anonymous();
 
 	// Authenticate the user
-	const user = await app.logIn(credentials);
+	await app.logIn(credentials); // const user =
 
 	// Connect to the database
 	const mongodb = app.currentUser.mongoClient('mongodb-atlas');
