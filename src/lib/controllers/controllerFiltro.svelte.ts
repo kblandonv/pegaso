@@ -5,9 +5,8 @@ class ControllerFiltro implements ControllerFiltro {
 	valueCarrera: string = $state('');
 	valueTipologia: string = $state('');
 
-	listadoFacultades: string[] = $derived.by(() => Object.keys(this.listado));
 	listadoCarreras: Record<string, string[]> = $derived(
-		this.valueFacultad ? this.listado[this.valueFacultad] : {}
+		this.valueFacultad !== '' ? this.listado[this.valueFacultad] : {}
 	);
 	listadoTipologias: string[] = $derived(
 		this.valueFacultad && this.valueCarrera
@@ -16,6 +15,7 @@ class ControllerFiltro implements ControllerFiltro {
 	);
 
 	changeFacultad() {
+		console.log('Changed facultad');
 		this.valueCarrera = '';
 		this.valueTipologia = '';
 	}

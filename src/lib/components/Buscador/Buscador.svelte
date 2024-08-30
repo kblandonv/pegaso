@@ -32,14 +32,14 @@
 					controllerFiltro.changeFacultad();
 				}}
 			>
-				{#await controllerFiltro.listado}
+				{#if Object.keys(controllerFiltro.listado).length === 0}
 					<option selected value=""> Cargando... </option>
-				{:then listado} 
+				{:else}
 					<option selected value=""> -- Seleccionar -- </option>
-					{#each Object.keys(listado) as facultad (facultad)}
+					{#each Object.keys(controllerFiltro.listado) as facultad (facultad)}
 						<option value={facultad}>{facultad}</option>
-					{/each}	
-				{/await}	
+					{/each}
+				{/if}
 			</select>
 		</div>
 

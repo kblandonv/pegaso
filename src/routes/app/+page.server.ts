@@ -14,7 +14,7 @@ async function loadListado() {
 	const mongodb = app.currentUser.mongoClient('mongodb-atlas');
 	const collConfig = mongodb.db('asignaturas').collection('config');
 
-	const document = await collConfig.findOne({ _id: "listado" });
+	const document = await collConfig.findOne({ _id: 'listado' });
 	delete document._id;
 	return document;
 }

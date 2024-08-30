@@ -9,7 +9,7 @@ class Analisis {
 		docentes: null,
 		distribucion: null
 	});
-	analized = null/*
+	analized = null; /*
 	$derived(
 		this.asignatura
 			? analisisData[this.asignatura.facultad][this.asignatura.carrera][this.asignatura.codigo]
