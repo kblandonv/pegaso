@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import Listado from './Listado.svelte';
-	import { storeFiltro } from './filtroAsignaturas.svelte';
+	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 	import Container from '$components/UI/Container.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
@@ -27,15 +27,19 @@
 			<select
 				id="facultad"
 				class="control-select mt-2"
-				bind:value={storeFiltro.valueFacultad}
+				bind:value={controllerFiltro.valueFacultad}
 				onchange={() => {
-					storeFiltro.changeFacultad();
+					controllerFiltro.changeFacultad();
 				}}
 			>
-				<option selected value=""> -- Seleccionar -- </option>
-				{#each storeFiltro.listadoFacultades as facultad (facultad)}
-					<option value={facultad}>{facultad}</option>
-				{/each}
+				{#await controllerFiltro.listado}
+					<option selected value=""> Cargando... </option>
+				{:then listado} 
+					<option selected value=""> -- Seleccionar -- </option>
+					{#each Object.keys(listado) as facultad (facultad)}
+						<option value={facultad}>{facultad}</option>
+					{/each}	
+				{/await}	
 			</select>
 		</div>
 
@@ -44,13 +48,13 @@
 			<select
 				id="carrera"
 				class="control-select mt-2"
-				bind:value={storeFiltro.valueCarrera}
+				bind:value={controllerFiltro.valueCarrera}
 				onchange={() => {
-					storeFiltro.changeCarrera();
+					controllerFiltro.changeCarrera();
 				}}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
-				{#each Object.keys(storeFiltro.listadoCarreras).sort((a, b) => a
+				{#each Object.keys(controllerFiltro.listadoCarreras).sort((a, b) => a
 						.slice(5)
 						.localeCompare(b.slice(5), 'es', { sensitivity: 'base' })) as carrera (carrera)}
 					<option value={carrera}>{carrera}</option>
@@ -60,9 +64,13 @@
 
 		<div class="flex flex-col col-span-3">
 			<label class="font-mono font-medium" for="tipologia">Tipologia</label>
-			<select id="tipologia" class="control-select mt-2" bind:value={storeFiltro.valueTipologia}>
+			<select
+				id="tipologia"
+				class="control-select mt-2"
+				bind:value={controllerFiltro.valueTipologia}
+			>
 				<option selected value=""> -- Seleccionar -- </option>
-				{#each storeFiltro.listadoTipologias as tipologia (tipologia)}
+				{#each controllerFiltro.listadoTipologias as tipologia (tipologia)}
 					<option value={tipologia}>{tipologia}</option>
 				{/each}
 			</select>
@@ -81,7 +89,7 @@
 	<div class="flex justify-between items-center mb-2">
 		<div class="flex gap-4 items-center">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
-			<Badge>{storeFiltro.asignaturasFiltradas.length}</Badge>
+			<Badge>{controllerFiltro.asignaturasFiltradas.length}</Badge>
 		</div>
 
 		<div class="text-sm font-mono" use:tooltipAction={'Última actualización de cupos'}>
@@ -92,7 +100,7 @@
 
 	<BigHr />
 
-	<Listado asignaturasFiltradas={storeFiltro.asignaturasFiltradas} />
+	<Listado asignaturasFiltradas={controllerFiltro.asignaturasFiltradas} />
 </Container>
 
 <style lang="scss">

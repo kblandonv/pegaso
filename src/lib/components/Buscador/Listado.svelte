@@ -47,7 +47,7 @@
 
 			<div id="listado" class="mt-3 p-0">
 				{#each asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
-					<ListadoRow asignatura={asignatura} />
+					<ListadoRow {asignatura} />
 				{/each}
 			</div>
 		</div>

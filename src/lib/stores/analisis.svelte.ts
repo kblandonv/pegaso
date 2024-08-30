@@ -1,7 +1,7 @@
-import * as jsonAnalisis from '$lib/assets/analisis.json';
+// import * as jsonAnalisis from '$lib/assets/analisis.json';
 
 import type { Asignatura } from '../types';
-const analisisData = jsonAnalisis.default;
+// const analisisData = jsonAnalisis.default;
 class Analisis {
 	asignatura: Asignatura | null = $state(null);
 	elementos = $state({
@@ -9,11 +9,13 @@ class Analisis {
 		docentes: null,
 		distribucion: null
 	});
-	analized = $derived(
+	analized = null/*
+	$derived(
 		this.asignatura
 			? analisisData[this.asignatura.facultad][this.asignatura.carrera][this.asignatura.codigo]
 			: null
 	);
+	*/
 
 	constructor() {}
 }

@@ -14,7 +14,11 @@
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
 
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
-	storeAsignaturas.data = data.asignaturas;
+	// storeAsignaturas.data = data.asignaturas;
+	storeAsignaturas.listado = data.listado;
+
+	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
+	controllerFiltro.listado = data.listado;
 
 	let toastInstance: SvelteComponent;
 	function addToast(mensaje: string) {

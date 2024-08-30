@@ -1,9 +1,10 @@
-export const ssr = true;
-
+import type { PageLoad } from './$types';
 import { browser } from '$app/environment';
 import { init } from '$lib/utils/firebase.js';
 
-export async function load({ data }) {
+export const ssr = true;
+
+export const load = (async ({ data }) => {
 	let logDescargaEvent = () => {};
 
 	if (browser) {
@@ -11,7 +12,7 @@ export async function load({ data }) {
 	}
 
 	return {
-		asignaturas: data.asignaturas,
+		...data,
 		logDescargaEvent: logDescargaEvent
 	};
-}
+}) satisfies PageLoad;
