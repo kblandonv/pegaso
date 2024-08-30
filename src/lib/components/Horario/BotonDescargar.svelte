@@ -1,10 +1,11 @@
 <script>
-	const { logDescargaEvent } = $props();
 	import { ArrayToExcel } from '$src/lib/utils/utils';
 	import { storeHorario } from '$lib/stores/horario.svelte';
+	import { analytics } from '$src/lib/client/firebase';
+	import { logEvent } from 'firebase/analytics';
 
 	function descargar() {
-		logDescargaEvent();
+		logEvent(analytics, 'descarga');
 
 		const titulosHorario = [
 			'Hora',

@@ -33,8 +33,14 @@ export interface Asignatura {
 	grupos: Grupo[];
 }
 
-export interface Asignaturas {
+export interface RecordCarrera {
+	facultad: string;
+	carrera: string;
+	asignaturas: Asignatura[];
+}
+
+export interface StoreAsignaturasInterface {
 	[facultad: string]: {
-		[carrera: string]: Asignatura[];
+		[carrera: string]: RecordCarrera;
 	};
 }

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
-	import Listado from './Listado.svelte';
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
-	import Container from '$components/UI/Container.svelte';
+
+	import { tooltipAction } from '$lib/actions/tooltip';
+	import Listado from './Listado.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
-	import { tooltipAction } from '$lib/actions/tooltip';
+	import Container from '$components/UI/Container.svelte';
 </script>
 
 <Container>
@@ -77,7 +77,10 @@
 		</div>
 
 		<div class="flex">
-			<button class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5">
+			<button
+				onclick={() => controllerFiltro.searchAsignaturas()}
+				class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5"
+			>
 				<i class="bi bi-search"></i>
 				<span>Buscar</span>
 			</button>
@@ -94,13 +97,13 @@
 
 		<div class="text-sm font-mono" use:tooltipAction={'Última actualización de cupos'}>
 			<i class="bi bi-clock text-violet-500"></i>
-			<span>{storeAsignaturas.lastUpdate}</span>
+			<span>Hola</span>
 		</div>
 	</div>
 
 	<BigHr />
 
-	<Listado asignaturasFiltradas={controllerFiltro.asignaturasFiltradas} />
+	<Listado />
 </Container>
 
 <style lang="scss">

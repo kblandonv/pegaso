@@ -1,11 +1,28 @@
 <script lang="ts">
 	import type { Asignatura } from '$src/lib/types';
 
-	type Props = {
-		asignaturasFiltradas: Asignatura[];
-	};
+	import { controllerFiltro } from '$src/lib/controllers/controllerFiltro.svelte';
+	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
 
-	const { asignaturasFiltradas }: Props = $props();
+	let asignaturasFiltradas: Asignatura[] = $derived.by(() => {
+		if (Object.keys(storeAsignaturas.data).length === 0) {
+			return [];
+		}
+
+		const recordCarrera =
+			storeAsignaturas.data[controllerFiltro.valueFacultad]?.[controllerFiltro.valueCarrera];
+
+		if (controllerFiltro.valueTipologia === 'TODAS LAS ASIGNATURAS') {
+			return recordCarrera.asignaturas.filter(
+				({ tipologia }) => tipologia !== 'TODAS LAS ASIGNATURAS'
+			);
+		}
+
+		return recordCarrera.asignaturas.filter(
+			({ tipologia }) => tipologia === controllerFiltro.valueTipologia
+		);
+	});
+
 	import ListadoRow from './ListadoRow.svelte';
 
 	function detailsAction(element: HTMLElement) {

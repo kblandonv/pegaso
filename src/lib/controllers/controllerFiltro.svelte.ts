@@ -1,3 +1,7 @@
+import { dbController } from '$db/mongo';
+
+import { storeAsignaturas } from '$stores/asignaturas.svelte';
+
 class ControllerFiltro implements ControllerFiltro {
 	listado: Record<string, Record<string, string[]>> = $state({});
 
@@ -25,20 +29,15 @@ class ControllerFiltro implements ControllerFiltro {
 	}
 	asignaturasFiltradas = [];
 
-	/* : Asignatura[] = $derived.by(() => {
-		if (this.listadoMaterias.length === 0 || !this.valueTipologia) {
-			return [];
+	async searchAsignaturas() {
+		const recordCarrera = await dbController.getAsignaturas(this.valueCarrera);
+
+		if (!storeAsignaturas.data.hasOwnProperty(this.valueFacultad)) {
+			storeAsignaturas.data[this.valueFacultad] = {};
 		}
 
-		if (this.valueTipologia === 'TODAS LAS ASIGNATURAS') {
-			return this.listadoCarreras[this.valueCarrera];
-		}
-
-		return this.listadoCarreras[this.valueCarrera].filter(
-			(asignatura: Asignatura) => asignatura.tipologia === this.valueTipologia
-		);
-	});
-	*/
+		storeAsignaturas.data[this.valueFacultad][this.valueCarrera] = recordCarrera;
+	}
 }
 
 export const controllerFiltro = new ControllerFiltro();

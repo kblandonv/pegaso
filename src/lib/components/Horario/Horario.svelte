@@ -1,5 +1,4 @@
 <script>
-	const { logDescargaEvent } = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 
 	import Seleccionadas from './Seleccionadas.svelte';
@@ -18,7 +17,7 @@
 		<div class="flex items-center gap-3">
 			<h1 class="text-2xl font-bold">Horario</h1>
 		</div>
-		<BotonDescargar {logDescargaEvent} />
+		<BotonDescargar />
 	</div>
 	<BigHr />
 

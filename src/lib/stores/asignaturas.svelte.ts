@@ -1,22 +1,17 @@
-import { initMongo } from '$lib/db/mongo.js';
-import type { Asignaturas } from '$lib/types';
+import { dbController } from '$db/mongo';
+
+import type { StoreAsignaturasInterface } from '$lib/types';
 
 class StoreAsignaturas {
-	data: Asignaturas = $state({});
+	data: StoreAsignaturasInterface = $state({});
 	updated: boolean = $state(false);
-	listado: Record<string, Record<string, string[]>> = $state({});
-	lastUpdate = 'lastUpdate'; //$derived(this.data['3068 FACULTAD DE MINAS']['3534 INGENIERÍA DE SISTEMAS E INFORMÁTICA'][0].fechaExtraccion);
-
-	constructor() {
-		this.initMongo();
-	}
 
 	dispatchUpdated() {
 		this.updated = true;
 	}
 
 	async initMongo() {
-		const collAsignaturas = await initMongo();
+		const collAsignaturas = dbController.db.db('asignaturas').collection('asignaturas');
 
 		let count = 0;
 		for await (const change of collAsignaturas.watch()) {

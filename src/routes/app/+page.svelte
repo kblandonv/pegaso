@@ -1,18 +1,9 @@
 <script lang="ts">
 	const { data } = $props();
 
-	import type { SvelteComponent } from 'svelte';
 	import { setContext } from 'svelte';
-	import Toast from '$components/UI/Toast.svelte';
-	import '$src/styles/horario.scss';
-	import '$src/styles/action-control.scss';
-
-	import Seo from '$components/Seo.svelte';
-
-	import Buscador from '$components/Buscador';
-	import Horario from '$components/Horario';
+	import type { SvelteComponent } from 'svelte';
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
-
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	// storeAsignaturas.data = // data.asignaturas;
 
@@ -36,6 +27,13 @@
 			storeAsignaturas.updated = false;
 		}
 	});
+
+	import '$src/styles/horario.scss';
+	import '$src/styles/action-control.scss';
+	import Toast from '$components/UI/Toast.svelte';
+	import Seo from '$components/Seo.svelte';
+	import Buscador from '$components/Buscador';
+	import Horario from '$components/Horario';
 </script>
 
 <Seo />
@@ -62,7 +60,7 @@
 <GraficoDocente />
 
 <!-- Horario -->
-<Horario logDescargaEvent={data.logDescargaEvent} />
+<Horario />
 
 <div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
