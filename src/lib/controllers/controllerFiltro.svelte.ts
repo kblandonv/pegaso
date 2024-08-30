@@ -1,6 +1,6 @@
 import { dbController } from '$db/mongo';
-
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
+import { tipologias } from '../utils/enums';
 
 class ControllerFiltro implements ControllerFiltro {
 	listado: Record<string, Record<string, string[]>> = $state({});
@@ -14,12 +14,11 @@ class ControllerFiltro implements ControllerFiltro {
 	);
 	listadoTipologias: string[] = $derived(
 		this.valueFacultad && this.valueCarrera
-			? ['TODAS LAS ASIGNATURAS', ...this.listado[this.valueFacultad][this.valueCarrera]]
+			? [tipologias.TIPOLOGIA_TODAS, ...this.listado[this.valueFacultad][this.valueCarrera]]
 			: []
 	);
 
 	changeFacultad() {
-		console.log('Changed facultad');
 		this.valueCarrera = '';
 		this.valueTipologia = '';
 	}

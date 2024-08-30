@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Asignatura } from '$src/lib/types';
+	import { tipologias } from '$src/lib/utils/enums';
 
 	import { controllerFiltro } from '$src/lib/controllers/controllerFiltro.svelte';
 	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
@@ -12,9 +13,9 @@
 		const recordCarrera =
 			storeAsignaturas.data[controllerFiltro.valueFacultad]?.[controllerFiltro.valueCarrera];
 
-		if (controllerFiltro.valueTipologia === 'TODAS LAS ASIGNATURAS') {
+		if (controllerFiltro.valueTipologia === tipologias.TIPOLOGIA_TODAS) {
 			return recordCarrera.asignaturas.filter(
-				({ tipologia }) => tipologia !== 'TODAS LAS ASIGNATURAS'
+				({ tipologia }) => tipologia !== tipologias.TIPOLOGIA_TODAS
 			);
 		}
 
