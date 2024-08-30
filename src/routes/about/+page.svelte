@@ -11,10 +11,10 @@
 
 <header class="py-24 grid place-items-center md:grid-cols-1">
 	<div class="w-1/2 col-span-1 text-center">
-		<span class="text-gradient font-mono font-medium">Acerca de</span>
-		<h3 class="mt-2 text-3xl font-bold lg:text-4xl xl:text-6xl">Pensado para el estudiante.</h3>
+		<span class="inline-flex font-mono text-gradient mb-4 font-medium">Acerca de</span>
+		<h3 class="font-medium text-4xl md:text-7xl mb-4">Pensado para el estudiante.</h3>
 
-		<p class="mt-4 text-pretty text-lg text-slate-600">
+		<p class="text-lg mt-5 text-zinc-600 text-pretty">
 			Pegaso nació con un objetivo claro: mejorar la experiencia de inscripción y gestión de
 			horarios de los estudiantes de la sede Medellín.
 		</p>
@@ -25,8 +25,8 @@
 
 <section class="place-items-top mt-24 grid grid-cols-2 py-10">
 	<div class="w-100 col-span-1">
-		<span class="text-gradient font-mono">Más que un horario</span>
-		<h3 class="mt-4 text-balance text-4xl font-bold lg:text-5xl lg:tracking-tight">
+		<span class="inline-flex font-mono text-gradient mb-4 font-medium">Más que un horario</span>
+		<h3 class="text-5xl text-balance font-semibold">
 			Transformando la Experiencia de Inscripcion
 		</h3>
 	</div>
@@ -60,13 +60,13 @@
 <hr class="mx-auto w-1/2" />
 
 <section class="mt-20">
-	<span class="text-gradient font-mono">Sobre mí</span>
-	<h3 class="mt-4 text-balance text-4xl font-bold lg:text-5xl lg:tracking-tight">Hi, imlargo!</h3>
+	<span class="inline-flex font-mono text-gradient mb-4 font-medium">Sobre mí</span>
+	<h3 class="text-5xl text-balance font-semibold">Hi, <span class="font-mono text-gradient">imlargo</span> !</h3>
 
 	<div class="place-items-top mt-1 grid grid-cols-2 py-10">
 		<div class="w-full col-span-1">
 			<img
-				src="https://media.licdn.com/dms/image/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_800_800/0/1697915419824?e=1724889600&v=beta&t=11qxae0A7GBis-cdKjuA-WWnfweJ59mh2Up1kNg6PAs"
+				src="https://media.licdn.com/dms/image/v2/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1697915419824?e=1730332800&v=beta&t=3MIUaJI8ZMW2uRt-YeISw64rzVOQ6KByNW03S0Bg3MU"
 				alt="imlargo"
 				class="rounded-2xl my-pic mb-4 h-20 w-20"
 			/>
