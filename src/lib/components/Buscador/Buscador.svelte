@@ -81,7 +81,7 @@
 	<div class="flex justify-between items-center mb-2">
 		<div class="flex gap-4 items-center">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
-			<Badge>{storeFiltro.materiasFiltradas.length}</Badge>
+			<Badge>{storeFiltro.asignaturasFiltradas.length}</Badge>
 		</div>
 
 		<div class="text-sm font-mono" use:tooltipAction={'Última actualización de cupos'}>
@@ -92,7 +92,7 @@
 
 	<BigHr />
 
-	<Listado materiasFiltradas={storeFiltro.materiasFiltradas} />
+	<Listado asignaturasFiltradas={storeFiltro.asignaturasFiltradas} />
 </Container>
 
 <style lang="scss">

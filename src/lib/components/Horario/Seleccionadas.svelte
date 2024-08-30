@@ -6,7 +6,6 @@
 	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { Asignatura } from '$src/lib/types';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(

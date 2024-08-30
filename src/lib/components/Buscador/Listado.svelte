@@ -2,10 +2,10 @@
 	import type { Asignatura } from '$src/lib/types';
 
 	type Props = {
-		materiasFiltradas: Asignatura[];
+		asignaturasFiltradas: Asignatura[];
 	};
 
-	const { materiasFiltradas }: Props = $props();
+	const { asignaturasFiltradas }: Props = $props();
 	import ListadoRow from './ListadoRow.svelte';
 
 	function detailsAction(element: HTMLElement) {
@@ -26,7 +26,7 @@
 </script>
 
 <section class="w-full mt-4">
-	{#if materiasFiltradas.length === 0}
+	{#if asignaturasFiltradas.length === 0}
 		<div class="row mt-3">
 			<div class="p-0"><span>Por favor seleccione asignaturas...</span></div>
 		</div>
@@ -46,8 +46,8 @@
 			</div>
 
 			<div id="listado" class="mt-3 p-0">
-				{#each materiasFiltradas as materia (`${materia.facultad}-${materia.carrera}-${materia.codigo}`)}
-					<ListadoRow {materia} />
+				{#each asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
+					<ListadoRow asignatura={asignatura} />
 				{/each}
 			</div>
 		</div>

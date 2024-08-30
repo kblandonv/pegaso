@@ -9,7 +9,7 @@ interface StoreFiltro {
 	listadoCarreras: { [carrera: string]: Asignatura[] };
 	listadoMaterias: Asignatura[];
 	listadoTipologias: string[];
-	materiasFiltradas: Asignatura[];
+	asignaturasFiltradas: Asignatura[];
 }
 
 class StoreFiltro implements StoreFiltro {
@@ -34,7 +34,7 @@ class StoreFiltro implements StoreFiltro {
 			: []
 	);
 
-	materiasFiltradas: Asignatura[] = $derived.by(() => {
+	asignaturasFiltradas: Asignatura[] = $derived.by(() => {
 		if (this.listadoMaterias.length === 0 || !this.valueTipologia) {
 			return [];
 		}
