@@ -26,9 +26,7 @@
 <section class="place-items-top mt-24 grid grid-cols-2 py-10">
 	<div class="w-100 col-span-1">
 		<span class="inline-flex font-mono text-gradient mb-4 font-medium">Más que un horario</span>
-		<h3 class="text-5xl text-balance font-semibold">
-			Transformando la Experiencia de Inscripcion
-		</h3>
+		<h3 class="text-5xl text-balance font-semibold">Transformando la Experiencia de Inscripcion</h3>
 	</div>
 
 	<div class="justify-center w-100 col-span-1 text-balance text-lg text-slate-700">
@@ -61,7 +59,9 @@
 
 <section class="mt-20">
 	<span class="inline-flex font-mono text-gradient mb-4 font-medium">Sobre mí</span>
-	<h3 class="text-5xl text-balance font-semibold">Hi, <span class="font-mono text-gradient">imlargo</span> !</h3>
+	<h3 class="text-5xl text-balance font-semibold">
+		Hi, <span class="font-mono text-gradient">imlargo</span> !
+	</h3>
 
 	<div class="place-items-top mt-1 grid grid-cols-2 py-10">
 		<div class="w-full col-span-1">

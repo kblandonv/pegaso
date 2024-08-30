@@ -52,7 +52,10 @@
 	}
 </script>
 
-<button class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-5 py-1.5" onclick={descargar}>
+<button
+	class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-5 py-1.5"
+	onclick={descargar}
+>
 	<i class="bi bi-download"></i>
 	<span> Descargar</span>
 </button>

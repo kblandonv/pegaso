@@ -6,12 +6,12 @@
 	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	
+
 	import type { Asignatura } from '$src/lib/types';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
-			(acc, obj ) => acc + parseInt(obj.materia?.creditos ?? 0),
+			(acc, obj) => acc + parseInt(obj.materia?.creditos ?? 0),
 			0
 		)
 	);
@@ -69,7 +69,7 @@
 		&::before {
 			background-color: rgb(192, 136, 255);
 
-			left: 0.0rem;
+			left: 0rem;
 			content: '';
 			display: block;
 			height: 120%;

@@ -59,10 +59,8 @@
 
 <section class="my-24">
 	<div class="mx-auto my-4 flex max-w-4xl flex-col items-center justify-center">
-		<h2 class="text-5xl text-center font-semibold my-4">
-			Más que un horario
-		</h2>
-		
+		<h2 class="text-5xl text-center font-semibold my-4">Más que un horario</h2>
+
 		<div class="divider"></div>
 		<p class="mt-4 text-center text-lg text-zinc-600 text-pretty w-10/12">
 			Pegaso no solo te permite crear horarios, sino que transforma tu experiencia de inscripción
@@ -242,7 +240,6 @@
 </section>
 
 <style lang="scss">
-
 	.divider {
 		@apply w-4/12 h-1 bg-violet-400 rounded-full;
 	}

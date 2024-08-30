@@ -1,4 +1,6 @@
-<section class="grid grid-cols-2 place-items-center gap-x-6 gap-y-8 md:gap-0 md:grid-cols-4 bg-purple-50 rounded-xl p-12">
+<section
+	class="grid grid-cols-2 place-items-center gap-x-6 gap-y-8 md:gap-0 md:grid-cols-4 bg-purple-50 rounded-xl p-12"
+>
 	<div class="flex flex-col">
 		<span class="font-medium text-4xl md:text-5xl mb-1"
 			>5<span class="text-purple-600">+</span></span

@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { Asignatura } from '$src/lib/types';
 
 	type Props = {
@@ -18,7 +17,7 @@
 			button.classList.toggle('open');
 
 			if (listado.style.maxHeight) {
-				listado.style.maxHeight = "";
+				listado.style.maxHeight = '';
 			} else {
 				listado.style.maxHeight = listado.scrollHeight + 'px';
 			}

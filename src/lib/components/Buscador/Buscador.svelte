@@ -50,7 +50,9 @@
 				}}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
-				{#each Object.keys(storeFiltro.listadoCarreras).sort((a, b) => a.slice(5).localeCompare(b.slice(5), 'es', { sensitivity: 'base' })) as carrera (carrera)}
+				{#each Object.keys(storeFiltro.listadoCarreras).sort((a, b) => a
+						.slice(5)
+						.localeCompare(b.slice(5), 'es', { sensitivity: 'base' })) as carrera (carrera)}
 					<option value={carrera}>{carrera}</option>
 				{/each}
 			</select>
@@ -58,11 +60,7 @@
 
 		<div class="flex flex-col col-span-3">
 			<label class="font-mono font-medium" for="tipologia">Tipologia</label>
-			<select
-				id="tipologia"
-				class="control-select mt-2"
-				bind:value={storeFiltro.valueTipologia}
-			>
+			<select id="tipologia" class="control-select mt-2" bind:value={storeFiltro.valueTipologia}>
 				<option selected value=""> -- Seleccionar -- </option>
 				{#each storeFiltro.listadoTipologias as tipologia (tipologia)}
 					<option value={tipologia}>{tipologia}</option>

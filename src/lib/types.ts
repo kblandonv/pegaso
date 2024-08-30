@@ -13,6 +13,13 @@ export interface Grupo {
 	horarios: Horario[];
 }
 
+export interface Prerequisito {
+	tipo: string;
+	isTodas: boolean;
+	cantidad: number;
+	asignaturas: Record<string, string>[];
+}
+
 export interface Asignatura {
 	codigo: string;
 	nombre: string;
@@ -22,7 +29,7 @@ export interface Asignatura {
 	carrera: string;
 	fechaExtraccion: string;
 	cuposDisponibles: number;
-
+	prerequisitos: Prerequisito[];
 	grupos: Grupo[];
 }
 

@@ -1,12 +1,11 @@
 <script lang="ts">
-
 	import type { Asignatura } from '$src/lib/types';
 
 	type Props = {
 		materia: Asignatura;
 		color: string;
-	}
-	
+	};
+
 	let { materia, color }: Props = $props();
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
@@ -50,11 +49,7 @@
 </div>
 
 <div class="col justify-center content-center text-sm px-3">
-	<select
-		class="control-select"
-		onchange={handleChangeGrupo}
-		value={initValue}
-	>
+	<select class="control-select" onchange={handleChangeGrupo} value={initValue}>
 		<option value="">No seleccionado</option>
 
 		{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}
@@ -90,8 +85,9 @@
 </button>
 
 <div class="col-limit w-12 justify-center content-center px-3">
-	<button onclick={deleteMateria} class="transition-all duration-300 hover:scale-105 active:scale-95 text-rose-400/80 hover:text-rose-400"
+	<button
+		onclick={deleteMateria}
+		class="transition-all duration-300 hover:scale-105 active:scale-95 text-rose-400/80 hover:text-rose-400"
 		><i class="bi bi-x-square-fill text-2xl"></i></button
 	>
 </div>
-
