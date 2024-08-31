@@ -90,7 +90,7 @@
 
 		<button
 			onclick={showModal}
-			class="flex px-5 py-1.5 bg-purple-500 text-white transition-all duration-150 active:scale-95 active:bg-purple-400 hover:bg-purple-600 text-base items-center justify-center gap-2 font-medium rounded-lg"
+			class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5 transition-all duration-150 active:scale-95 active:bg-purple-400 hover:bg-purple-600"
 		>
 			<i class="bi bi-heart-fill"></i>
 			<span> Donar</span>

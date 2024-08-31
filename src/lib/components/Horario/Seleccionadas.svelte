@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
-	import MateriaRow from './MateriaRow.svelte';
 	import { storeHorario } from '$lib/stores/horario.svelte';
-	import BigHr from '$components/UI/BigHr.svelte';
-	import Badge from '$components/UI/Badge.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { toastController } from '$src/lib/controllers/toastController.svelte';
+
+	import MateriaRow from './MateriaRow.svelte';
+	import BigHr from '$components/UI/BigHr.svelte';
+	import Badge from '$components/UI/Badge.svelte';
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
-			(acc, obj) => acc + parseInt(obj.materia?.creditos ?? 0),
+			(acc, seleccionItem) => acc + seleccionItem.asignatura.creditos,
 			0
 		)
 	);
@@ -17,9 +19,13 @@
 	onMount(() => {
 		if (!browser) return;
 
-		const hasHorario = storeHorario.loadFromStorage();
-		if (!hasHorario) {
-			storeHorario.saveToStorage();
+		if (storeHorario.hasValidStorage()) {
+			const hasHorario = storeHorario.loadFromStorage();
+			if (!hasHorario) {
+				storeHorario.saveToStorage();
+			}
+
+			toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 		}
 	});
 </script>
@@ -46,12 +52,12 @@
 	</div>
 
 	<div class="w-full flex flex-col gap-3">
-		{#each Object.entries(storeHorario.seleccion) as entries (entries[0])}
+		{#each Object.entries(storeHorario.seleccion) as [codigo, itemSeleccion] (codigo)}
 			<div
-				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${entries[1].color}`}
+				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${itemSeleccion.color}`}
 				animate:flip={{ duration: 200 }}
 			>
-				<MateriaRow materia={entries[1].materia as Asignatura} />
+				<MateriaRow asignatura={itemSeleccion.asignatura} />
 			</div>
 		{/each}
 	</div>

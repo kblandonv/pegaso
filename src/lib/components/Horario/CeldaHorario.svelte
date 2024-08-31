@@ -1,39 +1,26 @@
-<script>
-	const { seleccion, horario } = $props();
+<script lang="ts">
+	import type { Horario } from '$lib/types';
+	import type { SeleccionItemInterface } from '$stores/horario.svelte';
+
+	type Props = {
+		seleccion: SeleccionItemInterface;
+		horario: Horario;
+	};
+
+	const { seleccion, horario }: Props = $props();
 	import { normalizeString } from '$src/lib/utils/utils';
 	import { fade } from 'svelte/transition';
 </script>
 
 <div
 	transition:fade={{ duration: 400 }}
-	class={`text-xs px-2 py-2 rounded m-1 evento  dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
+	class={`text-xs px-2 py-2 rounded m-1 transition-all duration-300  dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
 >
-	<p class="font-medium">{seleccion.materia.nombre}</p>
+	<p class="font-medium">{seleccion.asignatura.nombre}</p>
 	<p class="font-light">{seleccion.groupValue}</p>
 </div>
 
 <style>
-	.evento {
-		transition: all 400ms;
-
-		/*
-		&::before {
-			
-			background-color: rgb(192, 136, 255);
-    		border-radius: 2px;
-    		left: -0rem;
-    		content: "";
-    		display: block;
-    		height: 100%;
-    		position: absolute;
-    		width: calc(0.25em);
-    		top: 50%;
-    		transform: translateY(-50%);
-			
-		}
-		*/
-	}
-
 	.color-1 {
 		background-color: #ffdede;
 	}

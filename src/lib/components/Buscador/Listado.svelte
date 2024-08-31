@@ -1,32 +1,11 @@
 <script lang="ts">
-	import type { Asignatura } from '$src/lib/types';
-
-	type Props = {
-		asignaturasFiltradas: Asignatura[];
-	};
-
-	const { asignaturasFiltradas }: Props = $props();
+	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
+	import { detailsAction } from '$src/lib/actions/details';
 	import ListadoRow from './ListadoRow.svelte';
-
-	function detailsAction(element: HTMLElement) {
-		const button = element.querySelector('#details-button') as HTMLButtonElement;
-		const listado = element.querySelector('#listado') as HTMLElement;
-		listado.style.maxHeight = listado.scrollHeight + 'px';
-
-		button.addEventListener('click', function () {
-			button.classList.toggle('open');
-
-			if (listado.style.maxHeight) {
-				listado.style.maxHeight = '';
-			} else {
-				listado.style.maxHeight = listado.scrollHeight + 'px';
-			}
-		});
-	}
 </script>
 
 <section class="w-full mt-4">
-	{#if asignaturasFiltradas.length === 0}
+	{#if storeAsignaturas.asignaturasFiltradas.length === 0}
 		<div class="row mt-3">
 			<div class="p-0"><span>Por favor seleccione asignaturas...</span></div>
 		</div>
@@ -46,8 +25,8 @@
 			</div>
 
 			<div id="listado" class="mt-3 p-0">
-				{#each asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
-					<ListadoRow asignatura={asignatura} />
+				{#each storeAsignaturas.asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
+					<ListadoRow {asignatura} />
 				{/each}
 			</div>
 		</div>
