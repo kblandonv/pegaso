@@ -1,6 +1,7 @@
 <script lang="ts">
 	const { data } = $props();
 	import { Graficos } from '$src/lib/utils/enums';
+	import { getPrerequisitos } from '$src/lib/utils/prerequisitos';
 
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
@@ -28,6 +29,7 @@
 	import Horario from '$components/Horario';
 	import Toast from '$components/layout/Toast.svelte';
 	import ModalGrafico from '$src/lib/components/layout/ModalGrafico.svelte';
+	import { storeHorario } from '$src/lib/stores/horario.svelte';
 </script>
 
 <Seo />
@@ -98,6 +100,36 @@
 
 <!-- Horario -->
 <Horario />
+
+<section class="bg-purple-50 rounded-xl p-12">
+	<h1 class="text-2xl font-bold mb-2">Prerequisitos</h1>
+	<p class="text-zinc-600">
+		Para poder inscribir las asignaturas de este semestre necesitas haber aprobado las siguientes
+		asignaturas:
+	</p>
+
+	<ul class="pt-2">
+		{#each [...new Set(Object.values(storeHorario.seleccion)
+					.flatMap(({ asignatura }) => getPrerequisitos(asignatura))
+					.map((prerequisito) => prerequisito.codigo + '. ' + prerequisito.nombre))] as prerequisito}
+			<li class="text-zinc-600 ps-5">{prerequisito}</li>
+		{/each}
+	</ul>
+
+	<div class="flex flex-col gap-2 mt-4">
+		{#each Object.values(storeHorario.seleccion) as seleccion}
+			<div class="bg-purple-100 rounded-lg px-5 py-4">
+				<span>{seleccion.asignatura.nombre}</span>
+
+				<ul class="pt-2">
+					{#each getPrerequisitos(seleccion.asignatura) as prerequisito}
+						<li class="text-zinc-600 ps-5">{prerequisito.codigo} - {prerequisito.nombre}</li>
+					{/each}
+				</ul>
+			</div>
+		{/each}
+	</div>
+</section>
 
 <div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
