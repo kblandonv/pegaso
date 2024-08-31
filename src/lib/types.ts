@@ -44,3 +44,7 @@ export interface StoreAsignaturasInterface {
 		[carrera: string]: RecordCarrera;
 	};
 }
+
+export interface Metadata {
+	lastUpdated: string;
+}

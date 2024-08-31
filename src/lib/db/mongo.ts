@@ -1,6 +1,6 @@
 import * as Realm from 'realm-web';
 
-import type { RecordCarrera } from '$lib/types';
+import type { RecordCarrera, Metadata } from '$lib/types';
 
 async function initMongoDb() {
 	// Add your App ID
@@ -51,10 +51,10 @@ class DbController {
 		return listado;
 	}
 
-	async getLastUpdate(): Promise<string> {
+	async getMetadata(): Promise<Metadata> {
 		const collConfig = this.db.db('asignaturas').collection('config');
-		const lastUpdate = await collConfig.findOne({ _id: 'lastUpdate' });
-		return lastUpdate.fechaExtraccion;
+		const metadata: Metadata = await collConfig.findOne({ _id: 'metadata' });
+		return metadata;
 	}
 }
 

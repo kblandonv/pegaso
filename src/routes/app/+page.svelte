@@ -5,11 +5,13 @@
 	import type { SvelteComponent } from 'svelte';
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
-	// storeAsignaturas.data = // data.asignaturas;
-
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
+
 	data.listado.then((listado) => {
 		controllerFiltro.listado = listado;
+	});
+	data.metadata.then((metadata) => {
+		storeAsignaturas.metadata = metadata;
 	});
 
 	let toastInstance: SvelteComponent;

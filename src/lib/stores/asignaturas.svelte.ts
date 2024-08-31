@@ -1,10 +1,13 @@
 import { dbController } from '$db/mongo';
 
-import type { StoreAsignaturasInterface, Asignatura } from '$lib/types';
+import type { StoreAsignaturasInterface, Asignatura, Metadata } from '$lib/types';
 import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 import { tipologias } from '$src/lib/utils/enums';
 
 class StoreAsignaturas {
+	metadata: Metadata = $state({
+		lastUpdated: "...",
+	});
 	data: StoreAsignaturasInterface = $state({});
 	updated: boolean = $state(false);
 	asignaturasFiltradas: Asignatura[] = $derived.by(() => {

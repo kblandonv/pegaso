@@ -97,7 +97,7 @@
 
 		<div class="text-sm font-mono" use:tooltipAction={'Última actualización de cupos'}>
 			<i class="bi bi-clock text-violet-500"></i>
-			<span>Hola</span>
+			<span>{storeAsignaturas.metadata.lastUpdated}</span>
 		</div>
 	</div>
 
