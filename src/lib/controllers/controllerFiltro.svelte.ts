@@ -1,5 +1,6 @@
 import { tipologias } from '$lib/utils/enums';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
+import { dbController } from '../db/mongo';
 import { toastController } from './toastController.svelte';
 
 class ControllerFiltro implements ControllerFiltro {
@@ -30,6 +31,7 @@ class ControllerFiltro implements ControllerFiltro {
 	async searchAsignaturas() {
 		toastController.addMensaje('Buscando asignaturas...');
 		await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
+		storeAsignaturas.metadata = await dbController.getMetadata();
 	}
 }
 
