@@ -2,6 +2,8 @@
 	import type { Asignatura, Grupo } from '$src/lib/types';
 	let { asignatura }: { asignatura: Asignatura } = $props();
 
+	import { Graficos } from '$src/lib/utils/enums';
+
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
@@ -22,18 +24,18 @@
 		storeHorario.eliminarAsignatura(asignatura);
 	}
 
-	function showGrafico() {
-		storeAnalisis.asignatura = asignatura;
-		const grafico = this.dataset.graph;
-		storeAnalisis.elementos[grafico].show();
+	function showGrafico(grafico: string) {
+		storeAnalisis.dispatchAnalizis(asignatura, grafico as Graficos);
 	}
 </script>
 
 <div class="col rounded px-1">
 	<button
 		class="cursor-pointer bg-purple-100 hover:bg-purple-200 transition-all duration-200 rounded-md w-full h-full"
-		data-graph="distribucion"
-		onclick={showGrafico}
+		data-graph={Graficos.DISTRIBUCION_DOCENTES}
+		onclick={function () {
+			showGrafico(this.dataset.graph as string);
+		}}
 	>
 		<i class="bi bi-bar-chart-line"></i>
 		<span class="text-sm">{asignatura.codigo}</span>
@@ -68,8 +70,10 @@
 </div>
 <button
 	class="col-limit w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100"
-	data-graph="docentes"
-	onclick={showGrafico}
+	data-graph={Graficos.DOCENTES_RECOMENDADOS}
+	onclick={function () {
+		showGrafico(this.dataset.graph as string);
+	}}
 >
 	<i class="bi bi-ui-checks text-purple-500"></i>
 	{selectedGrupo && selectedGrupo.profesor}
@@ -77,8 +81,10 @@
 
 <button
 	class="col-limit w-1/12 rounded text-center text-sm px-3 transition-all duration-500 hover:bg-purple-100"
-	data-graph="cupos"
-	onclick={showGrafico}
+	data-graph={Graficos.DISTRIBUCION_CUPOS}
+	onclick={function () {
+		showGrafico(this.dataset.graph as string);
+	}}
 >
 	<i class="bi bi-graph-down text-purple-500"></i>
 	<span>{selectedGrupo && selectedGrupo.cupos}</span>

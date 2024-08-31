@@ -1,10 +1,11 @@
 <script lang="ts">
 	const { data } = $props();
+	import { Graficos } from '$src/lib/utils/enums';
 
-	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 	import { toastController } from '$src/lib/controllers/toastController.svelte.js';
+	import { storeAnalisis } from '$src/lib/stores/analisis.svelte';
 
 	data.listado.then((listado) => {
 		controllerFiltro.listado = listado;
@@ -26,6 +27,7 @@
 	import Buscador from '$components/Buscador';
 	import Horario from '$components/Horario';
 	import Toast from '$components/layout/Toast.svelte';
+	import ModalGrafico from '$src/lib/components/layout/ModalGrafico.svelte';
 </script>
 
 <Seo />
@@ -47,9 +49,52 @@
 
 <hr class="hr-pink" />
 
-<GraficoCupos />
-<GraficoDistribucion />
-<GraficoDocente />
+<ModalGrafico width={40} grafico={Graficos.DISTRIBUCION_DOCENTES}>
+	{#snippet encabezado()}
+		<h5 class="text-lg w-full text-center mb-3 font-bold font-mono">
+			{storeAnalisis.currentAsignatura ? storeAnalisis.currentAsignatura.nombre : ''}
+		</h5>
+	{/snippet}
+
+	{#snippet contenido()}
+		<canvas></canvas>
+	{/snippet}
+</ModalGrafico>
+
+<ModalGrafico width={30} grafico={Graficos.DOCENTES_RECOMENDADOS}>
+	{#snippet encabezado()}
+		<h5 class="text-lg w-full text-center mb-3 font-bold font-mono">
+			{storeAnalisis.currentAsignatura ? storeAnalisis.currentAsignatura.nombre : ''}
+		</h5>
+	{/snippet}
+
+	{#snippet contenido()}
+		{#if storeAnalisis.currentAsignatura !== null}
+			{#each storeAnalisis.currentAsignatura.recomendaciones.sort((a, b) => b.puntaje - a.puntaje) as recomendacion, i (recomendacion.docente)}
+				<div class="flex justify-between hover:bg-purple-200/80 px-3 py-2 rounded-md">
+					<span class="inline-flex lead text-sm">
+						<strong>{i + 1}</strong><span>. {recomendacion.docente}</span>
+					</span>
+					<span class="inline-flex lead fw-medium text-sm">{recomendacion.puntaje}</span>
+				</div>
+			{/each}
+		{:else}
+			<p class="text-center">No hay datos para mostrar</p>
+		{/if}
+	{/snippet}
+</ModalGrafico>
+
+<ModalGrafico width={55} height={45} grafico={Graficos.DISTRIBUCION_CUPOS}>
+	{#snippet encabezado()}
+		<h5 class="text-lg w-full text-center mb-3 font-bold font-mono">
+			{storeAnalisis.currentAsignatura ? storeAnalisis.currentAsignatura.nombre : ''}
+		</h5>
+	{/snippet}
+
+	{#snippet contenido()}
+		<canvas></canvas>
+	{/snippet}
+</ModalGrafico>
 
 <!-- Horario -->
 <Horario />

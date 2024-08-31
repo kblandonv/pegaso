@@ -15,9 +15,12 @@ export interface Grupo {
 
 export interface Prerequisito {
 	tipo: string;
-	isTodas: boolean;
+	istodas: boolean;
 	cantidad: number;
-	asignaturas: Record<string, string>[];
+	asignaturas: {
+		codigo: string;
+		nombre: string;
+	}[];
 }
 
 export interface Asignatura {
@@ -47,4 +50,25 @@ export interface StoreAsignaturasInterface {
 
 export interface Metadata {
 	lastUpdated: string;
+}
+
+export interface AsignaturaAnalizada {
+	nombre: string;
+	tipologia: string;
+	codigo: string;
+	facultad: string;
+	carrera: string;
+	total: Record<string, number>;
+	grupos: Record<
+		string,
+		{
+			profesor: string;
+			cupos: Record<string, number>;
+		}
+	>;
+	recomendaciones: {
+		docente: string;
+		inscritos: number;
+		puntaje: number;
+	}[];
 }
