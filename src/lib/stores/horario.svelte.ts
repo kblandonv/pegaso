@@ -132,36 +132,6 @@ class StoreHorario {
 	agregarAsignatura(asignatura: Asignatura) {
 		this.seleccion[asignatura.codigo] = new SeleccionItem(asignatura);
 		this.saveToStorage();
-
-		/*
-		const totalPrerequisitos = [];
-
-		const getPrerequisitos = (asignatura: Asignatura) => {
-			const prerequisitos = asignatura.prerequisitos;
-
-			if (prerequisitos.length === 0) {
-				return;
-			}
-
-			for (const prerequisito of prerequisitos) {
-				for (const { codigo, nombre } of prerequisito.asignaturas) {
-					const exists = storeAsignaturas.data[asignatura.facultad][
-						asignatura.carrera
-					].asignaturas.find((asignatura) => asignatura.codigo === codigo);
-
-					if (exists) {
-						totalPrerequisitos.push(nombre);
-						getPrerequisitos(exists);
-					} else {
-						continue;
-					}
-				}
-			}
-		};
-
-		getPrerequisitos(asignatura);
-		console.log(totalPrerequisitos);
-		*/
 	}
 
 	eliminarAsignatura(asignatura: Asignatura) {
