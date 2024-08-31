@@ -6,7 +6,7 @@ import { tipologias } from '$src/lib/utils/enums';
 
 class StoreAsignaturas {
 	metadata: Metadata = $state({
-		lastUpdated: "...",
+		lastUpdated: '...'
 	});
 	data: StoreAsignaturasInterface = $state({});
 	updated: boolean = $state(false);

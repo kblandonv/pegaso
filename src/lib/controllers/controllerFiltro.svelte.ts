@@ -1,5 +1,6 @@
 import { tipologias } from '$lib/utils/enums';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
+import { toastController } from './toastController.svelte';
 
 class ControllerFiltro implements ControllerFiltro {
 	listado: Record<string, Record<string, string[]>> = $state({});
@@ -27,6 +28,7 @@ class ControllerFiltro implements ControllerFiltro {
 	}
 
 	async searchAsignaturas() {
+		toastController.addMensaje('Buscando asignaturas...');
 		await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
 	}
 }

@@ -1,11 +1,10 @@
 <script lang="ts">
 	const { data } = $props();
 
-	import { setContext } from 'svelte';
-	import type { SvelteComponent } from 'svelte';
 	import { GraficoCupos, GraficoDistribucion, GraficoDocente } from '$components/Horario/graficos';
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
+	import { toastController } from '$src/lib/controllers/toastController.svelte.js';
 
 	data.listado.then((listado) => {
 		controllerFiltro.listado = listado;
@@ -14,28 +13,19 @@
 		storeAsignaturas.metadata = metadata;
 	});
 
-	let toastInstance: SvelteComponent;
-	function addToast(mensaje: string) {
-		toastInstance.addToast(mensaje);
-	}
-
-	setContext('toast', {
-		addToast
-	});
-
 	$effect(() => {
 		if (storeAsignaturas.updated) {
-			addToast('Cupos actualizados!');
+			toastController.addMensaje('Cupos actualizados!');
 			storeAsignaturas.updated = false;
 		}
 	});
 
 	import '$src/styles/horario.scss';
 	import '$src/styles/action-control.scss';
-	import Toast from '$components/UI/Toast.svelte';
 	import Seo from '$components/Seo.svelte';
 	import Buscador from '$components/Buscador';
 	import Horario from '$components/Horario';
+	import Toast from '$components/layout/Toast.svelte';
 </script>
 
 <Seo />
@@ -66,7 +56,7 @@
 
 <div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
-<Toast bind:this={toastInstance} />
+<Toast />
 
 <style lang="scss">
 	hr {
