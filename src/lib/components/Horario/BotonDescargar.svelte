@@ -3,9 +3,11 @@
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { analytics } from '$src/lib/client/firebase';
 	import { logEvent } from 'firebase/analytics';
+	import { toastController } from '$src/lib/controllers/toastController.svelte';
 
 	function descargar() {
 		logEvent(analytics, 'descarga');
+		toastController.addMensaje('Descargando horario como excel');
 
 		const titulosHorario = [
 			'Hora',
