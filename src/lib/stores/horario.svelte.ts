@@ -1,6 +1,8 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
-import { storeAsignaturas } from './asignaturas.svelte.js';
 import type { Asignatura, Grupo, Horario } from '$lib/types';
+import { storeAsignaturas } from '$stores/asignaturas.svelte';
+
+const LOCALSTORAGE_KEY = 'localHorario';
 
 export interface SeleccionItemInterface {
 	referencia: {
@@ -71,23 +73,52 @@ class StoreHorario {
 		)
 	);
 
-	saveToStorage() {
-		const data = Object.values(this.seleccion).map((seleccion) => ({
-			materia: seleccion.asignatura,
-			groupValue: seleccion.groupValue
-		}));
-		localStorage.setItem('localHorario', JSON.stringify(data));
+	hasValidStorage() {
+		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
+
+		if (!storedData) return false;
+		return true;
+		/*
+		const seleccionHorario: { asignatura: Asignatura; groupValue: string }[] =
+			JSON.parse(storedData);
+		for (const seleccion of seleccionHorario) {
+			if (!seleccion.asignatura || !seleccion.groupValue) {
+				return false;
+			}
+		}
+
+		return true;
+		*/
 	}
 
-	loadFromStorage() {
-		const storedData = localStorage.getItem('localHorario');
+	saveToStorage() {
+		const data = Object.values(this.seleccion).map((seleccion) => ({
+			asignatura: seleccion.asignatura,
+			groupValue: seleccion.groupValue
+		}));
+		localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
+	}
+
+	async loadFromStorage() {
+		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
 
 		if (!storedData) return false;
 
-		const seleccionHorario = JSON.parse(storedData);
+		const seleccionHorario: { asignatura: Asignatura; groupValue: string }[] =
+			JSON.parse(storedData);
+
+		const carreras: string[] = [
+			...new Set(seleccionHorario.map(({ asignatura }) => asignatura.carrera))
+		];
+		await Promise.all(
+			carreras.map(async (carrera) => {
+				return await storeAsignaturas.loadAsignaturasCarrera(carrera);
+			})
+		);
+
 		for (const seleccion of seleccionHorario) {
-			this.agregarAsignatura(seleccion.materia);
-			this.asignarHorario(seleccion.materia, seleccion.groupValue);
+			this.agregarAsignatura(seleccion.asignatura);
+			this.asignarHorario(seleccion.asignatura, seleccion.groupValue);
 		}
 	}
 

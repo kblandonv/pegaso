@@ -6,6 +6,7 @@
 	import BigHr from '$components/UI/BigHr.svelte';
 	import Badge from '$components/UI/Badge.svelte';
 	import Container from '$components/UI/Container.svelte';
+	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
 </script>
 
 <Container>
@@ -91,7 +92,7 @@
 	<div class="flex justify-between items-center mb-2">
 		<div class="flex gap-4 items-center">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
-			<Badge>{controllerFiltro.asignaturasFiltradas.length}</Badge>
+			<Badge>{storeAsignaturas.asignaturasFiltradas.length}</Badge>
 		</div>
 
 		<div class="text-sm font-mono" use:tooltipAction={'Última actualización de cupos'}>

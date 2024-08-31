@@ -1,34 +1,11 @@
 <script lang="ts">
-	import type { Asignatura } from '$src/lib/types';
-	import { tipologias } from '$src/lib/utils/enums';
-
-	import { controllerFiltro } from '$src/lib/controllers/controllerFiltro.svelte';
 	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
 	import { detailsAction } from '$src/lib/actions/details';
 	import ListadoRow from './ListadoRow.svelte';
-
-	let asignaturasFiltradas: Asignatura[] = $derived.by(() => {
-		if (Object.keys(storeAsignaturas.data).length === 0) {
-			return [];
-		}
-
-		const recordCarrera =
-			storeAsignaturas.data[controllerFiltro.valueFacultad]?.[controllerFiltro.valueCarrera];
-
-		if (controllerFiltro.valueTipologia === tipologias.TIPOLOGIA_TODAS) {
-			return recordCarrera.asignaturas.filter(
-				({ tipologia }) => tipologia !== tipologias.TIPOLOGIA_TODAS
-			);
-		}
-
-		return recordCarrera.asignaturas.filter(
-			({ tipologia }) => tipologia === controllerFiltro.valueTipologia
-		);
-	});
 </script>
 
 <section class="w-full mt-4">
-	{#if asignaturasFiltradas.length === 0}
+	{#if storeAsignaturas.asignaturasFiltradas.length === 0}
 		<div class="row mt-3">
 			<div class="p-0"><span>Por favor seleccione asignaturas...</span></div>
 		</div>
@@ -48,7 +25,7 @@
 			</div>
 
 			<div id="listado" class="mt-3 p-0">
-				{#each asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
+				{#each storeAsignaturas.asignaturasFiltradas as asignatura (`${asignatura.facultad}-${asignatura.carrera}-${asignatura.codigo}`)}
 					<ListadoRow {asignatura} />
 				{/each}
 			</div>

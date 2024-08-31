@@ -1,6 +1,5 @@
-import { dbController } from '$db/mongo';
+import { tipologias } from '$lib/utils/enums';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
-import { tipologias } from '../utils/enums';
 
 class ControllerFiltro implements ControllerFiltro {
 	listado: Record<string, Record<string, string[]>> = $state({});
@@ -26,16 +25,9 @@ class ControllerFiltro implements ControllerFiltro {
 	changeCarrera() {
 		this.valueTipologia = '';
 	}
-	asignaturasFiltradas = [];
 
 	async searchAsignaturas() {
-		const recordCarrera = await dbController.getAsignaturas(this.valueCarrera);
-
-		if (!storeAsignaturas.data.hasOwnProperty(this.valueFacultad)) {
-			storeAsignaturas.data[this.valueFacultad] = {};
-		}
-
-		storeAsignaturas.data[this.valueFacultad][this.valueCarrera] = recordCarrera;
+		await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
 	}
 }
 

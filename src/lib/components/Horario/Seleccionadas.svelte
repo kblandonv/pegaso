@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Asignatura } from '$src/lib/types';
-
 	import { flip } from 'svelte/animate';
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { onMount } from 'svelte';
@@ -12,7 +10,7 @@
 
 	let totalCreditos = $derived(
 		Object.values(storeHorario.seleccion).reduce(
-			(acc, obj) => acc + parseInt(obj.asignatura?.creditos ?? 0),
+			(acc, seleccionItem) => acc + seleccionItem.asignatura.creditos,
 			0
 		)
 	);
@@ -20,12 +18,12 @@
 	onMount(() => {
 		if (!browser) return;
 
-		/*
-		const hasHorario = storeHorario.loadFromStorage();
-		if (!hasHorario) {
-			storeHorario.saveToStorage();
+		if (storeHorario.hasValidStorage()) {
+			const hasHorario = storeHorario.loadFromStorage();
+			if (!hasHorario) {
+				storeHorario.saveToStorage();
+			}
 		}
-			*/
 	});
 </script>
 
