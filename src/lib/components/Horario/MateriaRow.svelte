@@ -1,12 +1,17 @@
 <script lang="ts">
-	import type { Asignatura } from '$src/lib/types';
+	import type { Asignatura, Grupo } from '$src/lib/types';
 	let { asignatura }: { asignatura: Asignatura } = $props();
 
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
 	let selectedGrupo = $derived(storeHorario.seleccion[asignatura.codigo].grupo);
-	let agrupado = $derived(Object.groupBy(asignatura.grupos, ({ profesor }) => profesor));
+	let agrupado: [string, Grupo[]][] = $derived(
+		Object.entries(Object.groupBy(asignatura.grupos, ({ profesor }) => profesor)) as [
+			string,
+			Grupo[]
+		][]
+	);
 	const initValue = storeHorario.seleccion[asignatura.codigo].groupValue;
 
 	function handleChangeGrupo(e: any) {
@@ -47,12 +52,12 @@
 	<select class="control-select" onchange={handleChangeGrupo} value={initValue}>
 		<option value="">No seleccionado</option>
 
-		{#each Object.entries(agrupado) as entriesDocente (entriesDocente[0])}
-			<optgroup label={entriesDocente[0]}>
-				{#each entriesDocente[1] as grupo (grupo.grupo)}
+		{#each agrupado as [docente, grupos] (docente)}
+			<optgroup label={docente}>
+				{#each grupos as grupo (grupo.grupo)}
 					{@const isDisponible = storeHorario.verificarHorario(asignatura.codigo, grupo.horarios)}
 					<option
-						title={isDisponible !== true && `Conflicto: ${isDisponible.nombre}`}
+						title={isDisponible === true ? '' : `Conflicto: ${isDisponible.nombre}`}
 						disabled={isDisponible !== true}
 						value={grupo.grupo}>{grupo.grupo}</option
 					>

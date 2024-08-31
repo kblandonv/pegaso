@@ -77,7 +77,8 @@ class StoreHorario {
 		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
 
 		if (!storedData) return false;
-		const seleccionHorario: { asignatura: Asignatura; groupValue: string }[] = JSON.parse(storedData);
+		const seleccionHorario: { asignatura: Asignatura; groupValue: string }[] =
+			JSON.parse(storedData);
 
 		if (seleccionHorario.length === 0) {
 			return false;
