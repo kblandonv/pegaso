@@ -86,17 +86,13 @@ class StoreHorario {
 			return false;
 		}
 
-		return true;
-		/*
-		
 		for (const seleccion of seleccionHorario) {
-			if (!seleccion.asignatura || !seleccion.groupValue) {
+			if (!("asignatura" in seleccion) || !("groupValue" in seleccion)) {
 				return false;
 			}
 		}
 
 		return true;
-		*/
 	}
 
 	saveToStorage() {
