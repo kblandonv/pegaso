@@ -28,7 +28,7 @@ class SeleccionItem implements SeleccionItemInterface {
 	} = $state({ facultad: '', carrera: '', codigo: '' });
 	groupValue: string = $state('');
 	grupo: Grupo = $derived.by(() => {
-		if (this.groupValue && this.asignatura) {
+		if (this.groupValue && Object.keys(this.asignatura).length > 0) {
 			return (
 				this.asignatura.grupos.find((grupo) => grupo.grupo === this.groupValue) || ({} as Grupo)
 			);
@@ -164,7 +164,7 @@ class StoreHorario {
 		this.limpiarHorario(asignatura);
 
 		// Si no hay un grupo o se deselecciono, limpiar horario
-		if (!groupValue) {
+		if (groupValue === '') {
 			this.seleccion[asignatura.codigo].horarios = [];
 			return;
 		}

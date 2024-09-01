@@ -42,7 +42,6 @@ export function createGraphDistribucionCupos(
 	asignatura: AsignaturaAnalizada,
 	grupo: Grupo | null
 ) {
-
 	const total = asignatura.total;
 	const labels = Object.keys(total);
 

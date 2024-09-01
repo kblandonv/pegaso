@@ -76,7 +76,7 @@
 	}}
 >
 	<i class="bi bi-ui-checks text-purple-500"></i>
-	{selectedGrupo && selectedGrupo.profesor}
+	{Object.keys(selectedGrupo).length > 0 ? selectedGrupo.profesor : ''}
 </button>
 
 <button
@@ -87,7 +87,7 @@
 	}}
 >
 	<i class="bi bi-graph-down text-purple-500"></i>
-	<span>{selectedGrupo && selectedGrupo.cupos}</span>
+	<span>{Object.keys(selectedGrupo).length > 0 ? selectedGrupo.cupos : ''}</span>
 </button>
 
 <div class="col-limit w-12 justify-center content-center px-3">
