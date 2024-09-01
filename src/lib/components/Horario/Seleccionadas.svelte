@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
 	import { storeHorario } from '$lib/stores/horario.svelte';
-	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-	import { toastController } from '$src/lib/controllers/toastController.svelte';
 
 	import MateriaRow from './MateriaRow.svelte';
 	import BigHr from '$components/UI/BigHr.svelte';
@@ -15,19 +12,6 @@
 			0
 		)
 	);
-
-	onMount(() => {
-		if (!browser) return;
-
-		if (storeHorario.hasValidStorage()) {
-			const hasHorario = storeHorario.loadFromStorage();
-			if (!hasHorario) {
-				storeHorario.saveToStorage();
-			}
-
-			toastController.addMensaje('Horario cargado desde el almacenamiento local.');
-		}
-	});
 </script>
 
 <div class="flex justify-between items-center mb-2">

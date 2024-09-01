@@ -49,16 +49,27 @@ class StoreAsignaturas {
 	}
 
 	async initMongo() {
-		const collAsignaturas = dbController.db.db('asignaturas').collection('asignaturas');
+		const collAsignaturas = dbController.db.db('asignaturas').collection('carreras');
 
 		let count = 0;
 		for await (const change of collAsignaturas.watch()) {
+			if (
+				change.operationType !== 'replace' &&
+				change.operationType !== 'insert' &&
+				change.operationType !== 'update'
+			) {
+				continue;
+			}
+
 			count += 1;
 
 			const { documentKey, fullDocument } = change;
-			const facultad = documentKey._id;
+			const facultad = fullDocument.facultad;
+			const carrera = documentKey._id;
+
 			delete fullDocument._id;
-			this.data[facultad] = fullDocument;
+
+			this.data[facultad][carrera] = fullDocument;
 
 			if (count === 5) {
 				this.dispatchUpdated();

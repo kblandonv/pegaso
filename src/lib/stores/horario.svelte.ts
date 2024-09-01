@@ -1,6 +1,8 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
 import type { Asignatura, Grupo, Horario } from '$lib/types';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
+import { browser } from '$app/environment';
+import { toastController } from '$src/lib/controllers/toastController.svelte';
 
 const LOCALSTORAGE_KEY = 'localHorario';
 
@@ -73,7 +75,7 @@ class StoreHorario {
 		)
 	);
 
-	hasValidStorage() {
+	hasValidStorage(): boolean {
 		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
 
 		if (!storedData) return false;
@@ -188,6 +190,18 @@ class StoreHorario {
 			}
 		}
 		return true;
+	}
+
+	constructor() {
+		if (!browser) return;
+
+		if (this.hasValidStorage() === false) {
+			return;
+		}
+
+		this.loadFromStorage();
+		this.saveToStorage();
+		toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 	}
 }
 
