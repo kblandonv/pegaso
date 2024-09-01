@@ -1,5 +1,4 @@
 import { dbController } from '$db/mongo';
-
 import type { StoreAsignaturasInterface, Asignatura, Metadata, RecordCarrera } from '$lib/types';
 import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 import { tipologias } from '$src/lib/utils/enums';
@@ -34,8 +33,15 @@ class StoreAsignaturas {
 		);
 	});
 
-	dispatchUpdated() {
-		this.updated = true;
+	hasCarrera(facultad: string, carrera: string): boolean {
+		const hasFacultad = facultad in this.data;
+
+		if (!hasFacultad) {
+			return false;
+		}
+
+		const hasCarrera = carrera in this.data[facultad];
+		return hasCarrera;
 	}
 
 	async setAsignaturasCarrera(facultad: string, carrera: string, recordCarrera: RecordCarrera) {
@@ -49,36 +55,6 @@ class StoreAsignaturas {
 	async loadAsignaturasCarrera(carrera: string) {
 		const recordCarrera = await dbController.getAsignaturas(carrera);
 		this.setAsignaturasCarrera(recordCarrera.facultad, carrera, recordCarrera);
-	}
-
-	async initMongo() {
-		const collAsignaturas = dbController.db.db('asignaturas').collection('carreras');
-
-		let count = 0;
-		for await (const change of collAsignaturas.watch()) {
-			if (
-				change.operationType !== 'replace' &&
-				change.operationType !== 'insert' &&
-				change.operationType !== 'update'
-			) {
-				continue;
-			}
-
-			count += 1;
-
-			const { documentKey, fullDocument } = change;
-			const facultad = fullDocument.facultad;
-			const carrera = documentKey._id;
-
-			delete fullDocument._id;
-
-			this.setAsignaturasCarrera(facultad, carrera, fullDocument as RecordCarrera);
-
-			if (count === 5) {
-				this.dispatchUpdated();
-				count = 0;
-			}
-		}
 	}
 }
 

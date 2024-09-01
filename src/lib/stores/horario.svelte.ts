@@ -3,6 +3,7 @@ import type { Asignatura, Grupo, Horario } from '$lib/types';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
 import { browser } from '$app/environment';
 import { toastController } from '$src/lib/controllers/toastController.svelte';
+import { changeStreamController } from './changeStreamController';
 
 const LOCALSTORAGE_KEY = 'localHorario';
 
@@ -124,18 +125,24 @@ class StoreHorario {
 			this.agregarAsignatura(seleccion.asignatura);
 			this.asignarHorario(seleccion.asignatura, seleccion.groupValue);
 		}
+
+		this.saveToStorage();
 	}
 
 	/* Metodos asignaturas seleccionadas */
 	agregarAsignatura(asignatura: Asignatura) {
 		this.seleccion[asignatura.codigo] = new SeleccionItem(asignatura);
 		this.saveToStorage();
+
+		changeStreamController.updateChangeStreamListener();
 	}
 
 	eliminarAsignatura(asignatura: Asignatura) {
 		this.limpiarHorario(asignatura);
 		delete this.seleccion[asignatura.codigo];
 		this.saveToStorage();
+
+		changeStreamController.updateChangeStreamListener();
 	}
 
 	limpiarHorario(asignatura: Asignatura) {
@@ -188,6 +195,11 @@ class StoreHorario {
 		return true;
 	}
 
+	getCarrerasSeleccionadas(): string[] {
+		const carreras = Object.values(this.seleccion).map(({ asignatura }) => asignatura.carrera);
+		return [...new Set(carreras)];
+	}
+
 	constructor() {
 		if (!browser) return;
 
@@ -196,7 +208,6 @@ class StoreHorario {
 		}
 
 		this.loadFromStorage();
-		this.saveToStorage();
 		toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 	}
 }
