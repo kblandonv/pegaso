@@ -87,7 +87,7 @@ class StoreHorario {
 		}
 
 		for (const seleccion of seleccionHorario) {
-			if (!("asignatura" in seleccion) || !("groupValue" in seleccion)) {
+			if (!('asignatura' in seleccion) || !('groupValue' in seleccion)) {
 				return false;
 			}
 		}

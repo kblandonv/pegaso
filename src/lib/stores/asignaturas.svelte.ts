@@ -1,6 +1,6 @@
 import { dbController } from '$db/mongo';
 
-import type { StoreAsignaturasInterface, Asignatura, Metadata } from '$lib/types';
+import type { StoreAsignaturasInterface, Asignatura, Metadata, RecordCarrera } from '$lib/types';
 import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 import { tipologias } from '$src/lib/utils/enums';
 
@@ -38,14 +38,17 @@ class StoreAsignaturas {
 		this.updated = true;
 	}
 
-	async loadAsignaturasCarrera(carrera: string) {
-		const recordCarrera = await dbController.getAsignaturas(carrera);
-
-		if (!this.data.hasOwnProperty(recordCarrera.facultad)) {
-			this.data[recordCarrera.facultad] = {};
+	async setAsignaturasCarrera(facultad: string, carrera: string, recordCarrera: RecordCarrera) {
+		if (!this.data.hasOwnProperty(facultad)) {
+			this.data[facultad] = {};
 		}
 
-		this.data[recordCarrera.facultad][carrera] = recordCarrera;
+		this.data[facultad][carrera] = recordCarrera;
+	}
+
+	async loadAsignaturasCarrera(carrera: string) {
+		const recordCarrera = await dbController.getAsignaturas(carrera);
+		this.setAsignaturasCarrera(recordCarrera.facultad, carrera, recordCarrera);
 	}
 
 	async initMongo() {
@@ -69,7 +72,7 @@ class StoreAsignaturas {
 
 			delete fullDocument._id;
 
-			this.data[facultad][carrera] = fullDocument;
+			this.setAsignaturasCarrera(facultad, carrera, fullDocument as RecordCarrera);
 
 			if (count === 5) {
 				this.dispatchUpdated();
