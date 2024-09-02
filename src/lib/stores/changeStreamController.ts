@@ -3,13 +3,37 @@ import { toastController } from '../controllers/toastController.svelte';
 import { storeAsignaturas } from './asignaturas.svelte';
 import { storeHorario } from './horario.svelte';
 import { controllerFiltro } from '../controllers/controllerFiltro.svelte';
+import { browser } from '$app/environment';
 
-import type { RecordCarrera } from '$lib/types';
+import type { RecordCarrera, Metadata } from '$lib/types';
 
 class ChangeStreamController {
 	changeStreamCarreras: AsyncGenerator<Realm.Services.MongoDB.ChangeEvent<any>, any, any> | null =
 		null;
 	carrerasToWatch: string[] = [];
+
+	constructor() {
+		if (!browser) return;
+
+		this.watchMetadata();
+	}
+
+	async watchMetadata() {
+		const collConfig = dbController.db.db('asignaturas').collection('config');
+
+		for await (const change of collConfig.watch({ ids: ['metadata'] })) {
+			if (
+				change.operationType !== 'replace' &&
+				change.operationType !== 'insert' &&
+				change.operationType !== 'update'
+			) {
+				continue;
+			}
+
+			const metadata = change.fullDocument as Metadata;
+			storeAsignaturas.metadata.lastUpdated = metadata.lastUpdated;
+		}
+	}
 
 	async listenChanges(carrerasToWatch: string[] = []) {
 		let count = 0;
