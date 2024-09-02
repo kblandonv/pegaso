@@ -59,7 +59,7 @@ class ControllerFiltro implements ControllerFiltro {
 		// Si la busqueda no esta en cache, no se esta visualizando nada
 		if (isCachedSearch === false) return;
 
-		if (this.isNewSearch) {
+		if (this.isNewSearch && false === changeStreamController.hasDependencia(this.valueCarrera)) {
 			// Si esta en cache actualiza la informacion
 			await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
 			toastController.addMensaje('Informacion actualizada ...');
