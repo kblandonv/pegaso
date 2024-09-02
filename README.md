@@ -11,7 +11,7 @@ Contributions are always welcome!.
 ### Tools used and Tech Stack
 
 <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=svelte,sass,js,bootstrap,html&theme=dark" />
+    <img src="https://skillicons.dev/icons?i=ts,svelte,mongodb,sass,tailwind&theme=dark" />
 </a>
 
 ## Authors
