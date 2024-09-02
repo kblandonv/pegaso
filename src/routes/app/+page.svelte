@@ -5,7 +5,6 @@
 
 	import { storeAsignaturas } from '$lib/stores/asignaturas.svelte';
 	import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
-	import { toastController } from '$src/lib/controllers/toastController.svelte.js';
 	import { storeAnalisis } from '$src/lib/stores/analisis.svelte';
 
 	data.listado.then((listado) => {
@@ -13,13 +12,6 @@
 	});
 	data.metadata.then((metadata) => {
 		storeAsignaturas.metadata = metadata;
-	});
-
-	$effect(() => {
-		if (storeAsignaturas.updated) {
-			toastController.addMensaje('Cupos actualizados!');
-			storeAsignaturas.updated = false;
-		}
 	});
 
 	import '$src/styles/horario.scss';
@@ -130,8 +122,6 @@
 		{/each}
 	</div>
 </section>
-
-<div id="toast-container" class="toast-container fixed bottom-0 end-0 p-3"></div>
 
 <Toast />
 

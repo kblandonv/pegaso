@@ -1,6 +1,9 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
 import type { Asignatura, Grupo, Horario } from '$lib/types';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
+import { browser } from '$app/environment';
+import { toastController } from '$src/lib/controllers/toastController.svelte';
+import { changeStreamController } from './changeStreamController';
 
 const LOCALSTORAGE_KEY = 'localHorario';
 
@@ -25,7 +28,7 @@ class SeleccionItem implements SeleccionItemInterface {
 	} = $state({ facultad: '', carrera: '', codigo: '' });
 	groupValue: string = $state('');
 	grupo: Grupo = $derived.by(() => {
-		if (this.groupValue && this.asignatura) {
+		if (this.groupValue && Object.keys(this.asignatura).length > 0) {
 			return (
 				this.asignatura.grupos.find((grupo) => grupo.grupo === this.groupValue) || ({} as Grupo)
 			);
@@ -73,7 +76,7 @@ class StoreHorario {
 		)
 	);
 
-	hasValidStorage() {
+	hasValidStorage(): boolean {
 		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
 
 		if (!storedData) return false;
@@ -84,17 +87,13 @@ class StoreHorario {
 			return false;
 		}
 
-		return true;
-		/*
-		
 		for (const seleccion of seleccionHorario) {
-			if (!seleccion.asignatura || !seleccion.groupValue) {
+			if (!('asignatura' in seleccion) || !('groupValue' in seleccion)) {
 				return false;
 			}
 		}
 
 		return true;
-		*/
 	}
 
 	saveToStorage() {
@@ -126,18 +125,24 @@ class StoreHorario {
 			this.agregarAsignatura(seleccion.asignatura);
 			this.asignarHorario(seleccion.asignatura, seleccion.groupValue);
 		}
+
+		this.saveToStorage();
 	}
 
 	/* Metodos asignaturas seleccionadas */
 	agregarAsignatura(asignatura: Asignatura) {
 		this.seleccion[asignatura.codigo] = new SeleccionItem(asignatura);
 		this.saveToStorage();
+
+		changeStreamController.updateChangeStreamListener();
 	}
 
 	eliminarAsignatura(asignatura: Asignatura) {
 		this.limpiarHorario(asignatura);
 		delete this.seleccion[asignatura.codigo];
 		this.saveToStorage();
+
+		changeStreamController.updateChangeStreamListener();
 	}
 
 	limpiarHorario(asignatura: Asignatura) {
@@ -159,7 +164,7 @@ class StoreHorario {
 		this.limpiarHorario(asignatura);
 
 		// Si no hay un grupo o se deselecciono, limpiar horario
-		if (!groupValue) {
+		if (groupValue === '') {
 			this.seleccion[asignatura.codigo].horarios = [];
 			return;
 		}
@@ -188,6 +193,22 @@ class StoreHorario {
 			}
 		}
 		return true;
+	}
+
+	getCarrerasSeleccionadas(): string[] {
+		const carreras = Object.values(this.seleccion).map(({ asignatura }) => asignatura.carrera);
+		return [...new Set(carreras)];
+	}
+
+	constructor() {
+		if (!browser) return;
+
+		if (this.hasValidStorage() === false) {
+			return;
+		}
+
+		this.loadFromStorage();
+		toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 	}
 }
 

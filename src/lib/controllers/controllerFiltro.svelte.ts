@@ -28,6 +28,14 @@ class ControllerFiltro implements ControllerFiltro {
 		this.valueTipologia = '';
 	}
 
+	getBusquedaActual() {
+		if (this.valueCarrera === '') {
+			return '';
+		}
+		const isSearched = storeAsignaturas.hasCarrera(this.valueFacultad, this.valueCarrera);
+		return isSearched ? this.valueCarrera : '';
+	}
+
 	async searchAsignaturas() {
 		toastController.addMensaje('Buscando asignaturas...');
 		await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
