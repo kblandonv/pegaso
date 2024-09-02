@@ -3,7 +3,6 @@
 	let { asignatura }: { asignatura: Asignatura } = $props();
 
 	import { Graficos } from '$src/lib/utils/enums';
-
 	import { storeHorario } from '$lib/stores/horario.svelte';
 	import { storeAnalisis } from '$lib/stores/analisis.svelte';
 
@@ -14,7 +13,6 @@
 			Grupo[]
 		][]
 	);
-	const initValue = storeHorario.seleccion[asignatura.codigo].groupValue;
 
 	function handleChangeGrupo(e: any) {
 		storeHorario.asignarHorario(asignatura, e.target.value as string);
@@ -51,7 +49,11 @@
 </div>
 
 <div class="col justify-center content-center text-sm px-3">
-	<select class="control-select" onchange={handleChangeGrupo} value={initValue}>
+	<select
+		class="control-select"
+		onchange={handleChangeGrupo}
+		value={storeHorario.seleccion[asignatura.codigo].groupValue}
+	>
 		<option value="">No seleccionado</option>
 
 		{#each agrupado as [docente, grupos] (docente)}
