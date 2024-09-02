@@ -27,9 +27,9 @@
 			<select
 				id="facultad"
 				class="control-select mt-2"
-				bind:value={controllerFiltro.valueFacultad}
-				onchange={() => {
-					controllerFiltro.changeFacultad();
+				value={controllerFiltro.valueFacultad}
+				onchange={function () {
+					controllerFiltro.changeFacultad(this.value);
 				}}
 			>
 				{#if Object.keys(controllerFiltro.listado).length === 0}
@@ -50,9 +50,9 @@
 			<select
 				id="carrera"
 				class="control-select mt-2"
-				bind:value={controllerFiltro.valueCarrera}
-				onchange={() => {
-					controllerFiltro.changeCarrera();
+				value={controllerFiltro.valueCarrera}
+				onchange={function () {
+					controllerFiltro.changeCarrera(this.value);
 				}}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
@@ -69,7 +69,10 @@
 			<select
 				id="tipologia"
 				class="control-select mt-2"
-				bind:value={controllerFiltro.valueTipologia}
+				value={controllerFiltro.valueTipologia}
+				onchange={function () {
+					controllerFiltro.changeTipologia(this.value);
+				}}
 			>
 				<option selected value=""> -- Seleccionar -- </option>
 				{#each controllerFiltro.listadoTipologias as tipologia (tipologia)}

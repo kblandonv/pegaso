@@ -3,18 +3,40 @@ import { toastController } from '../controllers/toastController.svelte';
 import { storeAsignaturas } from './asignaturas.svelte';
 import { storeHorario } from './horario.svelte';
 import { controllerFiltro } from '../controllers/controllerFiltro.svelte';
+import { browser } from '$app/environment';
 
-import type { RecordCarrera } from '$lib/types';
+import type { RecordCarrera, Metadata } from '$lib/types';
 
 class ChangeStreamController {
 	changeStreamCarreras: AsyncGenerator<Realm.Services.MongoDB.ChangeEvent<any>, any, any> | null =
 		null;
 	carrerasToWatch: string[] = [];
 
+	constructor() {
+		if (!browser) return;
+
+		this.watchMetadata();
+	}
+
+	async watchMetadata() {
+		const collConfig = dbController.db.db('asignaturas').collection('config');
+
+		for await (const change of collConfig.watch({ ids: ['metadata'] })) {
+			if (
+				change.operationType !== 'replace' &&
+				change.operationType !== 'insert' &&
+				change.operationType !== 'update'
+			) {
+				continue;
+			}
+
+			const metadata = change.fullDocument as Metadata;
+			storeAsignaturas.metadata.lastUpdated = metadata.lastUpdated;
+		}
+	}
+
 	async listenChanges(carrerasToWatch: string[] = []) {
 		let count = 0;
-
-		console.log('listening:', carrerasToWatch);
 
 		const collAsignaturas = dbController.db.db('asignaturas').collection('carreras');
 		this.changeStreamCarreras = collAsignaturas.watch({ ids: carrerasToWatch });
@@ -42,15 +64,12 @@ class ChangeStreamController {
 				count = 0;
 			}
 		}
-
-		console.log('Stop listening');
 	}
 
 	async deleteCurrentStream() {
 		if (this.changeStreamCarreras !== null) {
-			console.log('Deleting listener');
-
 			this.changeStreamCarreras.return(null);
+			this.changeStreamCarreras = null;
 		}
 	}
 
@@ -74,8 +93,7 @@ class ChangeStreamController {
 	}
 
 	getDependenciasToWatch(): string[] {
-		const dependenciasSeleccion = storeHorario.getCarrerasSeleccionadas();
-		const dependencias = [...dependenciasSeleccion];
+		const dependencias = storeHorario.getCarrerasSeleccionadas();
 
 		const dependenciaBusqueda = controllerFiltro.getBusquedaActual();
 		if (dependenciaBusqueda === '') {

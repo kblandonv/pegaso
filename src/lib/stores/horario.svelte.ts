@@ -1,8 +1,7 @@
 import { parseHorario, getColor } from '$lib/utils/utils';
 import type { Asignatura, Grupo, Horario } from '$lib/types';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
-import { browser } from '$app/environment';
-import { toastController } from '$src/lib/controllers/toastController.svelte';
+
 import { changeStreamController } from './changeStreamController';
 
 const LOCALSTORAGE_KEY = 'localHorario';
@@ -104,7 +103,7 @@ class StoreHorario {
 		localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
 	}
 
-	async loadFromStorage() {
+	async loadFromStorage(store: any): Promise<boolean> {
 		const storedData = localStorage.getItem(LOCALSTORAGE_KEY);
 
 		if (!storedData) return false;
@@ -117,7 +116,7 @@ class StoreHorario {
 		];
 		await Promise.all(
 			carreras.map(async (carrera) => {
-				return await storeAsignaturas.loadAsignaturasCarrera(carrera);
+				return await store.loadAsignaturasCarrera(carrera);
 			})
 		);
 
@@ -127,6 +126,8 @@ class StoreHorario {
 		}
 
 		this.saveToStorage();
+
+		return true;
 	}
 
 	/* Metodos asignaturas seleccionadas */
@@ -198,17 +199,6 @@ class StoreHorario {
 	getCarrerasSeleccionadas(): string[] {
 		const carreras = Object.values(this.seleccion).map(({ asignatura }) => asignatura.carrera);
 		return [...new Set(carreras)];
-	}
-
-	constructor() {
-		if (!browser) return;
-
-		if (this.hasValidStorage() === false) {
-			return;
-		}
-
-		this.loadFromStorage();
-		toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 	}
 }
 

@@ -1,7 +1,7 @@
 import { tipologias } from '$lib/utils/enums';
 import { storeAsignaturas } from '$stores/asignaturas.svelte';
-import { dbController } from '../db/mongo';
 import { toastController } from './toastController.svelte';
+import { changeStreamController } from '../stores/changeStreamController';
 
 class ControllerFiltro implements ControllerFiltro {
 	listado: Record<string, Record<string, string[]>> = $state({});
@@ -19,27 +19,61 @@ class ControllerFiltro implements ControllerFiltro {
 			: []
 	);
 
-	changeFacultad() {
-		this.valueCarrera = '';
-		this.valueTipologia = '';
+	isNewSearch: boolean = true;
+
+	changeFacultad(valueFacultad: string) {
+		this.changeCarrera('');
+		this.valueFacultad = valueFacultad;
 	}
 
-	changeCarrera() {
+	changeCarrera(valueCarrera: string) {
 		this.valueTipologia = '';
+		this.valueCarrera = valueCarrera;
+
+		this.isNewSearch = true;
+		this.handleVisualizationChange();
 	}
 
-	getBusquedaActual() {
-		if (this.valueCarrera === '') {
-			return '';
-		}
-		const isSearched = storeAsignaturas.hasCarrera(this.valueFacultad, this.valueCarrera);
-		return isSearched ? this.valueCarrera : '';
+	changeTipologia(value: string) {
+		this.valueTipologia = value;
+
+		this.handleVisualizationChange();
+		this.isNewSearch = false;
 	}
 
 	async searchAsignaturas() {
 		toastController.addMensaje('Buscando asignaturas...');
 		await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
-		storeAsignaturas.metadata = await dbController.getMetadata();
+		changeStreamController.updateChangeStreamListener();
+	}
+
+	async handleVisualizationChange() {
+		// No se esta visualizando nada
+		if (this.valueCarrera === '' || this.valueTipologia === '') {
+			changeStreamController.updateChangeStreamListener();
+			return;
+		}
+
+		const isCachedSearch = storeAsignaturas.hasCarrera(this.valueFacultad, this.valueCarrera);
+
+		// Si la busqueda no esta en cache, no se esta visualizando nada
+		if (isCachedSearch === false) return;
+
+		if (this.isNewSearch) {
+			// Si esta en cache actualiza la informacion
+			await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
+			toastController.addMensaje('Informacion actualizada ...');
+		}
+
+		// Actualiza las dependencias
+		changeStreamController.updateChangeStreamListener();
+	}
+
+	getBusquedaActual() {
+		if (this.valueCarrera === '' || this.valueTipologia === '') return '';
+
+		const isSearched = storeAsignaturas.hasCarrera(this.valueFacultad, this.valueCarrera);
+		return isSearched ? this.valueCarrera : '';
 	}
 }
 

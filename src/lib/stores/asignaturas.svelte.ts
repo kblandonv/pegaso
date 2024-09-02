@@ -2,6 +2,9 @@ import { dbController } from '$db/mongo';
 import type { StoreAsignaturasInterface, Asignatura, Metadata, RecordCarrera } from '$lib/types';
 import { controllerFiltro } from '$lib/controllers/controllerFiltro.svelte';
 import { tipologias } from '$src/lib/utils/enums';
+import { browser } from '$app/environment';
+import { toastController } from '$src/lib/controllers/toastController.svelte';
+import { storeHorario } from './horario.svelte';
 
 class StoreAsignaturas {
 	metadata: Metadata = $state({
@@ -55,6 +58,17 @@ class StoreAsignaturas {
 	async loadAsignaturasCarrera(carrera: string) {
 		const recordCarrera = await dbController.getAsignaturas(carrera);
 		this.setAsignaturasCarrera(recordCarrera.facultad, carrera, recordCarrera);
+	}
+
+	constructor() {
+		if (!browser) return;
+
+		if (storeHorario.hasValidStorage() === false) {
+			return;
+		}
+
+		storeHorario.loadFromStorage(this);
+		toastController.addMensaje('Horario cargado desde el almacenamiento local.');
 	}
 }
 
