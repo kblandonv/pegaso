@@ -38,8 +38,6 @@ class ChangeStreamController {
 	async listenChanges(carrerasToWatch: string[] = []) {
 		let count = 0;
 
-		console.log('listening:', carrerasToWatch);
-
 		const collAsignaturas = dbController.db.db('asignaturas').collection('carreras');
 		this.changeStreamCarreras = collAsignaturas.watch({ ids: carrerasToWatch });
 
@@ -66,15 +64,12 @@ class ChangeStreamController {
 				count = 0;
 			}
 		}
-
-		console.log('Stop listening');
 	}
 
 	async deleteCurrentStream() {
 		if (this.changeStreamCarreras !== null) {
-			console.log('Deleting listener');
-
 			this.changeStreamCarreras.return(null);
+			this.changeStreamCarreras = null;
 		}
 	}
 

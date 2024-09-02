@@ -61,7 +61,6 @@ class ControllerFiltro implements ControllerFiltro {
 
 		if (this.isNewSearch) {
 			// Si esta en cache actualiza la informacion
-			console.log(this.isNewSearch);
 			await storeAsignaturas.loadAsignaturasCarrera(this.valueCarrera);
 			toastController.addMensaje('Informacion actualizada ...');
 		}
