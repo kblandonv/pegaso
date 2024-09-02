@@ -200,8 +200,6 @@ class StoreHorario {
 		const carreras = Object.values(this.seleccion).map(({ asignatura }) => asignatura.carrera);
 		return [...new Set(carreras)];
 	}
-
-	
 }
 
 export const storeHorario = new StoreHorario();

@@ -98,8 +98,7 @@ class ChangeStreamController {
 	}
 
 	getDependenciasToWatch(): string[] {
-		const dependenciasSeleccion = storeHorario.getCarrerasSeleccionadas();
-		const dependencias = [...dependenciasSeleccion];
+		const dependencias = storeHorario.getCarrerasSeleccionadas();
 
 		const dependenciaBusqueda = controllerFiltro.getBusquedaActual();
 		if (dependenciaBusqueda === '') {
