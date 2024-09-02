@@ -92,6 +92,10 @@ class ChangeStreamController {
 		this.carrerasToWatch = carrerasToWatch;
 	}
 
+	hasDependencia(carrera: string) {
+		return this.carrerasToWatch.includes(carrera);
+	}
+
 	getDependenciasToWatch(): string[] {
 		const dependencias = storeHorario.getCarrerasSeleccionadas();
 
