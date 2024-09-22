@@ -3,6 +3,7 @@
 	import 'tippy.js/dist/tippy.css';
 	import Nav from '$src/lib/components/layout/Nav.svelte';
 	import Footer from '$src/lib/components/layout/Footer.svelte';
+	import { analytics } from '$src/lib/client/firebase';
 </script>
 
 <header class="px-5 md:px-0 mx-auto container">
