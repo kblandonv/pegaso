@@ -23,35 +23,35 @@
 
 	<section class="mt-8">
 		<section class="horario-titulos text-center">
-			<div class="px-4 font-mono font-medium py-2">Hora</div>
-			<div class="px-4 font-mono font-medium py-2">Lunes</div>
-			<div class="px-4 font-mono font-medium py-2">Martes</div>
-			<div class="px-4 font-mono font-medium py-2">Miércoles</div>
-			<div class="px-4 font-mono font-medium py-2">Jueves</div>
-			<div class="px-4 font-mono font-medium py-2">Viernes</div>
-			<div class="px-4 font-mono font-medium py-2">Sábado</div>
-			<div class="px-4 font-mono font-medium py-2">Domingo</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Hora</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Lunes</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Martes</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Miércoles</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Jueves</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Viernes</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Sábado</div>
+			<div class="px-4 font-mono font-medium py-2 truncate">Domingo</div>
 		</section>
 
 		<section class="horario rounded">
 			<div class="horario-horas text-center">
-				<div class="text-sm px-4 py-2.5 text-zinc-500">6:00 - 7:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">7:00 - 8:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">8:00 - 9:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">9:00 - 10:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">10:00 - 11:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">11:00 - 12:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">12:00 - 13:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">13:00 - 14:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">14:00 - 15:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">15:00 - 16:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">16:00 - 17:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">17:00 - 18:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">18:00 - 19:00</div>
-				<div class="text-sm px-4 py-2.5 text-zinc-500">19:00 - 20:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">6:00 - 7:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">7:00 - 8:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">8:00 - 9:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">9:00 - 10:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">10:00 - 11:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">11:00 - 12:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">12:00 - 13:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">13:00 - 14:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">14:00 - 15:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">15:00 - 16:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">16:00 - 17:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">17:00 - 18:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">18:00 - 19:00</div>
+				<div class="text-sm px-4 py-2.5 text-zinc-500 truncate">19:00 - 20:00</div>
 			</div>
 
-			<div class="horario-dias">
+			<div class="horario-dias overflow-hidden">
 				{#each Object.values(storeHorario.seleccion) as seleccion}
 					{#each seleccion.horarios as horario (JSON.stringify(horario))}
 						<CeldaHorario {seleccion} {horario} />

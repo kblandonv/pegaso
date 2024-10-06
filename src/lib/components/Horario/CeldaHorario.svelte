@@ -14,10 +14,10 @@
 
 <div
 	transition:fade={{ duration: 400 }}
-	class={`text-xs px-2 py-2 rounded m-1 transition-all duration-300  dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
+	class={`flex flex-col text-wrap overflow-hidden text-xs px-2 py-2 rounded m-1 transition-all duration-300 dia-${normalizeString(horario.dia)} start-${parseInt(horario.inicio.split(':')[0])} end-${parseInt(horario.fin.split(':')[0])} ${seleccion.color}`}
 >
-	<p class="font-medium">{seleccion.asignatura.nombre}</p>
-	<p class="font-light">{seleccion.groupValue}</p>
+	<span class="flex font-medium">{seleccion.asignatura.nombre}</span>
+	<span class="flex font-light">{seleccion.groupValue}</span>
 </div>
 
 <style>

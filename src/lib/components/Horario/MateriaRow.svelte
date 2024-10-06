@@ -29,7 +29,7 @@
 
 <div class="col rounded px-1">
 	<button
-		class="cursor-pointer bg-purple-100 hover:bg-purple-200 transition-all duration-200 rounded-md w-full h-full"
+		class="py-1 cursor-pointer bg-purple-100 hover:bg-purple-200 transition-all duration-200 rounded-md w-full h-full"
 		data-graph={Graficos.DISTRIBUCION_DOCENTES}
 		onclick={function () {
 			showGrafico(this.dataset.graph as string);
@@ -40,7 +40,7 @@
 	</button>
 </div>
 
-<div id="nombre" class="col-limit px-3 w-3/12 justify-center content-center text-sm">
+<div id="nombre" class="col-limit px-3 md:w-3/12 justify-center content-center text-sm">
 	<span>{asignatura.nombre}</span>
 </div>
 
@@ -71,7 +71,7 @@
 	</select>
 </div>
 <button
-	class="col-limit w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100"
+	class="col-limit md:w-3/12 rounded-lg text-start text-sm px-3 cursor-pointer transition-all duration-500 hover:bg-purple-100"
 	data-graph={Graficos.DOCENTES_RECOMENDADOS}
 	onclick={function () {
 		showGrafico(this.dataset.graph as string);
@@ -82,7 +82,7 @@
 </button>
 
 <button
-	class="col-limit w-1/12 rounded text-center text-sm px-3 transition-all duration-500 hover:bg-purple-100"
+	class="col-limit md:w-1/12 rounded text-center text-sm px-3 transition-all duration-500 hover:bg-purple-100"
 	data-graph={Graficos.DISTRIBUCION_CUPOS}
 	onclick={function () {
 		showGrafico(this.dataset.graph as string);
@@ -92,10 +92,12 @@
 	<span>{Object.keys(selectedGrupo).length > 0 ? selectedGrupo.cupos : ''}</span>
 </button>
 
-<div class="col-limit w-12 justify-center content-center px-3">
+<div class="col-limit md:w-12 justify-center content-center px-3">
 	<button
 		onclick={deleteMateria}
-		class="transition-all duration-300 hover:scale-105 active:scale-95 text-rose-400/80 hover:text-rose-400"
-		><i class="bi bi-x-square-fill text-2xl"></i></button
+		class="flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 rounded bg-rose-400/80 hover:bg-rose-400 text-white/90 w-full"
+		>
+		<i class="bi bi-x text-2xl leading-none mx-0 px-0"></i>
+		</button
 	>
 </div>

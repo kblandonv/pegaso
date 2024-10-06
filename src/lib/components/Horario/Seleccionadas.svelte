@@ -38,7 +38,7 @@
 	<div class="w-full flex flex-col gap-3">
 		{#each Object.entries(storeHorario.seleccion) as [codigo, itemSeleccion] (codigo)}
 			<div
-				class={`flex flex-wrap seleccion p-2 rounded-lg overflow-hidden ${itemSeleccion.color}`}
+				class={`flex flex-col gap-3 md:gap-0 md:flex-row flex-wrap seleccion p-2 rounded-lg overflow-hidden ${itemSeleccion.color}`}
 				animate:flip={{ duration: 200 }}
 			>
 				<MateriaRow asignatura={itemSeleccion.asignatura} />
