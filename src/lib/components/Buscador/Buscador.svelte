@@ -21,7 +21,9 @@
 
 	<BigHr />
 
-	<div class="grid grid-cols-10 gap-6 items-end mt-4 mb-4">
+	<div
+		class="grid grid-cols-1 grid-rows-3 md:grid-cols-10 md:grid-rows-1 gap-6 items-end mt-4 mb-4"
+	>
 		<div class="flex flex-col col-span-3">
 			<label class="font-mono font-medium" for="facultad">Facultad</label>
 			<select
@@ -81,21 +83,22 @@
 			</select>
 		</div>
 
-		<div class="flex">
+		<div class="flex col-span-3 md:col-span-1 w-full">
 			<button
 				onclick={() => controllerFiltro.searchAsignaturas()}
-				class="flex gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5"
+				class="flex w-full justify-center gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5"
 			>
-				<i class="bi bi-search"></i>
-				<span>Buscar</span>
+			<i class="bi bi-search"></i>	
+			<span>Buscar</span>
+				
 			</button>
 		</div>
 	</div>
 
 	<hr class="hr-pink my-8" />
 
-	<div class="flex justify-between items-center mb-2">
-		<div class="flex gap-4 items-center">
+	<div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+		<div class="flex gap-4 items-center mb-2 md:mb-0">
 			<h2 class="text-xl font-bold">Asignaturas</h2>
 			<Badge>{storeAsignaturas.asignaturasFiltradas.length}</Badge>
 		</div>

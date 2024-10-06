@@ -10,7 +10,7 @@
 	<Nav />
 </header>
 
-<div class="background-dots">
+<div class="background-dots overflow-hidden">
 	<main class="px-5 md:px-0 mx-auto container">
 		<slot />
 	</main>

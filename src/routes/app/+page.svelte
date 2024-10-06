@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div class="flex items-center justify-center">
-	<div class="flex bg-violet-500 rounded-xl px-6 py-4 w-4/12">
+	<div class="flex bg-violet-500 rounded-xl px-6 py-4 md:w-4/12">
 		<h1 class="inline-flex gap-2 text-center text-lg text-white">
 			<i class="bi bi-info-circle"></i>
 			El sitio se encuentra en remodelacion, algunas cosas podrian no funcionar correctamente.

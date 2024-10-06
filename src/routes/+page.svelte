@@ -19,7 +19,7 @@
 </svelte:head>
 
 <section class="grid lg:grid-cols-4 place-items-center relative py-10">
-	<div class="col-span-2 w-full">
+	<div class="col-span-2 w-full mb-12 md:mb-0">
 		<span class="inline-flex font-mono text-gradient mb-4 font-medium">By: @imlargo</span>
 
 		<h1 class="font-medium text-4xl md:text-7xl md:w-9/12 mb-4">
