@@ -96,8 +96,7 @@
 	<button
 		onclick={deleteMateria}
 		class="flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 rounded bg-rose-400/80 hover:bg-rose-400 text-white/90 w-full"
-		>
-		<i class="bi bi-x text-2xl leading-none mx-0 px-0"></i>
-		</button
 	>
+		<i class="bi bi-x text-2xl leading-none mx-0 px-0"></i>
+	</button>
 </div>

@@ -88,9 +88,8 @@
 				onclick={() => controllerFiltro.searchAsignaturas()}
 				class="flex w-full justify-center gap-2 bg-purple-500 text-white font-medium rounded-md px-4 py-1.5"
 			>
-			<i class="bi bi-search"></i>	
-			<span>Buscar</span>
-				
+				<i class="bi bi-search"></i>
+				<span>Buscar</span>
 			</button>
 		</div>
 	</div>
