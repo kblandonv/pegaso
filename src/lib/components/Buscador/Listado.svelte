@@ -19,7 +19,9 @@
 				<div class="col p-0 font-mono font-medium">Tipologia</div>
 				<div class="col-limit w-1/12 p-0 font-mono font-medium">
 					<div class="flex justify-end content-center pe-2">
-						<button id="details-button" class="open pe-1"><i class="bi bi-chevron-up"></i></button>
+						<button id="details-button" class="flex items-center justify-center hover:bg-purple-200 rounded px-1 py-1 open">
+							<i class="bi bi-chevron-up leading-none"></i>
+						</button>
 					</div>
 				</div>
 			</div>
