@@ -2,6 +2,16 @@
 	import { storeAsignaturas } from '$src/lib/stores/asignaturas.svelte';
 	import { detailsAction } from '$src/lib/actions/details';
 	import ListadoRow from './ListadoRow.svelte';
+
+	$effect(() => {
+		const listado = document.querySelector('#listado') as HTMLElement | null;
+		
+		if (storeAsignaturas.asignaturasFiltradas) {
+			if (listado !== null) {
+				listado.style.maxHeight = `${listado.scrollHeight}px`;
+			}
+		}
+	});
 </script>
 
 <section class="w-full mt-4">
